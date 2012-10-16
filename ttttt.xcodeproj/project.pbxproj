@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		691E1CA616175C290066C58A /* plus-sign.png in Resources */ = {isa = PBXBuildFile; fileRef = 691E1CA516175C290066C58A /* plus-sign.png */; };
+		69204FFF162B458700358C65 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69204FFE162B458700358C65 /* MessageUI.framework */; };
+		69205002162B459A00358C65 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69205001162B459A00358C65 /* Twitter.framework */; };
+		69205004162B45B300358C65 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69205003162B45B300358C65 /* Social.framework */; };
+		692A22DB1616DCC40031CB4E /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 692A22DA1616DCC40031CB4E /* iCarousel.m */; };
+		692A22DF1616DCED0031CB4E /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 692A22DE1616DCED0031CB4E /* DetailViewController.m */; };
+		692A22E11616E5470031CB4E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 692A22E01616E5470031CB4E /* QuartzCore.framework */; };
+		693FBA5816091E9700EA2136 /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 693FBA5716091E9700EA2136 /* HeaderView.m */; };
+		6948B5A31612160B008BA37E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6948B5A21612160B008BA37E /* CoreData.framework */; };
+		6948B5A716121780008BA37E /* ttttt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6948B5A516121780008BA37E /* ttttt.xcdatamodeld */; };
+		6948B5AA16121FC0008BA37E /* Shoplog.m in Sources */ = {isa = PBXBuildFile; fileRef = 6948B5A916121FC0008BA37E /* Shoplog.m */; };
+		6948B5AD16122819008BA37E /* AddProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6948B5AC16122819008BA37E /* AddProductDetailViewController.m */; };
+		698337C21618B8C500E2BC9E /* DetailPopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 698337C11618B8C500E2BC9E /* DetailPopViewController.m */; };
+		698A62C51607BE0B004DAC94 /* MyCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 698A62C41607BE0B004DAC94 /* MyCustomCell.m */; };
+		69D86308162CA46100BB78E1 /* CreateShoplogTagImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D86307162CA46100BB78E1 /* CreateShoplogTagImage.m */; };
+		69DAE201162624A8008802E4 /* UIPopover+Iphone.m in Sources */ = {isa = PBXBuildFile; fileRef = 69DAE200162624A8008802E4 /* UIPopover+Iphone.m */; };
 		69F625741606364800004196 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F625731606364800004196 /* UIKit.framework */; };
 		69F625761606364800004196 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F625751606364800004196 /* Foundation.framework */; };
 		69F625781606364800004196 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F625771606364800004196 /* CoreGraphics.framework */; };
@@ -18,10 +34,35 @@
 		69F6258A1606364900004196 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69F625891606364900004196 /* Default-568h@2x.png */; };
 		69F6258D1606364900004196 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69F6258B1606364900004196 /* MainStoryboard_iPhone.storyboard */; };
 		69F625901606364900004196 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69F6258E1606364900004196 /* MainStoryboard_iPad.storyboard */; };
-		69F625931606364900004196 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F625921606364900004196 /* ViewController.m */; };
+		69F6259B1606369400004196 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F6259A1606369400004196 /* TestViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		691E1CA516175C290066C58A /* plus-sign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus-sign.png"; sourceTree = "<group>"; };
+		69204FFE162B458700358C65 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		69205001162B459A00358C65 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		69205003162B45B300358C65 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		692A22D91616DCC40031CB4E /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
+		692A22DA1616DCC40031CB4E /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
+		692A22DD1616DCED0031CB4E /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		692A22DE1616DCED0031CB4E /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		692A22E01616E5470031CB4E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		693FBA5616091E9700EA2136 /* HeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderView.h; sourceTree = "<group>"; };
+		693FBA5716091E9700EA2136 /* HeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderView.m; sourceTree = "<group>"; };
+		6948B5A21612160B008BA37E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		6948B5A616121780008BA37E /* ttttt.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ttttt.xcdatamodel; sourceTree = "<group>"; };
+		6948B5A816121FC0008BA37E /* Shoplog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shoplog.h; sourceTree = "<group>"; };
+		6948B5A916121FC0008BA37E /* Shoplog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shoplog.m; sourceTree = "<group>"; };
+		6948B5AB16122819008BA37E /* AddProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddProductDetailViewController.h; sourceTree = "<group>"; };
+		6948B5AC16122819008BA37E /* AddProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddProductDetailViewController.m; sourceTree = "<group>"; };
+		698337C01618B8C500E2BC9E /* DetailPopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailPopViewController.h; sourceTree = "<group>"; };
+		698337C11618B8C500E2BC9E /* DetailPopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailPopViewController.m; sourceTree = "<group>"; };
+		698A62C31607BE0B004DAC94 /* MyCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCustomCell.h; sourceTree = "<group>"; };
+		698A62C41607BE0B004DAC94 /* MyCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCustomCell.m; sourceTree = "<group>"; };
+		69D86306162CA46100BB78E1 /* CreateShoplogTagImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateShoplogTagImage.h; sourceTree = "<group>"; };
+		69D86307162CA46100BB78E1 /* CreateShoplogTagImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateShoplogTagImage.m; sourceTree = "<group>"; };
+		69DAE1FF162624A8008802E4 /* UIPopover+Iphone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIPopover+Iphone.h"; sourceTree = "<group>"; };
+		69DAE200162624A8008802E4 /* UIPopover+Iphone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIPopover+Iphone.m"; sourceTree = "<group>"; };
 		69F6256F1606364700004196 /* ttttt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ttttt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69F625731606364800004196 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		69F625751606364800004196 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -37,8 +78,8 @@
 		69F625891606364900004196 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		69F6258C1606364900004196 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		69F6258F1606364900004196 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		69F625911606364900004196 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		69F625921606364900004196 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		69F625991606369400004196 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		69F6259A1606369400004196 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +87,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69205004162B45B300358C65 /* Social.framework in Frameworks */,
+				69205002162B459A00358C65 /* Twitter.framework in Frameworks */,
+				69204FFF162B458700358C65 /* MessageUI.framework in Frameworks */,
+				692A22E11616E5470031CB4E /* QuartzCore.framework in Frameworks */,
+				6948B5A31612160B008BA37E /* CoreData.framework in Frameworks */,
 				69F625741606364800004196 /* UIKit.framework in Frameworks */,
 				69F625761606364800004196 /* Foundation.framework in Frameworks */,
 				69F625781606364800004196 /* CoreGraphics.framework in Frameworks */,
@@ -55,9 +101,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		692A22D81616DCC40031CB4E /* iCarousel */ = {
+			isa = PBXGroup;
+			children = (
+				692A22D91616DCC40031CB4E /* iCarousel.h */,
+				692A22DA1616DCC40031CB4E /* iCarousel.m */,
+			);
+			path = iCarousel;
+			sourceTree = "<group>";
+		};
 		69F625641606364700004196 = {
 			isa = PBXGroup;
 			children = (
+				69205003162B45B300358C65 /* Social.framework */,
+				69205001162B459A00358C65 /* Twitter.framework */,
+				69204FFE162B458700358C65 /* MessageUI.framework */,
 				69F625791606364800004196 /* ttttt */,
 				69F625721606364800004196 /* Frameworks */,
 				69F625701606364700004196 /* Products */,
@@ -75,6 +133,8 @@
 		69F625721606364800004196 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				692A22E01616E5470031CB4E /* QuartzCore.framework */,
+				6948B5A21612160B008BA37E /* CoreData.framework */,
 				69F625731606364800004196 /* UIKit.framework */,
 				69F625751606364800004196 /* Foundation.framework */,
 				69F625771606364800004196 /* CoreGraphics.framework */,
@@ -85,12 +145,30 @@
 		69F625791606364800004196 /* ttttt */ = {
 			isa = PBXGroup;
 			children = (
+				692A22D81616DCC40031CB4E /* iCarousel */,
 				69F625821606364800004196 /* AppDelegate.h */,
 				69F625831606364800004196 /* AppDelegate.m */,
+				69DAE1FF162624A8008802E4 /* UIPopover+Iphone.h */,
+				69DAE200162624A8008802E4 /* UIPopover+Iphone.m */,
 				69F6258B1606364900004196 /* MainStoryboard_iPhone.storyboard */,
 				69F6258E1606364900004196 /* MainStoryboard_iPad.storyboard */,
-				69F625911606364900004196 /* ViewController.h */,
-				69F625921606364900004196 /* ViewController.m */,
+				69F625991606369400004196 /* TestViewController.h */,
+				69F6259A1606369400004196 /* TestViewController.m */,
+				698337C01618B8C500E2BC9E /* DetailPopViewController.h */,
+				698337C11618B8C500E2BC9E /* DetailPopViewController.m */,
+				692A22DD1616DCED0031CB4E /* DetailViewController.h */,
+				692A22DE1616DCED0031CB4E /* DetailViewController.m */,
+				698A62C31607BE0B004DAC94 /* MyCustomCell.h */,
+				698A62C41607BE0B004DAC94 /* MyCustomCell.m */,
+				693FBA5616091E9700EA2136 /* HeaderView.h */,
+				693FBA5716091E9700EA2136 /* HeaderView.m */,
+				6948B5A516121780008BA37E /* ttttt.xcdatamodeld */,
+				6948B5A816121FC0008BA37E /* Shoplog.h */,
+				6948B5A916121FC0008BA37E /* Shoplog.m */,
+				6948B5AB16122819008BA37E /* AddProductDetailViewController.h */,
+				6948B5AC16122819008BA37E /* AddProductDetailViewController.m */,
+				69D86306162CA46100BB78E1 /* CreateShoplogTagImage.h */,
+				69D86307162CA46100BB78E1 /* CreateShoplogTagImage.m */,
 				69F6257A1606364800004196 /* Supporting Files */,
 			);
 			path = ttttt;
@@ -99,6 +177,7 @@
 		69F6257A1606364800004196 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				691E1CA516175C290066C58A /* plus-sign.png */,
 				69F6257B1606364800004196 /* ttttt-Info.plist */,
 				69F6257C1606364800004196 /* InfoPlist.strings */,
 				69F6257F1606364800004196 /* main.m */,
@@ -167,6 +246,7 @@
 				69F6258A1606364900004196 /* Default-568h@2x.png in Resources */,
 				69F6258D1606364900004196 /* MainStoryboard_iPhone.storyboard in Resources */,
 				69F625901606364900004196 /* MainStoryboard_iPad.storyboard in Resources */,
+				691E1CA616175C290066C58A /* plus-sign.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,7 +259,17 @@
 			files = (
 				69F625801606364800004196 /* main.m in Sources */,
 				69F625841606364800004196 /* AppDelegate.m in Sources */,
-				69F625931606364900004196 /* ViewController.m in Sources */,
+				69F6259B1606369400004196 /* TestViewController.m in Sources */,
+				698A62C51607BE0B004DAC94 /* MyCustomCell.m in Sources */,
+				693FBA5816091E9700EA2136 /* HeaderView.m in Sources */,
+				6948B5A716121780008BA37E /* ttttt.xcdatamodeld in Sources */,
+				6948B5AA16121FC0008BA37E /* Shoplog.m in Sources */,
+				6948B5AD16122819008BA37E /* AddProductDetailViewController.m in Sources */,
+				692A22DB1616DCC40031CB4E /* iCarousel.m in Sources */,
+				692A22DF1616DCED0031CB4E /* DetailViewController.m in Sources */,
+				698337C21618B8C500E2BC9E /* DetailPopViewController.m in Sources */,
+				69DAE201162624A8008802E4 /* UIPopover+Iphone.m in Sources */,
+				69D86308162CA46100BB78E1 /* CreateShoplogTagImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,8 +395,22 @@
 				69F625981606364900004196 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		6948B5A516121780008BA37E /* ttttt.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6948B5A616121780008BA37E /* ttttt.xcdatamodel */,
+			);
+			currentVersion = 6948B5A616121780008BA37E /* ttttt.xcdatamodel */;
+			path = ttttt.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 69F625661606364700004196 /* Project object */;
 }

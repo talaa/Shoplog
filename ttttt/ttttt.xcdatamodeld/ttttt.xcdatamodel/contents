@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1810" systemVersion="11G56" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Shoplog" representedClassName="Shoplog" syncable="YES">
+        <attribute name="categoryname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="comments" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" defaultValueString="iloveyou@gmail.com" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="Decimal" defaultValueString="800" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="shop" optional="YES" attributeType="String" defaultValueString="IKEA" syncable="YES"/>
+        <attribute name="websiteurl" optional="YES" attributeType="String" defaultValueString="http://www.google.com" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Shoplog" positionX="160" positionY="192" width="128" height="180"/>
+    </elements>
+</model>
