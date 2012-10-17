@@ -74,6 +74,7 @@ typedef enum SocialButtonTags
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+    NSLog(@"I have Received Memory Warning ");
     // Dispose of any resources that can be recreated.
 }
 #pragma the Storyboard Part
@@ -102,9 +103,12 @@ typedef enum SocialButtonTags
     
     if ([[segue identifier] isEqualToString:@"ShowDetail1"]) {
         //  Get a reference to our detail view
-        DetailPopViewController  *detailview = (DetailPopViewController *)[segue destinationViewController];
+        //NSIndexPath *indexpath=[[self.collectionView indexPathsForSelectedItems]sender];
+        //DetailPopViewController  *detailview = (DetailPopViewController *)[segue destinationViewController];
         //[self.navigationController presentModalViewController:navController animated:YES];
-        [detailview setDetailItem:sender] ;
+        
+        //[detailview setDetailItem:sender] ;
+        //[self presentViewController:detailview animated:YES completion:nil];
     
     
     }
@@ -194,7 +198,21 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
             if ([mypopover isPopoverVisible]) {
                 [mypopover dismissPopoverAnimated:YES];
             } else {
+                if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+                    self.detailPopViewController=[self.storyboard instantiateViewControllerWithIdentifier:@"popviewdetail"];
+                    
+                    NSManagedObject *obj =[self.fetchedResultsController objectAtIndexPath:indexPath];
+                    [self.detailPopViewController setDetailItem:obj];
+                    NSLog(@"Waiting");
+                    UIPopoverController *pop=[[UIPopoverController alloc]initWithContentViewController:self.detailPopViewController];
+                    
+                    self.detailPopViewController.delegate=self;
+                    [pop presentPopoverFromRect:attributes.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+                    self.mypopover=pop;
+                    //[self performSegueWithIdentifier:@"ShowDetail1" sender:collectionView ];
+                    
                 
+                }else{
                 self.detailPopViewController=[self.storyboard instantiateViewControllerWithIdentifier:@"popviewdetail"];
                 UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:self.detailPopViewController];
                 //UIPopoverController *pop=[[UIPopoverController alloc]initWithContentViewController:self.detailPopViewController];
@@ -206,13 +224,13 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
                 
                 
                 
-                [pop setPopoverContentSize:CGSizeMake(400, 500)];
+                [pop setPopoverContentSize:CGSizeMake(200, 250)];
                 [pop presentPopoverFromRect:attributes.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
                 NSManagedObject *obj =[self.fetchedResultsController objectAtIndexPath:indexPath];
                 
                 [detailPopViewController setDetailItem:obj];
                 self.mypopover=pop;
-                
+                }
             }
                         
             

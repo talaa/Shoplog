@@ -262,11 +262,7 @@
 }
 
 - (IBAction)savebuttonedit_OLD:(id)sender {
-    //[self savethediteditem];
-    //[self performSegueWithIdentifier:@"doneedit" sender:sender];
-    
-    
-     [self preparetheitemtosave];
+    [self preparetheitemtosave];
     //TestViewController *controller=[[TestViewController alloc]init];
     
     self.managedObjectContext=self.currentProduct.managedObjectContext;
