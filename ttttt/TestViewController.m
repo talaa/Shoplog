@@ -65,6 +65,10 @@ typedef enum SocialButtonTags
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.selectedPhotos = [@[] mutableCopy];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveTestNotification:)
+                                                 name:@"TestNotification"
+                                               object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -234,6 +238,17 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 {
     
     
+}
+- (void) receiveTestNotification:(NSNotification *) notification
+{
+    // [notification name] should always be @"TestNotification"
+    // unless you use this method for observation of other notifications
+    // as well.
+        //NSLog(@"I have Saved Already the Object ");
+    [self didClickdeleteButton];
+    if ([[notification name] isEqualToString:@"TestNotification"])
+        [self.collectionView reloadData];
+        NSLog (@"Successfully received the test notification!");
 }
 
 -(IBAction)shareButtonTapped:(id)sender {

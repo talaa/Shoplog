@@ -263,10 +263,11 @@
 
 - (IBAction)savebuttonedit_OLD:(id)sender {
     //[self savethediteditem];
-    [self performSegueWithIdentifier:@"doneedit" sender:sender];
-    /*
+    //[self performSegueWithIdentifier:@"doneedit" sender:sender];
+    
+    
      [self preparetheitemtosave];
-    TestViewController *controller=[[TestViewController alloc]init];
+    //TestViewController *controller=[[TestViewController alloc]init];
     
     self.managedObjectContext=self.currentProduct.managedObjectContext;
     //  Commit item to core data
@@ -279,29 +280,16 @@
         //[controller didClickdeleteButton];
         //[self addobjecttoarray];
     }
-    [
-    [self dismissViewControllerAnimated:YES completion:nil];
-    */
-}
-
-
-
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue
-                 sender:(id)sender
-{
-    if ([segue.identifier isEqualToString:@"doneedit"])
-    {
-        NSLog(@"I was Here in doneditsegue");
-        TestViewController *controller=(TestViewController*)segue.destinationViewController;
-        [self savethediteditem];
-        controller.managedObjectContext=self.managedObjectContext;
-    }
-
-        
     
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"TestNotification" object:self];
 
 }
+
+
+
+
+
 
 
 //  Resign the keyboard after Done is pressed when editing text fields
