@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "iCarousel.h"
+//#import "iCarousel.h"
 
-@interface DetailViewController : UIViewController<iCarouselDataSource,iCarouselDelegate>
-@property (nonatomic, retain) IBOutlet iCarousel *carousel;
+@interface DetailViewController : UIViewController
+//@property (nonatomic, retain) IBOutlet iCarousel *carousel;
 @property (nonatomic,retain) NSManagedObjectContext *managaedobjectcontext;
 @property (nonatomic, retain) NSArray *itemstransport;
 

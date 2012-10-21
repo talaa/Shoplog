@@ -52,6 +52,8 @@
             controller.managedObjectContext = self.managedObjectContext;
         }
 */
+    
+    [TestFlight takeOff:@"9ef781d3801dde3e80803c4cd007dc88_MTE3NzY5MjAxMi0wOC0wNCAxNTo1OTo1Ny4zNjg5MjU"];
     return YES;
 }
 							

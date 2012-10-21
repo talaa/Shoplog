@@ -13,4 +13,5 @@
     #import <Foundation/Foundation.h>
     #import <CoreData/CoreData.h>
     #import <Social/Social.h>
+    #import "TestFlight.h"
 #endif

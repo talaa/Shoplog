@@ -291,6 +291,7 @@
 //  Resign the keyboard after Done is pressed when editing text fields
 - (IBAction)resignKeyboard:(id)sender
 {
+    [cataloguenamefield resignFirstResponder];
     [PriceField resignFirstResponder];
     [ShopField resignFirstResponder];
     

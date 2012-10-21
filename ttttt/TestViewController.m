@@ -17,6 +17,7 @@ typedef enum SocialButtonTags
 #import "AddProductDetailViewController.h"
 #import "DetailViewController.h"
 #import "CreateShoplogTagImage.h"
+#import "Shoplogactivity.h"
 
 //#import "MyCustomCell.h"
 //#import "HeaderView.h"
@@ -286,7 +287,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         [sharebutton setTitle:@"Share"];
         [self.collectionView setAllowsMultipleSelection:NO];
          NSLog(@"I am NOT allowing Multiple Sharing ");
-        NSLog(@"The Selected Photo Count %i",[self.selectedPhotos count]);
+        //NSLog(@"The Selected Photo Count %i",[self.selectedPhotos count]);
         // 3
         if ([self.selectedPhotos count] > 0) {
             [self Activityshowmethod];
@@ -302,20 +303,41 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     }
 }
 -(void)Activityshowmethod{
+    NSLog(@"The Selected Photo Count %i",[self.selectedPhotos count]);
+    //UIActivityViewController *activityViewController2 =[[UIActivityViewController alloc]init];
+    NSMutableArray *newArray=[[NSMutableArray alloc]init];
+    NSMutableArray *newArraytext=[[NSMutableArray alloc]init];
+    Shoplogactivity *shopactivity=[[Shoplogactivity alloc]init];
     for (Shoplog * ChosenPhot in self.selectedPhotos) {
+        
         NSString *initalTextString = [NSString
-                                      stringWithFormat:@"Fun Fact: %@",
+                                      stringWithFormat:@"I am Sending from my Shoplog Collection: %@",
                                       ChosenPhot.categoryname];
+        //[newArraytext arrayByAddingObject:initalTextString];
+        [newArraytext addObject:initalTextString];
         CreateShoplogTagImage *createimagetag=[[CreateShoplogTagImage alloc]init];
         UIImage *newimage=[createimagetag Imagetag:ChosenPhot];
+        
+        [newArray addObject:newimage];
+        /*
         UIActivityViewController *activityViewController =
         [[UIActivityViewController alloc]
          initWithActivityItems:@[newimage,
-         initalTextString] applicationActivities:nil];
+         initalTextString] applicationActivities:@[shopactivity]];
         [self presentViewController:activityViewController
                            animated:YES completion:nil];
+         */
+        
+
     }
+    //NSMutableArray *addArray=[[NSMutableArray alloc]initWithObjects:newArray,newArraytext, nil];
+    NSMutableArray *addArray=[[NSMutableArray alloc]initWithArray:newArray];
+    [addArray addObjectsFromArray:newArraytext];
+    UIActivityViewController *activityViewController2 =[[UIActivityViewController alloc]initWithActivityItems:addArray applicationActivities:@[shopactivity]];
     
+        
+    
+    [self presentViewController:activityViewController2 animated:YES completion:^{}];
 }
 -(void)showMailComposerAndSend {
     if ([MFMailComposeViewController canSendMail]) {
@@ -363,13 +385,13 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"i was here ");
     if ([mypopover isPopoverVisible]) {
         [mypopover dismissPopoverAnimated:YES];
-        [mypopover release];
+        //[mypopover release];
     }
 }
 
 -(void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController {
     if (popoverController == mypopover) {
-        [mypopover release];
+        //[mypopover release];
     }
 }
 
