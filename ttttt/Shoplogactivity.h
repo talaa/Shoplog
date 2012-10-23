@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 
-@interface Shoplogactivity : UIActivity
+@interface Shoplogactivity : UIActivity <MFMailComposeViewControllerDelegate>
 // 1
 - (UIImage *)activityImage;
 // 2
@@ -21,4 +22,8 @@
 - (void)prepareWithActivityItems:(NSArray *)activityItems;
 // 6
 - (void)performActivity;
+// 7
+
+// 8
+-(void)setSelectedthings:(NSMutableArray *)Selectedthings;
 @end

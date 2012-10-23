@@ -468,11 +468,6 @@
         <class className="AddProductDetailViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AddProductDetailViewController.h"/>
             <relationships>
-                <relationship kind="action" name="editSaveButtonPressed:"/>
-                <relationship kind="action" name="imageFromAlbum:"/>
-                <relationship kind="action" name="imagefromCamera:"/>
-                <relationship kind="action" name="resignKeyboard:"/>
-                <relationship kind="action" name="savebuttonedit_OLD:"/>
                 <relationship kind="outlet" name="DimensionsField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="PriceField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="Saveeditbutton" candidateClass="UIBarButtonItem"/>
@@ -514,8 +509,6 @@
         <class className="TestViewController" superclassName="UICollectionViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TestViewController.h"/>
             <relationships>
-                <relationship kind="action" name="Fuckyou:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="action" name="shareButtonTapped:"/>
                 <relationship kind="outlet" name="sharebutton" candidateClass="UIBarButtonItem"/>
             </relationships>
         </class>
@@ -530,12 +523,6 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
-        </class>
-        <class className="UIStoryboardSegue" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

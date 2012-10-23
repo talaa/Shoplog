@@ -308,6 +308,8 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSMutableArray *newArray=[[NSMutableArray alloc]init];
     NSMutableArray *newArraytext=[[NSMutableArray alloc]init];
     Shoplogactivity *shopactivity=[[Shoplogactivity alloc]init];
+    
+    [shopactivity setSelectedthings:self.selectedPhotos];
     for (Shoplog * ChosenPhot in self.selectedPhotos) {
         
         NSString *initalTextString = [NSString
@@ -319,15 +321,6 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         UIImage *newimage=[createimagetag Imagetag:ChosenPhot];
         
         [newArray addObject:newimage];
-        /*
-        UIActivityViewController *activityViewController =
-        [[UIActivityViewController alloc]
-         initWithActivityItems:@[newimage,
-         initalTextString] applicationActivities:@[shopactivity]];
-        [self presentViewController:activityViewController
-                           animated:YES completion:nil];
-         */
-        
 
     }
     //NSMutableArray *addArray=[[NSMutableArray alloc]initWithObjects:newArray,newArraytext, nil];
@@ -335,10 +328,29 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [addArray addObjectsFromArray:newArraytext];
     UIActivityViewController *activityViewController2 =[[UIActivityViewController alloc]initWithActivityItems:addArray applicationActivities:@[shopactivity]];
     
-        
     
     [self presentViewController:activityViewController2 animated:YES completion:^{}];
 }
+-(void)showmailcomposer:(NSData*)datafile{
+    
+    if ([MFMailComposeViewController canSendMail]) {
+       MFMailComposeViewController *mailer =[[MFMailComposeViewController alloc] init];
+        mailer.mailComposeDelegate = self;
+        [mailer setSubject:@"Check out these Shoplog Photos"];
+        NSMutableString *emailBody = [NSMutableString string];
+        [mailer addAttachmentData:datafile mimeType:@"slog" fileName:@"Shoplog"];
+        //[mailer addAttachmentData:ChosenPhoto.image mimeType:@"image/png" fileName:@"Photo"];
+        [emailBody appendFormat:@"Sent from my Shoplog Collection" ];
+        [mailer setMessageBody:emailBody isHTML:YES];
+        [self presentViewController:mailer animated:YES completion:^{}];
+    
+
+    }
+
+
+
+}
+
 -(void)showMailComposerAndSend {
     if ([MFMailComposeViewController canSendMail]) {
         MFMailComposeViewController *mailer =

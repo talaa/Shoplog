@@ -547,6 +547,8 @@
         <class className="TestViewController" superclassName="UICollectionViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TestViewController.h"/>
             <relationships>
+                <relationship kind="action" name="Fuckyou:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="shareButtonTapped:"/>
                 <relationship kind="outlet" name="sharebutton" candidateClass="UIBarButtonItem"/>
             </relationships>
         </class>
@@ -561,6 +563,9 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

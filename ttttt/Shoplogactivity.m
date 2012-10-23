@@ -7,6 +7,7 @@
 //
 
 #import "Shoplogactivity.h"
+#import "TestViewController.h"
 
 
 
@@ -14,8 +15,17 @@
 @interface Shoplogactivity ()
 @property (strong, nonatomic) UIImage *authorImage;
 @property (strong, nonatomic) NSString *funFactText;
+@property (strong,nonatomic) NSMutableArray *Selectedthings;
 @end
 @implementation Shoplogactivity
+
+
+-(void)setSelectedthings:(NSMutableArray *)Selectedthings{
+
+   // NSLog(@"the Selected Arrays are %@",Selectedthings);
+
+
+}
 
 
 - (UIImage *)activityImage
@@ -28,7 +38,8 @@
 }
 - (NSString *)activityType
 {
-    return @"com.domainname.ShopLog.shoploginternal";
+    return UIActivityTypeMail;
+    //return @"com.domainname.ShopLog.shoploginternal";
 }
 
 - (BOOL)canPerformWithActivityItems:(NSArray *)activityItems
@@ -65,9 +76,16 @@
 }
 - (void)performActivity
 {
-    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:@"Shoplog.slog"];
+    NSLog(@"The String of the Path is :%@",filePath);
+    NSData *savedData = [NSKeyedArchiver archivedDataWithRootObject:self.Selectedthings];
+    [savedData writeToFile:filePath atomically:YES];
+    //[self.Selectedthings writeToFile:filePath atomically:YES];
+    TestViewController *test=[[TestViewController alloc]init];
     NSLog(@"I have Pushed the Shoplog Button");
-    
+    [test showmailcomposer:savedData];
 }
-
+   
 @end
