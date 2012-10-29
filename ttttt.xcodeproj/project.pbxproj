@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6900BC7016343B6C0028400D /* Shoplogactivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6900BC6F16343B6C0028400D /* Shoplogactivity.m */; };
+		6914962B163A20F200963F87 /* Shoplogitemsource.m in Sources */ = {isa = PBXBuildFile; fileRef = 6914962A163A20F200963F87 /* Shoplogitemsource.m */; };
 		691E1CA616175C290066C58A /* plus-sign.png in Resources */ = {isa = PBXBuildFile; fileRef = 691E1CA516175C290066C58A /* plus-sign.png */; };
 		69204FFF162B458700358C65 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69204FFE162B458700358C65 /* MessageUI.framework */; };
 		69205002162B459A00358C65 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69205001162B459A00358C65 /* Twitter.framework */; };
@@ -44,6 +45,8 @@
 /* Begin PBXFileReference section */
 		6900BC6E16343B6C0028400D /* Shoplogactivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shoplogactivity.h; sourceTree = "<group>"; };
 		6900BC6F16343B6C0028400D /* Shoplogactivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shoplogactivity.m; sourceTree = "<group>"; };
+		69149629163A20F200963F87 /* Shoplogitemsource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shoplogitemsource.h; sourceTree = "<group>"; };
+		6914962A163A20F200963F87 /* Shoplogitemsource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shoplogitemsource.m; sourceTree = "<group>"; };
 		691E1CA516175C290066C58A /* plus-sign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus-sign.png"; sourceTree = "<group>"; };
 		69204FFE162B458700358C65 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		69205001162B459A00358C65 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
@@ -194,6 +197,8 @@
 				69D86307162CA46100BB78E1 /* CreateShoplogTagImage.m */,
 				6900BC6E16343B6C0028400D /* Shoplogactivity.h */,
 				6900BC6F16343B6C0028400D /* Shoplogactivity.m */,
+				69149629163A20F200963F87 /* Shoplogitemsource.h */,
+				6914962A163A20F200963F87 /* Shoplogitemsource.m */,
 				69F6257A1606364800004196 /* Supporting Files */,
 			);
 			path = ttttt;
@@ -294,6 +299,7 @@
 				69DAE201162624A8008802E4 /* UIPopover+Iphone.m in Sources */,
 				69D86308162CA46100BB78E1 /* CreateShoplogTagImage.m in Sources */,
 				6900BC7016343B6C0028400D /* Shoplogactivity.m in Sources */,
+				6914962B163A20F200963F87 /* Shoplogitemsource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

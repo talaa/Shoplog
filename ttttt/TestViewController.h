@@ -36,6 +36,7 @@
 //The sharing Part 
 @property(nonatomic, strong) NSMutableArray *selectedPhotos;
 @property (nonatomic,strong) IBOutlet UIBarButtonItem *sharebutton;
+@property(nonatomic, strong) NSMutableArray *addarray;
 
 -(void)showmailcomposer:(NSData*)datafile;
 

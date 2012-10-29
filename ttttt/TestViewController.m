@@ -18,6 +18,7 @@ typedef enum SocialButtonTags
 #import "DetailViewController.h"
 #import "CreateShoplogTagImage.h"
 #import "Shoplogactivity.h"
+#import "testitemprovider.h"
 
 //#import "MyCustomCell.h"
 //#import "HeaderView.h"
@@ -66,6 +67,7 @@ typedef enum SocialButtonTags
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.selectedPhotos = [@[] mutableCopy];
+    self.addarray = [@[] mutableCopy];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(receiveTestNotification:)
                                                  name:@"TestNotification"
@@ -300,6 +302,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
              deselectItemAtIndexPath:indexPath animated:NO];
         }
         [self.selectedPhotos removeAllObjects];
+        [self.addarray removeAllObjects];
     }
 }
 -(void)Activityshowmethod{
@@ -324,13 +327,37 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 
     }
     //NSMutableArray *addArray=[[NSMutableArray alloc]initWithObjects:newArray,newArraytext, nil];
+    
+    [self.addarray addObjectsFromArray:newArray];
     NSMutableArray *addArray=[[NSMutableArray alloc]initWithArray:newArray];
     [addArray addObjectsFromArray:newArraytext];
+    [self.addarray addObjectsFromArray:newArraytext];
+    [addArray addObjectsFromArray:[self makefile]];
+    NSLog(@"The addarray is  %@",self.addarray);
+    //UIActivityViewController *activityViewController2 =[[UIActivityViewController alloc]initWithActivityItems:self.addarray applicationActivities:@[shopactivity]];
+    //testitemprovider *tetet=[[testitemprovider alloc]init];
+    //NSArray *items = [NSArray arrayWithObjects:tetet,nil];
     UIActivityViewController *activityViewController2 =[[UIActivityViewController alloc]initWithActivityItems:addArray applicationActivities:@[shopactivity]];
-    
     
     [self presentViewController:activityViewController2 animated:YES completion:^{}];
 }
+
+-(NSMutableArray*)makefile{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:@"Shoplog.slog"];
+    NSLog(@"The String of the Path is :%@",filePath);
+    //NSData *savedData = [NSKeyedArchiver archivedDataWithRootObject:self.selectedPhotos];
+    [self.selectedPhotos writeToFile:filePath atomically:YES];
+    //[savedData writeToFile:filePath atomically:YES];
+    NSURL *turl=[[NSURL alloc]initFileURLWithPath:filePath];
+    NSMutableArray *jjooll=[[NSMutableArray alloc]initWithObjects:turl, nil];
+    return jjooll;
+
+
+
+}
+
 -(void)showmailcomposer:(NSData*)datafile{
     
     if ([MFMailComposeViewController canSendMail]) {
@@ -343,15 +370,8 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         [emailBody appendFormat:@"Sent from my Shoplog Collection" ];
         [mailer setMessageBody:emailBody isHTML:YES];
         [self presentViewController:mailer animated:YES completion:^{}];
-    
-
-        
-        
-        
+       
     }
-
-
-
 }
 
 -(void)showMailComposerAndSend {
