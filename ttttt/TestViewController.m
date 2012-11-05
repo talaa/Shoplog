@@ -18,7 +18,8 @@ typedef enum SocialButtonTags
 #import "DetailViewController.h"
 #import "CreateShoplogTagImage.h"
 #import "Shoplogactivity.h"
-#import "testitemprovider.h"
+
+
 
 //#import "MyCustomCell.h"
 //#import "HeaderView.h"
@@ -32,8 +33,21 @@ typedef enum SocialButtonTags
     NSMutableArray *_objectChanges;
     NSMutableArray *_sectionChanges;
 }
-@synthesize testarray,mycustomcell,myheaderview,mypopover,detailPopViewController,sharebutton;
+@synthesize testarray,mycustomcell,myheaderview,mypopover,detailPopViewController,sharebutton,searcharray;
+#pragma Icloud Part 
+- (void)reloadFetchedResults:(NSNotification*)note {
+    NSLog(@"Underlying data changed ... refreshing!");
+    [self.collectionView reloadData];
+    [self controllerDidChangeContent:self.fetchedResultsController ];
+    //[self.collectionView setNeedsDisplay];
+    //[self performFetch];
+}
+- (void)viewDidUnload {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
+
+////////////////////
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -42,13 +56,60 @@ typedef enum SocialButtonTags
     }
     return self;
 }
+
+
 -(void)viewWillAppear:(BOOL)animated{
+    [self controllerDidChangeContent:self.fetchedResultsController ];
     [self.collectionView reloadData];
 //[self.collectionView setNeedsLayout ];
 
 
 }
+- (void)handleOpenURL:(NSURL *)url {
+    [self.navigationController popToViewController:self animated:YES];
+    //NSData *dataimported=[NSData dataWithContentsOfURL:url];
+    NSMutableArray *recievedarray=[NSMutableArray arrayWithContentsOfURL:url];
+    NSLog(@"The Recived Array is %i",[recievedarray count]);
+    for (NSDictionary  *tempdict in recievedarray) {
+        //Shoplog *moc=[[Shoplog alloc]init];
+        NSManagedObjectContext *context=self.managedObjectContext;
+        Shoplog *newMOC=[ExtendedManagedObject createManagedObjectFromDictionary:tempdict inContext:context];
+        
+        //  Commit item to core data
+        NSError *error;
+        if (![newMOC.managedObjectContext save:&error])
+            NSLog(@"Failed to add new picture with error: %@", [error domain]);
+        else{
+            NSLog(@"The New Item is :%@",newMOC);
+            
+        }
 
+         
+         
+        [self.collectionView reloadData];
+        [recievedarray removeAllObjects];
+        //[Shoplog createManagedObjectFromDictionary:tempdict inContext:self.managedObjectContext];
+    }
+   // NSKeyedUnarchiver *importunarchiver=[[NSKeyedUnarchiver alloc]initForReadingWithData:dataimported];
+    //NSLog(@"The Unarchiver is %@:",importunarchiver);
+    //NSMutableArray *ggg=[importunarchiver decodeObject];
+    //NSLog(@"The Fuck Array is :%@",ggg);
+    //NSMutableArray *ggg=[importunarchiver];
+    //NSMutableArray *ggg=[NSKeyedUnarchiver unarchiveObjectWithData:dataimported];
+    //Shoplog *pii=[[Shoplog alloc]initWithCoder:NSK];
+    //Shoplog *pi=[NSKeyedUnarchiver unarchiveObjectWithData:dataimported];
+    //NSLog(@"The Shoplog file%@",pi.managedObjectContext);
+    //Shoplog *pi=[[NSKeyedUnarchiver alloc]initForReadingWithData:dataimported];
+    //NSLog(@"The Fuck Array is :%@",ggg);
+    //pi=[importunarchiver unarchive];
+    //NSMutableArray *fucarray=[[NSMutableArray alloc]initWithContentsOfURL:url];
+    //NSMutableArray *fucarray=[[NSMutableArray alloc]initWithContentsOfFile:url];
+    //NSLog(@"The url is :%@",url);
+    //NSLog(@"The Fuck Array is :%@",fucarray);
+    //[self addimporteditems:[Shoplog importedarray:url]];
+    //[self addimporteditems:fucarray];
+    
+}
 
 - (void) viewWillDisappear: (BOOL) animated {
     [super viewWillDisappear: animated];
@@ -67,11 +128,15 @@ typedef enum SocialButtonTags
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.selectedPhotos = [@[] mutableCopy];
-    self.addarray = [@[] mutableCopy];
+    //self.addarray = [@[] mutableCopy];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(receiveTestNotification:)
                                                  name:@"TestNotification"
                                                object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadFetchedResults:)
+                                                 name:@"SomethingChanged"
+                                               object:[[UIApplication sharedApplication] delegate]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -148,6 +213,7 @@ typedef enum SocialButtonTags
         NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
         Cc.celllabel.text = [[object valueForKey:@"price"] stringValue];
         Cc.cellImage.image = [UIImage imageWithData:[object valueForKey:@"image"]] ;
+        Cc.ratinglabel.text=[[object valueForKey:@"rating"]stringValue];
     } else {
        Cc = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"Cell1"forIndexPath:indexPath];
         Cc.celllabel.hidden=YES;
@@ -167,14 +233,44 @@ typedef enum SocialButtonTags
                                 atIndexPath:(NSIndexPath *)indexPath{
 
     HeaderView *Hv =[self.collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
-    //NSManagedObject *obj=[self.fetchedResultsController objectAtIndexPath:indexPath];
-    Hv.Headerviewlabel.text=[[[self.fetchedResultsController sections]objectAtIndex:indexPath.section]name];
-    //Hv.Headerviewlabel.text=[NSString stringWithFormat:@"Section:%d",indexPath.section];;
+    NSString *Headlabel=[[NSString alloc]initWithString:[[[self.fetchedResultsController sections]objectAtIndex:indexPath.section]name]];
+    
+    Hv.Headerviewlabel.text=Headlabel;
+    Hv.searchstring=Headlabel;
+    //Hv.Headerviewlabel.text=[[[self.fetchedResultsController sections]objectAtIndex:indexPath.section]name];
+    [self.searcharray addObject:[[[self.fetchedResultsController sections]objectAtIndex:indexPath.section]name]];
+     //NSLog(@"I am Searching Right now%@ ",self.searcharray);
+    [Hv.searchButton addTarget:self action:@selector(buttonPressed:)forControlEvents:UIControlEventTouchDown];
+    //[Hv.searchButton performSelector:@selector(buttonPressed) withObject:Headlabel];
+    
     return Hv;
 
 
 
 }
+
+-(IBAction)buttonPressed:(id)sender{
+    
+    UITapGestureRecognizer *tap=[[UITapGestureRecognizer alloc]init];
+    CGPoint point = [tap locationInView:self.view];
+    //NSIndexPath *HeaderIndexPath=[self.collectionView indexPathForItemAtPoint:<#(CGPoint)#>]
+    HeaderView *Hvv=[[HeaderView alloc]init];
+    //Hvv.searchButton.viewForBaselineLayout.layer.frame.origin
+    NSIndexPath *indexpahser=[self.collectionView indexPathForItemAtPoint:point];
+    NSString *searchterm=[[[self.fetchedResultsController sections]objectAtIndex:indexpahser.section]name];
+    [PopoverView showPopoverAtPoint:point inView:self.collectionView withStringArray:[NSArray arrayWithObjects:@"Sync", @"Search", nil] delegate:self];
+    /*
+    UIActivityViewController *activityViewController2 =[[UIActivityViewController alloc]initWithActivityItems:self.searcharray applicationActivities:nil];
+    
+    
+    [self presentViewController:activityViewController2 animated:YES completion:^{}];
+ 
+     */
+    NSLog(@"I am Searching Right now%@ ",searchterm);
+
+
+}
+
 -(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSManagedObject *obj =[self.fetchedResultsController objectAtIndexPath:indexPath];
     [self.selectedPhotos removeObject:obj];
@@ -227,7 +323,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
                 
                 
                 
-                [pop setPopoverContentSize:CGSizeMake(200, 250)];
+                [pop setPopoverContentSize:CGSizeMake(280, 280)];
                 [pop presentPopoverFromRect:attributes.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
                 NSManagedObject *obj =[self.fetchedResultsController objectAtIndexPath:indexPath];
                 
@@ -255,11 +351,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
 }
 
-- (IBAction)Fuckyou:(UIStoryboardSegue *)segue
-{
-    
-    
-}
+
 - (void) receiveTestNotification:(NSNotification *) notification
 {
     // [notification name] should always be @"TestNotification"
@@ -302,7 +394,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
              deselectItemAtIndexPath:indexPath animated:NO];
         }
         [self.selectedPhotos removeAllObjects];
-        [self.addarray removeAllObjects];
+        //[self.addarray removeAllObjects];
     }
 }
 -(void)Activityshowmethod{
@@ -328,12 +420,12 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     }
     //NSMutableArray *addArray=[[NSMutableArray alloc]initWithObjects:newArray,newArraytext, nil];
     
-    [self.addarray addObjectsFromArray:newArray];
+    //[self.addarray addObjectsFromArray:newArray];
     NSMutableArray *addArray=[[NSMutableArray alloc]initWithArray:newArray];
     [addArray addObjectsFromArray:newArraytext];
-    [self.addarray addObjectsFromArray:newArraytext];
+    //[self.addarray addObjectsFromArray:newArraytext];
     [addArray addObjectsFromArray:[self makefile]];
-    NSLog(@"The addarray is  %@",self.addarray);
+    //NSLog(@"The addarray is  %@",self.addarray);
     //UIActivityViewController *activityViewController2 =[[UIActivityViewController alloc]initWithActivityItems:self.addarray applicationActivities:@[shopactivity]];
     //testitemprovider *tetet=[[testitemprovider alloc]init];
     //NSArray *items = [NSArray arrayWithObjects:tetet,nil];
@@ -346,75 +438,37 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *filePath = [documentsDirectory stringByAppendingPathComponent:@"Shoplog.slog"];
-    NSLog(@"The String of the Path is :%@",filePath);
+    //NSURL *fileURL = [[NSURL alloc] initFileURLWithPath:filePath];
+    NSLog(@"The String of the Path is :%@",self.selectedPhotos);
+    //NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.selectedPhotos];
+    
+    
+    NSMutableArray *ftarray=[[NSMutableArray alloc]init];
+    int r;
+    for (r=0; r<[self.selectedPhotos count]; r++) {
+        
+    
+        for (Shoplog *rrr in self.selectedPhotos) {
+            
+        NSDictionary *tempdict=[rrr toDictionary];
+        NSLog(@"The NSObject is :%@",tempdict);
+        [ftarray addObject:tempdict];
+        }
+    }
+    //NSLog(@"The String of the Path is :%@",ftarray);
+    [ftarray writeToFile:filePath atomically:YES];
     //NSData *savedData = [NSKeyedArchiver archivedDataWithRootObject:self.selectedPhotos];
-    [self.selectedPhotos writeToFile:filePath atomically:YES];
+    //[self.selectedPhotos writeToFile:filePath atomically:YES];
+    
     //[savedData writeToFile:filePath atomically:YES];
     NSURL *turl=[[NSURL alloc]initFileURLWithPath:filePath];
     NSMutableArray *jjooll=[[NSMutableArray alloc]initWithObjects:turl, nil];
+    NSLog(@"The String of the Path is :%@",documentsDirectory);
+    
     return jjooll;
 
 
 
-}
-
--(void)showmailcomposer:(NSData*)datafile{
-    
-    if ([MFMailComposeViewController canSendMail]) {
-       MFMailComposeViewController *mailer =[[MFMailComposeViewController alloc] init];
-        mailer.mailComposeDelegate = self;
-        [mailer setSubject:@"Check out these Shoplog Photos"];
-        NSMutableString *emailBody = [NSMutableString string];
-        [mailer addAttachmentData:datafile mimeType:@"slog" fileName:@"Shoplog"];
-        //[mailer addAttachmentData:ChosenPhoto.image mimeType:@"image/png" fileName:@"Photo"];
-        [emailBody appendFormat:@"Sent from my Shoplog Collection" ];
-        [mailer setMessageBody:emailBody isHTML:YES];
-        [self presentViewController:mailer animated:YES completion:^{}];
-       
-    }
-}
-
--(void)showMailComposerAndSend {
-    if ([MFMailComposeViewController canSendMail]) {
-        MFMailComposeViewController *mailer =
-        [[MFMailComposeViewController alloc] init];
-        mailer.mailComposeDelegate = self;
-        [mailer setSubject:@"Check out these Flickr Photos"];
-        NSMutableString *emailBody = [NSMutableString string];
-        
-        for(Shoplog *ChosenPhoto in self.selectedPhotos)
-        {
-            
-            //NSString *tetsimage=[[NSString alloc]initWithData:ChosenPhoto.image encoding:NSUTF8StringEncoding];
-            //NSLog(@"The Images Data are %@",ChosenPhoto.image);
-            //NSLog(@"The images string are :%@",tetsimage);
-            //NSString *url = [Flickr flickrPhotoURLForFlickrPhoto:flickrPhoto size:@"m"];
-            [mailer addAttachmentData:ChosenPhoto.image mimeType:@"image/png" fileName:@"Photo"];
-            [emailBody appendFormat:@"Sent from my  '%@' Collection",ChosenPhoto.categoryname ];
-            //[mailer addAttachmentData:ChosenPhoto.image];
-            //[emailBody appendFormat:@"<div><img src='%@'></div><br>",tetsimage];
-        }
-        [mailer setMessageBody:emailBody isHTML:YES];
-        [self presentViewController:mailer animated:YES
-                         completion:^{}];
-         
-    } else {
-        UIAlertView *alert = [[UIAlertView alloc]
-                              initWithTitle:@"Mail Failure"
-                              message:
-                              @"Your device doesn't support in-app email"
-                              delegate:nil
-                              cancelButtonTitle:@"OK"
-                              otherButtonTitles:nil];
-        [alert show];
-    }
-}
-- (void)mailComposeController:
-(MFMailComposeViewController *)controller
-          didFinishWithResult:(MFMailComposeResult)result
-                        error:(NSError *)error {
-    [controller dismissViewControllerAnimated:YES
-                                   completion:^{}];
 }
 -(void)didClickdeleteButton {
     NSLog(@"i was here ");

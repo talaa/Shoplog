@@ -19,7 +19,7 @@
     UIView *quoteView = [[UIView alloc]
                          initWithFrame:CGRectMake(0, 0, quoteSize.width,
                                                   quoteSize.height)];
-    quoteView.backgroundColor = [UIColor blackColor];
+    quoteView.backgroundColor = [UIColor blueColor];
     UIImageView *imageView = [[UIImageView alloc]
                               initWithImage:[UIImage imageWithData:selecteditem.image]];
     imageView.frame = CGRectMake(20, 20, 600, 320);
@@ -34,7 +34,11 @@
                                      size:44];
     factLabel.textColor = [UIColor whiteColor];
     //[factLabel setText:[shoplog categoryname];
-    factLabel.text = selecteditem.categoryname;
+    factLabel.text=[NSString stringWithFormat:@"Price : %.2f"
+                    "\n Shop: %@ "
+                    "\n Phone: %@ "
+                    "\n Website :%@ ",selecteditem.price,selecteditem.shop,selecteditem.phone,selecteditem.websiteurl];
+    //factLabel.text = selecteditem.categoryname;
     factLabel.textAlignment = NSTextAlignmentCenter;
     [quoteView addSubview:factLabel];
     [quoteView.layer renderInContext:UIGraphicsGetCurrentContext()];

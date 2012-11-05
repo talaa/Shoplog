@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6900BC7016343B6C0028400D /* Shoplogactivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6900BC6F16343B6C0028400D /* Shoplogactivity.m */; };
-		6914962B163A20F200963F87 /* Shoplogitemsource.m in Sources */ = {isa = PBXBuildFile; fileRef = 6914962A163A20F200963F87 /* Shoplogitemsource.m */; };
 		691E1CA616175C290066C58A /* plus-sign.png in Resources */ = {isa = PBXBuildFile; fileRef = 691E1CA516175C290066C58A /* plus-sign.png */; };
 		69204FFF162B458700358C65 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69204FFE162B458700358C65 /* MessageUI.framework */; };
 		69205002162B459A00358C65 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69205001162B459A00358C65 /* Twitter.framework */; };
@@ -17,8 +16,12 @@
 		693FBA5816091E9700EA2136 /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 693FBA5716091E9700EA2136 /* HeaderView.m */; };
 		6948B5A31612160B008BA37E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6948B5A21612160B008BA37E /* CoreData.framework */; };
 		6948B5A716121780008BA37E /* ttttt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6948B5A516121780008BA37E /* ttttt.xcdatamodeld */; };
-		6948B5AA16121FC0008BA37E /* Shoplog.m in Sources */ = {isa = PBXBuildFile; fileRef = 6948B5A916121FC0008BA37E /* Shoplog.m */; };
 		6948B5AD16122819008BA37E /* AddProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6948B5AC16122819008BA37E /* AddProductDetailViewController.m */; };
+		6957FEE616470EC600290403 /* Shoplog.m in Sources */ = {isa = PBXBuildFile; fileRef = 6957FEE516470EC600290403 /* Shoplog.m */; };
+		6957FEEE16472D4500290403 /* ELCSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6957FEEA16472D4500290403 /* ELCSlider.m */; };
+		6957FEEF16472D4500290403 /* SliderValueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6957FEEC16472D4500290403 /* SliderValueViewController.m */; };
+		6957FEF016472D4500290403 /* SliderValueViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6957FEED16472D4500290403 /* SliderValueViewController.xib */; };
+		6957FEF41647357E00290403 /* PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6957FEF31647357E00290403 /* PopoverView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		698337C21618B8C500E2BC9E /* DetailPopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 698337C11618B8C500E2BC9E /* DetailPopViewController.m */; };
 		6986BCB0163205940023E2EE /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 6986BCAE163205940023E2EE /* Default.png */; };
 		6986BCB1163205940023E2EE /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6986BCAF163205940023E2EE /* Default@2x.png */; };
@@ -28,8 +31,10 @@
 		698CC5C8162F62A8001EE01A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 698CC5C4162F62A8001EE01A /* README.md */; };
 		698CC5C9162F62A8001EE01A /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 698CC5C5162F62A8001EE01A /* release_notes.md */; };
 		698CC5D5162F7AE1001EE01A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 698CC5D4162F7AE1001EE01A /* libz.dylib */; };
+		69C53A341643E14800FE2CB3 /* ExtendedManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C53A331643E14800FE2CB3 /* ExtendedManagedObject.m */; };
 		69D86308162CA46100BB78E1 /* CreateShoplogTagImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D86307162CA46100BB78E1 /* CreateShoplogTagImage.m */; };
 		69DAE201162624A8008802E4 /* UIPopover+Iphone.m in Sources */ = {isa = PBXBuildFile; fileRef = 69DAE200162624A8008802E4 /* UIPopover+Iphone.m */; };
+		69E29BF91646C91F00573B8C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69E29BF81646C91F00573B8C /* MapKit.framework */; };
 		69F625741606364800004196 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F625731606364800004196 /* UIKit.framework */; };
 		69F625761606364800004196 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F625751606364800004196 /* Foundation.framework */; };
 		69F625781606364800004196 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F625771606364800004196 /* CoreGraphics.framework */; };
@@ -45,8 +50,6 @@
 /* Begin PBXFileReference section */
 		6900BC6E16343B6C0028400D /* Shoplogactivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shoplogactivity.h; sourceTree = "<group>"; };
 		6900BC6F16343B6C0028400D /* Shoplogactivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shoplogactivity.m; sourceTree = "<group>"; };
-		69149629163A20F200963F87 /* Shoplogitemsource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shoplogitemsource.h; sourceTree = "<group>"; };
-		6914962A163A20F200963F87 /* Shoplogitemsource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shoplogitemsource.m; sourceTree = "<group>"; };
 		691E1CA516175C290066C58A /* plus-sign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus-sign.png"; sourceTree = "<group>"; };
 		69204FFE162B458700358C65 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		69205001162B459A00358C65 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
@@ -56,26 +59,38 @@
 		693FBA5716091E9700EA2136 /* HeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderView.m; sourceTree = "<group>"; };
 		6948B5A21612160B008BA37E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		6948B5A616121780008BA37E /* ttttt.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ttttt.xcdatamodel; sourceTree = "<group>"; };
-		6948B5A816121FC0008BA37E /* Shoplog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shoplog.h; sourceTree = "<group>"; };
-		6948B5A916121FC0008BA37E /* Shoplog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shoplog.m; sourceTree = "<group>"; };
 		6948B5AB16122819008BA37E /* AddProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddProductDetailViewController.h; sourceTree = "<group>"; };
 		6948B5AC16122819008BA37E /* AddProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddProductDetailViewController.m; sourceTree = "<group>"; };
+		6957FEE416470EC600290403 /* Shoplog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shoplog.h; sourceTree = "<group>"; };
+		6957FEE516470EC600290403 /* Shoplog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shoplog.m; sourceTree = "<group>"; };
+		6957FEE916472D4500290403 /* ELCSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCSlider.h; sourceTree = "<group>"; };
+		6957FEEA16472D4500290403 /* ELCSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCSlider.m; sourceTree = "<group>"; };
+		6957FEEB16472D4500290403 /* SliderValueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SliderValueViewController.h; sourceTree = "<group>"; };
+		6957FEEC16472D4500290403 /* SliderValueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SliderValueViewController.m; sourceTree = "<group>"; };
+		6957FEED16472D4500290403 /* SliderValueViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SliderValueViewController.xib; sourceTree = "<group>"; };
+		6957FEF21647357E00290403 /* PopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverView.h; sourceTree = "<group>"; };
+		6957FEF31647357E00290403 /* PopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverView.m; sourceTree = "<group>"; };
 		698337C01618B8C500E2BC9E /* DetailPopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailPopViewController.h; sourceTree = "<group>"; };
 		698337C11618B8C500E2BC9E /* DetailPopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailPopViewController.m; sourceTree = "<group>"; };
 		6986BCAE163205940023E2EE /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		6986BCAF163205940023E2EE /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		6986BCB2163206020023E2EE /* shoppin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shoppin.png; sourceTree = "<group>"; };
+		698797A61645BD5F00F3DCFF /* Entitlements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		698A62C31607BE0B004DAC94 /* MyCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCustomCell.h; sourceTree = "<group>"; };
 		698A62C41607BE0B004DAC94 /* MyCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCustomCell.m; sourceTree = "<group>"; };
+		698C604516450B3C00F9ABDD /* ttttt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ttttt.entitlements; sourceTree = "<group>"; };
 		698CC5C3162F62A8001EE01A /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		698CC5C4162F62A8001EE01A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		698CC5C5162F62A8001EE01A /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
 		698CC5C6162F62A8001EE01A /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		698CC5D4162F7AE1001EE01A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		69C53A321643E14800FE2CB3 /* ExtendedManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtendedManagedObject.h; sourceTree = "<group>"; };
+		69C53A331643E14800FE2CB3 /* ExtendedManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtendedManagedObject.m; sourceTree = "<group>"; };
 		69D86306162CA46100BB78E1 /* CreateShoplogTagImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateShoplogTagImage.h; sourceTree = "<group>"; };
 		69D86307162CA46100BB78E1 /* CreateShoplogTagImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateShoplogTagImage.m; sourceTree = "<group>"; };
 		69DAE1FF162624A8008802E4 /* UIPopover+Iphone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIPopover+Iphone.h"; sourceTree = "<group>"; };
 		69DAE200162624A8008802E4 /* UIPopover+Iphone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIPopover+Iphone.m"; sourceTree = "<group>"; };
+		69E29BF81646C91F00573B8C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		69F6256F1606364700004196 /* ttttt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ttttt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69F625731606364800004196 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		69F625751606364800004196 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -98,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69E29BF91646C91F00573B8C /* MapKit.framework in Frameworks */,
 				698CC5D5162F7AE1001EE01A /* libz.dylib in Frameworks */,
 				69205004162B45B300358C65 /* Social.framework in Frameworks */,
 				69205002162B459A00358C65 /* Twitter.framework in Frameworks */,
@@ -114,6 +130,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6957FEE816472D4500290403 /* ELCSlider */ = {
+			isa = PBXGroup;
+			children = (
+				6957FEE916472D4500290403 /* ELCSlider.h */,
+				6957FEEA16472D4500290403 /* ELCSlider.m */,
+				6957FEEB16472D4500290403 /* SliderValueViewController.h */,
+				6957FEEC16472D4500290403 /* SliderValueViewController.m */,
+				6957FEED16472D4500290403 /* SliderValueViewController.xib */,
+			);
+			path = ELCSlider;
+			sourceTree = "<group>";
+		};
+		6957FEF11647357E00290403 /* PopoverView */ = {
+			isa = PBXGroup;
+			children = (
+				6957FEF21647357E00290403 /* PopoverView.h */,
+				6957FEF31647357E00290403 /* PopoverView.m */,
+			);
+			path = PopoverView;
+			sourceTree = "<group>";
+		};
 		6986BCAD1632056A0023E2EE /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +195,7 @@
 		69F625721606364800004196 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				69E29BF81646C91F00573B8C /* MapKit.framework */,
 				698CC5D4162F7AE1001EE01A /* libz.dylib */,
 				69205003162B45B300358C65 /* Social.framework */,
 				69205001162B459A00358C65 /* Twitter.framework */,
@@ -174,6 +212,11 @@
 		69F625791606364800004196 /* ttttt */ = {
 			isa = PBXGroup;
 			children = (
+				6957FEF11647357E00290403 /* PopoverView */,
+				6957FEE816472D4500290403 /* ELCSlider */,
+				698C604516450B3C00F9ABDD /* ttttt.entitlements */,
+				69C53A321643E14800FE2CB3 /* ExtendedManagedObject.h */,
+				69C53A331643E14800FE2CB3 /* ExtendedManagedObject.m */,
 				69F625821606364800004196 /* AppDelegate.h */,
 				69F625831606364800004196 /* AppDelegate.m */,
 				69DAE1FF162624A8008802E4 /* UIPopover+Iphone.h */,
@@ -188,18 +231,17 @@
 				698A62C41607BE0B004DAC94 /* MyCustomCell.m */,
 				693FBA5616091E9700EA2136 /* HeaderView.h */,
 				693FBA5716091E9700EA2136 /* HeaderView.m */,
+				6957FEE416470EC600290403 /* Shoplog.h */,
+				6957FEE516470EC600290403 /* Shoplog.m */,
 				6948B5A516121780008BA37E /* ttttt.xcdatamodeld */,
-				6948B5A816121FC0008BA37E /* Shoplog.h */,
-				6948B5A916121FC0008BA37E /* Shoplog.m */,
 				6948B5AB16122819008BA37E /* AddProductDetailViewController.h */,
 				6948B5AC16122819008BA37E /* AddProductDetailViewController.m */,
 				69D86306162CA46100BB78E1 /* CreateShoplogTagImage.h */,
 				69D86307162CA46100BB78E1 /* CreateShoplogTagImage.m */,
 				6900BC6E16343B6C0028400D /* Shoplogactivity.h */,
 				6900BC6F16343B6C0028400D /* Shoplogactivity.m */,
-				69149629163A20F200963F87 /* Shoplogitemsource.h */,
-				6914962A163A20F200963F87 /* Shoplogitemsource.m */,
 				69F6257A1606364800004196 /* Supporting Files */,
+				698797A61645BD5F00F3DCFF /* Entitlements.plist */,
 			);
 			path = ttttt;
 			sourceTree = "<group>";
@@ -277,6 +319,7 @@
 				6986BCB0163205940023E2EE /* Default.png in Resources */,
 				6986BCB1163205940023E2EE /* Default@2x.png in Resources */,
 				6986BCB3163206020023E2EE /* shoppin.png in Resources */,
+				6957FEF016472D4500290403 /* SliderValueViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,13 +336,16 @@
 				698A62C51607BE0B004DAC94 /* MyCustomCell.m in Sources */,
 				693FBA5816091E9700EA2136 /* HeaderView.m in Sources */,
 				6948B5A716121780008BA37E /* ttttt.xcdatamodeld in Sources */,
-				6948B5AA16121FC0008BA37E /* Shoplog.m in Sources */,
 				6948B5AD16122819008BA37E /* AddProductDetailViewController.m in Sources */,
 				698337C21618B8C500E2BC9E /* DetailPopViewController.m in Sources */,
 				69DAE201162624A8008802E4 /* UIPopover+Iphone.m in Sources */,
 				69D86308162CA46100BB78E1 /* CreateShoplogTagImage.m in Sources */,
 				6900BC7016343B6C0028400D /* Shoplogactivity.m in Sources */,
-				6914962B163A20F200963F87 /* Shoplogitemsource.m in Sources */,
+				69C53A341643E14800FE2CB3 /* ExtendedManagedObject.m in Sources */,
+				6957FEE616470EC600290403 /* Shoplog.m in Sources */,
+				6957FEEE16472D4500290403 /* ELCSlider.m in Sources */,
+				6957FEEF16472D4500290403 /* SliderValueViewController.m in Sources */,
+				6957FEF41647357E00290403 /* PopoverView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +388,8 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = ttttt/ttttt.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -356,6 +404,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -370,6 +420,8 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = ttttt/ttttt.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -378,6 +430,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -387,6 +441,9 @@
 		69F625971606364900004196 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ttttt/ttttt.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ttttt/ttttt-Prefix.pch";
 				INFOPLIST_FILE = "ttttt/ttttt-Info.plist";
@@ -395,6 +452,8 @@
 					"\"$(SRCROOT)/TestFlightSDK1.1\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -402,7 +461,9 @@
 		69F625981606364900004196 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Tamer Alaa";
+				CODE_SIGN_ENTITLEMENTS = ttttt/ttttt.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ttttt/ttttt-Prefix.pch";
 				INFOPLIST_FILE = "ttttt/ttttt-Info.plist";
@@ -411,7 +472,8 @@
 					"\"$(SRCROOT)/TestFlightSDK1.1\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DEDB4C17-586F-4558-BC3D-376DA009450B";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

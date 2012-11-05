@@ -10,20 +10,23 @@
 #import <CoreData/CoreData.h>
 #import <MessageUI/MessageUI.h>
 #import <Social/Social.h>
+#import <QuartzCore/QuartzCore.h>
 #import "UIPopover+Iphone.h"
 #import "MyCustomCell.h"
 #import "HeaderView.h"
 #import "DetailPopViewController.h"
+#import "PopoverView.h"
+
 @class MyCustomCell;
 @class HeaderView;
-@interface TestViewController : UICollectionViewController<UICollectionViewDataSource,UICollectionViewDelegate,NSFetchedResultsControllerDelegate,UIPopoverControllerDelegate,MyPopoverDelegate,MFMailComposeViewControllerDelegate>{
+@interface TestViewController : UICollectionViewController<UICollectionViewDataSource,UICollectionViewDelegate,NSFetchedResultsControllerDelegate,UIPopoverControllerDelegate,MyPopoverDelegate,MFMailComposeViewControllerDelegate,PopoverViewDelegate>{
 
 
     //IBOutlet UIViewController *popoverinview;
 
 
 }
-
+//@property (strong,nonatomic) Shoplog *newimportedarray;
 @property (nonatomic,retain)NSMutableArray *testarray;
 @property (nonatomic,retain ) UIPopoverController *mypopover;
 @property (nonatomic,strong) DetailPopViewController *detailPopViewController;
@@ -36,8 +39,8 @@
 //The sharing Part 
 @property(nonatomic, strong) NSMutableArray *selectedPhotos;
 @property (nonatomic,strong) IBOutlet UIBarButtonItem *sharebutton;
-@property(nonatomic, strong) NSMutableArray *addarray;
-
--(void)showmailcomposer:(NSData*)datafile;
-
+@property(nonatomic, strong) NSMutableArray *searcharray;
+//@property(nonatomic, strong) NSString *searchstring;
+//-(void)showmailcomposer:(NSData*)datafile;
+- (void)handleOpenURL:(NSURL *)url;
 @end

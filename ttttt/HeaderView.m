@@ -9,7 +9,7 @@
 #import "HeaderView.h"
 
 @implementation HeaderView
-@synthesize Headerviewlabel;
+@synthesize Headerviewlabel,searchButton,searchstring;
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];

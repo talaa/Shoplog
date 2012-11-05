@@ -9,7 +9,7 @@
 #import "MyCustomCell.h"
 
 @implementation MyCustomCell
-@synthesize celllabel,cellImage;
+@synthesize celllabel,cellImage,ratinglabel;
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];

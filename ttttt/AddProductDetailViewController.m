@@ -14,9 +14,9 @@
 
 @implementation AddProductDetailViewController
 @synthesize managedObjectContext;
-@synthesize PriceField,ShopField,imageField,cataloguenamefield;
+@synthesize PriceField,ShopField,imageField,cataloguenamefield,ratingField;
 @synthesize imagePicker,popoverController,edit_add,Saveeditbutton;
-
+@synthesize Maplocation,ratingslider;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -28,15 +28,18 @@
     return self;
 }
 
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     if (_currentProduct)
     {
         //[[PriceField setText:[[_currentProduct price]stringValue]];
-         [PriceField setText:[NSString stringWithFormat:@"%2f", [_currentProduct price]]];
+         [PriceField setText:[NSString stringWithFormat:@"%.2f", [_currentProduct price]]];
         [ShopField setText:[_currentProduct shop]];
         [self setTitle:[_currentProduct categoryname ]];
+        [ratingslider setValue:[_currentProduct rating] animated:YES];
         if ([_currentProduct image])
             [imageField setImage:[UIImage imageWithData:[_currentProduct image]]];
     }
@@ -52,6 +55,17 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+- (IBAction)GetcurrentLocation1:(id)sender{
+    
+    Maplocation.showsUserLocation=YES;
+    //MKCoordinateRegion region=Maplocation.region;
+    //[Maplocation regionThatFits:region];
+    MKUserLocation *userLocation = Maplocation.userLocation;
+    MKCoordinateRegion region =MKCoordinateRegionMakeWithDistance (
+                                        userLocation.location.coordinate, 150, 150);
+    [Maplocation setRegion:region animated:YES];
+        
 }
 
 - (void)didReceiveMemoryWarning
@@ -104,6 +118,10 @@
 */
 
 #pragma mark - Table view delegate
+- (IBAction)RatingSlidervalue:(id)sender {
+    [self.currentProduct setRating:ratingslider.value];
+    
+}
 
 
 #pragma mark - Button actions
@@ -119,11 +137,13 @@
     NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
     [f setNumberStyle:NSNumberFormatterDecimalStyle];
     float myNumber = [[PriceField text]floatValue];
+    int myintNumber=[[ratingField text]integerValue];
     //float myNumber = [f numberFromString:[PriceField text]];
     [self.currentProduct setPrice:myNumber];
     [self.currentProduct setShop:[ShopField text]];
     [self.currentProduct setCategoryname:[cataloguenamefield text]];
-    
+    [self.currentProduct setRating:myintNumber];
+    [self.currentProduct setRating:ratingslider.value];
     if (imageField.image)
     {
         // Resize and save a smaller version for the table
@@ -173,10 +193,14 @@
     NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
     [f setNumberStyle:NSNumberFormatterDecimalStyle];
     float myNumber = [[PriceField text]floatValue];
+    int myintNumber=[[ratingField text]integerValue];
     //float myNumber = [f numberFromString:[PriceField text]];
+    
     [self.currentProduct setPrice:myNumber];
     [self.currentProduct setShop:[ShopField text]];
     [self.currentProduct setCategoryname:[cataloguenamefield text]];
+    [self.currentProduct setRating:myintNumber];
+    [self.currentProduct setRating:ratingslider.value];
     
     if (imageField.image)
     {
@@ -318,6 +342,7 @@
 {
     [imagePicker dismissViewControllerAnimated:YES completion:nil];
 }
+
 
 
 @end

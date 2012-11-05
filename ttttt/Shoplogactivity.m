@@ -8,7 +8,6 @@
 
 #import "Shoplogactivity.h"
 #import "TestViewController.h"
-#import "testitemprovider.h"
 
 
 
@@ -87,10 +86,10 @@
     //testitemprovider *gg=[[testitemprovider alloc]init];
     
     //[self.Selectedthings writeToFile:filePath atomically:YES];
-    TestViewController *test=[[TestViewController alloc]init];
+    //TestViewController *test=[[TestViewController alloc]init];
     NSLog(@"I have Pushed the Shoplog Button");
-    NSURL *turl=[[NSURL alloc]initFileURLWithPath:filePath];
-    [test.addarray addObject:turl];
+    //NSURL *turl=[[NSURL alloc]initFileURLWithPath:filePath];
+    //[test.addarray addObject:turl];
    
     
     //[test showmailcomposer:savedData];

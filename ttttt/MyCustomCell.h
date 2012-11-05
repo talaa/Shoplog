@@ -11,5 +11,6 @@
 
 @interface MyCustomCell : UICollectionViewCell
 @property (nonatomic,retain) IBOutlet UILabel *celllabel;
+@property (nonatomic,retain) IBOutlet UILabel *ratinglabel;
 @property (nonatomic,retain) IBOutlet UIImageView *cellImage;
 @end

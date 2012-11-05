@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 #import "Shoplog.h"
 @class Shoplog;
 @protocol addproductdetailviewcontrollerdelegate;
@@ -23,11 +24,16 @@
 @property (strong, nonatomic) IBOutlet UIImageView *imageField;
 @property (strong, nonatomic) IBOutlet UITextField *DimensionsField;
 @property (strong, nonatomic) IBOutlet UITextField *comments;
+@property (weak, nonatomic) IBOutlet MKMapView *Maplocation;
+@property (weak, nonatomic) IBOutlet UITextField *ratingField;
+@property (weak, nonatomic) IBOutlet UISlider *ratingslider;
 
 @property (nonatomic, retain) UIPopoverController *popoverController;
 @property (strong, nonatomic) UIImagePickerController *imagePicker;
 @property (weak, nonatomic) IBOutlet UIToolbar *Testnavigation;
 @property (nonatomic,weak) id <addproductdetailviewcontrollerdelegate> delegate;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *Saveeditbutton;
+@property (weak, nonatomic) IBOutlet UIButton *GetcurrentLocation;
+- (IBAction)GetcurrentLocation1:(id)sender;
 
 @end
