@@ -18,7 +18,9 @@ typedef enum SocialButtonTags
 #import "DetailViewController.h"
 #import "CreateShoplogTagImage.h"
 #import "Shoplogactivity.h"
-
+#import "Fancysearch.h"
+#import "EBaySearch.h"
+#import "Amazonsearch.h"
 
 
 //#import "MyCustomCell.h"
@@ -73,7 +75,7 @@ typedef enum SocialButtonTags
     for (NSDictionary  *tempdict in recievedarray) {
         //Shoplog *moc=[[Shoplog alloc]init];
         NSManagedObjectContext *context=self.managedObjectContext;
-        Shoplog *newMOC=[ExtendedManagedObject createManagedObjectFromDictionary:tempdict inContext:context];
+        Shoplog* newMOC=[ExtendedManagedObject createManagedObjectFromDictionary:tempdict inContext:context];
         
         //  Commit item to core data
         NSError *error;
@@ -90,25 +92,7 @@ typedef enum SocialButtonTags
         [recievedarray removeAllObjects];
         //[Shoplog createManagedObjectFromDictionary:tempdict inContext:self.managedObjectContext];
     }
-   // NSKeyedUnarchiver *importunarchiver=[[NSKeyedUnarchiver alloc]initForReadingWithData:dataimported];
-    //NSLog(@"The Unarchiver is %@:",importunarchiver);
-    //NSMutableArray *ggg=[importunarchiver decodeObject];
-    //NSLog(@"The Fuck Array is :%@",ggg);
-    //NSMutableArray *ggg=[importunarchiver];
-    //NSMutableArray *ggg=[NSKeyedUnarchiver unarchiveObjectWithData:dataimported];
-    //Shoplog *pii=[[Shoplog alloc]initWithCoder:NSK];
-    //Shoplog *pi=[NSKeyedUnarchiver unarchiveObjectWithData:dataimported];
-    //NSLog(@"The Shoplog file%@",pi.managedObjectContext);
-    //Shoplog *pi=[[NSKeyedUnarchiver alloc]initForReadingWithData:dataimported];
-    //NSLog(@"The Fuck Array is :%@",ggg);
-    //pi=[importunarchiver unarchive];
-    //NSMutableArray *fucarray=[[NSMutableArray alloc]initWithContentsOfURL:url];
-    //NSMutableArray *fucarray=[[NSMutableArray alloc]initWithContentsOfFile:url];
-    //NSLog(@"The url is :%@",url);
-    //NSLog(@"The Fuck Array is :%@",fucarray);
-    //[self addimporteditems:[Shoplog importedarray:url]];
-    //[self addimporteditems:fucarray];
-    
+       
 }
 
 - (void) viewWillDisappear: (BOOL) animated {
@@ -121,6 +105,8 @@ typedef enum SocialButtonTags
 {
     // Do any additional setup after loading the view, typically from a nib.
     self.title=@"ShopLog";
+    self.collectionView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"web-elements.png"]];
+    
     self.sharing=NO;
     _objectChanges = [NSMutableArray array];
     _sectionChanges = [NSMutableArray array];
@@ -137,6 +123,10 @@ typedef enum SocialButtonTags
                                              selector:@selector(reloadFetchedResults:)
                                                  name:@"SomethingChanged"
                                                object:[[UIApplication sharedApplication] delegate]];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(Searchactivated1:)
+                                                 name:@"Searchactivated"
+                                               object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -236,13 +226,6 @@ typedef enum SocialButtonTags
     NSString *Headlabel=[[NSString alloc]initWithString:[[[self.fetchedResultsController sections]objectAtIndex:indexPath.section]name]];
     
     Hv.Headerviewlabel.text=Headlabel;
-    Hv.searchstring=Headlabel;
-    //Hv.Headerviewlabel.text=[[[self.fetchedResultsController sections]objectAtIndex:indexPath.section]name];
-    [self.searcharray addObject:[[[self.fetchedResultsController sections]objectAtIndex:indexPath.section]name]];
-     //NSLog(@"I am Searching Right now%@ ",self.searcharray);
-    [Hv.searchButton addTarget:self action:@selector(buttonPressed:)forControlEvents:UIControlEventTouchDown];
-    //[Hv.searchButton performSelector:@selector(buttonPressed) withObject:Headlabel];
-    
     return Hv;
 
 
@@ -254,7 +237,7 @@ typedef enum SocialButtonTags
     UITapGestureRecognizer *tap=[[UITapGestureRecognizer alloc]init];
     CGPoint point = [tap locationInView:self.view];
     //NSIndexPath *HeaderIndexPath=[self.collectionView indexPathForItemAtPoint:<#(CGPoint)#>]
-    HeaderView *Hvv=[[HeaderView alloc]init];
+    //HeaderView *Hvv=[[HeaderView alloc]init];
     //Hvv.searchButton.viewForBaselineLayout.layer.frame.origin
     NSIndexPath *indexpahser=[self.collectionView indexPathForItemAtPoint:point];
     NSString *searchterm=[[[self.fetchedResultsController sections]objectAtIndex:indexpahser.section]name];
@@ -306,7 +289,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
                     UIPopoverController *pop=[[UIPopoverController alloc]initWithContentViewController:self.detailPopViewController];
                     
                     self.detailPopViewController.delegate=self;
-                    [pop presentPopoverFromRect:attributes.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+                    [pop presentPopoverFromRect:attributes.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
                     self.mypopover=pop;
                     //[self performSegueWithIdentifier:@"ShowDetail1" sender:collectionView ];
                     
@@ -323,7 +306,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
                 
                 
                 
-                [pop setPopoverContentSize:CGSizeMake(280, 280)];
+                [pop setPopoverContentSize:CGSizeMake(244, 307)];
                 [pop presentPopoverFromRect:attributes.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
                 NSManagedObject *obj =[self.fetchedResultsController objectAtIndexPath:indexPath];
                 
@@ -350,7 +333,27 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     
 }
-
+-(void)Searchactivated1:(NSNotification*)notification
+{
+    if ([[notification name] isEqualToString:@"Searchactivated"])
+        NSLog(@"This is Value Passed :%@ ",[[notification userInfo] valueForKey:@"Searchterm"]);
+    //Preparing the Search Term
+    
+    NSString *searchterm=[[notification userInfo] valueForKey:@"Searchterm"];
+    NSArray *addArray2=[NSArray arrayWithObject:searchterm];
+    //Preparing the UIAcitvity Arrays of Objects
+    Fancysearch *Activity1=[[Fancysearch alloc]init];
+    EBaySearch *Activity2=[[EBaySearch alloc]init];
+    Amazonsearch *Activity3=[[Amazonsearch alloc]init];
+    //Activity1 set
+    NSArray *Activityarray=[[NSArray alloc]initWithObjects:Activity1,Activity2,Activity3, nil];
+    
+    //Executing the Activity View Controller 
+    UIActivityViewController *activityViewController2 =[[UIActivityViewController alloc]initWithActivityItems:addArray2 applicationActivities:Activityarray];
+    activityViewController2.excludedActivityTypes=@[UIActivityTypePostToWeibo, UIActivityTypeAssignToContact, UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypeSaveToCameraRoll,UIActivityTypeMail,UIActivityTypeMessage,UIActivityTypePostToFacebook,UIActivityTypePostToTwitter];
+    [self presentViewController:activityViewController2 animated:YES completion:^{}];
+    
+}
 
 - (void) receiveTestNotification:(NSNotification *) notification
 {

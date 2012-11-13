@@ -7,6 +7,7 @@
 //
 
 #import "Shoplog.h"
+#import "Shop.h"
 
 
 @implementation Shoplog
@@ -19,7 +20,7 @@
 @dynamic phone;
 @dynamic price;
 @dynamic rating;
-@dynamic shop;
 @dynamic websiteurl;
+@dynamic shop;
 
 @end

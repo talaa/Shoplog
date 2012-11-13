@@ -19,7 +19,36 @@
     }
     return self;
 }
+-(IBAction)saymyname:(id)sender{
+    [PopoverView showPopoverAtPoint:searchButton.frame.origin inView:self withStringArray:[NSArray arrayWithObjects:@"Sync", @"Search", nil] delegate:self];
 
+    NSLog(@"My Name is :%@",Headerviewlabel.text);
+}
+- (void)popoverView:(PopoverView *)popoverView didSelectItemAtIndex:(NSInteger)index{
+
+     NSDictionary *dict = [NSDictionary dictionaryWithObject:Headerviewlabel.text forKey:@"Searchterm"];
+    switch (index) {
+        case 0:
+            NSLog(@"%s item:%d", __PRETTY_FUNCTION__, index);
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"SomethingChanged" object:[UIApplication sharedApplication] userInfo:nil];
+          
+            break;
+        case 1:
+           
+            NSLog(@"%s item:%d", __PRETTY_FUNCTION__, index);
+            [[NSNotificationCenter defaultCenter]postNotificationName:@"Searchactivated" object:self userInfo:dict];
+            break;
+        
+    }
+
+    
+
+}
+- (void)popoverViewDidDismiss:(PopoverView *)popoverView{
+[popoverView performSelector:@selector(dismiss) withObject:nil afterDelay:0.5f];
+
+
+}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

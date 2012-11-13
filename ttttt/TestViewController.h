@@ -43,4 +43,5 @@
 //@property(nonatomic, strong) NSString *searchstring;
 //-(void)showmailcomposer:(NSData*)datafile;
 - (void)handleOpenURL:(NSURL *)url;
+- (void)reloadFetchedResults:(NSNotification*)note;
 @end

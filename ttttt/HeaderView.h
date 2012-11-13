@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PopoverView.h"
+#import "TestViewController.h"
 
-@interface HeaderView : UICollectionReusableView
+@interface HeaderView : UICollectionReusableView<PopoverViewDelegate>
 @property (nonatomic,retain) IBOutlet UILabel *Headerviewlabel;
 @property (nonatomic,strong) IBOutlet UIButton *searchButton;
 @property (nonatomic,strong)NSString *searchstring;

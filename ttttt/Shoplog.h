@@ -10,6 +10,8 @@
 #import <CoreData/CoreData.h>
 #import "ExtendedManagedObject.h"
 
+@class Shop;
+
 @interface Shoplog : ExtendedManagedObject
 
 @property (nonatomic, retain) NSString * categoryname;
@@ -20,7 +22,7 @@
 @property (nonatomic, retain) NSDecimalNumber * phone;
 @property (nonatomic) float price;
 @property (nonatomic) int16_t rating;
-@property (nonatomic, retain) NSString * shop;
 @property (nonatomic, retain) NSString * websiteurl;
+@property (nonatomic, retain) Shop *shop;
 
 @end

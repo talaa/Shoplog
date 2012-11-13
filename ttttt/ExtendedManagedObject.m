@@ -74,12 +74,15 @@ return dict;
     NSManagedObjectContext* context = [self managedObjectContext];
     
     for (NSString* key in dict) {
+        NSLog(@"The Key is %@",key);
         if ([key isEqualToString:@"class"]) {
             continue;
+            
         }
         
         NSObject* value = [dict objectForKey:key];
-        
+        NSLog(@"the Value is %@",value);
+        NSLog(@"The Class is %@",[NSSet class]);
         if ([value isKindOfClass:[NSDictionary class]]) {
             // This is a to-one relationship
             ExtendedManagedObject* relatedObject =
@@ -88,6 +91,7 @@ return dict;
             
             [self setValue:relatedObject forKey:key];
         }
+        
         else if ([value isKindOfClass:[NSSet class]]) {
             // This is a to-many relationship
             NSSet* relatedObjectDictionaries = (NSSet*) value;

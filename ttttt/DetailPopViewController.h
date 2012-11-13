@@ -7,13 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 #import "AddProductDetailViewController.h"
 
 @protocol MyPopoverDelegate <NSObject>
 -(void)didClickdeleteButton;
 @end
 
-@interface DetailPopViewController : UIViewController
+@interface DetailPopViewController : UIViewController<MFMailComposeViewControllerDelegate>
 @property (strong, nonatomic) id detailItem;
 @property (weak, nonatomic) IBOutlet UILabel *pricelabel;
 @property (weak, nonatomic) IBOutlet UILabel *shoplabel;
@@ -23,4 +24,6 @@
 @property (weak,nonatomic) IBOutlet UIButton *editbutton;
 @property (nonatomic, assign) id<MyPopoverDelegate> delegate; 
 -(IBAction)deleteitem:(id)sender;
+-(IBAction)MakeaCall:(id)sender ;
+-(IBAction)sendemail:(id)sender;
 @end

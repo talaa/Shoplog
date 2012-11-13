@@ -77,11 +77,11 @@
 #define kDrawTitleGradient YES 
 
 //bottom color white value in title gradient bg
-#define kGradientTitleBottomColor [UIColor colorWithRed:0.93f green:0.93f blue:0.93f alpha:kBoxAlpha]
-
+//#define kGradientTitleBottomColor [UIColor colorWithRed:0.93f green:0.93f blue:0.93f alpha:kBoxAlpha]
+#define kGradientTitleBottomColor [UIColor colorWithRed:1.f green:1.f blue:1.f alpha:kBoxAlpha]
 //top color white value in title gradient bg
-#define kGradientTitleTopColor [UIColor colorWithRed:1.f green:1.f blue:1.f alpha:kBoxAlpha]
-
+//#define kGradientTitleTopColor [UIColor colorWithRed:1.f green:1.f blue:1.f alpha:kBoxAlpha]
+#define kGradientTitleTopColor [UIColor colorWithRed:0.93f green:0.93f blue:0.93f alpha:kBoxAlpha]
 
 // FONTS
 
@@ -947,7 +947,7 @@
                 label.backgroundColor = [UIColor colorWithRed:0.329 green:0.341 blue:0.353 alpha:1];
                 label.textColor = [UIColor whiteColor];
                 
-                //                [self performSelector:@selector(dismiss) withObject:nil afterDelay:0.05f];
+                [self performSelector:@selector(dismiss) withObject:nil afterDelay:0.05f];
             }
             
             if(delegate && [delegate respondsToSelector:@selector(popoverView:didSelectItemAtIndex:)]) {

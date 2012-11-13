@@ -37,7 +37,7 @@
     factLabel.text=[NSString stringWithFormat:@"Price : %.2f"
                     "\n Shop: %@ "
                     "\n Phone: %@ "
-                    "\n Website :%@ ",selecteditem.price,selecteditem.shop,selecteditem.phone,selecteditem.websiteurl];
+                    "\n Website :%@ ",selecteditem.price,selecteditem.shop.shopname,selecteditem.phone,selecteditem.websiteurl];
     //factLabel.text = selecteditem.categoryname;
     factLabel.textAlignment = NSTextAlignmentCenter;
     [quoteView addSubview:factLabel];

@@ -7,6 +7,7 @@
 //
 
 #import "DetailPopViewController.h"
+#import "WebViewController.h"
 
 @interface DetailPopViewController ()
 
@@ -64,11 +65,14 @@
 }
 - (void)configureView
 {
+    self.view.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"Tag2.png"]];
     // Update the user interface for the detail item.
-    
+    //Shoplog *shoploginfo=self.detailItem;
+    Shop *shopdetails=[self.detailItem shop];
     if (self.detailItem) {
         self.pricelabel.text = [[self.detailItem valueForKey:@"price"] stringValue];
-        self.shoplabel.text=[self.detailItem valueForKey:@"shop"];
+        self.shoplabel.text=shopdetails.shopname;
+        //self.shoplabel.text=[self.detailItem valueForKey:@"shop"];
         self.websitelabel.text=[self.detailItem valueForKey:@"websiteurl"];
         self.phonelabel.text=[[self.detailItem valueForKey:@"phone"]stringValue];
     }
@@ -90,11 +94,12 @@
         
         [editview setCurrentProduct:self.detailItem];
         
-                
-        
     }
 
-
+    if ([[segue identifier] isEqualToString:@"BrowseUrl"]) {
+        WebViewController  *brurl = (WebViewController *)[segue destinationViewController];
+        [brurl setBrowseuuurl:[[NSURL alloc]initWithString:[self.detailItem valueForKey:@"websiteurl"]]];
+    }
 
 }
 
@@ -129,5 +134,38 @@
 */
 
 }
+- (IBAction)MakeaCall:(id)sender {
+    UIDevice *device = [UIDevice currentDevice];
+    if ([[device model] isEqualToString:@"iPhone"] ) {
+        NSString *phoneppp=@"tel:";
+        
+        NSString *Phone=[phoneppp stringByAppendingString:[[self.detailItem valueForKey:@"phone"] stringValue] ] ;
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:130-032-2837"]]];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:Phone]];
+    } else {
+        UIAlertView *Notpermitted=[[UIAlertView alloc] initWithTitle:@"Alert" message:@"Your device doesn't support this feature." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [Notpermitted show];
+        
+    }
+}
 
+- (IBAction)sendemail:(id)sender {
+    NSArray *tomail=[[NSArray alloc]initWithObjects:[self.detailItem valueForKey:@"email"], nil];
+    MFMailComposeViewController *picker=[[MFMailComposeViewController alloc]init];
+    picker.mailComposeDelegate=self;
+    [picker setSubject:@"Product Information request"];
+    [picker setToRecipients:tomail];
+    [picker setMessageBody:@"HELLO \n I would like to have more information about the attached Product \n Thank you \n\n\n Sent from Shoplog Application " isHTML:NO];
+    [picker addAttachmentData:[self.detailItem valueForKey:@"image"] mimeType:@"image/png" fileName:@"Photos"];
+    [self presentViewController:picker animated:YES completion:nil];
+    
+}
+-(void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error{
+
+    [controller dismissViewControllerAnimated:YES completion:nil];
+
+}
+- (IBAction)back:(UIStoryboardSegue *)segue
+{
+}
 @end
