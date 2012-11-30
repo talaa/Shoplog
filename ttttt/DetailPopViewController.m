@@ -65,16 +65,26 @@
 }
 - (void)configureView
 {
-    self.view.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"Tag2.png"]];
+    //self.view.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"Tag2.png"]];
     // Update the user interface for the detail item.
     //Shoplog *shoploginfo=self.detailItem;
     Shop *shopdetails=[self.detailItem shop];
     if (self.detailItem) {
-        self.pricelabel.text = [[self.detailItem valueForKey:@"price"] stringValue];
+        //self.Dimelabel.text = [[self.detailItem valueForKey:@"price"] stringValue];
+        self.Dimelabel.text=[self.detailItem valueForKey:@"dim_size"];
         self.shoplabel.text=shopdetails.shopname;
         //self.shoplabel.text=[self.detailItem valueForKey:@"shop"];
-        self.websitelabel.text=[self.detailItem valueForKey:@"websiteurl"];
-        self.phonelabel.text=[[self.detailItem valueForKey:@"phone"]stringValue];
+        self.commentslabel.text=[self.detailItem valueForKey:@"comments"];
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"MM-dd HH:mm"];
+        
+        //Optionally for time zone converstions
+        [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"..."]];
+        
+        NSString *stringFromDate = [formatter stringFromDate:[self.detailItem valueForKey:@"date"]];
+
+        self.datelabel.text=stringFromDate;
     }
 }
 
@@ -98,7 +108,22 @@
 
     if ([[segue identifier] isEqualToString:@"BrowseUrl"]) {
         WebViewController  *brurl = (WebViewController *)[segue destinationViewController];
-        [brurl setBrowseuuurl:[[NSURL alloc]initWithString:[self.detailItem valueForKey:@"websiteurl"]]];
+        NSLog(@"the Url is %@",[self.detailItem valueForKey:@"websiteurl"]);
+        NSString *theurl=[self.detailItem valueForKey:@"websiteurl"];
+        
+        
+        if (!theurl) {
+            UIAlertView *nourlalert=[[UIAlertView alloc]initWithTitle:@"NO Website" message:@"You have NOT saved any website in Shoplog" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [nourlalert show];
+        }else{
+            
+            
+        [brurl setBrowseuuurl:[[NSURL alloc]initWithString:[@"http://" stringByAppendingString:[self.detailItem valueForKey:@"websiteurl"]]]];
+            [brurl setThetitle:[self.detailItem valueForKey:@"categoryname"]];
+        //[brurl setTitle:[self.detailItem valueForKey:@"categoryname"]];
+        
+        }
+         
     }
 
 }
@@ -140,7 +165,7 @@
         NSString *phoneppp=@"tel:";
         
         NSString *Phone=[phoneppp stringByAppendingString:[[self.detailItem valueForKey:@"phone"] stringValue] ] ;
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:130-032-2837"]]];
+        //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:130-032-2837"]]];
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:Phone]];
     } else {
         UIAlertView *Notpermitted=[[UIAlertView alloc] initWithTitle:@"Alert" message:@"Your device doesn't support this feature." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];

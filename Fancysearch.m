@@ -14,7 +14,7 @@
 @implementation Fancysearch
 - (UIImage *)activityImage
 {
-    return [UIImage imageNamed:@"shoppin.png" ];
+    return [UIImage imageNamed:@"Fancy-Logo.png" ];
 }
 - (NSString *)activityTitle
 {

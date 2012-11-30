@@ -9,18 +9,21 @@
 #import "HeaderView.h"
 
 @implementation HeaderView
-@synthesize Headerviewlabel,searchButton,searchstring;
+@synthesize Headerviewlabel,searchButton,searchstring,backgroundimage;
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
         Headerviewlabel.textColor=[UIColor blackColor];
+        backgroundimage.image=[UIImage imageNamed:@"cloudy-sky-cartoon.jpg"];
+        backgroundimage.center=self.center;
+        //self.superview.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"cloudy-sky-cartoon.jpg"]];
     }
     return self;
 }
 -(IBAction)saymyname:(id)sender{
-    [PopoverView showPopoverAtPoint:searchButton.frame.origin inView:self withStringArray:[NSArray arrayWithObjects:@"Sync", @"Search", nil] delegate:self];
+    [PopoverView showPopoverAtPoint:searchButton.frame.origin inView:self withStringArray:[NSArray arrayWithObjects:@"Resfresh", @"Search", nil] delegate:self];
 
     NSLog(@"My Name is :%@",Headerviewlabel.text);
 }
@@ -30,7 +33,7 @@
     switch (index) {
         case 0:
             NSLog(@"%s item:%d", __PRETTY_FUNCTION__, index);
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"SomethingChanged" object:[UIApplication sharedApplication] userInfo:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"TestNotification" object:self userInfo:nil];
           
             break;
         case 1:

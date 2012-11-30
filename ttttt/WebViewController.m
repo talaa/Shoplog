@@ -13,7 +13,7 @@
 @end
 
 @implementation WebViewController
-@synthesize browseuuurl,Mainwebview;
+@synthesize browseuuurl,Mainwebview,thetitle,webnavigation;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -28,11 +28,22 @@
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+-(void)viewWillAppear:(BOOL)animated{
+    
+
+     webnavigation.tintColor = [UIColor colorWithRed:48.0f/255.0f green:74.0f/255.0f blue:147.0f/255.0f alpha:1];
+
+}
 - (void)viewDidLoad
 {
-    [Mainwebview loadRequest:[NSURLRequest requestWithURL:browseuuurl]];
+    
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    NSLog(@"The Url is %@",browseuuurl);
+    //NSString *thenewUrl=[[NSString alloc]init];
+    
+    // Do any additional setup after loading the view.
+    webnavigation.topItem.title=thetitle;
+    [Mainwebview loadRequest:[NSURLRequest requestWithURL:browseuuurl]];
 }
 
 - (void)didReceiveMemoryWarning

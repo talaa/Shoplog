@@ -16,10 +16,10 @@
 
 @interface DetailPopViewController : UIViewController<MFMailComposeViewControllerDelegate>
 @property (strong, nonatomic) id detailItem;
-@property (weak, nonatomic) IBOutlet UILabel *pricelabel;
+@property (weak, nonatomic) IBOutlet UILabel *Dimelabel;
 @property (weak, nonatomic) IBOutlet UILabel *shoplabel;
-@property (weak, nonatomic) IBOutlet UILabel *websitelabel;
-@property (weak, nonatomic) IBOutlet UILabel *phonelabel;
+@property (weak, nonatomic) IBOutlet UILabel *commentslabel;
+@property (weak, nonatomic) IBOutlet UILabel *datelabel;
 @property (weak,nonatomic) IBOutlet UIButton *deletebutton;
 @property (weak,nonatomic) IBOutlet UIButton *editbutton;
 @property (nonatomic, assign) id<MyPopoverDelegate> delegate; 

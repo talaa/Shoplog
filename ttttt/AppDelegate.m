@@ -8,8 +8,9 @@
 
 #import "AppDelegate.h"
 #import "TestViewController.h"
-//#import "SHSidebarController.h"
+#import "Flurry.h"
 #import "AddProductDetailViewController.h"
+
 
 @implementation AppDelegate
 
@@ -21,9 +22,11 @@
 {
     // Override point for customization after application launch.
     
-    
-    
+        
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+    //[navigationController.navigationBar setBackgroundImage:gradientImage32 forBarMetrics:UIBarMetricsDefault];
+    //navigationController.navigationBar.tintColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"blueleather.png"]];
+    navigationController.navigationBar.tintColor = [UIColor colorWithRed:48.0f/255.0f green:74.0f/255.0f blue:147.0f/255.0f alpha:1];
     TestViewController *controller = (TestViewController *)navigationController.topViewController;
     controller.managedObjectContext = self.managedObjectContext;
     /*
@@ -61,9 +64,24 @@
     }
      */
     //Test flight 
-    [TestFlight takeOff:@"9ef781d3801dde3e80803c4cd007dc88_MTE3NzY5MjAxMi0wOC0wNCAxNTo1OTo1Ny4zNjg5MjU"];
+    //[TestFlight takeOff:@"9ef781d3801dde3e80803c4cd007dc88_MTE3NzY5MjAxMi0wOC0wNCAxNTo1OTo1Ny4zNjg5MjU"];
+    NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
+    [Flurry startSession:@"S4R4TRC7HXCKJYNGNP8Z"];
+    [Flurry logPageView];
+    CLLocationManager *locationManager = [[CLLocationManager alloc] init];
+    [locationManager startUpdatingLocation];
+    CLLocation *location = locationManager.location;
+    [Flurry setLatitude:location.coordinate.latitude
+              longitude:location.coordinate.longitude
+     horizontalAccuracy:location.horizontalAccuracy
+       verticalAccuracy:location.verticalAccuracy];
     return YES;
 }
+
+void uncaughtExceptionHandler(NSException *exception) {
+    [Flurry logError:@"Uncaught" message:@"Crash!" exception:exception];
+}
+
 //How to Open Internal Catalogues
 -(BOOL) application:(UIApplication *)application handleOpenURL:(NSURL *)url {
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
@@ -120,7 +138,7 @@
 
 // Returns the managed object context for the application.
 // If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
-/*
+
 - (NSManagedObjectContext *)managedObjectContext
 {
     if (_managedObjectContext != nil) {
@@ -134,7 +152,7 @@
     }
     return _managedObjectContext;
 }
-*/
+
 // Returns the managed object model for the application.
 // If the model doesn't already exist, it is created from the application's model.
 - (NSManagedObjectModel *)managedObjectModel
@@ -149,7 +167,7 @@
 
 // Returns the persistent store coordinator for the application.
 // If the coordinator doesn't already exist, it is created and the application's store added to it.
-/*
+
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator
 {
     if (_persistentStoreCoordinator != nil) {
@@ -161,7 +179,7 @@
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
     if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
-        
+        /*
          Replace this implementation with code to handle the error appropriately.
          
          abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
@@ -183,7 +201,7 @@
          
          Lightweight migration will only work for a limited set of schema changes; consult "Core Data Model Versioning and Data Migration Programming Guide" for details.
          
-         *//*
+         */
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
@@ -191,7 +209,8 @@
     return _persistentStoreCoordinator;
 }
 
-*/
+
+/*
 #pragma ICloud Part 
 
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator{
@@ -267,6 +286,7 @@
             [psc unlock];
         }
         else {
+            
             NSLog(@"iCloud is NOT working - using a local store");
             NSMutableDictionary *options = [NSMutableDictionary dictionary];
             [options setObject:[NSNumber numberWithBool:YES] forKey:NSMigratePersistentStoresAutomaticallyOption];
@@ -328,6 +348,7 @@
         [[NSNotificationCenter defaultCenter] postNotification:refreshNotification];
     }];
 }
+ */
 #pragma mark - Application's Documents directory
 
 // Returns the URL to the application's Documents directory.

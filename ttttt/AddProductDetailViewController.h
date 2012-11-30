@@ -15,10 +15,10 @@
 @class Shoplog;
 @class Shop;
 @protocol addproductdetailviewcontrollerdelegate;
-@interface AddProductDetailViewController : UITableViewController<UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIPopoverControllerDelegate,UITextFieldDelegate,MKMapViewDelegate,CLLocationManagerDelegate>
+@interface AddProductDetailViewController : UITableViewController<UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIPopoverControllerDelegate,UITextFieldDelegate,MKMapViewDelegate,UITextViewDelegate>
 {
 
-    CLLocationManager *lm;
+    //CLLocationManager *lm;
     MyAnotation *annotation;
 
 }
@@ -28,14 +28,17 @@
 @property (strong, nonatomic) Shoplog *currentProduct;
 @property (strong,nonatomic)Shop *currentshop;
 @property (nonatomic ) BOOL edit_add;
+@property (nonatomic ) BOOL newcatalogue;
 @property (strong, nonatomic) IBOutlet UITextField *PriceField;
 @property (strong, nonatomic) IBOutlet UITextField *ShopField;
 @property (strong, nonatomic) IBOutlet UITextField *cataloguenamefield;
 @property (strong, nonatomic) IBOutlet UIImageView *imageField;
 @property (strong, nonatomic) IBOutlet UITextField *DimensionsField;
-@property (strong, nonatomic) IBOutlet UITextField *comments;
+
 @property (weak, nonatomic) IBOutlet UITextView *commentsView;
 @property (weak, nonatomic) IBOutlet MKMapView *Maplocation;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+
 
 @property (weak, nonatomic) IBOutlet UISlider *ratingslider;
 @property (weak, nonatomic) IBOutlet UITextField *PhoneField;
@@ -48,7 +51,7 @@
 @property (nonatomic,weak) id <addproductdetailviewcontrollerdelegate> delegate;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *Saveeditbutton;
 @property (weak, nonatomic) IBOutlet UIButton *GetcurrentLocation;
-
+@property (nonatomic) BOOL keyboardisShown;
 @property (nonatomic) double longsaved;
 @property (nonatomic) double latsaved;
 @property (weak, nonatomic) IBOutlet UITextField *LongTextfield;

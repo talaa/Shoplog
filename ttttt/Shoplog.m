@@ -2,7 +2,7 @@
 //  Shoplog.m
 //  ttttt
 //
-//  Created by Tamer Alaa on 11/5/12.
+//  Created by Tamer Alaa on 11/14/12.
 //  Copyright (c) 2012 Tamer Alaa. All rights reserved.
 //
 
@@ -17,10 +17,13 @@
 @dynamic date;
 @dynamic email;
 @dynamic image;
+@dynamic image2;
+@dynamic image3;
 @dynamic phone;
 @dynamic price;
 @dynamic rating;
 @dynamic websiteurl;
+@dynamic dim_size;
 @dynamic shop;
 
 @end

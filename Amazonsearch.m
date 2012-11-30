@@ -11,7 +11,7 @@
 @implementation Amazonsearch
 - (UIImage *)activityImage
 {
-    return [UIImage imageNamed:@"shoppin.png" ];
+    return [UIImage imageNamed:@"amazon-logo.png" ];
 }
 - (NSString *)activityTitle
 {

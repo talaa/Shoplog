@@ -10,8 +10,11 @@
         <attribute name="categoryname" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="comments" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="dim_size" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" defaultValueString="iloveyou@gmail.com" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="image2" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="image3" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="phone" optional="YES" attributeType="Decimal" defaultValueString="800" syncable="YES"/>
         <attribute name="price" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="rating" optional="YES" attributeType="Integer 16" minValueString="0" maxValueString="10" defaultValueString="0" syncable="YES"/>
@@ -20,6 +23,6 @@
     </entity>
     <elements>
         <element name="Shop" positionX="-6183" positionY="-3636" width="128" height="105"/>
-        <element name="Shoplog" positionX="-6381" positionY="-3654" width="128" height="195"/>
+        <element name="Shoplog" positionX="-6381" positionY="-3654" width="128" height="240"/>
     </elements>
 </model>

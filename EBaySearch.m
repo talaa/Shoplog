@@ -11,7 +11,7 @@
 @implementation EBaySearch
 - (UIImage *)activityImage
 {
-    return [UIImage imageNamed:@"shoppin.png" ];
+    return [UIImage imageNamed:@"ebay-logo-01.png" ];
 }
 - (NSString *)activityTitle
 {

@@ -21,7 +21,12 @@ typedef enum SocialButtonTags
 #import "Fancysearch.h"
 #import "EBaySearch.h"
 #import "Amazonsearch.h"
-
+#import "Taobaosearch.h"
+#import "YahoobuySearch.h"
+#import "GoogleShoppingSearch.h"
+#import "Rakutensearch.h"
+#import "Flurry.h"
+#import "UpgradeViewController.h"
 
 //#import "MyCustomCell.h"
 //#import "HeaderView.h"
@@ -36,7 +41,7 @@ typedef enum SocialButtonTags
     NSMutableArray *_sectionChanges;
 }
 @synthesize testarray,mycustomcell,myheaderview,mypopover,detailPopViewController,sharebutton,searcharray;
-#pragma Icloud Part 
+#pragma Icloud Part /*
 - (void)reloadFetchedResults:(NSNotification*)note {
     NSLog(@"Underlying data changed ... refreshing!");
     [self.collectionView reloadData];
@@ -44,10 +49,10 @@ typedef enum SocialButtonTags
     //[self.collectionView setNeedsDisplay];
     //[self performFetch];
 }
+*/
 - (void)viewDidUnload {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
-
 
 ////////////////////
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -63,11 +68,16 @@ typedef enum SocialButtonTags
 -(void)viewWillAppear:(BOOL)animated{
     [self controllerDidChangeContent:self.fetchedResultsController ];
     [self.collectionView reloadData];
+   
 //[self.collectionView setNeedsLayout ];
 
 
 }
 - (void)handleOpenURL:(NSURL *)url {
+    NSUserDefaults *userdefaults =[NSUserDefaults standardUserDefaults];
+
+    if ([[self.fetchedResultsController sections]count]<3|| [userdefaults boolForKey: KPROUprade]){
+    
     [self.navigationController popToViewController:self animated:YES];
     //NSData *dataimported=[NSData dataWithContentsOfURL:url];
     NSMutableArray *recievedarray=[NSMutableArray arrayWithContentsOfURL:url];
@@ -92,9 +102,33 @@ typedef enum SocialButtonTags
         [recievedarray removeAllObjects];
         //[Shoplog createManagedObjectFromDictionary:tempdict inContext:self.managedObjectContext];
     }
-       
+    }else{
+        NSLog(@"I am Beyond the Permissible Limit");
+        UIAlertView *endoftheline=[[UIAlertView alloc]initWithTitle:@"GO PRO" message:@"This Free Version has a limit of 3 Catalogues Only \n if you want to add more Catalogues press GO PRO , otherwise Press Cancel " delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"GO PRO", nil];
+        [endoftheline show];
+    
+    
+    }
 }
 
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    NSLog(@"The button Pressed is %d",buttonIndex);
+    if (buttonIndex==1) {
+        /*
+        InAppPurchaseManager *inapptest=[[InAppPurchaseManager alloc]init];
+        if ([inapptest canMakePurchases]) {
+            [inapptest purchaseProUpgrade];
+        } else {
+            UIAlertView *parent=[[UIAlertView alloc]initWithTitle:@"Sorry" message:@"Parental Control is ON,Kindly turn it Off to be able to upgrade this Application " delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [parent show];
+
+        }
+        */
+
+        [self performSegueWithIdentifier:@"upgrade" sender:self];
+    }
+
+}
 - (void) viewWillDisappear: (BOOL) animated {
     [super viewWillDisappear: animated];
     //NSLog( @"In viewWillDisappear" );
@@ -104,7 +138,7 @@ typedef enum SocialButtonTags
 - (void)viewDidLoad
 {
     // Do any additional setup after loading the view, typically from a nib.
-    self.title=@"ShopLog";
+    self.title=@"Shoplog";
     self.collectionView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"web-elements.png"]];
     
     self.sharing=NO;
@@ -119,10 +153,7 @@ typedef enum SocialButtonTags
                                              selector:@selector(receiveTestNotification:)
                                                  name:@"TestNotification"
                                                object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(reloadFetchedResults:)
-                                                 name:@"SomethingChanged"
-                                               object:[[UIApplication sharedApplication] delegate]];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(Searchactivated1:)
                                                  name:@"Searchactivated"
@@ -138,10 +169,12 @@ typedef enum SocialButtonTags
 #pragma the Storyboard Part
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"AddCatalogue"]) {
+    if ([[segue identifier] isEqualToString:@"AddCatalogue"] ) {
         //  Get a reference to our detail view
+        
         AddProductDetailViewController *addvw = (AddProductDetailViewController *)[segue destinationViewController];
         addvw.edit_add=YES;
+        addvw.newcatalogue=YES;
         //  Pass the managed object context to the destination view controller
         addvw.managedObjectContext = self.managedObjectContext;
     }
@@ -152,6 +185,7 @@ typedef enum SocialButtonTags
         NSIndexPath *indexpath=[[self.collectionView indexPathsForSelectedItems]lastObject];
         NSLog(@"The String is %i",indexpath.section);
         addvw.edit_add=YES;
+        
         //addvw.cataloguenamefield.text=[[[self.fetchedResultsController sections]objectAtIndex:indexpath.section]name];
         addvw.title=[[[self.fetchedResultsController sections]objectAtIndex:indexpath.section]name];
         NSLog(@"The Header is %@",[[[self.fetchedResultsController sections]objectAtIndex:indexpath.section]name]);
@@ -159,7 +193,9 @@ typedef enum SocialButtonTags
         addvw.managedObjectContext = self.managedObjectContext;
     }
     
-    if ([[segue identifier] isEqualToString:@"ShowDetail1"]) {
+    if ([[segue identifier] isEqualToString:@"upgrade"]) {
+        UpgradeViewController *upgarde=(UpgradeViewController *)[segue destinationViewController];
+        [upgarde requestProductData];
         //  Get a reference to our detail view
         //NSIndexPath *indexpath=[[self.collectionView indexPathsForSelectedItems]sender];
         //DetailPopViewController  *detailview = (DetailPopViewController *)[segue destinationViewController];
@@ -173,7 +209,28 @@ typedef enum SocialButtonTags
         
     //NSLog(@"The Segue is as Follows : %@",[segue identifier]);
 }
+-(IBAction)addcatalogueKey:(id)sender{
+    NSUserDefaults *userdefaults =[NSUserDefaults standardUserDefaults];
 
+    NSLog(@"The status of your PROUpgrade is %d",[userdefaults boolForKey:KPROUprade]);
+    if ([[self.fetchedResultsController sections]count]<3 || [userdefaults boolForKey: KPROUprade]) {
+        NSLog(@"I am Still in Acceptable Range");
+        AddProductDetailViewController *addvw = [[AddProductDetailViewController alloc]init];
+        addvw.edit_add=YES;
+        NSLog(@"the Catalogue filed name is %c",addvw.cataloguenamefield.enabled);
+        addvw.cataloguenamefield.enabled=YES;
+        addvw.managedObjectContext = self.managedObjectContext;
+         [self performSegueWithIdentifier:@"AddCatalogue" sender:self];
+        //  Pass the managed object context to the destination view controller
+        
+    }else{
+        
+        NSLog(@"I am Beyond the Permissible Limit");
+        UIAlertView *endoftheline=[[UIAlertView alloc]initWithTitle:@"GO PRO" message:@"This Free Version has a limit of 3 Catalogues Only \n if you want to add more Catalogues press GO PRO , otherwise Press Cancel " delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"GO PRO", nil];
+        [endoftheline show];
+    }
+   
+}
 # pragma The Collection Views Entries
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView*)collectionView {
@@ -232,27 +289,7 @@ typedef enum SocialButtonTags
 
 }
 
--(IBAction)buttonPressed:(id)sender{
-    
-    UITapGestureRecognizer *tap=[[UITapGestureRecognizer alloc]init];
-    CGPoint point = [tap locationInView:self.view];
-    //NSIndexPath *HeaderIndexPath=[self.collectionView indexPathForItemAtPoint:<#(CGPoint)#>]
-    //HeaderView *Hvv=[[HeaderView alloc]init];
-    //Hvv.searchButton.viewForBaselineLayout.layer.frame.origin
-    NSIndexPath *indexpahser=[self.collectionView indexPathForItemAtPoint:point];
-    NSString *searchterm=[[[self.fetchedResultsController sections]objectAtIndex:indexpahser.section]name];
-    [PopoverView showPopoverAtPoint:point inView:self.collectionView withStringArray:[NSArray arrayWithObjects:@"Sync", @"Search", nil] delegate:self];
-    /*
-    UIActivityViewController *activityViewController2 =[[UIActivityViewController alloc]initWithActivityItems:self.searcharray applicationActivities:nil];
-    
-    
-    [self presentViewController:activityViewController2 animated:YES completion:^{}];
- 
-     */
-    NSLog(@"I am Searching Right now%@ ",searchterm);
 
-
-}
 
 -(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSManagedObject *obj =[self.fetchedResultsController objectAtIndexPath:indexPath];
@@ -289,7 +326,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
                     UIPopoverController *pop=[[UIPopoverController alloc]initWithContentViewController:self.detailPopViewController];
                     
                     self.detailPopViewController.delegate=self;
-                    [pop presentPopoverFromRect:attributes.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+                    [pop presentPopoverFromRect:attributes.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
                     self.mypopover=pop;
                     //[self performSegueWithIdentifier:@"ShowDetail1" sender:collectionView ];
                     
@@ -306,15 +343,20 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
                 
                 
                 
-                [pop setPopoverContentSize:CGSizeMake(244, 307)];
+                [pop setPopoverContentSize:CGSizeMake(280, 180)];
+                
                 [pop presentPopoverFromRect:attributes.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
                 NSManagedObject *obj =[self.fetchedResultsController objectAtIndexPath:indexPath];
                 
                 [detailPopViewController setDetailItem:obj];
                 self.mypopover=pop;
+                NSLog(@"I am Facing  %f",pop.popoverContentSize.height);
+                if (pop.popoverArrowDirection==1) {
+                        NSLog(@"I am Facing Down ");
+                    }
                 }
             }
-                        
+            
             
             [self.collectionView deselectItemAtIndexPath:indexPath animated:YES];
         } else {
@@ -345,12 +387,20 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     Fancysearch *Activity1=[[Fancysearch alloc]init];
     EBaySearch *Activity2=[[EBaySearch alloc]init];
     Amazonsearch *Activity3=[[Amazonsearch alloc]init];
+    Rakutensearch *Activity4=[[Rakutensearch alloc]init];
+    Taobaosearch *Activity5=[[Taobaosearch alloc]init];
+    GoogleShoppingSearch *Activity6=[[GoogleShoppingSearch alloc]init];
+    YahoobuySearch *Activity7=[[YahoobuySearch alloc]init];
+    
     //Activity1 set
-    NSArray *Activityarray=[[NSArray alloc]initWithObjects:Activity1,Activity2,Activity3, nil];
+    NSArray *Activityarray=[[NSArray alloc]initWithObjects:Activity1,Activity2,Activity3,Activity4,Activity5,Activity6,Activity7, nil];
     
     //Executing the Activity View Controller 
     UIActivityViewController *activityViewController2 =[[UIActivityViewController alloc]initWithActivityItems:addArray2 applicationActivities:Activityarray];
     activityViewController2.excludedActivityTypes=@[UIActivityTypePostToWeibo, UIActivityTypeAssignToContact, UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypeSaveToCameraRoll,UIActivityTypeMail,UIActivityTypeMessage,UIActivityTypePostToFacebook,UIActivityTypePostToTwitter];
+    NSDictionary *flurrydicttionary2=[[NSDictionary alloc]initWithObjectsAndKeys:activityViewController2.description,@"searchengine", nil];
+    [Flurry logEvent:@"Search_Engine" withParameters:flurrydicttionary2 timed:YES];
+
     [self presentViewController:activityViewController2 animated:YES completion:^{}];
     
 }
@@ -375,6 +425,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         [sharebutton setStyle:UIBarButtonItemStyleDone];
         [sharebutton setTitle:@"Done"];
         [self.collectionView setAllowsMultipleSelection:YES];
+        
         NSLog(@"I am allowing Multiple Sharing ");
         
     } else {
@@ -417,13 +468,13 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         [newArraytext addObject:initalTextString];
         CreateShoplogTagImage *createimagetag=[[CreateShoplogTagImage alloc]init];
         UIImage *newimage=[createimagetag Imagetag:ChosenPhot];
-        
+        NSDictionary *flurrydicttionary3=[[NSDictionary alloc]initWithObjectsAndKeys:ChosenPhot.categoryname,@"SharedCategoryname", nil];
+        [Flurry logEvent:@"SharedCatalogue" withParameters:flurrydicttionary3 timed:YES];
         [newArray addObject:newimage];
 
     }
-    //NSMutableArray *addArray=[[NSMutableArray alloc]initWithObjects:newArray,newArraytext, nil];
     
-    //[self.addarray addObjectsFromArray:newArray];
+
     NSMutableArray *addArray=[[NSMutableArray alloc]initWithArray:newArray];
     [addArray addObjectsFromArray:newArraytext];
     //[self.addarray addObjectsFromArray:newArraytext];
@@ -565,9 +616,11 @@ atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type
         case NSFetchedResultsChangeUpdate:
             change[@(type)] = indexPath;
             break;
+            
         case NSFetchedResultsChangeMove:
             change[@(type)] = @[indexPath, newIndexPath];
             break;
+             
     }
     [_objectChanges addObject:change];
      //NSLog(@"The new Objects changes are :%@",_objectChanges);
@@ -630,11 +683,13 @@ atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type
                             //NSLog(@"The new Updated changes are :%@",obj);
                             [self.collectionView.window endEditing:YES];
                             break;
+                            
                         case NSFetchedResultsChangeMove:
                             [self.collectionView moveItemAtIndexPath:obj[0] toIndexPath:obj[1]];
                              //NSLog(@"The new moved changes are :%@",obj);
                             [self.collectionView.window endEditing:YES];
                             break;
+                             
                     }
                 }];
             }
@@ -643,6 +698,9 @@ atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type
     
     [_sectionChanges removeAllObjects];
     [_objectChanges removeAllObjects];
+}
+- (IBAction)origin:(UIStoryboardSegue *)segue
+{
 }
 
 

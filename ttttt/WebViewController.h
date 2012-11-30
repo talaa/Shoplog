@@ -11,4 +11,6 @@
 @interface WebViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIWebView *Mainwebview;
 @property (strong,nonatomic)NSURL *browseuuurl;
+@property (weak, nonatomic) IBOutlet UINavigationBar *webnavigation;
+@property(strong,nonatomic)NSString *thetitle;
 @end

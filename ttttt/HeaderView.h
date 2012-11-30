@@ -13,5 +13,6 @@
 @interface HeaderView : UICollectionReusableView<PopoverViewDelegate>
 @property (nonatomic,retain) IBOutlet UILabel *Headerviewlabel;
 @property (nonatomic,strong) IBOutlet UIButton *searchButton;
+@property (nonatomic,strong) IBOutlet UIImageView *backgroundimage;
 @property (nonatomic,strong)NSString *searchstring;
 @end

@@ -17,9 +17,10 @@
 #import "DetailPopViewController.h"
 #import "PopoverView.h"
 
+#define KPROUprade @"isProversionpurchased"
 @class MyCustomCell;
 @class HeaderView;
-@interface TestViewController : UICollectionViewController<UICollectionViewDataSource,UICollectionViewDelegate,NSFetchedResultsControllerDelegate,UIPopoverControllerDelegate,MyPopoverDelegate,MFMailComposeViewControllerDelegate,PopoverViewDelegate>{
+@interface TestViewController : UICollectionViewController<UICollectionViewDataSource,UICollectionViewDelegate,NSFetchedResultsControllerDelegate,UIPopoverControllerDelegate,MyPopoverDelegate,MFMailComposeViewControllerDelegate,PopoverViewDelegate,UIAlertViewDelegate>{
 
 
     //IBOutlet UIViewController *popoverinview;
@@ -43,5 +44,5 @@
 //@property(nonatomic, strong) NSString *searchstring;
 //-(void)showmailcomposer:(NSData*)datafile;
 - (void)handleOpenURL:(NSURL *)url;
-- (void)reloadFetchedResults:(NSNotification*)note;
+//- (void)reloadFetchedResults:(NSNotification*)note;
 @end
