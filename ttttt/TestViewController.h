@@ -16,10 +16,12 @@
 #import "HeaderView.h"
 #import "DetailPopViewController.h"
 #import "PopoverView.h"
+#import "AdFooterview.h"
 
 #define KPROUprade @"isProversionpurchased"
 @class MyCustomCell;
 @class HeaderView;
+@class AdFooterview;
 @interface TestViewController : UICollectionViewController<UICollectionViewDataSource,UICollectionViewDelegate,NSFetchedResultsControllerDelegate,UIPopoverControllerDelegate,MyPopoverDelegate,MFMailComposeViewControllerDelegate,PopoverViewDelegate,UIAlertViewDelegate>{
 
 

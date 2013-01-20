@@ -7,6 +7,7 @@
 //
 
 #import "Amazonsearch.h"
+#import "Flurry.h"
 
 @implementation Amazonsearch
 - (UIImage *)activityImage
@@ -57,7 +58,9 @@
 -(void)performActivity{
     //WebViewController *webcontrol=[[WebViewController alloc]init];
     NSString *completeUrl=[@"http://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=" stringByAppendingString:self.searchstring];
-    
+    NSDictionary *flurrydicttionary2=[[NSDictionary alloc]initWithObjectsAndKeys:@"Amazon",@"searchengine", nil];
+    [Flurry logEvent:@"Search_Engine" withParameters:flurrydicttionary2 timed:YES];
+
     //[webcontrol setBrowseuuurl:[[NSURL alloc]initWithString:completeUrl]];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:completeUrl]];
     [self activityDidFinish:YES];

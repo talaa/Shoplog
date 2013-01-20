@@ -18,27 +18,21 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
     
-        
-    UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+    UITabBarController *tabBarController =(UITabBarController *)self.window.rootViewController;
+    UINavigationController *navigationController = [[tabBarController viewControllers] objectAtIndex:0];
+    
+    //UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     //[navigationController.navigationBar setBackgroundImage:gradientImage32 forBarMetrics:UIBarMetricsDefault];
     //navigationController.navigationBar.tintColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"blueleather.png"]];
     navigationController.navigationBar.tintColor = [UIColor colorWithRed:48.0f/255.0f green:74.0f/255.0f blue:147.0f/255.0f alpha:1];
     TestViewController *controller = (TestViewController *)navigationController.topViewController;
     controller.managedObjectContext = self.managedObjectContext;
-    /*
-    //The SideBar
-    NSMutableArray *vcs = [NSMutableArray array];
     
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:red];
-    AddProductDetailViewController *edit
-    NSDictionary *view = [NSDictionary dictionaryWithObjectsAndKeys:nav, @"vc", [NSString stringWithFormat:@"Red %i", i], @"title", nil];
-    [vcs addObject:view];
-    SHSidebarController *sidebar = [[SHSidebarController alloc] initWithArrayOfVC:vcs];
-   */
 
     /*
         if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
@@ -66,8 +60,9 @@
     //Test flight 
     //[TestFlight takeOff:@"9ef781d3801dde3e80803c4cd007dc88_MTE3NzY5MjAxMi0wOC0wNCAxNTo1OTo1Ny4zNjg5MjU"];
     NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
-    [Flurry startSession:@"S4R4TRC7HXCKJYNGNP8Z"];
+    //[Flurry startSession:@"S4R4TRC7HXCKJYNGNP8Z"];
     [Flurry logPageView];
+    /*
     CLLocationManager *locationManager = [[CLLocationManager alloc] init];
     [locationManager startUpdatingLocation];
     CLLocation *location = locationManager.location;
@@ -75,6 +70,7 @@
               longitude:location.coordinate.longitude
      horizontalAccuracy:location.horizontalAccuracy
        verticalAccuracy:location.verticalAccuracy];
+     */
     return YES;
 }
 

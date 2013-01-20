@@ -28,6 +28,7 @@ typedef enum SocialButtonTags
 #import "Flurry.h"
 #import "UpgradeViewController.h"
 
+
 //#import "MyCustomCell.h"
 //#import "HeaderView.h"
 
@@ -76,7 +77,7 @@ typedef enum SocialButtonTags
 - (void)handleOpenURL:(NSURL *)url {
     NSUserDefaults *userdefaults =[NSUserDefaults standardUserDefaults];
 
-    if ([[self.fetchedResultsController sections]count]<3|| [userdefaults boolForKey: KPROUprade]){
+    if ([[self.fetchedResultsController sections]count]<=3|| [userdefaults boolForKey: KPROUprade]){
     
     [self.navigationController popToViewController:self animated:YES];
     //NSData *dataimported=[NSData dataWithContentsOfURL:url];
@@ -213,7 +214,7 @@ typedef enum SocialButtonTags
     NSUserDefaults *userdefaults =[NSUserDefaults standardUserDefaults];
 
     NSLog(@"The status of your PROUpgrade is %d",[userdefaults boolForKey:KPROUprade]);
-    if ([[self.fetchedResultsController sections]count]<3 || [userdefaults boolForKey: KPROUprade]) {
+    if ([[self.fetchedResultsController sections]count]<=3 || [userdefaults boolForKey: KPROUprade]) {
         NSLog(@"I am Still in Acceptable Range");
         AddProductDetailViewController *addvw = [[AddProductDetailViewController alloc]init];
         addvw.edit_add=YES;
@@ -278,16 +279,116 @@ typedef enum SocialButtonTags
 (UICollectionView *)collectionView
           viewForSupplementaryElementOfKind:(NSString *)kind
                                 atIndexPath:(NSIndexPath *)indexPath{
-
-    HeaderView *Hv =[self.collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
-    NSString *Headlabel=[[NSString alloc]initWithString:[[[self.fetchedResultsController sections]objectAtIndex:indexPath.section]name]];
     
-    Hv.Headerviewlabel.text=Headlabel;
-    return Hv;
+    NSUserDefaults *userdefaults =[NSUserDefaults standardUserDefaults];
+    BOOL check=[userdefaults boolForKey:KPROUprade];
+    if ([[self.fetchedResultsController sections]count]<=3 || !check){
+        if ([kind isEqual:UICollectionElementKindSectionFooter]){
+            AdFooterview *adfoot=[self.collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"adFooterview" forIndexPath:indexPath];
+           
+            GADBannerView *adbanner;
+            // Create a view of the standard size at the top of the screen.
+            // Available AdSize constants are explained in GADAdSize.h.
+            adbanner = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+            
+            // Specify the ad's "unit identifier." This is your AdMob Publisher ID.
+            adbanner.adUnitID = @"a150d70feb67349";
+            
+            // Let the runtime know which UIViewController to restore after taking
+            // the user wherever the ad goes and add it to the view hierarchy.
+            
+            //self=[super initWithFrame:adbanner.frame];
+            
+            adbanner.rootViewController = self;
+            [adfoot addSubview:adbanner];
+            
+            // Initiate a generic request to load it with an ad.
+            [adbanner loadRequest:[GADRequest request]];
+            return adfoot;
 
+        
+        
+        }else{
+            
+            HeaderView *Hv =[self.collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
+            
+            NSString *Headlabel=[[NSString alloc]initWithString:[[[self.fetchedResultsController sections]objectAtIndex:indexPath.section]name]];
+            
+            Hv.Headerviewlabel.text=Headlabel;
+            return Hv;
+        
+        
+        }
+    
+    
+    
+    }else{
+        if ([kind isEqual:UICollectionElementKindSectionFooter]) {
+            AdFooterview *adfoot=[self.collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"adFooterview" forIndexPath:indexPath];
+            adfoot.backgroundColor=[UIColor clearColor];
+            return adfoot;
+        }else{
+        
+        HeaderView *Hv =[self.collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
+        
+        NSString *Headlabel=[[NSString alloc]initWithString:[[[self.fetchedResultsController sections]objectAtIndex:indexPath.section]name]];
+        
+        Hv.Headerviewlabel.text=Headlabel;
+            return Hv;}
+        
+    }
+    
+    
+    
+    /*
+    if ([kind isEqual:UICollectionElementKindSectionHeader]) {
+        HeaderView *Hv =[self.collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
+        
+        NSString *Headlabel=[[NSString alloc]initWithString:[[[self.fetchedResultsController sections]objectAtIndex:indexPath.section]name]];
+        
+        Hv.Headerviewlabel.text=Headlabel;
+        return Hv;
 
+    } else {
+        
+        NSUserDefaults *userdefaults =[NSUserDefaults standardUserDefaults];
+        NSLog(@"The KPROUpgarde is %d",[userdefaults boolForKey:KPROUprade]);
+        NSLog(@"The Sections is %i",[[self.fetchedResultsController sections]count]);
+        if ([[self.fetchedResultsController sections]count]<=3 || [userdefaults boolForKey: KPROUprade]){
+        AdFooterview *adfoot=[self.collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"adFooterview" forIndexPath:indexPath];
+        GADBannerView *adbanner;
+        // Create a view of the standard size at the top of the screen.
+        // Available AdSize constants are explained in GADAdSize.h.
+        adbanner = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+        
+        // Specify the ad's "unit identifier." This is your AdMob Publisher ID.
+        adbanner.adUnitID = @"a150d70feb67349";
+        
+        // Let the runtime know which UIViewController to restore after taking
+        // the user wherever the ad goes and add it to the view hierarchy.
+        
+        //self=[super initWithFrame:adbanner.frame];
+        
+        adbanner.rootViewController = self;
+        [adfoot addSubview:adbanner];
+        
+        // Initiate a generic request to load it with an ad.
+        [adbanner loadRequest:[GADRequest request]];
+        return adfoot;
+        } else{
+            NSLog(@"I am Beyond the Permissible Limit");
+            UIAlertView *endoftheline=[[UIAlertView alloc]initWithTitle:@"GO PRO" message:@"This Free Version has a limit of 3 Catalogues Only \n if you want to add more Catalogues press GO PRO , otherwise Press Cancel " delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"GO PRO", nil];
+            [endoftheline show];}
+       
+    }
+    
+    
+*/
+    
 
 }
+
+
 
 
 
@@ -398,8 +499,8 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     //Executing the Activity View Controller 
     UIActivityViewController *activityViewController2 =[[UIActivityViewController alloc]initWithActivityItems:addArray2 applicationActivities:Activityarray];
     activityViewController2.excludedActivityTypes=@[UIActivityTypePostToWeibo, UIActivityTypeAssignToContact, UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypeSaveToCameraRoll,UIActivityTypeMail,UIActivityTypeMessage,UIActivityTypePostToFacebook,UIActivityTypePostToTwitter];
-    NSDictionary *flurrydicttionary2=[[NSDictionary alloc]initWithObjectsAndKeys:activityViewController2.description,@"searchengine", nil];
-    [Flurry logEvent:@"Search_Engine" withParameters:flurrydicttionary2 timed:YES];
+    //NSDictionary *flurrydicttionary2=[[NSDictionary alloc]initWithObjectsAndKeys:activityViewController2.description,@"searchengine", nil];
+    //[Flurry logEvent:@"Search_Engine" withParameters:flurrydicttionary2 timed:YES];
 
     [self presentViewController:activityViewController2 animated:YES completion:^{}];
     
@@ -557,8 +658,9 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [fetchRequest setFetchBatchSize:20];
     
     // Edit the sort key as appropriate.
+    NSSortDescriptor *sortDescriptorcatname = [[NSSortDescriptor alloc] initWithKey:@"categoryname" ascending:YES];
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"price" ascending:NO];
-    NSArray *sortDescriptors = @[sortDescriptor];
+    NSArray *sortDescriptors = @[sortDescriptorcatname,sortDescriptor];
     
     [fetchRequest setSortDescriptors:sortDescriptors];
     

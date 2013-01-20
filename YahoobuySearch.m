@@ -7,7 +7,7 @@
 //
 
 #import "YahoobuySearch.h"
-
+#import "Flurry.h"
 @implementation YahoobuySearch
 - (UIImage *)activityImage
 {
@@ -59,6 +59,9 @@
     //NSString *completeUrl=[@"http://global.rakuten.com/en/search?st=&tl=0&k=" stringByAppendingString:self.searchstring];
     NSString *completeUrl=[[NSString alloc]initWithFormat:@"http://shopping.yahoo.com/search;_ylt=ApaFjLjy42XZwaG.jCu1u7MEgFoB?p=%@&did=0",self.searchstring ];
     //[webcontrol setBrowseuuurl:[[NSURL alloc]initWithString:completeUrl]];
+    NSDictionary *flurrydicttionary2=[[NSDictionary alloc]initWithObjectsAndKeys:@"Yahoobuysearch",@"searchengine", nil];
+    [Flurry logEvent:@"Search_Engine" withParameters:flurrydicttionary2 timed:YES];
+
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:completeUrl]];
     [self activityDidFinish:YES];
     

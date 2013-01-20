@@ -1,15 +1,53 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="11G63" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="yrQ-gj-5DR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="11G63" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="7yp-8s-ZlK">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
     </dependencies>
     <scenes>
+        <!--Carousel View Controller - Feeds-->
+        <scene sceneID="W6c-Dg-vf5">
+            <objects>
+                <viewController id="OhY-Ru-cOE" customClass="CarouselViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5Bp-yX-wG8">
+                        <rect key="frame" x="0.0" y="20" width="768" height="955"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Backgrounditem.png" translatesAutoresizingMaskIntoConstraints="NO" id="4sP-eU-RF2"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s5J-n5-D4X" customClass="iCarousel">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="OhY-Ru-cOE" id="9FH-wH-pMc"/>
+                                    <outlet property="delegate" destination="OhY-Ru-cOE" id="xp6-Op-gwB"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="s5J-n5-D4X" firstAttribute="top" secondItem="5Bp-yX-wG8" secondAttribute="top" constant="20" symbolic="YES" type="default" id="1Rl-e6-ald"/>
+                            <constraint firstItem="4sP-eU-RF2" firstAttribute="trailing" secondItem="5Bp-yX-wG8" secondAttribute="trailing" type="default" id="3rN-4N-jOX"/>
+                            <constraint firstItem="s5J-n5-D4X" firstAttribute="trailing" secondItem="5Bp-yX-wG8" secondAttribute="trailing" type="default" id="6U7-cY-5VJ"/>
+                            <constraint firstAttribute="bottom" secondItem="s5J-n5-D4X" secondAttribute="bottom" constant="-20" id="Iu9-Us-HKe"/>
+                            <constraint firstItem="4sP-eU-RF2" firstAttribute="leading" secondItem="5Bp-yX-wG8" secondAttribute="leading" type="default" id="Vlp-0n-rwv"/>
+                            <constraint firstItem="4sP-eU-RF2" firstAttribute="top" secondItem="5Bp-yX-wG8" secondAttribute="top" type="default" id="Xfh-MJ-rov"/>
+                            <constraint firstItem="s5J-n5-D4X" firstAttribute="leading" secondItem="5Bp-yX-wG8" secondAttribute="leading" type="default" id="d5k-zg-cvz"/>
+                            <constraint firstItem="4sP-eU-RF2" firstAttribute="bottom" secondItem="5Bp-yX-wG8" secondAttribute="bottom" type="default" id="hc7-zQ-PtO"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Feeds" image="icon_post.png" id="PKb-pU-Caj"/>
+                    <connections>
+                        <outlet property="carousel" destination="s5J-n5-D4X" id="eAW-Eh-CaA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mSq-im-HQz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2182" y="-1602"/>
+        </scene>
         <!--Add Product Detail View Controller-->
         <scene sceneID="a2b-B9-ea3">
             <objects>
                 <tableViewController id="kQ7-Yt-TmH" customClass="AddProductDetailViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ytc-SU-Keb" customClass="TPKeyboardAvoidingTableView">
-                        <rect key="frame" x="0.0" y="64" width="768" height="960"/>
+                        <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" red="0.80000001192092896" green="0.80000001192092896" blue="0.80000001192092896" alpha="1" colorSpace="calibratedRGB"/>
@@ -588,7 +626,7 @@
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2765" y="-1143"/>
+            <point key="canvasLocation" x="4411" y="-1175"/>
         </scene>
         <!--Detail Pop View Controller-->
         <scene sceneID="PHk-Wn-LQQ">
@@ -761,9 +799,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E6k-Sc-FkR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2781" y="46"/>
+            <point key="canvasLocation" x="3755" y="46"/>
         </scene>
-        <!--Upgrade View Controller-->
+        <!--Upgrade View Controller - GO PRO-->
         <scene sceneID="Je0-Kz-wiN">
             <objects>
                 <viewController id="Zgi-ew-R5R" customClass="UpgradeViewController" sceneMemberID="viewController">
@@ -832,6 +870,7 @@
                             <constraint firstItem="KQz-ua-12b" firstAttribute="top" secondItem="FtA-3Y-trY" secondAttribute="top" constant="210" id="zuh-98-bTK"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="GO PRO" image="icon_star.png" id="7PT-Wb-1Hg"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="buybutton" destination="bxP-hq-YWW" id="4Cn-t2-UZz"/>
@@ -893,12 +932,12 @@
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" id="wI8-cv-s1W" customClass="TestViewController" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="4Gp-wA-YNA">
-                        <rect key="frame" x="0.0" y="64" width="768" height="960"/>
+                        <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ufQ-Xr-z5N">
                             <size key="itemSize" width="150" height="150"/>
                             <size key="headerReferenceSize" width="50" height="50"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="50" height="50"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
@@ -985,7 +1024,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="768" height="50"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="headerviewimage.png" translatesAutoresizingMaskIntoConstraints="NO" id="9hh-bk-IrW"/>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Headerview.png" translatesAutoresizingMaskIntoConstraints="NO" id="9hh-bk-IrW"/>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yTe-Vd-m8v">
                                     <constraints>
                                         <constraint firstAttribute="width" constant="197" id="NPB-CF-Mwl"/>
@@ -1024,6 +1063,10 @@
                                 <outlet property="searchButton" destination="lmx-Q9-kTa" id="AbJ-4Q-8SE"/>
                             </connections>
                         </collectionReusableView>
+                        <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="adFooterview" id="o7T-1j-ugo" customClass="AdFooterview">
+                            <rect key="frame" x="0.0" y="200" width="768" height="50"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="wI8-cv-s1W" id="qCG-fr-Kt8"/>
                             <outlet property="delegate" destination="wI8-cv-s1W" id="e97-sV-UWH"/>
@@ -1051,12 +1094,13 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K6f-cJ-wYV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1798" y="-264"/>
+            <point key="canvasLocation" x="2772" y="-264"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Navigation Controller - Shoplog-->
         <scene sceneID="kcE-sE-wbh">
             <objects>
                 <navigationController id="yrQ-gj-5DR" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Shoplog" image="icon_shopping_bag.png" id="gtm-IR-4yU"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="yQ9-uS-Pes">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
@@ -1069,23 +1113,49 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vos-Aw-aLY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="824" y="-264"/>
+            <point key="canvasLocation" x="1798" y="-264"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="IEI-fV-ej0">
+            <objects>
+                <tabBarController id="7yp-8s-ZlK" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="dL2-iL-Khg">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="yrQ-gj-5DR" kind="relationship" relationship="viewControllers" id="gCw-gC-xUE"/>
+                        <segue destination="OhY-Ru-cOE" kind="relationship" relationship="viewControllers" id="io8-d0-LnX"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g2E-uf-Fa4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="704" y="-334"/>
         </scene>
     </scenes>
     <resources>
+        <image name="Backgrounditem.png" width="50" height="468"/>
         <image name="Button.png" width="162" height="42"/>
         <image name="Button@2x.png" width="324" height="84"/>
         <image name="EditButton.png" width="57" height="57"/>
         <image name="Email1.png" width="512" height="512"/>
+        <image name="Headerview.png" width="320" height="40"/>
         <image name="Heart1.png" width="241" height="209"/>
         <image name="Phone1.png" width="512" height="512"/>
         <image name="Web-icon.png" width="256" height="256"/>
-        <image name="headerviewimage.png" width="320" height="41"/>
+        <image name="icon_post.png" width="30" height="30"/>
+        <image name="icon_shopping_bag.png" width="30" height="30"/>
+        <image name="icon_star.png" width="30" height="30"/>
         <image name="plus-sign.png" width="256" height="256"/>
         <image name="removeicon1.png" width="50" height="49"/>
         <image name="shopping_girl_01_vector_156382.jpg" width="425" height="321"/>
     </resources>
     <classes>
+        <class className="AdFooterview" superclassName="UICollectionReusableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AdFooterview.h"/>
+        </class>
         <class className="AddProductDetailViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AddProductDetailViewController.h"/>
             <relationships>
@@ -1110,6 +1180,22 @@
                 <relationship kind="outlet" name="imageField" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="ratingslider" candidateClass="UISlider"/>
                 <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
+            </relationships>
+        </class>
+        <class className="CarouselViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CarouselViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="Gotolink:"/>
+                <relationship kind="action" name="Refresh:"/>
+                <relationship kind="outlet" name="Buttonclick" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="ContentActivity" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="Provideractivity" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="Refreshbutton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="carousel" candidateClass="iCarousel"/>
+                <relationship kind="outlet" name="label" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="text" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="usericon" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="username" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="DetailPopViewController" superclassName="UIViewController">
@@ -1180,8 +1266,16 @@
         <class className="WebViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/WebViewController.h"/>
             <relationships>
+                <relationship kind="action" name="Goingback:"/>
                 <relationship kind="outlet" name="Mainwebview" candidateClass="UIWebView"/>
                 <relationship kind="outlet" name="webnavigation" candidateClass="UINavigationBar"/>
+            </relationships>
+        </class>
+        <class className="iCarousel" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/iCarousel.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dataSource"/>
+                <relationship kind="outlet" name="delegate"/>
             </relationships>
         </class>
     </classes>

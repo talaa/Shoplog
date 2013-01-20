@@ -7,6 +7,7 @@
 //
 
 #import "Rakutensearch.h"
+#import "Flurry.h"
 
 @implementation Rakutensearch
 - (UIImage *)activityImage
@@ -59,6 +60,9 @@
     NSString *completeUrl=[@"http://global.rakuten.com/en/search?st=&tl=0&k=" stringByAppendingString:self.searchstring];
     //NSString *completeUrl=[[NSString alloc]initWithFormat:@"http://www.ebay.com/sch/i.html?_trksid=p5197.m570.l1313&_nkw=%@&_sacat=0&_from=R40",self.searchstring ];
     //[webcontrol setBrowseuuurl:[[NSURL alloc]initWithString:completeUrl]];
+    NSDictionary *flurrydicttionary2=[[NSDictionary alloc]initWithObjectsAndKeys:@"Rakuten",@"searchengine", nil];
+    [Flurry logEvent:@"Search_Engine" withParameters:flurrydicttionary2 timed:YES];
+
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:completeUrl]];
     [self activityDidFinish:YES];
     

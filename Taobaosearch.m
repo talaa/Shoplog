@@ -7,6 +7,7 @@
 //
 
 #import "Taobaosearch.h"
+#import "Flurry.h"
 
 @implementation Taobaosearch
 - (UIImage *)activityImage
@@ -59,6 +60,9 @@
     //NSString *completeUrl=[@"http://global.rakuten.com/en/search?st=&tl=0&k=" stringByAppendingString:self.searchstring];
     NSString *completeUrl=[[NSString alloc]initWithFormat:@"http://search8.taobao.com/search?q=%@&commend=all&ssid=s5-e&pid=mm_14507416_2297358_8935934",self.searchstring ];
     //[webcontrol setBrowseuuurl:[[NSURL alloc]initWithString:completeUrl]];
+    NSDictionary *flurrydicttionary2=[[NSDictionary alloc]initWithObjectsAndKeys:@"Taobao",@"searchengine", nil];
+    [Flurry logEvent:@"Search_Engine" withParameters:flurrydicttionary2 timed:YES];
+
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:completeUrl]];
     [self activityDidFinish:YES];
     

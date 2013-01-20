@@ -150,12 +150,23 @@
     //NSLog(@"The Supposed Saved values are %f %f",longsaved,latsaved);
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
-        
-
+}
+ /*
+[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow1:) name:UIKeyboardWillShowNotification object:nil];
+[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide1:) name:UIKeyboardDidHideNotification object:nil];
 
     
     
 }
+-(void)keyboardWillShow1 {
+    
+    Saveeditbutton.enabled = NO;
+}
+-(void)keyboardWillHide1{
+    
+    Saveeditbutton.enabled = YES;
+}
+  */
 
 - (IBAction)Lgpraction:(id)sender {
     if (Lgpressgesture.state != UIGestureRecognizerStateBegan)
@@ -510,7 +521,7 @@
     [EmailField resignFirstResponder];
     [WebsiteField resignFirstResponder];
     [commentsView resignFirstResponder];
-    
+    Saveeditbutton.enabled = YES;
     
     
     
@@ -595,8 +606,8 @@
 -(void)keyboardDidshow:(NSNotification*)notification{
     if (_keyboardisShown) return;
     
-    
-    
+    Saveeditbutton.enabled = NO;
+
     NSDictionary *info =[notification userInfo];
     //Obtain the Size of the Keyboard 
     NSValue *aValue=[info objectForKey:UIKeyboardFrameEndUserInfoKey];
@@ -625,6 +636,7 @@
 
 }
 -(IBAction)textFieldDidEndEditing:(UITextField *)textField:(id)sender{
+    
     [sender resignFirstResponder];
 
 }

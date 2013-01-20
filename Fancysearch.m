@@ -8,6 +8,7 @@
 
 #import "Fancysearch.h"
 #import "WebViewController.h"
+#import "Flurry.h"
 
 
 
@@ -60,9 +61,12 @@
 -(void)performActivity{
     //WebViewController *webcontrol=[[WebViewController alloc]init];
     NSString *completeUrl=[@"http://www.thefancy.com/search?q=" stringByAppendingString:self.searchstring];
-    
+    NSDictionary *flurrydicttionary2=[[NSDictionary alloc]initWithObjectsAndKeys:@"Fancy Search",@"searchengine", nil];
+    [Flurry logEvent:@"Search_Engine" withParameters:flurrydicttionary2 timed:YES];
+
     //[webcontrol setBrowseuuurl:[[NSURL alloc]initWithString:completeUrl]];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:completeUrl]];
+    
     [self activityDidFinish:YES];
 
 }

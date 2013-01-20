@@ -7,6 +7,7 @@
 //
 
 #import "EBaySearch.h"
+#import "Flurry.h"
 
 @implementation EBaySearch
 - (UIImage *)activityImage
@@ -58,6 +59,9 @@
     //WebViewController *webcontrol=[[WebViewController alloc]init];
     //NSString *completeUrl=[@"http://www.thefancy.com/search?q=" stringByAppendingString:self.searchstring];
     NSString *completeUrl=[[NSString alloc]initWithFormat:@"http://www.ebay.com/sch/i.html?_trksid=p5197.m570.l1313&_nkw=%@&_sacat=0&_from=R40",self.searchstring ];
+    NSDictionary *flurrydicttionary2=[[NSDictionary alloc]initWithObjectsAndKeys:@"EBAY",@"searchengine", nil];
+    [Flurry logEvent:@"Search_Engine" withParameters:flurrydicttionary2 timed:YES];
+
     //[webcontrol setBrowseuuurl:[[NSURL alloc]initWithString:completeUrl]];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:completeUrl]];
     [self activityDidFinish:YES];
