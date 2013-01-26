@@ -27,6 +27,13 @@
 
 - (void)viewDidLoad
 {
+    NSUserDefaults *userdefaults =[NSUserDefaults standardUserDefaults];
+    if (![userdefaults boolForKey:KRated]) {
+        UIAlertView *ratemeplease=[[UIAlertView alloc]initWithTitle:@"Rate me Please " message:@"If you like our App , Please Rate our App in the App Store " delegate:self cancelButtonTitle:@"Later" otherButtonTitles:@"Rate it", nil];
+        [ratemeplease show];
+        
+        
+    }
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"web-elements.png"]];
     if ([SKPaymentQueue canMakePayments]) {
         NSLog(@"The Parental Control is Disabled");
@@ -43,7 +50,22 @@
 	// Do any additional setup after loading the view.
 }
 
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    NSLog(@"The button Pressed is %d",buttonIndex);
+    if (buttonIndex==1) {
+        NSString *link=@"https://itunes.apple.com/us/app/shoplog/id557686446?ls=1&mt=8";
+        //NSString *link=@"http://www.google.com";
+        
+        //NSString *urlString = [NSString stringWithFormat:@"http://maps.google.com/maps?q=%@, Anchorage, AK",addressString];
+        NSString *escaped = [link stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:escaped]];
+        //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/us/app/shoplog/id557686446?ls=1&mt=8"]];
 
+        NSLog(@"I will got to the app storee");
+        //[self performSegueWithIdentifier:@"upgrade" sender:self];
+    }
+    
+}
 
 -(IBAction)buyproduct:(id)sender{
 

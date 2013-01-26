@@ -10,6 +10,8 @@
 #import "TestViewController.h"
 #import "Flurry.h"
 #import "AddProductDetailViewController.h"
+#import "UpgradeViewController.h"
+
 
 
 @implementation AppDelegate
@@ -33,7 +35,6 @@
     TestViewController *controller = (TestViewController *)navigationController.topViewController;
     controller.managedObjectContext = self.managedObjectContext;
     
-
     /*
         if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
             //UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
@@ -49,14 +50,9 @@
             controller.managedObjectContext = self.managedObjectContext;
         }
 */
-    //How to Open Internal Catalogues
     
-    /*
-    NSURL *url = (NSURL *)[launchOptions valueForKey:UIApplicationLaunchOptionsURLKey];
-    if (url != nil && [url isFileURL]) {
-        [controller handleOpenURL:url];
-    }
-     */
+    //Tapjoy 
+    //[TapjoyConnect requestTapjoyConnect:@"4e94aff7-25e7-4b4e-b8dd-6af112e410c3" secretKey:@"0iSJKSObMQ8lktiDtOBM "];
     //Test flight 
     //[TestFlight takeOff:@"9ef781d3801dde3e80803c4cd007dc88_MTE3NzY5MjAxMi0wOC0wNCAxNTo1OTo1Ny4zNjg5MjU"];
     NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
@@ -352,6 +348,16 @@ void uncaughtExceptionHandler(NSException *exception) {
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
-
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    NSLog(@"The button Pressed is %d",buttonIndex);
+    if (buttonIndex==1) {
+        
+        
+        NSLog(@"The Kitchen is Fine ");
+        //UpgradeViewController *controller = (UpgradeViewController *)navigationController.topViewController;
+        //[self performSegueWithIdentifier:@"upgrade" sender:self];
+    }
+    
+}
 
 @end

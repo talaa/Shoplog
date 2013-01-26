@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "iCarousel.h"
-#import "AsyncImageView.h"
+//#import "AsyncImageView.h"
 
 
 @interface CarouselViewController : UIViewController<iCarouselDataSource, iCarouselDelegate>

@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#define KRated @"isalreadyrated"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+
+
+
+@interface AppDelegate : UIResponder <UIApplicationDelegate, UIAlertViewDelegate>
 @property (strong, nonatomic) UIWindow *window;
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;

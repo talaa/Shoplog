@@ -284,6 +284,9 @@
 - (IBAction)editSaveButtonPressed:(id)sender
 {
     
+    if (cataloguenamefield.text) {
+        
+    
     // If we are adding a new picture (because we didnt pass one from the table) then create an entry
     if (!_currentProduct)
         self.currentProduct = (Shoplog *)[NSEntityDescription insertNewObjectForEntityForName:@"Shoplog"inManagedObjectContext:self.managedObjectContext];
@@ -349,11 +352,22 @@
         NSLog(@"Failed to add new picture with error: %@", [error domain]);
     else{
         //NSLog(@"The New Item is :%@",self.currentProduct);
-        NSLog(@"The New shop Item is %@ ",self.currentshop);
+        //NSLog(@"The New shop Item is %@ ",self.currentshop);
         [spinner startAnimating];
         NSDictionary *flurrydicttionary=[[NSDictionary alloc]initWithObjectsAndKeys:self.currentProduct.categoryname,@"Categoryname",self.currentshop.shopname,@"shopname",self.currentProduct.price,@"Price", nil];
         [Flurry logEvent:@"Catalogue" withParameters:flurrydicttionary timed:YES];
-       
+        /*
+         //The Part where the USer should Rate the Application 
+        NSUserDefaults *userdefaults =[NSUserDefaults standardUserDefaults];
+        if (![userdefaults boolForKey:KRated]) {
+            UIAlertView *ratemeplease=[[UIAlertView alloc]initWithTitle:@"Rate me Please " message:@"If you like our App , Please Rate our App in the App Store " delegate:self cancelButtonTitle:@"Later" otherButtonTitles:@"Rate it", nil];
+            [ratemeplease show];
+            
+            
+        }
+
+         */
+        
         
     }
     
@@ -361,6 +375,13 @@
     
     //  Automatically pop to previous view now we're done adding
     [self.navigationController popViewControllerAnimated:YES];
+    }else{
+        UIAlertView *nocatname=[[UIAlertView alloc]initWithTitle:@"Missing Category Name" message:@"Kindly Fill in the Category name to proceed" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [nocatname show];
+
+    
+    
+    }
 }
 
 -(void)preparetheitemtosave{

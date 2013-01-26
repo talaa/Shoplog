@@ -19,6 +19,7 @@
 #import "AdFooterview.h"
 
 #define KPROUprade @"isProversionpurchased"
+#define KRated @"isalreadyrated"
 @class MyCustomCell;
 @class HeaderView;
 @class AdFooterview;

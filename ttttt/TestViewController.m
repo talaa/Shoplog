@@ -42,15 +42,7 @@ typedef enum SocialButtonTags
     NSMutableArray *_sectionChanges;
 }
 @synthesize testarray,mycustomcell,myheaderview,mypopover,detailPopViewController,sharebutton,searcharray;
-#pragma Icloud Part /*
-- (void)reloadFetchedResults:(NSNotification*)note {
-    NSLog(@"Underlying data changed ... refreshing!");
-    [self.collectionView reloadData];
-    [self controllerDidChangeContent:self.fetchedResultsController ];
-    //[self.collectionView setNeedsDisplay];
-    //[self performFetch];
-}
-*/
+
 - (void)viewDidUnload {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
@@ -74,10 +66,21 @@ typedef enum SocialButtonTags
 
 
 }
+-(void)awakeFromNib{
+    NSUserDefaults *userdefaults =[NSUserDefaults standardUserDefaults];
+    if (![userdefaults boolForKey:KPROUprade]) {
+        UIAlertView *endoftheline=[[UIAlertView alloc]initWithTitle:@"GO PRO" message:@"This Free Version has a limit of 3 Catalogues Only \n if you want to add more Catalogues press GO PRO , otherwise Press Cancel " delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"GO PRO", nil];
+        [endoftheline show];
+    }
+
+
+
+
+}
 - (void)handleOpenURL:(NSURL *)url {
     NSUserDefaults *userdefaults =[NSUserDefaults standardUserDefaults];
 
-    if ([[self.fetchedResultsController sections]count]<=3|| [userdefaults boolForKey: KPROUprade]){
+    if ([[self.fetchedResultsController sections]count]<3|| [userdefaults boolForKey: KPROUprade]){
     
     [self.navigationController popToViewController:self animated:YES];
     //NSData *dataimported=[NSData dataWithContentsOfURL:url];
@@ -115,16 +118,7 @@ typedef enum SocialButtonTags
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     NSLog(@"The button Pressed is %d",buttonIndex);
     if (buttonIndex==1) {
-        /*
-        InAppPurchaseManager *inapptest=[[InAppPurchaseManager alloc]init];
-        if ([inapptest canMakePurchases]) {
-            [inapptest purchaseProUpgrade];
-        } else {
-            UIAlertView *parent=[[UIAlertView alloc]initWithTitle:@"Sorry" message:@"Parental Control is ON,Kindly turn it Off to be able to upgrade this Application " delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [parent show];
-
-        }
-        */
+        
 
         [self performSegueWithIdentifier:@"upgrade" sender:self];
     }
@@ -140,8 +134,8 @@ typedef enum SocialButtonTags
 {
     // Do any additional setup after loading the view, typically from a nib.
     self.title=@"Shoplog";
-    self.collectionView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"web-elements.png"]];
-    
+    self.collectionView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"web-elements2.png"]];
+    //self.collectionView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Backgrounditem.png"]];
     self.sharing=NO;
     _objectChanges = [NSMutableArray array];
     _sectionChanges = [NSMutableArray array];
@@ -159,6 +153,8 @@ typedef enum SocialButtonTags
                                              selector:@selector(Searchactivated1:)
                                                  name:@"Searchactivated"
                                                object:nil];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -214,7 +210,7 @@ typedef enum SocialButtonTags
     NSUserDefaults *userdefaults =[NSUserDefaults standardUserDefaults];
 
     NSLog(@"The status of your PROUpgrade is %d",[userdefaults boolForKey:KPROUprade]);
-    if ([[self.fetchedResultsController sections]count]<=3 || [userdefaults boolForKey: KPROUprade]) {
+    if ([[self.fetchedResultsController sections]count]<3 || [userdefaults boolForKey: KPROUprade]) {
         NSLog(@"I am Still in Acceptable Range");
         AddProductDetailViewController *addvw = [[AddProductDetailViewController alloc]init];
         addvw.edit_add=YES;
@@ -282,7 +278,9 @@ typedef enum SocialButtonTags
     
     NSUserDefaults *userdefaults =[NSUserDefaults standardUserDefaults];
     BOOL check=[userdefaults boolForKey:KPROUprade];
-    if ([[self.fetchedResultsController sections]count]<=3 || !check){
+    
+    //if ([[self.fetchedResultsController sections]count]<=3 || !check){
+    if (!check){
         if ([kind isEqual:UICollectionElementKindSectionFooter]){
             AdFooterview *adfoot=[self.collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"adFooterview" forIndexPath:indexPath];
            
@@ -340,50 +338,7 @@ typedef enum SocialButtonTags
     
     
     
-    /*
-    if ([kind isEqual:UICollectionElementKindSectionHeader]) {
-        HeaderView *Hv =[self.collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
-        
-        NSString *Headlabel=[[NSString alloc]initWithString:[[[self.fetchedResultsController sections]objectAtIndex:indexPath.section]name]];
-        
-        Hv.Headerviewlabel.text=Headlabel;
-        return Hv;
-
-    } else {
-        
-        NSUserDefaults *userdefaults =[NSUserDefaults standardUserDefaults];
-        NSLog(@"The KPROUpgarde is %d",[userdefaults boolForKey:KPROUprade]);
-        NSLog(@"The Sections is %i",[[self.fetchedResultsController sections]count]);
-        if ([[self.fetchedResultsController sections]count]<=3 || [userdefaults boolForKey: KPROUprade]){
-        AdFooterview *adfoot=[self.collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"adFooterview" forIndexPath:indexPath];
-        GADBannerView *adbanner;
-        // Create a view of the standard size at the top of the screen.
-        // Available AdSize constants are explained in GADAdSize.h.
-        adbanner = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
-        
-        // Specify the ad's "unit identifier." This is your AdMob Publisher ID.
-        adbanner.adUnitID = @"a150d70feb67349";
-        
-        // Let the runtime know which UIViewController to restore after taking
-        // the user wherever the ad goes and add it to the view hierarchy.
-        
-        //self=[super initWithFrame:adbanner.frame];
-        
-        adbanner.rootViewController = self;
-        [adfoot addSubview:adbanner];
-        
-        // Initiate a generic request to load it with an ad.
-        [adbanner loadRequest:[GADRequest request]];
-        return adfoot;
-        } else{
-            NSLog(@"I am Beyond the Permissible Limit");
-            UIAlertView *endoftheline=[[UIAlertView alloc]initWithTitle:@"GO PRO" message:@"This Free Version has a limit of 3 Catalogues Only \n if you want to add more Catalogues press GO PRO , otherwise Press Cancel " delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"GO PRO", nil];
-            [endoftheline show];}
-       
-    }
     
-    
-*/
     
 
 }
@@ -444,7 +399,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
                 
                 
                 
-                [pop setPopoverContentSize:CGSizeMake(280, 180)];
+                [pop setPopoverContentSize:CGSizeMake(300, 180)];
                 
                 [pop presentPopoverFromRect:attributes.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
                 NSManagedObject *obj =[self.fetchedResultsController objectAtIndexPath:indexPath];

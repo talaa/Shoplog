@@ -12,10 +12,11 @@
 #import "MyAnotation.h"
 #import "Shoplog.h"
 #import "Shop.h"
+#define KRated @"isalreadyrated"
 @class Shoplog;
 @class Shop;
 @protocol addproductdetailviewcontrollerdelegate;
-@interface AddProductDetailViewController : UITableViewController<UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIPopoverControllerDelegate,UITextFieldDelegate,MKMapViewDelegate,UITextViewDelegate>
+@interface AddProductDetailViewController : UITableViewController<UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIPopoverControllerDelegate,UITextFieldDelegate,MKMapViewDelegate,UITextViewDelegate, UIAlertViewDelegate>
 {
 
     //CLLocationManager *lm;

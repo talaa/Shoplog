@@ -37,6 +37,7 @@
         UIAlertView *oops=[[UIAlertView alloc]initWithTitle:@"Oops!" message:@"There is Error Downloading the Feeds" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [oops show];
     }
+    
 
     NSLog(@"I am Coming from awakefromnib");
 }

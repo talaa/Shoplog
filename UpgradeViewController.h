@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <StoreKit/StoreKit.h>
-
+#define KRated @"isalreadyrated"
 #define KPROUprade @"isProversionpurchased"
 
 @interface UpgradeViewController : UIViewController<SKProductsRequestDelegate,SKPaymentTransactionObserver>
