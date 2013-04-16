@@ -15,6 +15,8 @@
 @property (nonatomic, retain) IBOutlet iCarousel *carousel;
 @property (nonatomic, retain) IBOutlet UILabel *label;
 @property (weak, nonatomic) IBOutlet UILabel *username;
+@property (weak, nonatomic) IBOutlet UIImageView *background;
+
 @property (weak, nonatomic) IBOutlet UILabel *text;
 @property (weak, nonatomic) IBOutlet UIImageView *usericon;
 @property (nonatomic, retain)NSString *maintext;

@@ -57,7 +57,34 @@ typedef enum SocialButtonTags
     return self;
 }
 
-
+-(void)startintroduction{
+    
+    //STEP 1 Construct Panels
+    MYIntroductionPanel *panel = [[MYIntroductionPanel alloc] initWithimage:[UIImage imageNamed:@"SampleImage1"] description:@"Welcome to Shoplog, The First Comparison Shopping engine to log all your wishlists that you see around you ! Simply press the ADD + button to start , and you are ready to go!"];
+    
+    //You may also add in a title for each panel
+    //MYIntroductionPanel *panel2 = [[MYIntroductionPanel alloc] initWithimage:[UIImage imageNamed:@"SampleImage2"] title:@"Your Ticket!" description:@"MYIntroductionView is your ticket to a great tutorial or introduction!"];
+    
+    //STEP 2 Create IntroductionView
+    
+    /*A standard version*/
+    //MYIntroductionView *introductionView = [[MYIntroductionView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) headerImage:[UIImage imageNamed:@"SampleHeaderImage.png"] panels:@[panel]];
+    
+    
+    /*A version with no header (ala "Path")*/
+    //MYIntroductionView *introductionView = [[MYIntroductionView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) panels:@[panel, panel2]];
+    
+    /*A more customized version*/
+    MYIntroductionView *introductionView = [[MYIntroductionView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) headerText:@"Welcome to SHOPLOG" panels:@[panel] languageDirection:MYLanguageDirectionLeftToRight];
+    [introductionView setBackgroundImage:[UIImage imageNamed:@"SampleBackground"]];
+    
+    
+    //Set delegate to self for callbacks (optional)
+    introductionView.delegate = self;
+    
+    //STEP 3: Show introduction view
+    [introductionView showInView:self.view];
+}
 -(void)viewWillAppear:(BOOL)animated{
     [self controllerDidChangeContent:self.fetchedResultsController ];
     [self.collectionView reloadData];
@@ -67,12 +94,13 @@ typedef enum SocialButtonTags
 
 }
 -(void)awakeFromNib{
+    /*
     NSUserDefaults *userdefaults =[NSUserDefaults standardUserDefaults];
     if (![userdefaults boolForKey:KPROUprade]) {
         UIAlertView *endoftheline=[[UIAlertView alloc]initWithTitle:@"GO PRO" message:@"This Free Version has a limit of 3 Catalogues Only \n if you want to add more Catalogues press GO PRO , otherwise Press Cancel " delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"GO PRO", nil];
         [endoftheline show];
     }
-
+*/
 
 
 
@@ -132,11 +160,13 @@ typedef enum SocialButtonTags
 }
 - (void)viewDidLoad
 {
+    
     // Do any additional setup after loading the view, typically from a nib.
     self.title=@"Shoplog";
     self.collectionView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"web-elements2.png"]];
     //self.collectionView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Backgrounditem.png"]];
     self.sharing=NO;
+    
     _objectChanges = [NSMutableArray array];
     _sectionChanges = [NSMutableArray array];
     //[self.collectionView reloadData];
@@ -153,7 +183,7 @@ typedef enum SocialButtonTags
                                              selector:@selector(Searchactivated1:)
                                                  name:@"Searchactivated"
                                                object:nil];
-    
+    //[self startintroduction];
     
 }
 
@@ -296,7 +326,8 @@ typedef enum SocialButtonTags
             // the user wherever the ad goes and add it to the view hierarchy.
             
             //self=[super initWithFrame:adbanner.frame];
-            
+            GADRequest *gadrequest=[[GADRequest alloc]init];
+            [gadrequest addKeyword:[[[self.fetchedResultsController sections]objectAtIndex:indexPath.section]name]];
             adbanner.rootViewController = self;
             [adfoot addSubview:adbanner];
             
@@ -592,6 +623,23 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if (popoverController == mypopover) {
         //[mypopover release];
     }
+}
+#pragma mark - Sample Delegate Methods
+
+-(void)introductionDidFinishWithType:(MYFinishType)finishType{
+    if (finishType == MYFinishTypeSkipButton) {
+        NSLog(@"Did Finish Introduction By Skipping It");
+    }
+    else if (finishType == MYFinishTypeSwipeOut){
+        NSLog(@"Did Finish Introduction By Swiping Out");
+    }
+    
+    //One might consider making the introductionview a class variable and releasing it here.
+    // I didn't do this to keep things simple for the sake of example.
+}
+
+-(void)introductionDidChangeToPanel:(MYIntroductionPanel *)panel withIndex:(NSInteger)panelIndex{
+    NSLog(@"%@ \nPanelIndex: %d", panel.Description, panelIndex);
 }
 
 

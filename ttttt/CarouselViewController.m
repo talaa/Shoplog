@@ -9,7 +9,7 @@
 #import "CarouselViewController.h"
 
 
-#define NUMBER_OF_ITEMS ((UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)? 19: 20)
+#define NUMBER_OF_ITEMS ((UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)? 6: 6)
 #define ITEM_SPACING 210
 
 
@@ -18,7 +18,7 @@
 @end
 
 @implementation CarouselViewController
-@synthesize carousel,username,usericon,text,origimage,originaluser,maintext,linktogo,Buttonclick,tweetsfinished,ContentActivity,Provideractivity;
+@synthesize carousel,username,usericon,text,origimage,originaluser,maintext,linktogo,Buttonclick,tweetsfinished,background, ContentActivity,Provideractivity;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -66,7 +66,7 @@
     return NUMBER_OF_ITEMS;
 }
 -(void)loadthetweets{
-    NSString *feedname=@"http://api.twitter.com/1/statuses/user_timeline.json?include_entities=true&include_rts=true&screen_name=shoplog1&count=20";
+    NSString *feedname=@"http://api.twitter.com/1/statuses/user_timeline.json?include_entities=true&include_rts=true&screen_name=shoplog1&count=6";
     
     NSURL *feedURL =[NSURL URLWithString:feedname];
     
@@ -133,7 +133,9 @@
     {
     	//load new item view instance from nib
         //control events are bound to view controller in nib file
+        
     	view = [[[NSBundle mainBundle] loadNibNamed:@"Empty" owner:self options:nil] lastObject];
+        background.layer.cornerRadius=20.0;
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
         [Provideractivity startAnimating];
         [ContentActivity startAnimating];
@@ -214,6 +216,9 @@
                 username.text=[[[[_tweets objectAtIndex:index]objectForKey:@"retweeted_status"]objectForKey:@"user"]objectForKey:@"screen_name"];
                 NSURL *iiii=[NSURL URLWithString:urlll];
                 usericon.image=[UIImage imageWithData:[NSData dataWithContentsOfURL:iiii]];
+                
+                background.image=[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[self retrieveImageSourceTagsViaRegex:linktogo]]]];
+               
             }else{
                 username.text=@"Shoplog";
                 usericon.image=[UIImage imageNamed:@"MyIcon copy_57.png"];
@@ -250,6 +255,32 @@
          
     return view;
     
+}
+- (NSString*)retrieveImageSourceTagsViaRegex:(NSURL *)url1
+{
+    NSString *string = [NSString stringWithContentsOfURL:url1
+                                                encoding:NSUTF8StringEncoding
+                                                   error:nil];
+    NSMutableArray *imagesarray=[[NSMutableArray alloc]init];
+    NSError *error = NULL;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"(<img\\s[\\s\\S]*?src\\s*?=\\s*?['\"](.*?)['\"][\\s\\S]*?>)+?"
+                                                                           options:NSRegularExpressionCaseInsensitive
+                                                                             error:&error];
+    
+    [regex enumerateMatchesInString:string
+                            options:0
+                              range:NSMakeRange(0, [string length])
+                         usingBlock:^(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop) {
+                             
+                             NSString *src = [string substringWithRange:[result rangeAtIndex:2]];
+                             //NSLog(@"img src: %@", src);
+                             [imagesarray addObject:src];
+                             //NSString *imagesrc=[[NSString alloc]initWithString:src];
+                             
+                             
+                         }];
+    NSLog(@"The List of Images is %@",[imagesarray objectAtIndex:1]);
+    return [imagesarray objectAtIndex:1];
 }
 
 - (CGFloat)carouselItemWidth:(iCarousel *)carousel

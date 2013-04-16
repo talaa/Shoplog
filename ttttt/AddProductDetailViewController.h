@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import <QuartzCore/QuartzCore.h>
 #import "MyAnotation.h"
+
 #import "Shoplog.h"
 #import "Shop.h"
 #define KRated @"isalreadyrated"
@@ -60,7 +62,7 @@
 @property (strong, nonatomic) IBOutlet UILongPressGestureRecognizer *Lgpressgesture;
 - (IBAction)Lgpraction:(id)sender;
 
-- (IBAction)setshoplocation:(id)sender;
+
 
 - (IBAction)GetcurrentLocation1:(id)sender;
 

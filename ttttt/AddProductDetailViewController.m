@@ -8,7 +8,7 @@
 #define METERS_PER_MILE 1609.344
 #import "AddProductDetailViewController.h"
 #import "TestViewController.h"
-#import "setlocationViewController.h"
+
 #import "Flurry.h"
 @interface AddProductDetailViewController ()
 
@@ -192,15 +192,7 @@
     
 }
 
-- (IBAction)setshoplocation:(id)sender {
-    
-    setlocationViewController *locationviewcontrol=[[setlocationViewController alloc]init];
-    //locationviewcontrol.shoplocationlat=self.currentProduct.shop.latcoordinate;
-    //locationviewcontrol.shoplocationlong=self.currentProduct.shop.longcoordinate;
-    locationviewcontrol.shoplocationlat=Maplocation.userLocation.coordinate.latitude;
-    locationviewcontrol.shoplocationlong=Maplocation.userLocation.coordinate.longitude;
-    locationviewcontrol.managedObjectcontext=self.managedObjectContext;
-}
+
 -(void)updatecurrentLocation{
 
     

@@ -7,6 +7,7 @@
 //
 
 #import "MyCustomCell.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation MyCustomCell
 @synthesize celllabel,cellImage,ratinglabel;
@@ -15,9 +16,9 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        
-        celllabel.textColor=[UIColor blackColor];
-        celllabel.backgroundColor=[UIColor redColor];
+        //NSLog(@"ia ammaam");
+        //celllabel.textColor=[UIColor blackColor];
+        //celllabel.backgroundColor=[UIColor redColor];
         //cellImage.frame=CGRectInset(cellImage.frame, 5, 5);
         /*
         //The Selection Code
@@ -43,13 +44,33 @@
     }
     return self;
 }
-/*
+
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
+    self.layer.cornerRadius = 25.0;
+    CALayer *jjj=[cellImage layer];
+    [jjj setMasksToBounds:YES];
+    [jjj setCornerRadius:20];
+    
+    /*
+    CALayer *imageLayer = [CALayer layer];
+    imageLayer.frame = self.layer.bounds;
+    imageLayer.cornerRadius = 10.0;
+    imageLayer.contents=(id) [cellImage image].CGImage;
+    //imageLayer.contents = (id) [UIImage imageNamed:@"BattleMapSplashScreen.jpg"].CGImage;
+    //imageLayer.masksToBounds = YES;
+    [self.layer addSublayer:imageLayer];
+    */
+    //cellImage.layer.cornerRadius=25.0;
+    self.layer.shadowOffset = CGSizeMake(0, 10);
+    self.layer.shadowRadius = 5.0;
+    self.layer.shadowColor = [UIColor whiteColor].CGColor;
+    
+    self.layer.shadowOpacity = 0.3;
     // Drawing code
 }
-*/
+
 
 @end

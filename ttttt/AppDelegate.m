@@ -51,10 +51,7 @@
         }
 */
     
-    //Tapjoy 
-    //[TapjoyConnect requestTapjoyConnect:@"4e94aff7-25e7-4b4e-b8dd-6af112e410c3" secretKey:@"0iSJKSObMQ8lktiDtOBM "];
-    //Test flight 
-    //[TestFlight takeOff:@"9ef781d3801dde3e80803c4cd007dc88_MTE3NzY5MjAxMi0wOC0wNCAxNTo1OTo1Ny4zNjg5MjU"];
+    
     NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     //[Flurry startSession:@"S4R4TRC7HXCKJYNGNP8Z"];
     [Flurry logPageView];
@@ -85,7 +82,8 @@ void uncaughtExceptionHandler(NSException *exception) {
     return YES;
     
 }
-							
+
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

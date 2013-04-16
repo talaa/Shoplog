@@ -23,7 +23,9 @@
     return self;
 }
 -(IBAction)saymyname:(id)sender{
-    [PopoverView showPopoverAtPoint:searchButton.frame.origin inView:self withStringArray:[NSArray arrayWithObjects:@"Resfresh", @"Search", nil] delegate:self];
+     NSDictionary *dict = [NSDictionary dictionaryWithObject:Headerviewlabel.text forKey:@"Searchterm"];
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"Searchactivated" object:self userInfo:dict];
+    //[PopoverView showPopoverAtPoint:searchButton.frame.origin inView:self withStringArray:[NSArray arrayWithObjects:@"Resfresh", @"Search", nil] delegate:self];
 
     NSLog(@"My Name is :%@",Headerviewlabel.text);
 }
