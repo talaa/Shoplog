@@ -11,6 +11,9 @@
 #import "Flurry.h"
 #import "AddProductDetailViewController.h"
 #import "UpgradeViewController.h"
+#import "TapjoyConnect.h"
+#import "TapForTap.h"
+#import "LocalyticsSession.h"
 
 
 
@@ -50,10 +53,19 @@
             controller.managedObjectContext = self.managedObjectContext;
         }
 */
+    //The Marketing & the analytics stuff
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tjcConnectSuccess:) name:TJC_CONNECT_SUCCESS object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tjcConnectFail:) name:TJC_CONNECT_FAILED object:nil];
+	
+	// NOTE: This must be replaced by your App Id. It is Retrieved from the Tapjoy website, in your account.
+	[TapjoyConnect requestTapjoyConnect:@"4e94aff7-25e7-4b4e-b8dd-6af112e410c3" secretKey:@"0iSJKSObMQ8lktiDtOBM"];
+	[TapForTap initializeWithAPIKey: @"8be3072fe1b397db1f15f57670507777"];
+    [[LocalyticsSession shared] startSession:@"3943e63097799c13d1424d8-77ad3f76-a6d9-11e2-869c-005cf8cbabd8"];
+
     
     NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
-    //[Flurry startSession:@"S4R4TRC7HXCKJYNGNP8Z"];
+    [Flurry startSession:@"S4R4TRC7HXCKJYNGNP8Z"];
     [Flurry logPageView];
     /*
     CLLocationManager *locationManager = [[CLLocationManager alloc] init];
@@ -339,6 +351,22 @@ void uncaughtExceptionHandler(NSException *exception) {
     }];
 }
  */
+#pragma mark TapjoyConnect Observer methods
+
+-(void) tjcConnectSuccess:(NSNotification*)notifyObj
+{
+	NSLog(@"Tapjoy Connect Succeeded");
+	
+	
+}
+
+-(void) tjcConnectFail:(NSNotification*)notifyObj
+{
+	NSLog(@"Tapjoy Connect Failed");
+	
+	
+}
+
 #pragma mark - Application's Documents directory
 
 // Returns the URL to the application's Documents directory.

@@ -27,7 +27,11 @@ typedef enum SocialButtonTags
 #import "Rakutensearch.h"
 #import "Flurry.h"
 #import "UpgradeViewController.h"
-
+#import "nexttagsearch.h"
+#import "Shoppingcom.h"
+#import "Shopzila.h"
+#import "Shoppingcom.h"
+#import "pricegrabbersearch.h"
 
 //#import "MyCustomCell.h"
 //#import "HeaderView.h"
@@ -478,9 +482,17 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     Taobaosearch *Activity5=[[Taobaosearch alloc]init];
     GoogleShoppingSearch *Activity6=[[GoogleShoppingSearch alloc]init];
     YahoobuySearch *Activity7=[[YahoobuySearch alloc]init];
+    nexttagsearch *Activity8=[[nexttagsearch alloc]init];
+    Shoppingcom *Activity9=[[Shoppingcom alloc]init];
+    Shopzila *Activity10=[[Shopzila alloc]init];
+    pricegrabbersearch *Activity11=[[pricegrabbersearch alloc]init];
+    
+    
+    
+    
     
     //Activity1 set
-    NSArray *Activityarray=[[NSArray alloc]initWithObjects:Activity1,Activity2,Activity3,Activity4,Activity5,Activity6,Activity7, nil];
+    NSArray *Activityarray=[[NSArray alloc]initWithObjects:Activity1,Activity2,Activity3,Activity4,Activity5,Activity6,Activity7,Activity8,Activity9,Activity10,Activity11, nil];
     
     //Executing the Activity View Controller 
     UIActivityViewController *activityViewController2 =[[UIActivityViewController alloc]initWithActivityItems:addArray2 applicationActivities:Activityarray];

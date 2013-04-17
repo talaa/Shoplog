@@ -8,6 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		6900BC7016343B6C0028400D /* Shoplogactivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6900BC6F16343B6C0028400D /* Shoplogactivity.m */; };
+		690C2534171DC40D00139FDA /* Heart1.png in Resources */ = {isa = PBXBuildFile; fileRef = 690C2532171DC40D00139FDA /* Heart1.png */; };
+		690C2535171DC40D00139FDA /* web-elements2.png in Resources */ = {isa = PBXBuildFile; fileRef = 690C2533171DC40D00139FDA /* web-elements2.png */; };
+		690C2558171DEDB800139FDA /* TapjoyAdvertiserLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 690C254B171DEDB800139FDA /* TapjoyAdvertiserLibrary.a */; };
+		690C257A171DF12B00139FDA /* libTapForTapAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 690C256F171DF12B00139FDA /* libTapForTapAds.a */; };
+		690C257E171DF56600139FDA /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 690C257D171DF56600139FDA /* libsqlite3.dylib */; };
+		690C2585171DF6F700139FDA /* libLocalyticsAMP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 690C2584171DF6F700139FDA /* libLocalyticsAMP.a */; };
+		690C2588171E02EB00139FDA /* nexttagsearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 690C2587171E02EB00139FDA /* nexttagsearch.m */; };
+		690C258A171E054400139FDA /* PriceGrabber.png in Resources */ = {isa = PBXBuildFile; fileRef = 690C2589171E054400139FDA /* PriceGrabber.png */; };
+		690C258D171E088500139FDA /* pricegrabbersearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 690C258C171E088500139FDA /* pricegrabbersearch.m */; };
+		690C2590171E0A0400139FDA /* Shoppingcom.m in Sources */ = {isa = PBXBuildFile; fileRef = 690C258F171E0A0400139FDA /* Shoppingcom.m */; };
+		690C2593171E0CE300139FDA /* Shopzila.m in Sources */ = {isa = PBXBuildFile; fileRef = 690C2592171E0CE300139FDA /* Shopzila.m */; };
+		690C2597171EC82C00139FDA /* shopzila.png in Resources */ = {isa = PBXBuildFile; fileRef = 690C2594171EC82C00139FDA /* shopzila.png */; };
+		690C2598171EC82C00139FDA /* shoppingcom.png in Resources */ = {isa = PBXBuildFile; fileRef = 690C2595171EC82C00139FDA /* shoppingcom.png */; };
+		690C2599171EC82C00139FDA /* NT_logo_LG_COL.png in Resources */ = {isa = PBXBuildFile; fileRef = 690C2596171EC82C00139FDA /* NT_logo_LG_COL.png */; };
 		69143587165D12190000FE9E /* Rakuten2.png in Resources */ = {isa = PBXBuildFile; fileRef = 69143585165D12190000FE9E /* Rakuten2.png */; };
 		69143588165D12190000FE9E /* taobao2.png in Resources */ = {isa = PBXBuildFile; fileRef = 69143586165D12190000FE9E /* taobao2.png */; };
 		6914358D165D23110000FE9E /* EditButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6914358C165D23110000FE9E /* EditButton.png */; };
@@ -77,7 +91,6 @@
 		69A13F2C16A60DC300765801 /* icon_star.png in Resources */ = {isa = PBXBuildFile; fileRef = 69A13F2B16A60DC300765801 /* icon_star.png */; };
 		69A13F2F16A6230C00765801 /* icon_circle_arrow_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 69A13F2E16A6230C00765801 /* icon_circle_arrow_right.png */; };
 		69C53A341643E14800FE2CB3 /* ExtendedManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C53A331643E14800FE2CB3 /* ExtendedManagedObject.m */; };
-		69C65BB11652D35C0071B062 /* web-elements.png in Resources */ = {isa = PBXBuildFile; fileRef = 69C65BB01652D35C0071B062 /* web-elements.png */; };
 		69C65BB61652EE120071B062 /* removeicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 69C65BB51652EE120071B062 /* removeicon.png */; };
 		69C65BB81652EF5B0071B062 /* removeicon1.png in Resources */ = {isa = PBXBuildFile; fileRef = 69C65BB71652EF5B0071B062 /* removeicon1.png */; };
 		69C65BBE1652FC9B0071B062 /* Phone.png in Resources */ = {isa = PBXBuildFile; fileRef = 69C65BBD1652FC9B0071B062 /* Phone.png */; };
@@ -99,7 +112,6 @@
 		69CB014316543E4A000EC708 /* header_gradient_blue.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 69CB014216543E4A000EC708 /* header_gradient_blue.jpg */; };
 		69D86308162CA46100BB78E1 /* CreateShoplogTagImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D86307162CA46100BB78E1 /* CreateShoplogTagImage.m */; };
 		69DAE201162624A8008802E4 /* UIPopover+Iphone.m in Sources */ = {isa = PBXBuildFile; fileRef = 69DAE200162624A8008802E4 /* UIPopover+Iphone.m */; };
-		69DB77631662841800ABB7D3 /* Heart1.png in Resources */ = {isa = PBXBuildFile; fileRef = 69DB77621662841800ABB7D3 /* Heart1.png */; };
 		69E29BF91646C91F00573B8C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69E29BF81646C91F00573B8C /* MapKit.framework */; };
 		69ECA96A1712186A00347A6C /* MosaicLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 69ECA95E1712186A00347A6C /* MosaicLayout.m */; };
 		69ECA96B1712186A00347A6C /* MosaicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69ECA9601712186A00347A6C /* MosaicViewController.m */; };
@@ -136,6 +148,32 @@
 /* Begin PBXFileReference section */
 		6900BC6E16343B6C0028400D /* Shoplogactivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shoplogactivity.h; sourceTree = "<group>"; };
 		6900BC6F16343B6C0028400D /* Shoplogactivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shoplogactivity.m; sourceTree = "<group>"; };
+		690C2532171DC40D00139FDA /* Heart1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Heart1.png; sourceTree = "<group>"; };
+		690C2533171DC40D00139FDA /* web-elements2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "web-elements2.png"; sourceTree = "<group>"; };
+		690C254B171DEDB800139FDA /* TapjoyAdvertiserLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = TapjoyAdvertiserLibrary.a; sourceTree = "<group>"; };
+		690C254C171DEDB800139FDA /* TapjoyConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapjoyConnect.h; sourceTree = "<group>"; };
+		690C254D171DEDB800139FDA /* TapjoyConnectConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapjoyConnectConstants.h; sourceTree = "<group>"; };
+		690C256F171DF12B00139FDA /* libTapForTapAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTapForTapAds.a; sourceTree = "<group>"; };
+		690C2570171DF12B00139FDA /* TapForTap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapForTap.h; sourceTree = "<group>"; };
+		690C2571171DF12B00139FDA /* TapForTapAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapForTapAdView.h; sourceTree = "<group>"; };
+		690C2572171DF12B00139FDA /* TapForTapAppWall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapForTapAppWall.h; sourceTree = "<group>"; };
+		690C2573171DF12B00139FDA /* TapForTapInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapForTapInterstitial.h; sourceTree = "<group>"; };
+		690C257D171DF56600139FDA /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		690C2581171DF69100139FDA /* LocalyticsAmpSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalyticsAmpSession.h; path = "AMP-SDK-latest.bin/LocalyticsAmpSession.h"; sourceTree = "<group>"; };
+		690C2582171DF69100139FDA /* LocalyticsSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalyticsSession.h; path = "AMP-SDK-latest.bin/LocalyticsSession.h"; sourceTree = "<group>"; };
+		690C2584171DF6F700139FDA /* libLocalyticsAMP.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libLocalyticsAMP.a; path = "AMP-SDK-latest.bin/libLocalyticsAMP.a"; sourceTree = "<group>"; };
+		690C2586171E02EB00139FDA /* nexttagsearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nexttagsearch.h; sourceTree = "<group>"; };
+		690C2587171E02EB00139FDA /* nexttagsearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = nexttagsearch.m; sourceTree = "<group>"; };
+		690C2589171E054400139FDA /* PriceGrabber.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PriceGrabber.png; sourceTree = "<group>"; };
+		690C258B171E088500139FDA /* pricegrabbersearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pricegrabbersearch.h; sourceTree = "<group>"; };
+		690C258C171E088500139FDA /* pricegrabbersearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pricegrabbersearch.m; sourceTree = "<group>"; };
+		690C258E171E0A0300139FDA /* Shoppingcom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shoppingcom.h; sourceTree = "<group>"; };
+		690C258F171E0A0400139FDA /* Shoppingcom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shoppingcom.m; sourceTree = "<group>"; };
+		690C2591171E0CE300139FDA /* Shopzila.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shopzila.h; sourceTree = "<group>"; };
+		690C2592171E0CE300139FDA /* Shopzila.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shopzila.m; sourceTree = "<group>"; };
+		690C2594171EC82C00139FDA /* shopzila.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shopzila.png; sourceTree = "<group>"; };
+		690C2595171EC82C00139FDA /* shoppingcom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shoppingcom.png; sourceTree = "<group>"; };
+		690C2596171EC82C00139FDA /* NT_logo_LG_COL.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NT_logo_LG_COL.png; sourceTree = "<group>"; };
 		69143585165D12190000FE9E /* Rakuten2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Rakuten2.png; sourceTree = "<group>"; };
 		69143586165D12190000FE9E /* taobao2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = taobao2.png; sourceTree = "<group>"; };
 		6914358C165D23110000FE9E /* EditButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EditButton.png; sourceTree = "<group>"; };
@@ -234,7 +272,6 @@
 		69A13F2E16A6230C00765801 /* icon_circle_arrow_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_circle_arrow_right.png; sourceTree = "<group>"; };
 		69C53A321643E14800FE2CB3 /* ExtendedManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtendedManagedObject.h; sourceTree = "<group>"; };
 		69C53A331643E14800FE2CB3 /* ExtendedManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtendedManagedObject.m; sourceTree = "<group>"; };
-		69C65BB01652D35C0071B062 /* web-elements.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "web-elements.png"; sourceTree = "<group>"; };
 		69C65BB51652EE120071B062 /* removeicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = removeicon.png; sourceTree = "<group>"; };
 		69C65BB71652EF5B0071B062 /* removeicon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = removeicon1.png; sourceTree = "<group>"; };
 		69C65BBD1652FC9B0071B062 /* Phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Phone.png; sourceTree = "<group>"; };
@@ -261,7 +298,6 @@
 		69D86307162CA46100BB78E1 /* CreateShoplogTagImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateShoplogTagImage.m; sourceTree = "<group>"; };
 		69DAE1FF162624A8008802E4 /* UIPopover+Iphone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIPopover+Iphone.h"; sourceTree = "<group>"; };
 		69DAE200162624A8008802E4 /* UIPopover+Iphone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIPopover+Iphone.m"; sourceTree = "<group>"; };
-		69DB77621662841800ABB7D3 /* Heart1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Heart1.png; sourceTree = "<group>"; };
 		69E29BF81646C91F00573B8C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		69ECA95D1712186A00347A6C /* MosaicLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MosaicLayout.h; sourceTree = "<group>"; };
 		69ECA95E1712186A00347A6C /* MosaicLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MosaicLayout.m; sourceTree = "<group>"; };
@@ -324,6 +360,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				690C257E171DF56600139FDA /* libsqlite3.dylib in Frameworks */,
 				69205C3B16B4012F00762138 /* CoreTelephony.framework in Frameworks */,
 				69205002162B459A00358C65 /* Twitter.framework in Frameworks */,
 				693C5CD8169DD425008DA75C /* Accounts.framework in Frameworks */,
@@ -345,12 +382,64 @@
 				69C87D86166812E000656E9A /* libFlurry.a in Frameworks */,
 				6928073F169B98F300D5EDFF /* libAdapterIAd.a in Frameworks */,
 				692807D8169B991B00D5EDFF /* libGoogleAdMobAds.a in Frameworks */,
+				690C2558171DEDB800139FDA /* TapjoyAdvertiserLibrary.a in Frameworks */,
+				690C257A171DF12B00139FDA /* libTapForTapAds.a in Frameworks */,
+				690C2585171DF6F700139FDA /* libLocalyticsAMP.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		690C2536171DED9300139FDA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				690C2583171DF69600139FDA /* Localytics */,
+				690C255C171DF12B00139FDA /* TapForTap-iOS-2.3.1 */,
+				690C254A171DEDB800139FDA /* TapjoyAdvertiserLibrary */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		690C254A171DEDB800139FDA /* TapjoyAdvertiserLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				690C254B171DEDB800139FDA /* TapjoyAdvertiserLibrary.a */,
+				690C254C171DEDB800139FDA /* TapjoyConnect.h */,
+				690C254D171DEDB800139FDA /* TapjoyConnectConstants.h */,
+			);
+			path = TapjoyAdvertiserLibrary;
+			sourceTree = "<group>";
+		};
+		690C255C171DF12B00139FDA /* TapForTap-iOS-2.3.1 */ = {
+			isa = PBXGroup;
+			children = (
+				690C256E171DF12B00139FDA /* TapForTap */,
+			);
+			path = "TapForTap-iOS-2.3.1";
+			sourceTree = "<group>";
+		};
+		690C256E171DF12B00139FDA /* TapForTap */ = {
+			isa = PBXGroup;
+			children = (
+				690C256F171DF12B00139FDA /* libTapForTapAds.a */,
+				690C2570171DF12B00139FDA /* TapForTap.h */,
+				690C2571171DF12B00139FDA /* TapForTapAdView.h */,
+				690C2572171DF12B00139FDA /* TapForTapAppWall.h */,
+				690C2573171DF12B00139FDA /* TapForTapInterstitial.h */,
+			);
+			path = TapForTap;
+			sourceTree = "<group>";
+		};
+		690C2583171DF69600139FDA /* Localytics */ = {
+			isa = PBXGroup;
+			children = (
+				690C2582171DF69100139FDA /* LocalyticsSession.h */,
+				690C2581171DF69100139FDA /* LocalyticsAmpSession.h */,
+			);
+			name = Localytics;
+			sourceTree = "<group>";
+		};
 		6928073C169B98F300D5EDFF /* LibAdapterIAd-Oct42012 */ = {
 			isa = PBXGroup;
 			children = (
@@ -429,6 +518,14 @@
 				69FD714E165956D3001919DD /* GoogleShoppingSearch.m */,
 				69FD7150165956E9001919DD /* YahoobuySearch.h */,
 				69FD7151165956E9001919DD /* YahoobuySearch.m */,
+				690C2586171E02EB00139FDA /* nexttagsearch.h */,
+				690C2587171E02EB00139FDA /* nexttagsearch.m */,
+				690C258B171E088500139FDA /* pricegrabbersearch.h */,
+				690C258C171E088500139FDA /* pricegrabbersearch.m */,
+				690C258E171E0A0300139FDA /* Shoppingcom.h */,
+				690C258F171E0A0400139FDA /* Shoppingcom.m */,
+				690C2591171E0CE300139FDA /* Shopzila.h */,
+				690C2592171E0CE300139FDA /* Shopzila.m */,
 			);
 			name = Activities;
 			sourceTree = "<group>";
@@ -477,6 +574,12 @@
 		6986BCAD1632056A0023E2EE /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				690C2594171EC82C00139FDA /* shopzila.png */,
+				690C2595171EC82C00139FDA /* shoppingcom.png */,
+				690C2596171EC82C00139FDA /* NT_logo_LG_COL.png */,
+				690C2589171E054400139FDA /* PriceGrabber.png */,
+				690C2532171DC40D00139FDA /* Heart1.png */,
+				690C2533171DC40D00139FDA /* web-elements2.png */,
 				698BBDD2171C9DD9002E3344 /* SampleBackground.png */,
 				698BBDD3171C9DD9002E3344 /* SampleHeaderImage.png */,
 				698BBDD4171C9DD9002E3344 /* SampleImage1.png */,
@@ -504,7 +607,6 @@
 				69C87D8D1668FD3E00656E9A /* MyIcon.png */,
 				69C87D8716681D7F00656E9A /* backend.png */,
 				6963FA74166503ED006C3AE9 /* shopping_girl_01_vector_156382.jpg */,
-				69DB77621662841800ABB7D3 /* Heart1.png */,
 				697506C6165F504F0042BCFA /* headerviewimage.png */,
 				691A8BE5165EEF0E00DDF2A8 /* Email1.png */,
 				691A8BE3165EEE5900DDF2A8 /* Phone1.png */,
@@ -525,7 +627,6 @@
 				69C65BBD1652FC9B0071B062 /* Phone.png */,
 				69C65BB71652EF5B0071B062 /* removeicon1.png */,
 				69C65BB51652EE120071B062 /* removeicon.png */,
-				69C65BB01652D35C0071B062 /* web-elements.png */,
 				6986BCAE163205940023E2EE /* Default.png */,
 				6986BCAF163205940023E2EE /* Default@2x.png */,
 				69F625891606364900004196 /* Default-568h@2x.png */,
@@ -634,6 +735,7 @@
 		69F625641606364700004196 = {
 			isa = PBXGroup;
 			children = (
+				690C2536171DED9300139FDA /* Services */,
 				698BBDD1171C955F002E3344 /* Introductionview */,
 				69ECA96F17121AFB00347A6C /* AFNetworking */,
 				692807DD169B993000D5EDFF /* Ads */,
@@ -659,6 +761,8 @@
 		69F625721606364800004196 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				690C2584171DF6F700139FDA /* libLocalyticsAMP.a */,
+				690C257D171DF56600139FDA /* libsqlite3.dylib */,
 				69205C3A16B4012F00762138 /* CoreTelephony.framework */,
 				693C5CD7169DD425008DA75C /* Accounts.framework */,
 				692807E6169B9B8900D5EDFF /* iAd.framework */,
@@ -786,7 +890,6 @@
 				69F625901606364900004196 /* MainStoryboard_iPad.storyboard in Resources */,
 				691E1CA616175C290066C58A /* plus-sign.png in Resources */,
 				6957FEF016472D4500290403 /* SliderValueViewController.xib in Resources */,
-				69C65BB11652D35C0071B062 /* web-elements.png in Resources */,
 				69C65BB61652EE120071B062 /* removeicon.png in Resources */,
 				69C65BB81652EF5B0071B062 /* removeicon1.png in Resources */,
 				69C65BBE1652FC9B0071B062 /* Phone.png in Resources */,
@@ -807,7 +910,6 @@
 				691A8BE4165EEE5900DDF2A8 /* Phone1.png in Resources */,
 				691A8BE6165EEF0E00DDF2A8 /* Email1.png in Resources */,
 				697506C7165F504F0042BCFA /* headerviewimage.png in Resources */,
-				69DB77631662841800ABB7D3 /* Heart1.png in Resources */,
 				6963FA75166503ED006C3AE9 /* shopping_girl_01_vector_156382.jpg in Resources */,
 				69C87D8816681D7F00656E9A /* backend.png in Resources */,
 				69C87D8E1668FD3E00656E9A /* MyIcon.png in Resources */,
@@ -837,6 +939,12 @@
 				698BBDD7171C9DD9002E3344 /* SampleHeaderImage.png in Resources */,
 				698BBDD8171C9DD9002E3344 /* SampleImage1.png in Resources */,
 				698BBDD9171C9DD9002E3344 /* SampleImage2.png in Resources */,
+				690C2534171DC40D00139FDA /* Heart1.png in Resources */,
+				690C2535171DC40D00139FDA /* web-elements2.png in Resources */,
+				690C258A171E054400139FDA /* PriceGrabber.png in Resources */,
+				690C2597171EC82C00139FDA /* shopzila.png in Resources */,
+				690C2598171EC82C00139FDA /* shoppingcom.png in Resources */,
+				690C2599171EC82C00139FDA /* NT_logo_LG_COL.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -893,6 +1001,10 @@
 				69861EC117160F07006BDFAC /* WebdetailViewController.m in Sources */,
 				698BBDCE171C955A002E3344 /* MYIntroductionView.m in Sources */,
 				698BBDCF171C955A002E3344 /* MYIntroductionPanel.m in Sources */,
+				690C2588171E02EB00139FDA /* nexttagsearch.m in Sources */,
+				690C258D171E088500139FDA /* pricegrabbersearch.m in Sources */,
+				690C2590171E0A0400139FDA /* Shoppingcom.m in Sources */,
+				690C2593171E0CE300139FDA /* Shopzila.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1001,6 +1113,9 @@
 					"\"$(SRCROOT)/../../../Downloads/GoogleAdMobAdsSdkiOS-6.2.1/Add-ons/GoogleAnalyticsiOS_2.0beta3/Library\"",
 					"\"$(SRCROOT)/../../../Downloads/GoogleAdMobAdsSdkiOS-6.2.1\"",
 					"\"$(SRCROOT)/../../../Downloads/TapjoyAdvertiserSDK_iOS_v9.0.1/TapjoyAdvertiserLibrary\"",
+					"\"$(SRCROOT)/TapjoyAdvertiserLibrary\"",
+					"\"$(SRCROOT)/TapForTap-iOS-2.3.1/TapForTap\"",
+					"\"$(SRCROOT)/AMP-SDK-latest.bin\"",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1026,6 +1141,9 @@
 					"\"$(SRCROOT)/../../../Downloads/GoogleAdMobAdsSdkiOS-6.2.1/Add-ons/GoogleAnalyticsiOS_2.0beta3/Library\"",
 					"\"$(SRCROOT)/../../../Downloads/GoogleAdMobAdsSdkiOS-6.2.1\"",
 					"\"$(SRCROOT)/../../../Downloads/TapjoyAdvertiserSDK_iOS_v9.0.1/TapjoyAdvertiserLibrary\"",
+					"\"$(SRCROOT)/TapjoyAdvertiserLibrary\"",
+					"\"$(SRCROOT)/TapForTap-iOS-2.3.1/TapForTap\"",
+					"\"$(SRCROOT)/AMP-SDK-latest.bin\"",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
