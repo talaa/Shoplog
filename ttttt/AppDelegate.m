@@ -379,7 +379,7 @@ void uncaughtExceptionHandler(NSException *exception) {
     if (buttonIndex==1) {
         
         
-        NSLog(@"The Kitchen is Fine ");
+        //NSLog(@"The Kitchen is Fine ");
         //UpgradeViewController *controller = (UpgradeViewController *)navigationController.topViewController;
         //[self performSegueWithIdentifier:@"upgrade" sender:self];
     }
