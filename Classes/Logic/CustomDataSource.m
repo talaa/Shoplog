@@ -10,6 +10,7 @@
 #import "MosaicData.h"
 #import "MosaicCell.h"
 #import <dispatch/dispatch.h>
+#import "TFHpple.h"
 
 @interface CustomDataSource()
 -(void)loadFromDisk;
@@ -68,7 +69,8 @@
             NSString *link=[@"http" stringByAppendingString:[piecesOfOriginalString objectAtIndex:1]];
             [trmpdict setValue:link forKey:@"tweetlink"];
             NSURL *testurl=[[NSURL alloc]initWithString:link];
-            [trmpdict setValue:[self retrieveImageSourceTagsViaRegex:testurl] forKey:@"imagelink"];
+            //[trmpdict setValue:[self retrieveImageSourceTagsViaRegex:testurl] forKey:@"imagelink"];
+            [trmpdict setValue:[self retrieveImageSourceTagsViaHpple:testurl] forKey:@"imagelink"];
         }else {
         [trmpdict setValue:@"MyIcon copy_144" forKey:@"imagelink"];
         
@@ -76,7 +78,7 @@
         }
     
         if (!_elements) {
-            UIAlertView *oops=[[UIAlertView alloc]initWithTitle:@"Oops!" message:@"There is Error Downloading the Feeds" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *oops=[[UIAlertView alloc]initWithTitle:@"Oops!" message:NSLocalizedString(@"Errordownloading", nil) delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [oops show];
         }else{
         MosaicData *aMosaicModule=[[MosaicData alloc]initWithDictionary:trmpdict];
@@ -138,6 +140,34 @@
     }else
         return @"MyIcon copy_144";
 
+}
+- (NSString*)retrieveImageSourceTagsViaHpple:(NSURL *)url
+{
+    NSData *data = [NSData dataWithContentsOfURL:url];
+	NSMutableArray *imagesarray=[[NSMutableArray alloc]init];
+    TFHpple *parser = [TFHpple hppleWithHTMLData:data];
+    
+    NSString *xpathQueryString = @"//img";
+    NSArray *nodes = [parser searchWithXPathQuery:xpathQueryString];
+    
+    for (TFHppleElement *element in nodes)
+    {
+        NSString *src = [element objectForKey:@"src"];
+		[imagesarray addObject:src];
+        NSLog(@"img src: %@", src);
+    }
+	NSLog(@"The List of Images is %@",[imagesarray objectAtIndex:3]);
+    if ([[imagesarray objectAtIndex:3] hasPrefix:@"http"]&& ![[imagesarray objectAtIndex:3]hasSuffix:@"gif"]) {
+        return [imagesarray objectAtIndex:3];
+    }else if ([[imagesarray objectAtIndex:2] hasPrefix:@"http"]&& ![[imagesarray objectAtIndex:2]hasSuffix:@"gif"]){
+        return [imagesarray objectAtIndex:2];
+    }else if ([[imagesarray objectAtIndex:1] hasPrefix:@"http"]&& ![[imagesarray objectAtIndex:1]hasSuffix:@"gif"]){
+        return [imagesarray objectAtIndex:1];
+    }else if ([[imagesarray objectAtIndex:0] hasPrefix:@"http"]&& ![[imagesarray objectAtIndex:0]hasSuffix:@"gif"]){
+        return [imagesarray objectAtIndex:0];
+    }else
+        return @"MyIcon copy_144";
+    
 }
 
 #pragma mark - Public

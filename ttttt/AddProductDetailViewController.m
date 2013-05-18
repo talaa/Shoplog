@@ -180,7 +180,7 @@
     CLLocationCoordinate2D touchMapCoordinate =
     [self.Maplocation convertPoint:touchPoint toCoordinateFromView:self.Maplocation];
     
-    MyAnotation *annot = [[MyAnotation alloc] initWithCoordinate:touchMapCoordinate title:[self.currentProduct.shop shopname] subtitle:@"The shop is here"];
+    MyAnotation *annot = [[MyAnotation alloc] initWithCoordinate:touchMapCoordinate title:[self.currentProduct.shop shopname] subtitle:NSLocalizedString(@"The shop is here", nil)];
     //annot.coordinate = touchMapCoordinate;
     
     
@@ -312,7 +312,7 @@
     if (imageField.image)
     {
         // Resize and save a smaller version for the table
-        float resize = 120;
+        float resize = 420;
         float actualWidth = imageField.image.size.width;
         float actualHeight = imageField.image.size.height;
         float divBy, newWidth, newHeight;
@@ -368,7 +368,7 @@
     //  Automatically pop to previous view now we're done adding
     [self.navigationController popViewControllerAnimated:YES];
     }else{
-        UIAlertView *nocatname=[[UIAlertView alloc]initWithTitle:@"Missing Category Name" message:@"Kindly Fill in the Category name to proceed" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *nocatname=[[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Missingcategory", nil) message:NSLocalizedString(@"Fillthecategory", nil) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [nocatname show];
 
     
@@ -582,22 +582,22 @@
     HeaderLabel.textColor=[UIColor whiteColor];
     switch (section) {
         case 0:
-            HeaderLabel.text=@"Category Name";
+            HeaderLabel.text=NSLocalizedString(@"Categoryname", nil);
             break;
         case 1:
-            HeaderLabel.text=@"Image";
+            HeaderLabel.text=NSLocalizedString(@"Image", nil) ;
             break;
         case 2:
-            HeaderLabel.text=@"Description";
+            HeaderLabel.text=NSLocalizedString(@"Description",nil);
             break;
         case 3:
-            HeaderLabel.text=@"Location";
+            HeaderLabel.text=NSLocalizedString(@"Location",nil);
             break;
         case 4:
-            HeaderLabel.text=@"Contacts";
+            HeaderLabel.text=NSLocalizedString(@"Contacts",nil);
             break;
         case 5:
-            HeaderLabel.text=@"Comments";
+            HeaderLabel.text=NSLocalizedString(@"Comments",nil);
             break;
             
         default:

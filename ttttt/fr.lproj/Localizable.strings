@@ -1,0 +1,29 @@
+/* 
+  Localizable_french.strings
+  ttttt
+
+  Created by Tamer Alaa on 4/23/13.
+  Copyright (c) 2013 Tamer Alaa. All rights reserved.
+*/
+//MosaicController Strings list
+"Please Wait"="Attendez SVP";
+"ImagesDownload"="Attendez SVP , Les images sont entrain de telecharger ";
+//CustomData Strings List
+"Errordownloading"="Il ya un erreur en telechargement des Nouvelles";
+//Testviewcontroller strings list
+"GOPRO"="Cette version gratuite a une limite de 3 Catalogues seulement \n Si vous souhaitez ajouter d'autres catalogues press GO PRO , Autrement Press Cancel ";
+//DetailViewController Strings List
+"NOWEBSITE"="Vous n'avez sauveguardez aucun website in Shoplog";
+"Devicenotsupported"="Votre appareil ne supporte pas cette fonctionnalité.";
+"Product Information request"="Demande d'information du produit";
+"moreinfo"="HELLO \n Je voudrais avoir plus d'informations sur le produit ci-joint \n Merci \n\n\n Envoye par Shoplog Application ";
+//Addproductdetailviewcontroller Strings list
+"The shop is here"="Le Magasin est ici";
+"Missingcategory"="Ajoutez le nom de Categorie";
+"Fillthecategory"="Veuillez remplir le nom de la catégorie";
+"Categoryname"="Categories";
+"Image"="Image";
+"Description"="Description";
+"Location"="Location";
+"Contacts"="Contacts";
+"Comments"="Commentaire";

@@ -1,0 +1,102 @@
+
+/* Class = "IBUILabel"; text = "Rating"; ObjectID = "6hB-Rg-B4T"; */
+"6hB-Rg-B4T.text" = "Rating";
+
+/* Class = "IBUITableViewSection"; headerTitle = "Description"; ObjectID = "8eM-kh-tQC"; */
+"8eM-kh-tQC.headerTitle" = "Description";
+
+/* Class = "IBUITableViewSection"; headerTitle = "Image"; ObjectID = "B1W-Yf-Gsf"; */
+"B1W-Yf-Gsf.headerTitle" = "Image";
+
+/* Class = "IBUILabel"; text = "Price"; ObjectID = "BIw-PV-K57"; */
+"BIw-PV-K57.text" = "Prix";
+
+/* Class = "IBUILabel"; text = "Long"; ObjectID = "G2V-2B-0g8"; */
+"G2V-2B-0g8.text" = "Long";
+
+/* Class = "IBUINavigationItem"; title = "Title"; ObjectID = "GfD-0a-Guh"; */
+"GfD-0a-Guh.title" = "Title";
+
+/* Class = "IBUITableViewSection"; headerTitle = "Category Name"; ObjectID = "Htx-UI-ucH"; */
+"Htx-UI-ucH.headerTitle" = "Categorie";
+
+/* Class = "IBUILabel"; text = "Lat"; ObjectID = "J9h-6c-OV2"; */
+"J9h-6c-OV2.text" = "Lat";
+
+/* Class = "IBUILabel"; text = "Dim. & Sizes"; ObjectID = "JrN-zm-eXk"; */
+"JrN-zm-eXk.text" = "Dimension";
+
+/* Class = "IBUITabBarItem"; title = "GO PRO"; ObjectID = "Omd-Tv-DNJ"; */
+"Omd-Tv-DNJ.title" = "GO PRO";
+
+/* Class = "IBUITabBarItem"; title = "Item"; ObjectID = "PTZ-kh-sbt"; */
+"PTZ-kh-sbt.title" = "Item";
+
+/* Class = "IBUILabel"; text = "Date"; ObjectID = "Qm1-jn-PNB"; */
+"Qm1-jn-PNB.text" = "Date";
+
+/* Class = "IBUILabel"; text = "WEbsite"; ObjectID = "SDN-VJ-9ts"; */
+"SDN-VJ-9ts.text" = "Website";
+
+/* Class = "IBUITableViewSection"; headerTitle = "Comments"; ObjectID = "TSa-PQ-7O8"; */
+"TSa-PQ-7O8.headerTitle" = "Commentaire";
+
+/* Class = "IBUIButton"; normalTitle = "I am Inside the Shop"; ObjectID = "VYe-ws-kBf"; */
+"VYe-ws-kBf.normalTitle" = "je suis dans le magasin";
+
+/* Class = "IBUIButton"; normalTitle = "Library"; ObjectID = "Vrn-bs-XVB"; */
+"Vrn-bs-XVB.normalTitle" = "Photo";
+
+/* Class = "IBUILabel"; text = "Phone"; ObjectID = "Y25-wn-bRz"; */
+"Y25-wn-bRz.text" = "Phone";
+
+/* Class = "IBUIButton"; normalTitle = "Camera"; ObjectID = "Y5k-fu-wQW"; */
+"Y5k-fu-wQW.normalTitle" = "Camera";
+
+/* Class = "IBUIButton"; normalTitle = "Button"; ObjectID = "YfT-Kh-zlB"; */
+"YfT-Kh-zlB.normalTitle" = "Button";
+
+/* Class = "IBUILabel"; text = "Email"; ObjectID = "d2b-M5-8XW"; */
+"d2b-M5-8XW.text" = "Email";
+
+/* Class = "IBUITabBarItem"; title = "Feeds"; ObjectID = "eSM-FF-78g"; */
+"eSM-FF-78g.title" = "Nouvelles";
+
+/* Class = "IBUIButton"; normalTitle = "Back"; ObjectID = "hIb-ur-QqN"; */
+"hIb-ur-QqN.normalTitle" = "Retour";
+
+/* Class = "IBUILabel"; text = "Shop name"; ObjectID = "mHa-5e-Isp"; */
+"mHa-5e-Isp.text" = "Magasin";
+
+/* Class = "IBUIButton"; normalTitle = "Upgrade me !"; ObjectID = "ny8-eE-oBl"; */
+"ny8-eE-oBl.normalTitle" = "Upgrade me !";
+
+/* Class = "IBUILabel"; text = "This Application is done for the Serious Shoppers. You are about to be one of them "; ObjectID = "rAw-vU-46x"; */
+"rAw-vU-46x.text" = "Cette Application est pour les Shoppers serieux. vous serez un d'eux";
+
+/* Class = "IBUITextView"; text = "Please Add Your Comments"; ObjectID = "rKe-9m-HNL"; */
+"rKe-9m-HNL.text" = "Ajoutez vos commentaires SVP";
+
+/* Class = "IBUITableViewSection"; headerTitle = "Location"; ObjectID = "rch-np-JHJ"; */
+"rch-np-JHJ.headerTitle" = "Place";
+
+/* Class = "IBUIBarButtonItem"; title = "Back"; ObjectID = "sJO-y9-hvs"; */
+"sJO-y9-hvs.title" = "Retour";
+
+/* Class = "IBUILabel"; text = "Dim"; ObjectID = "sWb-xg-OUm"; */
+"sWb-xg-OUm.text" = "Dim";
+
+/* Class = "IBUITableViewSection"; headerTitle = "Contacts"; ObjectID = "srt-LC-tS0"; */
+"srt-LC-tS0.headerTitle" = "Contacts";
+
+/* Class = "IBUIBarButtonItem"; title = "Share"; ObjectID = "uvO-Lm-qcA"; */
+"uvO-Lm-qcA.title" = "Partage";
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "vvD-Hl-6pA"; */
+//"vvD-Hl-6pA.text" = "Label";
+
+/* Class = "IBUILabel"; text = "Shop"; ObjectID = "yH4-h3-KhL"; */
+"yH4-h3-KhL.text" = "Magazin";
+
+/* Class = "IBUILabel"; text = "0"; ObjectID = "z4r-gT-LaZ"; */
+"z4r-gT-LaZ.text" = "0";

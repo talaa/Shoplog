@@ -82,8 +82,10 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if ([[segue identifier] isEqualToString:@"gotowebdetail"]) {
         WebdetailViewController *webdetailcontr = (WebdetailViewController *)[segue destinationViewController];
         //CustomDataSource *cds=[[CustomDataSource alloc]init];
-        if (selectedindex <= [cds._elements count]-1 || !cds._elements  ) {
-            NSLog(@"The Elements are %d",[cds._elements count]);
+        int cont=[cds._elements count];
+        NSLog(@"The Elements are %d  & %d",cont,selectedindex);
+        if (selectedindex <= cont-1 || cont>0 ) {
+            
             [activityindicator stopAnimating];
             MosaicData *dta=[cds._elements objectAtIndex:selectedindex];
             
@@ -91,7 +93,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
             [webdetailcontr setDetailurl:[NSURL URLWithString:dta.url]];
             webdetailcontr.hidesBottomBarWhenPushed = YES;
         }else{
-            UIAlertView *pleasewait=[[UIAlertView alloc]initWithTitle:@"Please Wait" message:@"The Images are still Loading , Kindly wait " delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            UIAlertView *pleasewait=[[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Please Wait", nil)  message:NSLocalizedString(@"ImagesDownload", nil) delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
             
             [pleasewait show];
         

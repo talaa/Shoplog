@@ -17,14 +17,14 @@
 #import "DetailPopViewController.h"
 #import "PopoverView.h"
 #import "AdFooterview.h"
-#import "MYIntroductionView.h"
+
 
 #define KPROUprade @"isProversionpurchased"
 #define KRated @"isalreadyrated"
 @class MyCustomCell;
 @class HeaderView;
 @class AdFooterview;
-@interface TestViewController : UICollectionViewController<UICollectionViewDataSource,UICollectionViewDelegate,NSFetchedResultsControllerDelegate,UIPopoverControllerDelegate,MyPopoverDelegate,MFMailComposeViewControllerDelegate,PopoverViewDelegate,UIAlertViewDelegate,MYIntroductionDelegate>{
+@interface TestViewController : UICollectionViewController<UICollectionViewDataSource,UICollectionViewDelegate,NSFetchedResultsControllerDelegate,UIPopoverControllerDelegate,MyPopoverDelegate,MFMailComposeViewControllerDelegate,PopoverViewDelegate,UIAlertViewDelegate>{
 
 
     //IBOutlet UIViewController *popoverinview;

@@ -113,7 +113,7 @@
         
         
         if (!theurl) {
-            UIAlertView *nourlalert=[[UIAlertView alloc]initWithTitle:@"NO Website" message:@"You have NOT saved any website in Shoplog" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *nourlalert=[[UIAlertView alloc]initWithTitle:@"NO Website" message:NSLocalizedString(@"NOWEBSITE", nil) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [nourlalert show];
         }else{
             
@@ -168,7 +168,7 @@
         //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:130-032-2837"]]];
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:Phone]];
     } else {
-        UIAlertView *Notpermitted=[[UIAlertView alloc] initWithTitle:@"Alert" message:@"Your device doesn't support this feature." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *Notpermitted=[[UIAlertView alloc] initWithTitle:@"Alert" message:NSLocalizedString(@"Devicenotsupported", nil) delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [Notpermitted show];
         
     }
@@ -178,9 +178,9 @@
     NSArray *tomail=[[NSArray alloc]initWithObjects:[self.detailItem valueForKey:@"email"], nil];
     MFMailComposeViewController *picker=[[MFMailComposeViewController alloc]init];
     picker.mailComposeDelegate=self;
-    [picker setSubject:@"Product Information request"];
+    [picker setSubject:NSLocalizedString(@"Product Information request", nil) ];
     [picker setToRecipients:tomail];
-    [picker setMessageBody:@"HELLO \n I would like to have more information about the attached Product \n Thank you \n\n\n Sent from Shoplog Application " isHTML:NO];
+    [picker setMessageBody:NSLocalizedString(@"moreinfo", nil) isHTML:NO];
     [picker addAttachmentData:[self.detailItem valueForKey:@"image"] mimeType:@"image/png" fileName:@"Photos"];
     [self presentViewController:picker animated:YES completion:nil];
     
