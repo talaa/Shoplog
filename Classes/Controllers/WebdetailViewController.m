@@ -13,7 +13,7 @@
 @end
 
 @implementation WebdetailViewController
-@synthesize Fullwebdetail,detailurl;
+@synthesize Fullwebdetail,detailurl,showbusyindicator;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -26,7 +26,7 @@
 - (void)viewDidLoad
 {
     [Fullwebdetail loadRequest:[NSURLRequest requestWithURL:detailurl]];
-    
+    [showbusyindicator stopAnimating];
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 }

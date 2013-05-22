@@ -84,7 +84,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         //CustomDataSource *cds=[[CustomDataSource alloc]init];
         int cont=[cds._elements count];
         NSLog(@"The Elements are %d  & %d",cont,selectedindex);
-        if (selectedindex <= cont-1 || cont>0 ) {
+        if (cont>0 && selectedindex<=cont-1) {
             
             [activityindicator stopAnimating];
             MosaicData *dta=[cds._elements objectAtIndex:selectedindex];

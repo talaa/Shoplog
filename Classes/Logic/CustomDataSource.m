@@ -105,6 +105,7 @@
     
     
 }
+/*
 - (NSString*)retrieveImageSourceTagsViaRegex:(NSURL *)url1
 {
     NSString *string = [NSString stringWithContentsOfURL:url1
@@ -141,6 +142,7 @@
         return @"MyIcon copy_144";
 
 }
+ */
 - (NSString*)retrieveImageSourceTagsViaHpple:(NSURL *)url
 {
     NSData *data = [NSData dataWithContentsOfURL:url];
@@ -154,9 +156,9 @@
     {
         NSString *src = [element objectForKey:@"src"];
 		[imagesarray addObject:src];
-        NSLog(@"img src: %@", src);
+        //NSLog(@"img src: %@", src);
     }
-	NSLog(@"The List of Images is %@",[imagesarray objectAtIndex:3]);
+	//NSLog(@"The List of Images is %@",[imagesarray objectAtIndex:3]);
     if ([[imagesarray objectAtIndex:3] hasPrefix:@"http"]&& ![[imagesarray objectAtIndex:3]hasSuffix:@"gif"]) {
         return [imagesarray objectAtIndex:3];
     }else if ([[imagesarray objectAtIndex:2] hasPrefix:@"http"]&& ![[imagesarray objectAtIndex:2]hasSuffix:@"gif"]){

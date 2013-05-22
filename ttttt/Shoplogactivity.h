@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MessageUI/MessageUI.h>
 
-@interface Shoplogactivity : UIActivity <MFMailComposeViewControllerDelegate>
+
+@interface Shoplogactivity : UIActivity 
 // 1
 - (UIImage *)activityImage;
 // 2
@@ -23,7 +23,9 @@
 // 6
 - (void)performActivity;
 // 7
+@property (nonatomic,copy)NSMutableArray *selectedthings;
+//@property (nonatomic,retain)UIPopoverController *mypop;
 
 // 8
--(void)setSelectedthings:(NSMutableArray *)Selectedthings;
+//-(void)setSelectedthings:(NSMutableArray *)Selectedthings;
 @end

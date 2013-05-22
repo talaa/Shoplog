@@ -10,5 +10,6 @@
 
 @interface WebdetailViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UIWebView *Fullwebdetail;
+@property (strong,nonatomic) IBOutlet UIActivityIndicatorView *showbusyindicator;
 @property (strong,nonatomic)NSURL *detailurl;
 @end

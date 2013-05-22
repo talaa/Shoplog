@@ -8,42 +8,37 @@
 
 #import "Shoplogactivity.h"
 #import "TestViewController.h"
+#import "ShoplogactivityViewController.h"
 
 
 
 
-@interface Shoplogactivity ()
+@interface Shoplogactivity ()<Shoplogactivityviewcontrollerdelegate>
 @property (strong, nonatomic) UIImage *authorImage;
-@property (strong, nonatomic) NSString *funFactText;
-@property (strong,nonatomic) NSMutableArray *Selectedthings;
+@property (strong, nonatomic) NSString *messagetext;
+@property (nonatomic,retain)ShoplogactivityViewController *shoplogactivitycontroller;
 @end
 @implementation Shoplogactivity
-
-
--(void)setSelectedthings:(NSMutableArray *)Selectedthings{
-
-   // NSLog(@"the Selected Arrays are %@",Selectedthings);
-
-
-}
-
+@synthesize selectedthings;
 
 - (UIImage *)activityImage
 {
-    return [UIImage imageNamed:@"shoppin.png" ];
+    
+    return [UIImage imageNamed:@"MyIcon copy_57 copy_BW" ];
 }
 - (NSString *)activityTitle
 {
-    return @"Send to Shoplog";
+    return @"Share with Shoplog";
 }
 - (NSString *)activityType
 {
-    return UIActivityTypeMail;
-    //return @"com.domainname.ShopLog.shoploginternal";
+    //return UIActivityTypeMail;
+    return @"com.springmoon.Shoplog.shoploginternal";
 }
 
 - (BOOL)canPerformWithActivityItems:(NSArray *)activityItems
 {
+    /*
     for (int i = 0; i < activityItems.count; i++)
     {
         id item = activityItems[i];
@@ -56,11 +51,20 @@
             return NO;
         }
     }
+     */
+    //NSLog(@"The Count of Activity items is %@",activityItems[2]);
     return YES;
 }
 
 - (void)prepareWithActivityItems:(NSArray *)activityItems
 {
+    //ShoplogactivityViewController *vc = [[ShoplogactivityViewController alloc] init];
+    selectedthings=[[NSMutableArray alloc]initWithContentsOfURL:activityItems[2]];
+    //[vc setShownstuff:selectedthings];
+    //NSLog(@"The selected items are %@",selectedthings);
+    
+    
+    /*
     for (int i = 0; i < activityItems.count; i++)
     {
         id item = activityItems[i];
@@ -73,26 +77,37 @@
             self.funFactText = item;
         }
     }
+     */
 }
+- (UIViewController *)activityViewController
+{
+    
+    ShoplogactivityViewController *vc = [[ShoplogactivityViewController alloc] init];
+    //[vc setShownstuff:selectedthings];
+    //UIPopoverController *popvc=[[UIPopoverController alloc]initWithContentViewController:vc];
+    vc.delegate = self;
+    vc.shownstuff=self.selectedthings;
+    vc.title=@"Sharing to Shoplog";
+    //NSLog(@"The selected items are %@",selectedthings);
+    
+    
+    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
+    nc.modalPresentationStyle = UIModalPresentationPageSheet;
+    return nc;
+         
+}
+
+
+
 - (void)performActivity
 {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:@"Shoplog.slog"];
-    NSLog(@"The String of the Path is :%@",filePath);
-    NSData *savedData = [NSKeyedArchiver archivedDataWithRootObject:self.Selectedthings];
-    [savedData writeToFile:filePath atomically:YES];
+        NSLog(@"I have Pushed the Shoplog Button");
+    [self activityDidFinish:YES];
+}
+
+- (void)ShoplogactivityViewControllerDidCancel:(ShoplogactivityViewController *)viewController
+{
     
-    //testitemprovider *gg=[[testitemprovider alloc]init];
-    
-    //[self.Selectedthings writeToFile:filePath atomically:YES];
-    //TestViewController *test=[[TestViewController alloc]init];
-    NSLog(@"I have Pushed the Shoplog Button");
-    //NSURL *turl=[[NSURL alloc]initFileURLWithPath:filePath];
-    //[test.addarray addObject:turl];
-   
-    
-    //[test showmailcomposer:savedData];
     [self activityDidFinish:YES];
 }
    

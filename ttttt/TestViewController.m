@@ -530,9 +530,9 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSMutableArray *newArraytext=[[NSMutableArray alloc]init];
     Shoplogactivity *shopactivity=[[Shoplogactivity alloc]init];
     
-    [shopactivity setSelectedthings:self.selectedPhotos];
+    
     for (Shoplog * ChosenPhot in self.selectedPhotos) {
-        
+        [shopactivity.selectedthings addObject:ChosenPhot.categoryname];
         NSString *initalTextString = [NSString
                                       stringWithFormat:@"I am Sending from my Shoplog Collection: %@",
                                       ChosenPhot.categoryname];
@@ -555,7 +555,8 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     //UIActivityViewController *activityViewController2 =[[UIActivityViewController alloc]initWithActivityItems:self.addarray applicationActivities:@[shopactivity]];
     //testitemprovider *tetet=[[testitemprovider alloc]init];
     //NSArray *items = [NSArray arrayWithObjects:tetet,nil];
-    UIActivityViewController *activityViewController2 =[[UIActivityViewController alloc]initWithActivityItems:addArray applicationActivities:@[shopactivity]];
+    //UIActivityViewController *activityViewController2 =[[UIActivityViewController alloc]initWithActivityItems:addArray applicationActivities:@[shopactivity]];
+    UIActivityViewController *activityViewController2 =[[UIActivityViewController alloc]initWithActivityItems:addArray applicationActivities:nil];
     
     [self presentViewController:activityViewController2 animated:YES completion:^{}];
 }
@@ -565,7 +566,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *filePath = [documentsDirectory stringByAppendingPathComponent:@"Shoplog.slog"];
     //NSURL *fileURL = [[NSURL alloc] initFileURLWithPath:filePath];
-    NSLog(@"The String of the Path is :%@",self.selectedPhotos);
+    //NSLog(@"The String of the Path is :%@",self.selectedPhotos);
     //NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.selectedPhotos];
     
     
@@ -577,7 +578,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         for (Shoplog *rrr in self.selectedPhotos) {
             
         NSDictionary *tempdict=[rrr toDictionary];
-        NSLog(@"The NSObject is :%@",tempdict);
+        //NSLog(@"The NSObject is :%@",tempdict);
         [ftarray addObject:tempdict];
         }
     }
@@ -589,7 +590,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     //[savedData writeToFile:filePath atomically:YES];
     NSURL *turl=[[NSURL alloc]initFileURLWithPath:filePath];
     NSMutableArray *jjooll=[[NSMutableArray alloc]initWithObjects:turl, nil];
-    NSLog(@"The String of the Path is :%@",documentsDirectory);
+    NSLog(@"The String of the Path is :%@",jjooll);
     
     return jjooll;
 
