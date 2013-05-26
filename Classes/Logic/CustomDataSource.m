@@ -11,6 +11,7 @@
 #import "MosaicCell.h"
 #import <dispatch/dispatch.h>
 #import "TFHpple.h"
+#import <ImageIO/ImageIO.h>
 
 @interface CustomDataSource()
 -(void)loadFromDisk;
@@ -22,11 +23,9 @@
 -(void)loadFromDisk{
     _elements = [[NSMutableArray alloc] init];
     dispatch_queue_t backgroundQueue;
-    //NSString *pathString = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"json"];
-    //NSData *elementsData = [NSData dataWithContentsOfFile:pathString];
     backgroundQueue = dispatch_queue_create("com.springmoon.shoplog.bgqueue", NULL);
    
-    //NSArray *parsedElements = [NSJSONSerialization JSONObjectWithData:elementsData options:NSJSONReadingAllowFragments error:&anError];
+    
     
     ///The New Part
     NSString *feedname=@"http://api.twitter.com/1/statuses/user_timeline.json?include_entities=true&include_rts=true&screen_name=shoplog1&count=20";
@@ -40,8 +39,7 @@
         
     //The JSON Part
     
-    //NSData *dataurl =[NSData dataWithContentsOfURL:feedURL];
-    //NSArray *parsedElements=[NSJSONSerialization JSONObjectWithData:dataurl options:NSJSONReadingMutableLeaves error:&anError];
+    
     NSArray *parsedElements=[NSJSONSerialization JSONObjectWithData:dataurl options:NSJSONReadingAllowFragments
                                                               error:&anError];
     
@@ -86,20 +84,14 @@
         }
         
     }
-    /*
-    if (anError) {
-        UIAlertView *nointernet=[[UIAlertView alloc]initWithTitle:@"OOOPS!" message:@"Sorry but you dont have internet connection " delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [nointernet show];
-    } else {
-        for (NSDictionary *aModuleDict in parsedElements){
-            MosaicData *aMosaicModule = [[MosaicData alloc] initWithDictionary:aModuleDict];
-            //NSLog(@"The First url is :%@",_elements);
-            [_elements addObject:aMosaicModule];
-            
+            NSLog(@"The error is %@",anError);
+        if (anError) {
+            UIAlertView *nointernet=[[UIAlertView alloc]initWithTitle:@"OOOPS!" message:@"Sorry but you dont have internet connection " delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [nointernet show];
         }
-    }
-     */
-    //MosaicData *dta=[_elements objectfor:selectedindex];
+    
+     
+     
         }
     });
     
@@ -143,23 +135,85 @@
 
 }
  */
+
+-(float)gettingimagedimensions:(NSString*)url{
+    //NSURL *imageFileURL = [NSURL fileURLWithPath:url];
+    NSURL *testfileurl=[NSURL URLWithString:url];
+    //CGImageSourceRef imageSource = CGImageSourceCreateWithURL(imageFileURL, NULL);
+    CGImageSourceRef imageSource = CGImageSourceCreateWithURL((__bridge CFURLRef)testfileurl, NULL);
+    if (imageSource == NULL) {
+        // Error loading image
+        
+        return 0;
+    }
+    
+    CGFloat  height = 0.0f;
+    CFDictionaryRef imageProperties = CGImageSourceCopyPropertiesAtIndex(imageSource, 0, NULL);
+    if (imageProperties != NULL) {
+        /*
+        CFNumberRef widthNum  = CFDictionaryGetValue(imageProperties, kCGImagePropertyPixelWidth);
+        if (widthNum != NULL) {
+            CFNumberGetValue(widthNum, kCFNumberFloatType, &width);
+        }
+        */
+        CFNumberRef heightNum = CFDictionaryGetValue(imageProperties, kCGImagePropertyPixelHeight);
+        if (heightNum != NULL) {
+            CFNumberGetValue(heightNum, kCFNumberFloatType, &height);
+        }
+        
+        CFRelease(imageProperties);
+    }
+    
+    NSLog(@"Image dimensions:  %.0f px", height);
+
+    return height;
+
+}
 - (NSString*)retrieveImageSourceTagsViaHpple:(NSURL *)url
 {
     NSData *data = [NSData dataWithContentsOfURL:url];
-	NSMutableArray *imagesarray=[[NSMutableArray alloc]init];
+    if (data) {
+	//NSMutableArray *imagesarray=[[NSMutableArray alloc]init];
     TFHpple *parser = [TFHpple hppleWithHTMLData:data];
-    
+    //float savefloat;
     NSString *xpathQueryString = @"//img";
     NSArray *nodes = [parser searchWithXPathQuery:xpathQueryString];
     
-    for (TFHppleElement *element in nodes)
-    {
-        NSString *src = [element objectForKey:@"src"];
-		[imagesarray addObject:src];
-        //NSLog(@"img src: %@", src);
+        NSString *lasthope=[[NSString alloc]init];
+        for (TFHppleElement *element in nodes)
+        {
+            NSString *src = [element objectForKey:@"src"];
+            lasthope=src;
+            if (![src hasSuffix:@"gif"]&&[src hasPrefix:@"http"]&&[self gettingimagedimensions:src]>200) {
+                
+                //[imagesarray addObject:src];
+                return src;
+                
+            }
+            /*
+             if (![src hasSuffix:@"gif"]&&[src hasPrefix:@"http"]) {
+             
+             [imagesarray addObject:src];
+             
+             }
+             */
+            //NSLog(@"img src: %@", src);
+        }
+        return lasthope;
+    } else {
+        /*
+        UIAlertView *nointernet=[[UIAlertView alloc]initWithTitle:@"OOOPS!" message:@"Sorry but you dont have internet connection " delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [nointernet show];
+         */
+        return @"MyIcon copy_144";
     }
-	//NSLog(@"The List of Images is %@",[imagesarray objectAtIndex:3]);
-    if ([[imagesarray objectAtIndex:3] hasPrefix:@"http"]&& ![[imagesarray objectAtIndex:3]hasSuffix:@"gif"]) {
+    
+    
+    //The new Method
+ 
+    
+    /*
+    if ([[imagesarray objectAtIndex:3] hasPrefix:@"http"]&& ![[imagesarray objectAtIndex:3]hasSuffix:@"gif"] ) {
         return [imagesarray objectAtIndex:3];
     }else if ([[imagesarray objectAtIndex:2] hasPrefix:@"http"]&& ![[imagesarray objectAtIndex:2]hasSuffix:@"gif"]){
         return [imagesarray objectAtIndex:2];
@@ -169,6 +223,7 @@
         return [imagesarray objectAtIndex:0];
     }else
         return @"MyIcon copy_144";
+     */
     
 }
 

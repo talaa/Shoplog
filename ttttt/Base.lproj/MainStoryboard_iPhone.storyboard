@@ -181,11 +181,41 @@
                         <outlet property="sharebutton" destination="uvO-Lm-qcA" id="lSa-fN-JxK"/>
                         <segue destination="G1I-1g-veF" kind="push" identifier="AddCatalogue" id="Sip-Dc-6w9"/>
                         <segue destination="iyi-9O-DU3" kind="modal" identifier="upgrade" modalTransitionStyle="crossDissolve" id="c9J-lg-6fX"/>
+                        <segue destination="ooM-FB-0FK" kind="push" identifier="1111" id="85Y-9u-vh8"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0pS-7G-LAN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1738" y="13"/>
+            <point key="canvasLocation" x="1749" y="-105"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="ctg-KG-yvp">
+            <objects>
+                <viewController id="ooM-FB-0FK" customClass="WebViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="foO-9i-GAs">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IEJ-nn-LTB">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="IEJ-nn-LTB" firstAttribute="leading" secondItem="foO-9i-GAs" secondAttribute="leading" type="default" id="VJL-NW-4IS"/>
+                            <constraint firstItem="IEJ-nn-LTB" firstAttribute="top" secondItem="foO-9i-GAs" secondAttribute="top" type="default" id="dKi-Eq-pgp"/>
+                            <constraint firstItem="IEJ-nn-LTB" firstAttribute="trailing" secondItem="foO-9i-GAs" secondAttribute="trailing" type="default" id="fkD-Do-GMK"/>
+                            <constraint firstItem="IEJ-nn-LTB" firstAttribute="bottom" secondItem="foO-9i-GAs" secondAttribute="bottom" type="default" id="oxN-Hn-6a1"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="M7C-OA-ohj"/>
+                    <connections>
+                        <outlet property="Mainwebview" destination="IEJ-nn-LTB" id="YBh-xC-re6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ILq-C6-KlU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2251" y="-1192"/>
         </scene>
         <!--Add Product Detail View Controller-->
         <scene sceneID="wzG-k5-Lrz">
@@ -1172,7 +1202,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kal-mF-Cun" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1731" y="1124"/>
+            <point key="canvasLocation" x="2323" y="984"/>
         </scene>
         <!--Navigation Controller - Item-->
         <scene sceneID="ZhA-1b-NER">
@@ -1206,11 +1236,27 @@
                     <connections>
                         <segue destination="o6D-vv-51P" kind="relationship" relationship="viewControllers" id="PCc-Lp-uRs"/>
                         <segue destination="ijT-s1-pFb" kind="relationship" relationship="viewControllers" id="9ct-5U-nCx"/>
+                        <segue destination="wtJ-nF-bXb" kind="relationship" relationship="viewControllers" id="Tpa-L3-V49"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nth-aM-9Gk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-128" y="61"/>
+        </scene>
+        <!--Intro View Controller - Tour-->
+        <scene sceneID="AAb-Rt-Ou1">
+            <objects>
+                <viewController id="wtJ-nF-bXb" customClass="introViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xlA-U7-wwU">
+                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Tour" image="icon_information.png" id="rID-TT-mLb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Ye-of-mf7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="341" y="-405"/>
         </scene>
         <!--Navigation Controller - Feeds-->
         <scene sceneID="xtK-dh-ZCB">
@@ -1243,6 +1289,7 @@
         <image name="Phone1.png" width="512" height="512"/>
         <image name="Web-icon.png" width="256" height="256"/>
         <image name="blue-ribbon-banner-2.png" width="600" height="200"/>
+        <image name="icon_information.png" width="30" height="30"/>
         <image name="icon_magnify_glass.png" width="30" height="30"/>
         <image name="icon_post.png" width="30" height="30"/>
         <image name="icon_shopping_bag.png" width="30" height="30"/>

@@ -17,6 +17,7 @@
 #import "DetailPopViewController.h"
 #import "PopoverView.h"
 #import "AdFooterview.h"
+#import "LAWalkthroughViewController.h"
 
 
 #define KPROUprade @"isProversionpurchased"
@@ -45,7 +46,7 @@
 @property(nonatomic, strong) NSMutableArray *selectedPhotos;
 @property (nonatomic,strong) IBOutlet UIBarButtonItem *sharebutton;
 @property(nonatomic, strong) NSMutableArray *searcharray;
-//@property(nonatomic, strong) NSString *searchstring;
+@property(nonatomic, strong) NSString *searchstring;
 //-(void)showmailcomposer:(NSData*)datafile;
 - (void)handleOpenURL:(NSURL *)url;
 //- (void)reloadFetchedResults:(NSNotification*)note;

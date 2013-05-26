@@ -32,6 +32,7 @@ typedef enum SocialButtonTags
 #import "Shopzila.h"
 #import "Shoppingcom.h"
 #import "pricegrabbersearch.h"
+#import "WebViewController.h"
 
 //#import "MyCustomCell.h"
 //#import "HeaderView.h"
@@ -45,7 +46,7 @@ typedef enum SocialButtonTags
     NSMutableArray *_objectChanges;
     NSMutableArray *_sectionChanges;
 }
-@synthesize testarray,mycustomcell,myheaderview,mypopover,detailPopViewController,sharebutton,searcharray;
+@synthesize testarray,mycustomcell,myheaderview,mypopover,detailPopViewController,sharebutton,searcharray,searchstring;
 
 - (void)viewDidUnload {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -70,18 +71,7 @@ typedef enum SocialButtonTags
 
 
 }
--(void)awakeFromNib{
-    /*
-    NSUserDefaults *userdefaults =[NSUserDefaults standardUserDefaults];
-    if (![userdefaults boolForKey:KPROUprade]) {
-        UIAlertView *endoftheline=[[UIAlertView alloc]initWithTitle:@"GO PRO" message:@"This Free Version has a limit of 3 Catalogues Only \n if you want to add more Catalogues press GO PRO , otherwise Press Cancel " delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"GO PRO", nil];
-        [endoftheline show];
-    }
-*/
 
-
-
-}
 - (void)handleOpenURL:(NSURL *)url {
     NSUserDefaults *userdefaults =[NSUserDefaults standardUserDefaults];
 
@@ -160,6 +150,12 @@ typedef enum SocialButtonTags
                                              selector:@selector(Searchactivated1:)
                                                  name:@"Searchactivated"
                                                object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(WebSearchactivated1:)
+                                                 name:@"webSearchactivated"
+                                               object:nil];
+
     //[self startintroduction];
     
 }
@@ -200,15 +196,11 @@ typedef enum SocialButtonTags
     if ([[segue identifier] isEqualToString:@"upgrade"]) {
         UpgradeViewController *upgarde=(UpgradeViewController *)[segue destinationViewController];
         [upgarde requestProductData];
-        //  Get a reference to our detail view
-        //NSIndexPath *indexpath=[[self.collectionView indexPathsForSelectedItems]sender];
-        //DetailPopViewController  *detailview = (DetailPopViewController *)[segue destinationViewController];
-        //[self.navigationController presentModalViewController:navController animated:YES];
-        
-        //[detailview setDetailItem:sender] ;
-        //[self presentViewController:detailview animated:YES completion:nil];
-    
-    
+            
+    }
+    if ([[segue identifier] isEqualToString:@"1111"]) {
+        WebViewController *webview=(WebViewController*)[segue destinationViewController];
+        webview.browseuuurl=[[NSURL alloc]initWithString:searchstring];
     }
         
     //NSLog(@"The Segue is as Follows : %@",[segue identifier]);
@@ -274,8 +266,7 @@ typedef enum SocialButtonTags
     
     
     
-    //Cc.celllabel.text = [NSString stringWithFormat:@"Section:%d, Item:%d",indexPath.section, indexPath.item];
-    //NSLog(@"The text is :%@",[NSString stringWithFormat:@"Section:%d, Item:%d",indexPath.section, indexPath.item]);
+    
     return Cc;
 }
 -(UICollectionReusableView *)collectionView:
@@ -297,7 +288,8 @@ typedef enum SocialButtonTags
             adbanner = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
             
             // Specify the ad's "unit identifier." This is your AdMob Publisher ID.
-            adbanner.adUnitID = @"a150d70feb67349";
+            //adbanner.adUnitID = @"a150d70feb67349";
+            adbanner.adUnitID = @"c698ec8a21d54dca";
             
             // Let the runtime know which UIViewController to restore after taking
             // the user wherever the ad goes and add it to the view hierarchy.
@@ -439,12 +431,21 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     
 }
+-(void)WebSearchactivated1:(NSNotification*)notification {
+    
+    NSString *searchterm=[[notification userInfo] valueForKey:@"Searchwebsite"];
+    searchstring=searchterm;
+    [self performSegueWithIdentifier:@"1111" sender:self];
+    
+    
+    
+}
 -(void)Searchactivated1:(NSNotification*)notification
 {
     if ([[notification name] isEqualToString:@"Searchactivated"])
         NSLog(@"This is Value Passed :%@ ",[[notification userInfo] valueForKey:@"Searchterm"]);
     //Preparing the Search Term
-    
+    searchstring=nil;
     NSString *searchterm=[[notification userInfo] valueForKey:@"Searchterm"];
     NSArray *addArray2=[NSArray arrayWithObject:searchterm];
     //Preparing the UIAcitvity Arrays of Objects
@@ -476,6 +477,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [self presentViewController:activityViewController2 animated:YES completion:^{}];
     
 }
+
 
 - (void) receiveTestNotification:(NSNotification *) notification
 {

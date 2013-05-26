@@ -61,8 +61,8 @@
     NSDictionary *flurrydicttionary2=[[NSDictionary alloc]initWithObjectsAndKeys:@"Amazon",@"searchengine", nil];
     [Flurry logEvent:@"Search_Engine" withParameters:flurrydicttionary2 timed:YES];
 
-    //[webcontrol setBrowseuuurl:[[NSURL alloc]initWithString:completeUrl]];
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:completeUrl]];
+    NSDictionary *dict = [NSDictionary dictionaryWithObject:completeUrl forKey:@"Searchwebsite"];
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"webSearchactivated" object:self userInfo:dict];
     [self activityDidFinish:YES];
     
 }

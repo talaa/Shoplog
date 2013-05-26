@@ -9,6 +9,8 @@
 #import "MosaicCell.h"
 #import "WebdetailViewController.h"
 #import "CustomDataSource.h"
+#import "TapForTap.h"
+#import "Flurry.h"
 
 @interface MosaicViewController()
 -(void)updateColumnsQuantityToInterfaceOrientation:(UIInterfaceOrientation)anOrientation;
@@ -33,6 +35,20 @@ static UIImageView *captureSnapshotOfView(UIView *targetView){
     retVal.frame = [targetView frame];
     
     return retVal;
+}
+-(BOOL)checkinternetconnection{
+
+NSString *feedname=@"http://api.twitter.com/1/statuses/user_timeline.json?include_entities=true&include_rts=true&screen_name=shoplog1&count=20";
+    //NSError *anError = nil;
+    NSURL *feedURL =[NSURL URLWithString:feedname];
+    NSData *dataurl =[NSData dataWithContentsOfURL:feedURL];
+    if (dataurl==NULL) {
+        return NO;
+    }else{
+    
+        return YES;
+    }
+
 }
 
 -(void)updateColumnsQuantityToInterfaceOrientation:(UIInterfaceOrientation)anOrientation{
@@ -69,14 +85,7 @@ static UIImageView *captureSnapshotOfView(UIView *targetView){
 didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     selectedindex=indexPath.row;
     [self performSegueWithIdentifier:@"gotowebdetail" sender:self];
-    /*
-    CustomDataSource *cds=[[CustomDataSource alloc]init];
-    MosaicData *dta=[cds._elements objectAtIndex:indexPath.row];
-    NSLog(@"#Tamer Touched %@",dta.url);
-    WebdetailViewController *webdetailcontr=[[WebdetailViewController alloc]initWithNibName:@"WebdetailViewController" bundle:nil];
-    [webdetailcontr setDetailurl:[NSURL URLWithString:dta.url]];
-[self.navigationController presentViewController:webdetailcontr animated:YES completion:nil];
-     */
+    
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([[segue identifier] isEqualToString:@"gotowebdetail"]) {
@@ -117,20 +126,34 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 -(IBAction)refresh:(id)sender{
 
     cds=[[CustomDataSource alloc]init];
+    NSLog(@"I am Refereshing");
     [self.collectionView reloadData];
 
 }
 - (void)viewDidLoad{
     [super viewDidLoad];
-    
-
+    if (![self checkinternetconnection]) {
+        UIAlertView *nointernet=[[UIAlertView alloc]initWithTitle:@"OOOPS!" message:@"Sorry but you dont have internet connection " delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [nointernet show];
+    }
+    [Flurry logEvent:@"mosaicview"];
     cds=[[CustomDataSource alloc]init];
     self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     self.collectionView.delegate = self;
     [(CustomDataSource *)self.collectionView.dataSource setCollectionView:self.collectionView];
     
     [self updateColumnsQuantityToInterfaceOrientation:self.interfaceOrientation];
-    [(MosaicLayout *)self.collectionView.collectionViewLayout setController:self];    
+    [(MosaicLayout *)self.collectionView.collectionViewLayout setController:self];
+    //TapforTap Part
+    CGFloat y = self.view.frame.size.height - 50.0;
+    TapForTapAdView *adView = [[TapForTapAdView alloc] initWithFrame: CGRectMake(0, y, 320, 50) delegate: self];
+    [self.view addSubview: adView];
+    [TapForTapInterstitial prepare];
+    [TapForTapInterstitial showWithRootViewController: self]; 
+    
+}
+- (UIViewController *) rootViewController {
+    return self;
 }
 
 - (void)didReceiveMemoryWarning{
