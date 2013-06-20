@@ -10,11 +10,13 @@
 #import "TestViewController.h"
 #import "Flurry.h"
 #import "AddProductDetailViewController.h"
-
+#import <Social/Social.h>
+#import <Accounts/Accounts.h>
 #import "UpgradeViewController.h"
 #import "TapjoyConnect.h"
 #import "TapForTap.h"
 #import "LocalyticsSession.h"
+
 
 
 
@@ -68,6 +70,7 @@
     NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     [Flurry startSession:@"S4R4TRC7HXCKJYNGNP8Z"];
     [Flurry logPageView];
+    
     /*
     CLLocationManager *locationManager = [[CLLocationManager alloc] init];
     [locationManager startUpdatingLocation];
@@ -83,6 +86,9 @@
 void uncaughtExceptionHandler(NSException *exception) {
     [Flurry logError:@"Uncaught" message:@"Crash!" exception:exception];
 }
+
+
+
 
 //How to Open Internal Catalogues
 -(BOOL) application:(UIApplication *)application handleOpenURL:(NSURL *)url {

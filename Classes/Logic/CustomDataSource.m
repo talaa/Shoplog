@@ -12,15 +12,38 @@
 #import <dispatch/dispatch.h>
 #import "TFHpple.h"
 #import <ImageIO/ImageIO.h>
-
+#import "STTwitterAPIWrapper.h"
 @interface CustomDataSource()
 -(void)loadFromDisk;
 @end
 
 @implementation CustomDataSource
-@synthesize _elements;
+@synthesize _elements,JSONelements;
 #pragma mark - Private
+-(void)newtwitterauthorize{
+    
+    STTwitterAPIWrapper *twitter = [STTwitterAPIWrapper twitterAPIApplicationOnlyWithConsumerKey:@"8OcbEuQWD5LNscOBBP8ww"
+                                                                                  consumerSecret:@"d1SlDEsZGQGG2IJH8QYr4vlKZeUpTOMOfErkgl02tw"];
+    
+    [twitter verifyCredentialsWithSuccessBlock:^(NSString *bearerToken) {
+        
+        //NSLog(@"Access granted with %@", bearerToken);
+        
+        [twitter getUserTimelineWithScreenName:@"shoplog1" successBlock:^(NSArray *statuses) {
+       //NSLog(@"-- statuses: %@", statuses);
+            JSONelements=[[NSArray alloc]initWithArray: statuses];
+            [self loadFromDisk2];
+        } errorBlock:^(NSError *error) {
+            NSLog(@"-- error: %@", error);
+        }];
+        
+    } errorBlock:^(NSError *error) {
+        NSLog(@"-- error %@", error);
+    }];
+    
+}
 -(void)loadFromDisk{
+    //[self newtwitterauthorize];
     _elements = [[NSMutableArray alloc] init];
     dispatch_queue_t backgroundQueue;
     backgroundQueue = dispatch_queue_create("com.springmoon.shoplog.bgqueue", NULL);
@@ -34,26 +57,20 @@
         NSError *anError = nil;
         NSURL *feedURL =[NSURL URLWithString:feedname];
         NSData *dataurl =[NSData dataWithContentsOfURL:feedURL];
-        if (dataurl) {
+        NSLog(@"The JSON Elements are %@",JSONelements);
+        if (JSONelements) {
             
         
     //The JSON Part
     
     
-    NSArray *parsedElements=[NSJSONSerialization JSONObjectWithData:dataurl options:NSJSONReadingAllowFragments
-                                                              error:&anError];
-    
+   // NSArray *parsedElements=[NSJSONSerialization JSONObjectWithData:dataurl options:NSJSONReadingAllowFragments error:&anError];
+            NSArray *parsedElements=[[NSArray alloc]initWithArray:JSONelements];
+            NSLog(@"The parsed elements are %@",parsedElements);
     //NSLog(@"The elements are :%@",parsedElements);
     for (NSMutableDictionary *aModuleDict in parsedElements){
         NSMutableDictionary *trmpdict=[[NSMutableDictionary alloc]init];
-        //MosaicData *aMosaicModule = [[MosaicData alloc] initWithDictionary:aModuleDict];
-         //MosaicData *aMosaicModule = [[MosaicData alloc] init];
-        //NSLog(@"the Modules is %@",aMosaicModule);
-        //[_elements addObject:aMosaicModule];
-        //NSLog(@"The First url is :%@",_elements);
-        
         //The new Part
-        
         NSString *maintext=[aModuleDict objectForKey:@"text" ];
         //NSLog(@"The maintext is %@",maintext);
         NSArray *piecesOfOriginalString = [maintext componentsSeparatedByString:@"http"];
@@ -76,7 +93,7 @@
         }
     
         if (!_elements) {
-            UIAlertView *oops=[[UIAlertView alloc]initWithTitle:@"Oops!" message:NSLocalizedString(@"Errordownloading", nil) delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *oops=[[UIAlertView alloc]initWithTitle:@"Oops!" message:NSLocalizedString(@"Error downloading", nil) delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [oops show];
         }else{
         MosaicData *aMosaicModule=[[MosaicData alloc]initWithDictionary:trmpdict];
@@ -86,7 +103,7 @@
     }
             NSLog(@"The error is %@",anError);
         if (anError) {
-            UIAlertView *nointernet=[[UIAlertView alloc]initWithTitle:@"OOOPS!" message:@"Sorry but you dont have internet connection " delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *nointernet=[[UIAlertView alloc]initWithTitle:@"OOOPS!" message:NSLocalizedString(@"Error downloading", nil) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [nointernet show];
         }
     
@@ -97,44 +114,78 @@
     
     
 }
-/*
-- (NSString*)retrieveImageSourceTagsViaRegex:(NSURL *)url1
-{
-    NSString *string = [NSString stringWithContentsOfURL:url1
-                                                encoding:NSUTF8StringEncoding
-                                                   error:nil];
-    NSMutableArray *imagesarray=[[NSMutableArray alloc]init];
-    NSError *error = NULL;
-    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"(<img\\s[\\s\\S]*?src\\s*?=\\s*?['\"](.*?)['\"][\\s\\S]*?>)+?"
-                                                                           options:0
-                                                                             error:&error];
+-(void)loadFromDisk2{
+    //[self newtwitterauthorize];
+    _elements = [[NSMutableArray alloc] init];
+    dispatch_queue_t backgroundQueue;
+    backgroundQueue = dispatch_queue_create("com.springmoon.shoplog.bgqueue", NULL);
     
-    [regex enumerateMatchesInString:string
-                            options:0
-                              range:NSMakeRange(0, [string length])
-                         usingBlock:^(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop) {
-                             
-                             NSString *src = [string substringWithRange:[result rangeAtIndex:2]];
-                             //NSLog(@"img src: %@", src);
-                             [imagesarray addObject:src];
-                             //NSString *imagesrc=[[NSString alloc]initWithString:src];
-                             
-                             
-                         }];
-    NSLog(@"The List of Images is %@",[imagesarray objectAtIndex:3]);
-    if ([[imagesarray objectAtIndex:3] hasPrefix:@"http"]&& ![[imagesarray objectAtIndex:3]hasSuffix:@"gif"]) {
-        return [imagesarray objectAtIndex:3];
-    }else if ([[imagesarray objectAtIndex:2] hasPrefix:@"http"]&& ![[imagesarray objectAtIndex:2]hasSuffix:@"gif"]){
-    return [imagesarray objectAtIndex:2];
-    }else if ([[imagesarray objectAtIndex:1] hasPrefix:@"http"]&& ![[imagesarray objectAtIndex:1]hasSuffix:@"gif"]){
-    return [imagesarray objectAtIndex:1];
-    }else if ([[imagesarray objectAtIndex:0] hasPrefix:@"http"]&& ![[imagesarray objectAtIndex:0]hasSuffix:@"gif"]){
-    return [imagesarray objectAtIndex:0];
-    }else
-        return @"MyIcon copy_144";
-
+    
+    
+    ///The New Part
+    //NSString *feedname=@"http://api.twitter.com/1/statuses/user_timeline.json?include_entities=true&include_rts=true&screen_name=shoplog1&count=20";
+    //NSData *dataurl=[[NSData alloc]init];
+    dispatch_async(backgroundQueue, ^{
+        NSError *anError = nil;
+        //NSURL *feedURL =[NSURL URLWithString:feedname];
+       // NSData *dataurl =[NSData dataWithContentsOfURL:feedURL];
+        NSLog(@"The JSON Elements are %@",JSONelements);
+        if (JSONelements) {
+            
+            
+            //The JSON Part
+            
+            
+            // NSArray *parsedElements=[NSJSONSerialization JSONObjectWithData:dataurl options:NSJSONReadingAllowFragments error:&anError];
+            NSArray *parsedElements=[[NSArray alloc]initWithArray:JSONelements];
+            NSLog(@"The parsed elements are %@",parsedElements);
+            //NSLog(@"The elements are :%@",parsedElements);
+            for (NSMutableDictionary *aModuleDict in parsedElements){
+                NSMutableDictionary *trmpdict=[[NSMutableDictionary alloc]init];
+                //The new Part
+                NSString *maintext=[aModuleDict objectForKey:@"text" ];
+                //NSLog(@"The maintext is %@",maintext);
+                NSArray *piecesOfOriginalString = [maintext componentsSeparatedByString:@"http"];
+                NSString *firstetxt=[piecesOfOriginalString objectAtIndex:0];
+                //NSLog(@"The tweet exis %@",firstetxt);
+                
+                //[aModuleDict setObject:firstetxt forKey:@"tweettext"];
+                [trmpdict setValue:firstetxt forKey:@"tweettext"];
+                
+                if ([piecesOfOriginalString count]>1) {
+                    NSString *link=[@"http" stringByAppendingString:[piecesOfOriginalString objectAtIndex:1]];
+                    [trmpdict setValue:link forKey:@"tweetlink"];
+                    NSURL *testurl=[[NSURL alloc]initWithString:link];
+                    //[trmpdict setValue:[self retrieveImageSourceTagsViaRegex:testurl] forKey:@"imagelink"];
+                    [trmpdict setValue:[self retrieveImageSourceTagsViaHpple:testurl] forKey:@"imagelink"];
+                }else {
+                    [trmpdict setValue:@"MyIcon copy_144" forKey:@"imagelink"];
+                    
+                    
+                }
+                
+                if (!_elements) {
+                    UIAlertView *oops=[[UIAlertView alloc]initWithTitle:@"Oops!" message:NSLocalizedString(@"Error downloading", nil) delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    [oops show];
+                }else{
+                    MosaicData *aMosaicModule=[[MosaicData alloc]initWithDictionary:trmpdict];
+                    [_elements addObject:aMosaicModule];
+                }
+                
+            }
+            NSLog(@"The error is %@",anError);
+            if (anError) {
+                UIAlertView *nointernet=[[UIAlertView alloc]initWithTitle:@"OOOPS!" message:NSLocalizedString(@"Error downloading", nil) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [nointernet show];
+            }
+            
+            
+            
+        }
+    });
+    
+    
 }
- */
 
 -(float)gettingimagedimensions:(NSString*)url{
     //NSURL *imageFileURL = [NSURL fileURLWithPath:url];
@@ -190,41 +241,20 @@
                 return src;
                 
             }
-            /*
-             if (![src hasSuffix:@"gif"]&&[src hasPrefix:@"http"]) {
-             
-             [imagesarray addObject:src];
-             
-             }
-             */
+            
             //NSLog(@"img src: %@", src);
         }
         return lasthope;
     } else {
-        /*
-        UIAlertView *nointernet=[[UIAlertView alloc]initWithTitle:@"OOOPS!" message:@"Sorry but you dont have internet connection " delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [nointernet show];
-         */
+        
         return @"MyIcon copy_144";
     }
     
     
-    //The new Method
+   
  
     
-    /*
-    if ([[imagesarray objectAtIndex:3] hasPrefix:@"http"]&& ![[imagesarray objectAtIndex:3]hasSuffix:@"gif"] ) {
-        return [imagesarray objectAtIndex:3];
-    }else if ([[imagesarray objectAtIndex:2] hasPrefix:@"http"]&& ![[imagesarray objectAtIndex:2]hasSuffix:@"gif"]){
-        return [imagesarray objectAtIndex:2];
-    }else if ([[imagesarray objectAtIndex:1] hasPrefix:@"http"]&& ![[imagesarray objectAtIndex:1]hasSuffix:@"gif"]){
-        return [imagesarray objectAtIndex:1];
-    }else if ([[imagesarray objectAtIndex:0] hasPrefix:@"http"]&& ![[imagesarray objectAtIndex:0]hasSuffix:@"gif"]){
-        return [imagesarray objectAtIndex:0];
-    }else
-        return @"MyIcon copy_144";
-     */
-    
+        
 }
 
 #pragma mark - Public
@@ -232,8 +262,8 @@
 -(id)init{
     self = [super init];
     if (self){
-        [self loadFromDisk];
-        
+        //[self loadFromDisk];
+        [self newtwitterauthorize];
         self.thumbnailQueue = [[NSOperationQueue alloc] init];
         self.thumbnailQueue.maxConcurrentOperationCount = 3;
     }

@@ -132,10 +132,12 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 }
 - (void)viewDidLoad{
     [super viewDidLoad];
+    /*
     if (![self checkinternetconnection]) {
-        UIAlertView *nointernet=[[UIAlertView alloc]initWithTitle:@"OOOPS!" message:@"Sorry but you dont have internet connection " delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *nointernet=[[UIAlertView alloc]initWithTitle:@"OOOPS!" message:NSLocalizedString(@"Error downloading", nil) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [nointernet show];
     }
+     */
     [Flurry logEvent:@"mosaicview"];
     cds=[[CustomDataSource alloc]init];
     self.navigationController.navigationBar.tintColor=[UIColor blackColor];

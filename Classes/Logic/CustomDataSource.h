@@ -15,5 +15,5 @@
 @property (weak) UICollectionView *collectionView;
 @property (nonatomic, strong) NSOperationQueue *thumbnailQueue;
 @property (nonatomic,retain)NSMutableArray *_elements;
-
+@property (nonatomic,retain)NSArray *JSONelements;
 @end

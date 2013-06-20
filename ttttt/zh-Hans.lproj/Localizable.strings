@@ -1,0 +1,29 @@
+/* 
+  Localizable.strings
+  ttttt
+
+  Created by Tamer Alaa on 4/20/13.
+  Copyright (c) 2013 Tamer Alaa. All rights reserved.
+*/
+//MosaicController Strings list
+"Please Wait"="请稍候";
+"ImagesDownload"="图像仍然加载中，请稍候";
+//CustomData Strings List
+"Errordownloading"="有错误下载订阅";
+//Testviewcontroller strings list
+"GOPRO"="这个免费版本有3个目录的限制，只有当你想添加更多的产品目录，按GO PRO，否则按取消 ";
+//DetailViewController Strings List
+"NOWEBSITE"="您没有保存任何网站Shoplog";
+"Devicenotsupported"="您的设备不支持此功能。";
+"Product Information request"="产品信息要求";
+"moreinfo"="HELLO\ n我希望能有更多的附加产品的信息\ñ谢谢\ N \ n \ n已发送从Shoplog应用 ";
+//Addproductdetailviewcontroller Strings list
+"The shop is here"="这里的店铺";
+"Missingcategory"="缺少类别名称";
+"Fillthecategory"="请填写类别名称进行";
+"Categoryname"="分类名称";
+"Image"="图像";
+"Description"="描述";
+"Location"="位置";
+"Contacts"="往来";
+"Comments"="评论";
