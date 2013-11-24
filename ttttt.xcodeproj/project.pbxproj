@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		6900BC7016343B6C0028400D /* Shoplogactivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6900BC6F16343B6C0028400D /* Shoplogactivity.m */; };
 		690C2534171DC40D00139FDA /* Heart1.png in Resources */ = {isa = PBXBuildFile; fileRef = 690C2532171DC40D00139FDA /* Heart1.png */; };
-		690C2535171DC40D00139FDA /* web-elements2.png in Resources */ = {isa = PBXBuildFile; fileRef = 690C2533171DC40D00139FDA /* web-elements2.png */; };
 		690C2558171DEDB800139FDA /* TapjoyAdvertiserLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 690C254B171DEDB800139FDA /* TapjoyAdvertiserLibrary.a */; };
 		690C257E171DF56600139FDA /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 690C257D171DF56600139FDA /* libsqlite3.dylib */; };
 		690C2585171DF6F700139FDA /* libLocalyticsAMP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 690C2584171DF6F700139FDA /* libLocalyticsAMP.a */; };
@@ -26,6 +25,10 @@
 		69143587165D12190000FE9E /* Rakuten2.png in Resources */ = {isa = PBXBuildFile; fileRef = 69143585165D12190000FE9E /* Rakuten2.png */; };
 		69143588165D12190000FE9E /* taobao2.png in Resources */ = {isa = PBXBuildFile; fileRef = 69143586165D12190000FE9E /* taobao2.png */; };
 		6914358D165D23110000FE9E /* EditButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6914358C165D23110000FE9E /* EditButton.png */; };
+		6914CF99183D478500DF9909 /* header_gradient_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 6914CF98183D478400DF9909 /* header_gradient_blue.png */; };
+		6914CF9C183D4EBF00DF9909 /* MyIcon_152.png in Resources */ = {isa = PBXBuildFile; fileRef = 6914CF9B183D4EBF00DF9909 /* MyIcon_152.png */; };
+		6914CF9E183D4ED100DF9909 /* MyIcon_120.png in Resources */ = {isa = PBXBuildFile; fileRef = 6914CF9D183D4ED100DF9909 /* MyIcon_120.png */; };
+		6914CFA0183D51D700DF9909 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6914CF9F183D51D700DF9909 /* Images.xcassets */; };
 		691A8BE4165EEE5900DDF2A8 /* Phone1.png in Resources */ = {isa = PBXBuildFile; fileRef = 691A8BE3165EEE5900DDF2A8 /* Phone1.png */; };
 		691A8BE6165EEF0E00DDF2A8 /* Email1.png in Resources */ = {isa = PBXBuildFile; fileRef = 691A8BE5165EEF0E00DDF2A8 /* Email1.png */; };
 		691C578D165C1CFA00A8CAE7 /* Button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 691C578B165C1CFA00A8CAE7 /* Button@2x.png */; };
@@ -203,6 +206,11 @@
 		69143585165D12190000FE9E /* Rakuten2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Rakuten2.png; sourceTree = "<group>"; };
 		69143586165D12190000FE9E /* taobao2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = taobao2.png; sourceTree = "<group>"; };
 		6914358C165D23110000FE9E /* EditButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EditButton.png; sourceTree = "<group>"; };
+		6914CF98183D478400DF9909 /* header_gradient_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = header_gradient_blue.png; sourceTree = "<group>"; };
+		6914CF9A183D4EA400DF9909 /* MyIcon_76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyIcon_76.png; sourceTree = "<group>"; };
+		6914CF9B183D4EBF00DF9909 /* MyIcon_152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyIcon_152.png; sourceTree = "<group>"; };
+		6914CF9D183D4ED100DF9909 /* MyIcon_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyIcon_120.png; sourceTree = "<group>"; };
+		6914CF9F183D51D700DF9909 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		691A8BE3165EEE5900DDF2A8 /* Phone1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Phone1.png; sourceTree = "<group>"; };
 		691A8BE5165EEF0E00DDF2A8 /* Email1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Email1.png; sourceTree = "<group>"; };
 		691C578B165C1CFA00A8CAE7 /* Button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Button@2x.png"; sourceTree = "<group>"; };
@@ -664,6 +672,10 @@
 		6986BCAD1632056A0023E2EE /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				6914CF9D183D4ED100DF9909 /* MyIcon_120.png */,
+				6914CF9B183D4EBF00DF9909 /* MyIcon_152.png */,
+				6914CF9A183D4EA400DF9909 /* MyIcon_76.png */,
+				6914CF98183D478400DF9909 /* header_gradient_blue.png */,
 				69E58319175126DC00F0FB53 /* demo2.png */,
 				69E58317175124AB00F0FB53 /* demo.png */,
 				69E582701750A01700F0FB53 /* icon_information.png */,
@@ -998,6 +1010,7 @@
 				697847B2174B89DD00E38120 /* ShoplogactivityViewController.m */,
 				69E582721750A06100F0FB53 /* introViewController.h */,
 				69E582731750A06100F0FB53 /* introViewController.m */,
+				6914CF9F183D51D700DF9909 /* Images.xcassets */,
 				69F6257A1606364800004196 /* Supporting Files */,
 			);
 			path = ttttt;
@@ -1044,8 +1057,13 @@
 		69F625661606364700004196 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Tamer Alaa";
+				TargetAttributes = {
+					69F6256E1606364700004196 = {
+						DevelopmentTeam = 6VJ733SKX8;
+					};
+				};
 			};
 			buildConfigurationList = 69F625691606364700004196 /* Build configuration list for PBXProject "ttttt" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1073,6 +1091,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				69F6257E1606364800004196 /* InfoPlist.strings in Resources */,
+				6914CFA0183D51D700DF9909 /* Images.xcassets in Resources */,
 				69F6258A1606364900004196 /* Default-568h@2x.png in Resources */,
 				69F6258D1606364900004196 /* MainStoryboard_iPhone.storyboard in Resources */,
 				69F625901606364900004196 /* MainStoryboard_iPad.storyboard in Resources */,
@@ -1098,6 +1117,7 @@
 				691A8BE4165EEE5900DDF2A8 /* Phone1.png in Resources */,
 				691A8BE6165EEF0E00DDF2A8 /* Email1.png in Resources */,
 				697506C7165F504F0042BCFA /* headerviewimage.png in Resources */,
+				6914CF9E183D4ED100DF9909 /* MyIcon_120.png in Resources */,
 				6963FA75166503ED006C3AE9 /* shopping_girl_01_vector_156382.jpg in Resources */,
 				69C87D8816681D7F00656E9A /* backend.png in Resources */,
 				69C87D8E1668FD3E00656E9A /* MyIcon.png in Resources */,
@@ -1106,6 +1126,7 @@
 				69C87D951668FFE300656E9A /* MyIcon copy_144.png in Resources */,
 				69C87D961668FFE300656E9A /* MyIcon_114.png in Resources */,
 				698A27911669669E005F1EE6 /* Default.png in Resources */,
+				6914CF9C183D4EBF00DF9909 /* MyIcon_152.png in Resources */,
 				698A279416696746005F1EE6 /* logo768x1004_big copy_1.png in Resources */,
 				698A279516696746005F1EE6 /* logo1337x2004_big.png in Resources */,
 				698A279616696760005F1EE6 /* Default@2x.png in Resources */,
@@ -1128,7 +1149,6 @@
 				698BBDD8171C9DD9002E3344 /* SampleImage1.png in Resources */,
 				698BBDD9171C9DD9002E3344 /* SampleImage2.png in Resources */,
 				690C2534171DC40D00139FDA /* Heart1.png in Resources */,
-				690C2535171DC40D00139FDA /* web-elements2.png in Resources */,
 				690C258A171E054400139FDA /* PriceGrabber.png in Resources */,
 				690C2597171EC82C00139FDA /* shopzila.png in Resources */,
 				690C2598171EC82C00139FDA /* shoppingcom.png in Resources */,
@@ -1141,6 +1161,7 @@
 				69E582711750A01700F0FB53 /* icon_information.png in Resources */,
 				69E5830C1750A94500F0FB53 /* README.txt in Resources */,
 				69E58318175124AB00F0FB53 /* demo.png in Resources */,
+				6914CF99183D478500DF9909 /* header_gradient_blue.png in Resources */,
 				69E5831A175126DC00F0FB53 /* demo2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1296,6 +1317,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "F4C89384-9469-41EA-A89E-5B29DA86432B";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F4C89384-9469-41EA-A89E-5B29DA86432B";
 				SDKROOT = iphoneos;
@@ -1334,8 +1356,10 @@
 		69F625971606364900004196 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Tamer Alaa";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Tamer Alaa";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Tamer Alaa (6VJ733SKX8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Tamer Alaa (6VJ733SKX8)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ttttt/ttttt-Prefix.pch";
 				INFOPLIST_FILE = "ttttt/ttttt-Info.plist";
@@ -1356,8 +1380,8 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "F4C89384-9469-41EA-A89E-5B29DA86432B";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F4C89384-9469-41EA-A89E-5B29DA86432B";
+				PROVISIONING_PROFILE = "51427681-F0BD-4DEA-8127-035193F67E1A";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "51427681-F0BD-4DEA-8127-035193F67E1A";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1365,8 +1389,10 @@
 		69F625981606364900004196 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Tamer Alaa";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Tamer Alaa";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Tamer Alaa (6VJ733SKX8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Tamer Alaa (6VJ733SKX8)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ttttt/ttttt-Prefix.pch";
 				INFOPLIST_FILE = "ttttt/ttttt-Info.plist";
@@ -1387,8 +1413,8 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "F4C89384-9469-41EA-A89E-5B29DA86432B";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F4C89384-9469-41EA-A89E-5B29DA86432B";
+				PROVISIONING_PROFILE = "51427681-F0BD-4DEA-8127-035193F67E1A";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "51427681-F0BD-4DEA-8127-035193F67E1A";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

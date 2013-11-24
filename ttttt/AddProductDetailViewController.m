@@ -573,7 +573,7 @@
 - (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 23)] ;
-    UIImageView *headerImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"header_gradient_blue.jpg"]] ;
+    UIImageView *headerImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"header_gradient_blue"]] ;
     
     headerImage.frame = CGRectMake(0, 0, tableView.bounds.size.width, 23);
     UILabel *HeaderLabel=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 23)];

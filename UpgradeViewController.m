@@ -7,6 +7,7 @@
 //
 
 #import "UpgradeViewController.h"
+#import "Flurry.h"
 #define kInAppPurchaseProUpgradeProductId @"6VJ733SKX8.com.springmoon.Shoplog.upgrade"
 //#define kInAppPurchaseProUpgradeProductId @"com.springmoon.Shoplog.upgrade"
 @interface UpgradeViewController ()
@@ -73,9 +74,14 @@
     SKPayment *payment =[SKPayment paymentWithProductIdentifier:kInAppPurchaseProUpgradeProductId];
     [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
     [[SKPaymentQueue defaultQueue] addPayment:payment];
+    [Flurry logEvent:@"upgrade is done " ];
 
 
 
+}
+
+- (IBAction)restoreaction:(id)sender {
+    [[SKPaymentQueue defaultQueue]   restoreCompletedTransactions];
 }
 
 
