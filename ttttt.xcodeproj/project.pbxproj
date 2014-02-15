@@ -11,7 +11,6 @@
 		690C2534171DC40D00139FDA /* Heart1.png in Resources */ = {isa = PBXBuildFile; fileRef = 690C2532171DC40D00139FDA /* Heart1.png */; };
 		690C2558171DEDB800139FDA /* TapjoyAdvertiserLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 690C254B171DEDB800139FDA /* TapjoyAdvertiserLibrary.a */; };
 		690C257E171DF56600139FDA /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 690C257D171DF56600139FDA /* libsqlite3.dylib */; };
-		690C2585171DF6F700139FDA /* libLocalyticsAMP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 690C2584171DF6F700139FDA /* libLocalyticsAMP.a */; };
 		690C2588171E02EB00139FDA /* nexttagsearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 690C2587171E02EB00139FDA /* nexttagsearch.m */; };
 		690C258A171E054400139FDA /* PriceGrabber.png in Resources */ = {isa = PBXBuildFile; fileRef = 690C2589171E054400139FDA /* PriceGrabber.png */; };
 		690C258D171E088500139FDA /* pricegrabbersearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 690C258C171E088500139FDA /* pricegrabbersearch.m */; };
@@ -44,7 +43,6 @@
 		692076DA170C430B00F2661C /* icon_magnify_glass.png in Resources */ = {isa = PBXBuildFile; fileRef = 692076D9170C430A00F2661C /* icon_magnify_glass.png */; };
 		692076DC170C459700F2661C /* blue-ribbon-banner-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 692076DB170C459600F2661C /* blue-ribbon-banner-2.png */; };
 		6928073A169B96EA00D5EDFF /* AdFooterview.m in Sources */ = {isa = PBXBuildFile; fileRef = 69280739169B96EA00D5EDFF /* AdFooterview.m */; };
-		6928073F169B98F300D5EDFF /* libAdapterIAd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6928073D169B98F300D5EDFF /* libAdapterIAd.a */; };
 		692807E3169B9B6600D5EDFF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 692807E2169B9B6600D5EDFF /* AudioToolbox.framework */; };
 		692807E5169B9B8100D5EDFF /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 692807E4169B9B8100D5EDFF /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		692807E7169B9B8900D5EDFF /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 692807E6169B9B8900D5EDFF /* iAd.framework */; };
@@ -109,6 +107,9 @@
 		698EE6A31747702800A1475D /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 698EE6A21747702600A1475D /* libxml2.dylib */; };
 		69A13F2C16A60DC300765801 /* icon_star.png in Resources */ = {isa = PBXBuildFile; fileRef = 69A13F2B16A60DC300765801 /* icon_star.png */; };
 		69A13F2F16A6230C00765801 /* icon_circle_arrow_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 69A13F2E16A6230C00765801 /* icon_circle_arrow_right.png */; };
+		69B7072718AFC7B3000ADF56 /* libAdapterIAd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B7072618AFC7B3000ADF56 /* libAdapterIAd.a */; };
+		69B7072918AFC95C000ADF56 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B7072818AFC95C000ADF56 /* libGoogleAdMobAds.a */; };
+		69B7072A18AFC9A8000ADF56 /* libTapForTapAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 69E58311175117EE00F0FB53 /* libTapForTapAds.a */; };
 		69C53A341643E14800FE2CB3 /* ExtendedManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C53A331643E14800FE2CB3 /* ExtendedManagedObject.m */; };
 		69C65BB61652EE120071B062 /* removeicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 69C65BB51652EE120071B062 /* removeicon.png */; };
 		69C65BB81652EF5B0071B062 /* removeicon1.png in Resources */ = {isa = PBXBuildFile; fileRef = 69C65BB71652EF5B0071B062 /* removeicon1.png */; };
@@ -133,9 +134,7 @@
 		69E5826F17501C4100F0FB53 /* LAWalkthroughViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E5826E17501C4100F0FB53 /* LAWalkthroughViewController.m */; };
 		69E582711750A01700F0FB53 /* icon_information.png in Resources */ = {isa = PBXBuildFile; fileRef = 69E582701750A01700F0FB53 /* icon_information.png */; };
 		69E582741750A06100F0FB53 /* introViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E582731750A06100F0FB53 /* introViewController.m */; };
-		69E5830B1750A94500F0FB53 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 69E582DA1750A94500F0FB53 /* libGoogleAdMobAds.a */; };
 		69E5830C1750A94500F0FB53 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 69E582DB1750A94500F0FB53 /* README.txt */; };
-		69E58316175117EE00F0FB53 /* libTapForTapAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 69E58311175117EE00F0FB53 /* libTapForTapAds.a */; };
 		69E58318175124AB00F0FB53 /* demo.png in Resources */ = {isa = PBXBuildFile; fileRef = 69E58317175124AB00F0FB53 /* demo.png */; };
 		69E5831A175126DC00F0FB53 /* demo2.png in Resources */ = {isa = PBXBuildFile; fileRef = 69E58319175126DC00F0FB53 /* demo2.png */; };
 		69ECA96A1712186A00347A6C /* MosaicLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 69ECA95E1712186A00347A6C /* MosaicLayout.m */; };
@@ -179,8 +178,6 @@
 		690C254C171DEDB800139FDA /* TapjoyConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapjoyConnect.h; sourceTree = "<group>"; };
 		690C254D171DEDB800139FDA /* TapjoyConnectConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapjoyConnectConstants.h; sourceTree = "<group>"; };
 		690C257D171DF56600139FDA /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		690C2581171DF69100139FDA /* LocalyticsAmpSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalyticsAmpSession.h; path = "AMP-SDK-latest.bin/LocalyticsAmpSession.h"; sourceTree = "<group>"; };
-		690C2582171DF69100139FDA /* LocalyticsSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalyticsSession.h; path = "AMP-SDK-latest.bin/LocalyticsSession.h"; sourceTree = "<group>"; };
 		690C2584171DF6F700139FDA /* libLocalyticsAMP.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libLocalyticsAMP.a; path = "AMP-SDK-latest.bin/libLocalyticsAMP.a"; sourceTree = "<group>"; };
 		690C2586171E02EB00139FDA /* nexttagsearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nexttagsearch.h; sourceTree = "<group>"; };
 		690C2587171E02EB00139FDA /* nexttagsearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = nexttagsearch.m; sourceTree = "<group>"; };
@@ -227,7 +224,6 @@
 		692076DB170C459600F2661C /* blue-ribbon-banner-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue-ribbon-banner-2.png"; sourceTree = "<group>"; };
 		69280738169B96EA00D5EDFF /* AdFooterview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdFooterview.h; sourceTree = "<group>"; };
 		69280739169B96EA00D5EDFF /* AdFooterview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdFooterview.m; sourceTree = "<group>"; };
-		6928073D169B98F300D5EDFF /* libAdapterIAd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAdapterIAd.a; sourceTree = "<group>"; };
 		692807E2169B9B6600D5EDFF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		692807E4169B9B8100D5EDFF /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		692807E6169B9B8900D5EDFF /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
@@ -325,6 +321,8 @@
 		698EE6A21747702600A1475D /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		69A13F2B16A60DC300765801 /* icon_star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_star.png; sourceTree = "<group>"; };
 		69A13F2E16A6230C00765801 /* icon_circle_arrow_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_circle_arrow_right.png; sourceTree = "<group>"; };
+		69B7072618AFC7B3000ADF56 /* libAdapterIAd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAdapterIAd.a; path = "../SMS_Dubai_Roads copy/Flurry/LibAdapterIAd-Oct42012/libAdapterIAd.a"; sourceTree = "<group>"; };
+		69B7072818AFC95C000ADF56 /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAdMobAds.a; path = "../SMS_Dubai_Roads copy/Flurry/GoogleAdMobAdsSdkiOS-6.5.1/libGoogleAdMobAds.a"; sourceTree = "<group>"; };
 		69C53A321643E14800FE2CB3 /* ExtendedManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtendedManagedObject.h; sourceTree = "<group>"; };
 		69C53A331643E14800FE2CB3 /* ExtendedManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtendedManagedObject.m; sourceTree = "<group>"; };
 		69C65BB51652EE120071B062 /* removeicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = removeicon.png; sourceTree = "<group>"; };
@@ -447,6 +445,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69B7072A18AFC9A8000ADF56 /* libTapForTapAds.a in Frameworks */,
+				69B7072918AFC95C000ADF56 /* libGoogleAdMobAds.a in Frameworks */,
+				69B7072718AFC7B3000ADF56 /* libAdapterIAd.a in Frameworks */,
 				697DE63B174D5C970008D996 /* ImageIO.framework in Frameworks */,
 				698EE6A31747702800A1475D /* libxml2.dylib in Frameworks */,
 				690C257E171DF56600139FDA /* libsqlite3.dylib in Frameworks */,
@@ -468,12 +469,8 @@
 				69F625741606364800004196 /* UIKit.framework in Frameworks */,
 				69F625761606364800004196 /* Foundation.framework in Frameworks */,
 				69F625781606364800004196 /* CoreGraphics.framework in Frameworks */,
-				6928073F169B98F300D5EDFF /* libAdapterIAd.a in Frameworks */,
 				690C2558171DEDB800139FDA /* TapjoyAdvertiserLibrary.a in Frameworks */,
-				690C2585171DF6F700139FDA /* libLocalyticsAMP.a in Frameworks */,
 				697847B6174D119900E38120 /* libFlurry.a in Frameworks */,
-				69E5830B1750A94500F0FB53 /* libGoogleAdMobAds.a in Frameworks */,
-				69E58316175117EE00F0FB53 /* libTapForTapAds.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,7 +480,6 @@
 		690C2536171DED9300139FDA /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				690C2583171DF69600139FDA /* Localytics */,
 				690C255C171DF12B00139FDA /* TapForTap-iOS-2.3.1 */,
 				690C254A171DEDB800139FDA /* TapjoyAdvertiserLibrary */,
 			);
@@ -508,19 +504,9 @@
 			path = "TapForTap-iOS-2.3.1";
 			sourceTree = "<group>";
 		};
-		690C2583171DF69600139FDA /* Localytics */ = {
-			isa = PBXGroup;
-			children = (
-				690C2582171DF69100139FDA /* LocalyticsSession.h */,
-				690C2581171DF69100139FDA /* LocalyticsAmpSession.h */,
-			);
-			name = Localytics;
-			sourceTree = "<group>";
-		};
 		6928073C169B98F300D5EDFF /* LibAdapterIAd-Oct42012 */ = {
 			isa = PBXGroup;
 			children = (
-				6928073D169B98F300D5EDFF /* libAdapterIAd.a */,
 			);
 			name = "LibAdapterIAd-Oct42012";
 			path = "../../../Downloads/LibAdapterIAd-Oct42012";
@@ -950,6 +936,8 @@
 		69F625721606364800004196 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				69B7072818AFC95C000ADF56 /* libGoogleAdMobAds.a */,
+				69B7072618AFC7B3000ADF56 /* libAdapterIAd.a */,
 				697DE63A174D5C970008D996 /* ImageIO.framework */,
 				698EE6A21747702600A1475D /* libxml2.dylib */,
 				690C2584171DF6F700139FDA /* libLocalyticsAMP.a */,
@@ -1365,18 +1353,21 @@
 				INFOPLIST_FILE = "ttttt/ttttt-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/TestFlightSDK1.1\"",
-					"\"$(SRCROOT)/Flurry\"",
-					"\"$(SRCROOT)/../../../Downloads/LibAdapterIAd-Oct42012\"",
-					"\"$(SRCROOT)/../../../Downloads/GoogleAdMobAdsSdkiOS-6.2.1/Add-ons/GoogleAnalyticsiOS_2.0beta3/Library\"",
-					"\"$(SRCROOT)/../../../Downloads/GoogleAdMobAdsSdkiOS-6.2.1\"",
-					"\"$(SRCROOT)/../../../Downloads/TapjoyAdvertiserSDK_iOS_v9.0.1/TapjoyAdvertiserLibrary\"",
-					"\"$(SRCROOT)/TapjoyAdvertiserLibrary\"",
-					"\"$(SRCROOT)/TapForTap-iOS-2.3.1/TapForTap\"",
-					"\"$(SRCROOT)/AMP-SDK-latest.bin\"",
-					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/GoogleAdMobAdsSdkiOS-6.4.2 2/Add-ons/GoogleAnalyticsiOS_2.0beta4/Library\"",
-					"\"$(SRCROOT)/GoogleAdMobAdsSdkiOS-6.4.2 2\"",
+					"\\\"$(SRCROOT)/TestFlightSDK1.1\\\"",
+					"\\\"$(SRCROOT)/Flurry\\\"",
+					"\\\"$(SRCROOT)/../../../Downloads/LibAdapterIAd-Oct42012\\\"",
+					"\\\"$(SRCROOT)/../../../Downloads/GoogleAdMobAdsSdkiOS-6.2.1/Add-ons/GoogleAnalyticsiOS_2.0beta3/Library\\\"",
+					"\\\"$(SRCROOT)/../../../Downloads/GoogleAdMobAdsSdkiOS-6.2.1\\\"",
+					"\\\"$(SRCROOT)/../../../Downloads/TapjoyAdvertiserSDK_iOS_v9.0.1/TapjoyAdvertiserLibrary\\\"",
+					"\\\"$(SRCROOT)/TapjoyAdvertiserLibrary\\\"",
+					"\\\"$(SRCROOT)/TapForTap-iOS-2.3.1/TapForTap\\\"",
+					"\\\"$(SRCROOT)/AMP-SDK-latest.bin\\\"",
+					"$(SRCROOT)",
+					"\\\"$(SRCROOT)/GoogleAdMobAdsSdkiOS-6.4.2\\ 2/Add-ons/GoogleAnalyticsiOS_2.0beta4/Library\\\"",
+					"\\\"$(SRCROOT)/GoogleAdMobAdsSdkiOS-6.4.2\\ 2\\\"",
+					"/Users/tamerenas/Tamer\\ Folder/Xcode\\ Projects/SMS_Dubai_Roads\\ copy/Flurry/LibAdapterIAd-Oct42012",
+					"/Users/tamerenas/Tamer\\ Folder/Xcode\\ Projects/SMS_Dubai_Roads\\ copy/Flurry/GoogleAdMobAdsSdkiOS-6.5.1",
+					"/Users/tamerenas/Tamer\\ Folder/Xcode\\ Projects/Shoplog_backup16042013working/TapForTap-iOS-2.3.1/TapForTap",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1398,18 +1389,21 @@
 				INFOPLIST_FILE = "ttttt/ttttt-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/TestFlightSDK1.1\"",
-					"\"$(SRCROOT)/Flurry\"",
-					"\"$(SRCROOT)/../../../Downloads/LibAdapterIAd-Oct42012\"",
-					"\"$(SRCROOT)/../../../Downloads/GoogleAdMobAdsSdkiOS-6.2.1/Add-ons/GoogleAnalyticsiOS_2.0beta3/Library\"",
-					"\"$(SRCROOT)/../../../Downloads/GoogleAdMobAdsSdkiOS-6.2.1\"",
-					"\"$(SRCROOT)/../../../Downloads/TapjoyAdvertiserSDK_iOS_v9.0.1/TapjoyAdvertiserLibrary\"",
-					"\"$(SRCROOT)/TapjoyAdvertiserLibrary\"",
-					"\"$(SRCROOT)/TapForTap-iOS-2.3.1/TapForTap\"",
-					"\"$(SRCROOT)/AMP-SDK-latest.bin\"",
-					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/GoogleAdMobAdsSdkiOS-6.4.2 2/Add-ons/GoogleAnalyticsiOS_2.0beta4/Library\"",
-					"\"$(SRCROOT)/GoogleAdMobAdsSdkiOS-6.4.2 2\"",
+					"\\\"$(SRCROOT)/TestFlightSDK1.1\\\"",
+					"\\\"$(SRCROOT)/Flurry\\\"",
+					"\\\"$(SRCROOT)/../../../Downloads/LibAdapterIAd-Oct42012\\\"",
+					"\\\"$(SRCROOT)/../../../Downloads/GoogleAdMobAdsSdkiOS-6.2.1/Add-ons/GoogleAnalyticsiOS_2.0beta3/Library\\\"",
+					"\\\"$(SRCROOT)/../../../Downloads/GoogleAdMobAdsSdkiOS-6.2.1\\\"",
+					"\\\"$(SRCROOT)/../../../Downloads/TapjoyAdvertiserSDK_iOS_v9.0.1/TapjoyAdvertiserLibrary\\\"",
+					"\\\"$(SRCROOT)/TapjoyAdvertiserLibrary\\\"",
+					"\\\"$(SRCROOT)/TapForTap-iOS-2.3.1/TapForTap\\\"",
+					"\\\"$(SRCROOT)/AMP-SDK-latest.bin\\\"",
+					"$(SRCROOT)",
+					"\\\"$(SRCROOT)/GoogleAdMobAdsSdkiOS-6.4.2\\ 2/Add-ons/GoogleAnalyticsiOS_2.0beta4/Library\\\"",
+					"\\\"$(SRCROOT)/GoogleAdMobAdsSdkiOS-6.4.2\\ 2\\\"",
+					"/Users/tamerenas/Tamer\\ Folder/Xcode\\ Projects/SMS_Dubai_Roads\\ copy/Flurry/LibAdapterIAd-Oct42012",
+					"/Users/tamerenas/Tamer\\ Folder/Xcode\\ Projects/SMS_Dubai_Roads\\ copy/Flurry/GoogleAdMobAdsSdkiOS-6.5.1",
+					"/Users/tamerenas/Tamer\\ Folder/Xcode\\ Projects/Shoplog_backup16042013working/TapForTap-iOS-2.3.1/TapForTap",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";

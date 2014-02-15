@@ -276,7 +276,8 @@
 - (IBAction)editSaveButtonPressed:(id)sender
 {
     
-    if (cataloguenamefield.text) {
+    BOOL fffrr =[cataloguenamefield.text isEqualToString:@""];
+    if (!fffrr) {
         
     
     // If we are adding a new picture (because we didnt pass one from the table) then create an entry
