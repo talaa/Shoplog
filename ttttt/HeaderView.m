@@ -34,13 +34,13 @@
      NSDictionary *dict = [NSDictionary dictionaryWithObject:Headerviewlabel.text forKey:@"Searchterm"];
     switch (index) {
         case 0:
-            NSLog(@"%s item:%d", __PRETTY_FUNCTION__, index);
+            NSLog(@"%s item:%ld", __PRETTY_FUNCTION__, (long)index);
             [[NSNotificationCenter defaultCenter] postNotificationName:@"TestNotification" object:self userInfo:nil];
           
             break;
         case 1:
            
-            NSLog(@"%s item:%d", __PRETTY_FUNCTION__, index);
+            NSLog(@"%s item:%ld", __PRETTY_FUNCTION__, (long)index);
             [[NSNotificationCenter defaultCenter]postNotificationName:@"Searchactivated" object:self userInfo:dict];
             break;
         

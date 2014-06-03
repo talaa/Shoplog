@@ -18,6 +18,8 @@
 #import "PopoverView.h"
 #import "AdFooterview.h"
 #import "LAWalkthroughViewController.h"
+#import "GADBannerView.h"
+#import "GADRequest.h"
 
 
 #define KPROUprade @"isProversionpurchased"

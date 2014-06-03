@@ -8,7 +8,7 @@
 #define METERS_PER_MILE 1609.344
 #import "AddProductDetailViewController.h"
 #import "TestViewController.h"
-
+#import "DataTransfer.h"
 #import "Flurry.h"
 @interface AddProductDetailViewController ()
 
@@ -19,7 +19,7 @@
 @synthesize PriceField,ShopField,imageField,cataloguenamefield;
 @synthesize DimensionsField,PhoneField,EmailField,WebsiteField,commentsView;
 @synthesize imagePicker,popoverController,edit_add,Saveeditbutton,newcatalogue;
-@synthesize Maplocation,ratingslider,spinner;
+@synthesize Maplocation,ratingslider,spinner,Qrcodecatalogue;
 @synthesize longsaved,latsaved;
 @synthesize LongTextfield,LatTextField,Lgpressgesture;
 
@@ -146,27 +146,32 @@
     }
         //self.Testnavigation.hidden=YES;
     cataloguenamefield.text=self.title;
-   
+    if (Qrcodecatalogue) {
+        //
+        [cataloguenamefield setText:[DataTransfer CategorynameQr]];
+        [PriceField setText:[NSString stringWithFormat:@"%.2f",[DataTransfer priceQr]]];
+        [ratingslider setValue:[DataTransfer ratingQr] animated:YES];
+        [ShopField setText:[DataTransfer shopnameQr]];
+        [DimensionsField setText:[DataTransfer dimSizeQr]];
+        [LongTextfield setText:[NSString stringWithFormat:@"%f",[DataTransfer longshopQr]]];
+        [LatTextField setText:[NSString stringWithFormat:@"%f",[DataTransfer latshopQr]]];
+        longsaved=[DataTransfer longshopQr];
+        latsaved=[DataTransfer latshopQr];
+        [PhoneField setText:[NSString stringWithFormat:@"%f",[DataTransfer phoneQr]]];
+        [EmailField setText:[DataTransfer emailQr]];
+        [WebsiteField setText:[DataTransfer websiteurlQr]];
+        [commentsView setText:[_currentProduct comments]];
+        [imageField setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[DataTransfer ImageQr]]]]];
+        Qrcodecatalogue=NO;
+        
+    }
+    
+    
     //NSLog(@"The Supposed Saved values are %f %f",longsaved,latsaved);
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
 }
- /*
-[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow1:) name:UIKeyboardWillShowNotification object:nil];
-[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide1:) name:UIKeyboardDidHideNotification object:nil];
 
-    
-    
-}
--(void)keyboardWillShow1 {
-    
-    Saveeditbutton.enabled = NO;
-}
--(void)keyboardWillHide1{
-    
-    Saveeditbutton.enabled = YES;
-}
-  */
 
 - (IBAction)Lgpraction:(id)sender {
     if (Lgpressgesture.state != UIGestureRecognizerStateBegan)
@@ -272,6 +277,11 @@
 
 
 #pragma mark - Button actions
+- (IBAction)readQRcode:(id)sender {
+    NSLog(@"I read QR Code");
+    Qrcodecatalogue=YES;
+    
+}
 
 - (IBAction)editSaveButtonPressed:(id)sender
 {

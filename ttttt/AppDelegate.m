@@ -58,16 +58,17 @@
 */
     //The Marketing & the analytics stuff
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tjcConnectSuccess:) name:TJC_CONNECT_SUCCESS object:nil];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tjcConnectFail:) name:TJC_CONNECT_FAILED object:nil];
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tjcConnectSuccess:) name:TJC_CONNECT_SUCCESS object:nil];
+	//[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tjcConnectFail:) name:TJC_CONNECT_FAILED object:nil];
 	
 	// NOTE: This must be replaced by your App Id. It is Retrieved from the Tapjoy website, in your account.
 	//[TapjoyConnect requestTapjoyConnect:@"4e94aff7-25e7-4b4e-b8dd-6af112e410c3" secretKey:@"0iSJKSObMQ8lktiDtOBM"];
-	[TapForTap initializeWithAPIKey: @"8be3072fe1b397db1f15f57670507777"];
+	//[TapForTap initializeWithAPIKey: @"8be3072fe1b397db1f15f57670507777"];
     //[[LocalyticsSession shared] startSession:@"3943e63097799c13d1424d8-77ad3f76-a6d9-11e2-869c-005cf8cbabd8"];
 
     
     NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
+    [Flurry setCrashReportingEnabled:YES];
     [Flurry startSession:@"S4R4TRC7HXCKJYNGNP8Z"];
     [Flurry logPageView];
     
@@ -382,7 +383,7 @@ void uncaughtExceptionHandler(NSException *exception) {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    NSLog(@"The button Pressed is %d",buttonIndex);
+    NSLog(@"The button Pressed is %ld",(long)buttonIndex);
     if (buttonIndex==1) {
         
         

@@ -32,6 +32,7 @@
 @property (strong,nonatomic)Shop *currentshop;
 @property (nonatomic ) BOOL edit_add;
 @property (nonatomic ) BOOL newcatalogue;
+@property (nonatomic ) BOOL Qrcodecatalogue;
 @property (strong, nonatomic) IBOutlet UITextField *PriceField;
 @property (strong, nonatomic) IBOutlet UITextField *ShopField;
 @property (strong, nonatomic) IBOutlet UITextField *cataloguenamefield;

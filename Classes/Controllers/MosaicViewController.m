@@ -77,7 +77,7 @@ NSString *feedname=@"http://api.twitter.com/1/statuses/user_timeline.json?includ
 #pragma mark - UICollectionViewDelegate
 
 -(void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"#DEBUG Touched %d", indexPath.row);
+    //NSLog(@"#DEBUG Touched %l", indexPath.row);
     //NSMutableArray *newelements=[[NSMutableArray alloc]initWithArray:];
     //NSLog(@"The String is %@",[[CustomDataSource _elements]objectAtIndex:indexPath.row]);
 }
@@ -92,7 +92,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         WebdetailViewController *webdetailcontr = (WebdetailViewController *)[segue destinationViewController];
         //CustomDataSource *cds=[[CustomDataSource alloc]init];
         int cont=[cds._elements count];
-        NSLog(@"The Elements are %d  & %d",cont,selectedindex);
+        NSLog(@"The Elements are %d  & %ld",cont,(long)selectedindex);
         if (cont>0 && selectedindex<=cont-1) {
             
             [activityindicator stopAnimating];
@@ -146,13 +146,14 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     [self updateColumnsQuantityToInterfaceOrientation:self.interfaceOrientation];
     [(MosaicLayout *)self.collectionView.collectionViewLayout setController:self];
+    /*
     //TapforTap Part
     CGFloat y = self.view.frame.size.height - 50.0;
     TapForTapAdView *adView = [[TapForTapAdView alloc] initWithFrame: CGRectMake(0, y, 320, 50) delegate: self];
     [self.view addSubview: adView];
     [TapForTapInterstitial prepare];
     [TapForTapInterstitial showWithRootViewController: self]; 
-    
+    */
 }
 - (UIViewController *) rootViewController {
     return self;

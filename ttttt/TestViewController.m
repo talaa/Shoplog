@@ -80,7 +80,7 @@ typedef enum SocialButtonTags
     [self.navigationController popToViewController:self animated:YES];
     //NSData *dataimported=[NSData dataWithContentsOfURL:url];
     NSMutableArray *recievedarray=[NSMutableArray arrayWithContentsOfURL:url];
-    NSLog(@"The Recived Array is %i",[recievedarray count]);
+    NSLog(@"The Recived Array is %lu",(unsigned long)[recievedarray count]);
     for (NSDictionary  *tempdict in recievedarray) {
         //Shoplog *moc=[[Shoplog alloc]init];
         NSManagedObjectContext *context=self.managedObjectContext;
@@ -111,7 +111,7 @@ typedef enum SocialButtonTags
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    NSLog(@"The button Pressed is %d",buttonIndex);
+    NSLog(@"The button Pressed is %ld",(long)buttonIndex);
     if (buttonIndex==1) {
         
 
@@ -183,7 +183,7 @@ typedef enum SocialButtonTags
         AddProductDetailViewController *addvw = (AddProductDetailViewController *)[segue destinationViewController];
         
         NSIndexPath *indexpath=[[self.collectionView indexPathsForSelectedItems]lastObject];
-        NSLog(@"The String is %i",indexpath.section);
+        NSLog(@"The String is %li",(long)indexpath.section);
         addvw.edit_add=YES;
         
         //addvw.cataloguenamefield.text=[[[self.fetchedResultsController sections]objectAtIndex:indexpath.section]name];
@@ -498,7 +498,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         self.sharing = YES;
         [sharebutton setStyle:UIBarButtonItemStyleDone];
         [sharebutton setTitle:@"Done"];
-        [self.collectionView setAllowsMultipleSelection:YES];
+        [self.collectionView setAllowsMultipleSelection:NO];
         
         NSLog(@"I am allowing Multiple Sharing ");
         
@@ -526,7 +526,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     }
 }
 -(void)Activityshowmethod{
-    NSLog(@"The Selected Photo Count %i",[self.selectedPhotos count]);
+    NSLog(@"The Selected Photo Count %lu",(unsigned long)[self.selectedPhotos count]);
     //UIActivityViewController *activityViewController2 =[[UIActivityViewController alloc]init];
     NSMutableArray *newArray=[[NSMutableArray alloc]init];
     NSMutableArray *newArraytext=[[NSMutableArray alloc]init];
