@@ -63,8 +63,8 @@
     NSString *completeUrl=[[NSString alloc]initWithFormat:@"http://www.shopzilla.com/%@/search",self.searchstring ];
     NSDictionary *flurrydicttionary2=[[NSDictionary alloc]initWithObjectsAndKeys:@"Shopzila",@"searchengine", nil];
     [Flurry logEvent:@"Search_Engine" withParameters:flurrydicttionary2 timed:YES];
-    
-    NSDictionary *dict = [NSDictionary dictionaryWithObject:completeUrl forKey:@"Searchwebsite"];
+     NSDictionary *dict=[[NSDictionary alloc]initWithObjectsAndKeys:completeUrl,@"Searchwebsite",self.searchstring,@"searchstring1",nil];
+    //NSDictionary *dict = [NSDictionary dictionaryWithObject:completeUrl forKey:@"Searchwebsite"];
     [[NSNotificationCenter defaultCenter]postNotificationName:@"webSearchactivated" object:self userInfo:dict];
     [self activityDidFinish:YES];
     

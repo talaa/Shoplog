@@ -35,7 +35,7 @@
 /* Class = "IBUILabel"; text = "Date"; ObjectID = "Qm1-jn-PNB"; */
 "Qm1-jn-PNB.text" = "Date";
 
-/* Class = "IBUILabel"; text = "WEbsite"; ObjectID = "SDN-VJ-9ts"; */
+/* Class = "IBUILabel"; text = "Website"; ObjectID = "SDN-VJ-9ts"; */
 "SDN-VJ-9ts.text" = "Website";
 
 /* Class = "IBUITableViewSection"; headerTitle = "Comments"; ObjectID = "TSa-PQ-7O8"; */
@@ -87,7 +87,7 @@
 "sWb-xg-OUm.text" = "Dim";
 
 /* Class = "IBUITableViewSection"; headerTitle = "Contacts"; ObjectID = "srt-LC-tS0"; */
-"srt-LC-tS0.headerTitle" = "Contacts";
+"srt-LC-tS0.headerTitle" = "Contacts de Magazin";
 
 /* Class = "IBUIBarButtonItem"; title = "Share"; ObjectID = "uvO-Lm-qcA"; */
 "uvO-Lm-qcA.title" = "Partage";

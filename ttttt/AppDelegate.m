@@ -9,12 +9,15 @@
 #import "AppDelegate.h"
 #import "TestViewController.h"
 #import "Flurry.h"
+#import <Parse/Parse.h>
 #import "AddProductDetailViewController.h"
 #import <Social/Social.h>
 #import <Accounts/Accounts.h>
 #import "UpgradeViewController.h"
-#import "TapjoyConnect.h"
-#import "TapForTap.h"
+#import <FacebookSDK/FacebookSDK.h>
+#import <ParseFacebookUtils/PFFacebookUtils.h>
+
+
 
 
 
@@ -40,6 +43,12 @@
     navigationController.navigationBar.tintColor = [UIColor colorWithRed:48.0f/255.0f green:74.0f/255.0f blue:147.0f/255.0f alpha:1];
     TestViewController *controller = (TestViewController *)navigationController.topViewController;
     controller.managedObjectContext = self.managedObjectContext;
+    [Parse setApplicationId:@"ywPm262lndYyBhcTFxUWF8eLxpcCkEUkHOB782s9"
+                  clientKey:@"Vq3qhqkveSpAqSRKShP0OtLfmNG3lyNB8VpwbEX8"];
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    // Override point for customization after application launch.
+    [PFFacebookUtils initializeFacebook];
+    //[FBLoginView class];
     
     /*
         if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
@@ -69,7 +78,7 @@
     
     NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     [Flurry setCrashReportingEnabled:YES];
-    [Flurry startSession:@"S4R4TRC7HXCKJYNGNP8Z"];
+    //[Flurry startSession:@"S4R4TRC7HXCKJYNGNP8Z"];
     [Flurry logPageView];
     
     /*
@@ -124,6 +133,8 @@ void uncaughtExceptionHandler(NSException *exception) {
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [FBAppCall handleDidBecomeActiveWithSession:[PFFacebookUtils session]];
+
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -143,6 +154,16 @@ void uncaughtExceptionHandler(NSException *exception) {
         }
     }
 }
+#pragma Facebook
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    return [FBAppCall handleOpenURL:url
+                  sourceApplication:sourceApplication
+                        withSession:[PFFacebookUtils session]];
+}
+
 
 #pragma mark - Core Data stack
 
@@ -188,7 +209,11 @@ void uncaughtExceptionHandler(NSException *exception) {
     
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
+    NSDictionary *options = @{
+                              NSMigratePersistentStoresAutomaticallyOption : @YES,
+                              NSInferMappingModelAutomaticallyOption : @YES
+                              };
+    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:options error:&error]) {
         /*
          Replace this implementation with code to handle the error appropriately.
          

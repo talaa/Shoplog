@@ -13,7 +13,7 @@
 
 @interface UpgradeViewController : UIViewController<SKProductsRequestDelegate,SKPaymentTransactionObserver>
 
-
+@property (strong, nonatomic) SKProduct *product;
 @property (retain,nonatomic) IBOutlet UIButton *buybutton;
 @property (weak, nonatomic) IBOutlet UIButton *restorebutton;
 @property (nonatomic,retain) IBOutlet UIActivityIndicatorView *spinner;

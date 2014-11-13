@@ -8,13 +8,13 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import "CustomDataSource.h"
-#import "TapForTap.h"
+
 #define kColumnsiPadLandscape 5
 #define kColumnsiPadPortrait 4
 #define kColumnsiPhoneLandscape 3
 #define kColumnsiPhonePortrait 2
 
-@interface MosaicViewController : UICollectionViewController<TapForTapAdViewDelegate>{
+@interface MosaicViewController : UICollectionViewController{
     UIImageView *_snapshotBeforeRotation;
     UIImageView *_snapshotAfterRotation;
     NSInteger selectedindex;

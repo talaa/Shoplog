@@ -33,8 +33,14 @@
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "MyIcon_120.png",
+      "filename" : "MyIcon_152-1.png",
       "scale" : "2x"
+    },
+    {
+      "size" : "60x60",
+      "idiom" : "iphone",
+      "filename" : "MyIcon copy_144-3.png",
+      "scale" : "3x"
     },
     {
       "size" : "29x29",

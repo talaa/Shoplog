@@ -18,6 +18,7 @@
 
 @implementation DetailPopViewController
 @synthesize delegate;
+@synthesize activityindicator ,managedObjectContext,currentProduct;
 - (void)setDetailItem:(id)newDetailItem
 {
     if (_detailItem != newDetailItem) {
@@ -73,9 +74,10 @@
         //self.Dimelabel.text = [[self.detailItem valueForKey:@"price"] stringValue];
         self.Dimelabel.text=[self.detailItem valueForKey:@"dim_size"];
         self.shoplabel.text=shopdetails.shopname;
+        
         //self.shoplabel.text=[self.detailItem valueForKey:@"shop"];
         self.commentslabel.text=[self.detailItem valueForKey:@"comments"];
-        
+        [self.imageid setImage:[UIImage imageWithData:[self.detailItem valueForKey:@"image"]]];
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"MM-dd HH:mm"];
         
@@ -85,6 +87,8 @@
         NSString *stringFromDate = [formatter stringFromDate:[self.detailItem valueForKey:@"date"]];
 
         self.datelabel.text=stringFromDate;
+        //Labels Fonts
+        
     }
 }
 
@@ -117,8 +121,8 @@
             [nourlalert show];
         }else{
             
-            
-        [brurl setBrowseuuurl:[[NSURL alloc]initWithString:[@"http://" stringByAppendingString:[self.detailItem valueForKey:@"websiteurl"]]]];
+            [brurl setNewbrowseurl:[@"http://" stringByAppendingString:[self.detailItem valueForKey:@"websiteurl"]]];
+        //[brurl setBrowseuuurl:[[NSURL alloc]initWithString:[@"http://" stringByAppendingString:[self.detailItem valueForKey:@"websiteurl"]]]];
             [brurl setThetitle:[self.detailItem valueForKey:@"categoryname"]];
         //[brurl setTitle:[self.detailItem valueForKey:@"categoryname"]];
         
@@ -132,6 +136,8 @@
 {
     
     [super viewDidLoad];
+    activityindicator.hidden=YES;
+    activityindicator.hidesWhenStopped=YES;
 	// Do any additional setup after loading the view.
     /*
     UIBarButtonItem *okButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStyleBordered target:self action:@selector(EditButtonPressed)];
@@ -143,6 +149,10 @@
     [self.navigationItem setRightBarButtonItem:okButton animated:NO];
      */
 }
+-(IBAction)sendtoshoplog:(id)sender{
+    UIAlertView *sendtoshoplog=[[UIAlertView alloc]initWithTitle:@"Send to Shoplog" message:@"Do u Want to delegate Shoplog to inform the store that you are interested in this product ? " delegate:self cancelButtonTitle:@"No Thanks!" otherButtonTitles:@"Yes Please!", nil];
+    [sendtoshoplog show];
+   }
 
 - (void)didReceiveMemoryWarning
 {
@@ -170,6 +180,7 @@
     } else {
         UIAlertView *Notpermitted=[[UIAlertView alloc] initWithTitle:@"Alert" message:NSLocalizedString(@"Devicenotsupported", nil) delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [Notpermitted show];
+        [Flurry logEvent:@"Phone call done" timed:YES];
         
     }
 }
@@ -183,7 +194,7 @@
     [picker setMessageBody:NSLocalizedString(@"moreinfo", nil) isHTML:NO];
     [picker addAttachmentData:[self.detailItem valueForKey:@"image"] mimeType:@"image/png" fileName:@"Photos"];
     [self presentViewController:picker animated:YES completion:nil];
-    
+    [Flurry logEvent:@"email sent" timed:YES];
 }
 -(void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error{
 
@@ -193,4 +204,145 @@
 - (IBAction)back:(UIStoryboardSegue *)segue
 {
 }
+
+#pragma send to shoplog
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    NSLog(@"The button Pressed is %ld",(long)buttonIndex);
+    if (buttonIndex==1) {
+        
+        
+        //Check if Shopdetails Are available;
+        NSLog(@"Checking shopdetails");
+        [self sendtoshoplog];
+    }
+    
+}
+-(void)sendtoshoplog{
+    PFUser *currentuser=[PFUser currentUser];
+    PFObject *shoplogitem = [PFObject objectWithClassName:@"Request_to_Shoplog"];
+    PFFile *file = [PFFile fileWithName:@"product_photo" data:[self.detailItem valueForKey:@"image"]];
+    Shop *shopdetails=[self.detailItem shop];
+    
+    PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:[shopdetails latcoordinate] longitude:[shopdetails longcoordinate]];
+    if (!currentuser) {
+        // show the signup or login screen
+        
+    } else {
+        
+        NSString *parseid1=[self.detailItem valueForKey:@"Parseid"];
+        if (!parseid1) {
+            activityindicator.hidden=NO;
+            [activityindicator startAnimating];
+            
+            
+            shoplogitem[@"Product_categroyname"] = [self.detailItem valueForKey:@"categoryname"];
+            shoplogitem[@"Product_price"] = [self.detailItem valueForKey:@"price"];
+            shoplogitem[@"Product_rating"] = [self.detailItem valueForKey:@"rating"];
+            shoplogitem[@"Product_Dim_Size"] = [self.detailItem valueForKey:@"dim_size"];
+            shoplogitem[@"Store_shoplocation"] = point;
+            shoplogitem[@"Store_shopname"] = [shopdetails shopname];
+            shoplogitem[@"Store_website"] = [self.detailItem valueForKey:@"websiteurl"];
+            shoplogitem[@"Store_phone"] = [self.detailItem valueForKey:@"phone"];
+            shoplogitem[@"Store_email"] = [self.detailItem valueForKey:@"email"];
+            shoplogitem[@"Products_comments"] = [self.detailItem valueForKey:@"comments"];
+            shoplogitem[@"Product_photo"]=file;
+            shoplogitem[@"User_email"]=currentuser.email;
+            shoplogitem[@"User_FacebookID"]=[currentuser objectForKey:@"FacebookID"];
+            shoplogitem[@"User_Name"]=[currentuser objectForKey: @"User_Name"];
+            shoplogitem[@"User_Location"]=[currentuser objectForKey: @"User_Location"];
+            [shoplogitem saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (succeeded) {
+                    NSLog(@"item saved properly %@",self.currentProduct);
+                    [self.currentProduct setParseid:shoplogitem.objectId];
+                    self.managedObjectContext=self.currentProduct.managedObjectContext;
+                    //  Commit item to core data
+                    NSError *error;
+                    if (![self.managedObjectContext save:&error])
+                        NSLog(@"Unresolved error %@, %@, %@", error, [error userInfo],[error localizedDescription]);
+                    else{
+                        //NSLog(@"The New Item is :%@",self.currentProduct);
+                        NSLog(@"The New shop Item is %@ ",self.currentProduct);
+                        /*
+                         NSArray *permissions=@[@"public_profile", @"email", @"user_friends",@"publish_actions"];
+                         [PFFacebookUtils logInWithPermissions:permissions block:^(PFUser *user, NSError *error) {
+                         if (!user) {
+                         NSLog(@"Uh oh. The user cancelled the Facebook login.");
+                         } else if (user.isNew) {
+                         NSLog(@"User signed up and logged in through Facebook!");
+                         } else {
+                         NSLog(@"User logged in through Facebook!");
+                         }
+                         }];
+                         */
+                    }
+                    
+                    [activityindicator stopAnimating];
+                }
+            }];
+            
+            
+        }else{
+            
+            
+            
+            PFQuery *noduplicatequery=[PFQuery queryWithClassName:@"Request_to_Shoplog"];
+            [noduplicatequery getObjectInBackgroundWithId:parseid1 block:^(PFObject *existingobject, NSError *error) {
+                // Do something with the returned PFObject in the gameScore variable.
+                if (existingobject) {
+                    NSLog(@"%@", existingobject);
+                    UIAlertView *itemexists=[[UIAlertView alloc]initWithTitle:@"Item Already Exists" message:@"Will Update the Existing Item in our Database" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    [itemexists show];
+                    activityindicator.hidden=NO;
+                    [activityindicator startAnimating];
+                    
+                    
+                    existingobject[@"Product_categroyname"] = [self.detailItem valueForKey:@"categoryname"];
+                    existingobject[@"Product_price"] = [self.detailItem valueForKey:@"price"];
+                    existingobject[@"Product_rating"] = [self.detailItem valueForKey:@"rating"];
+                    existingobject[@"Product_Dim_Size"] = [self.detailItem valueForKey:@"dim_size"];
+                    existingobject[@"Store_shoplocation"] = point;
+                    existingobject[@"Store_shopname"] = [shopdetails shopname];
+                    existingobject[@"Store_website"] = [self.detailItem valueForKey:@"websiteurl"];
+                    existingobject[@"Store_phone"] = [self.detailItem valueForKey:@"phone"];
+                    existingobject[@"Store_email"] = [self.detailItem valueForKey:@"email"];
+                    existingobject[@"Product_comments"] = [self.detailItem valueForKey:@"comments"];
+                    existingobject[@"Product_productphoto"]=file;
+                    existingobject[@"User_email"]=currentuser.email;
+                    existingobject[@"User_FacebookID"]=[currentuser objectForKey:@"FacebookID"];
+                    existingobject[@"User_Name"]=[currentuser objectForKey: @"User_Name"];
+                    existingobject[@"User_Location"]=[currentuser objectForKey: @"User_Location"];
+                    [existingobject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                        if (!error) {
+                            NSLog(@"item saved properly %@",self.currentProduct);
+                            
+                            [activityindicator stopAnimating];
+                        }else{
+                            NSLog(@"The Error from updating the Parse database is %@",error);
+                        }
+                    }];
+                    
+                    
+                    
+                    
+                }else{
+                    
+                    
+                    
+                    // do stuff with the user
+                    
+                    NSLog(@"The Error from updating the Parse database is %@",error);
+                    
+                    
+                    
+                }
+            }];
+        }
+    }
+    
+    
+    
+    
+    
+}
+
 @end

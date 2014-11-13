@@ -61,8 +61,8 @@
     NSString *completeUrl=[[NSString alloc]initWithFormat:@"http://www.ebay.com/sch/i.html?_trksid=p5197.m570.l1313&_nkw=%@&_sacat=0&_from=R40",self.searchstring ];
     NSDictionary *flurrydicttionary2=[[NSDictionary alloc]initWithObjectsAndKeys:@"EBAY",@"searchengine", nil];
     [Flurry logEvent:@"Search_Engine" withParameters:flurrydicttionary2 timed:YES];
-
-    NSDictionary *dict = [NSDictionary dictionaryWithObject:completeUrl forKey:@"Searchwebsite"];
+ NSDictionary *dict=[[NSDictionary alloc]initWithObjectsAndKeys:completeUrl,@"Searchwebsite",self.searchstring,@"searchstring1",nil];
+    //NSDictionary *dict = [NSDictionary dictionaryWithObject:completeUrl forKey:@"Searchwebsite"];
     [[NSNotificationCenter defaultCenter]postNotificationName:@"webSearchactivated" object:self userInfo:dict];
     [self activityDidFinish:YES];
     

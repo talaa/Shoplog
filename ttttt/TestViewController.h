@@ -11,17 +11,19 @@
 #import <MessageUI/MessageUI.h>
 #import <Social/Social.h>
 #import <QuartzCore/QuartzCore.h>
+#import <SystemConfiguration/SystemConfiguration.h>
 #import "UIPopover+Iphone.h"
 #import "MyCustomCell.h"
 #import "HeaderView.h"
 #import "DetailPopViewController.h"
+#import "DetailViewController.h"
 #import "PopoverView.h"
 #import "AdFooterview.h"
-#import "LAWalkthroughViewController.h"
+//#import "LAWalkthroughViewController.h"
 #import "GADBannerView.h"
 #import "GADRequest.h"
 
-
+#define Kintrodone @"introdone"
 #define KPROUprade @"isProversionpurchased"
 #define KRated @"isalreadyrated"
 @class MyCustomCell;
@@ -38,8 +40,11 @@
 @property (nonatomic,retain)NSMutableArray *testarray;
 @property (nonatomic,retain ) UIPopoverController *mypopover;
 @property (nonatomic,strong) DetailPopViewController *detailPopViewController;
+@property (nonatomic,strong) DetailViewController *detailViewController;
 @property (nonatomic,retain)MyCustomCell *mycustomcell;
 @property (nonatomic,retain)HeaderView *myheaderview;
+@property (nonatomic,strong)UIWebView *videoview;
+@property (nonatomic,strong)UIVisualEffectView *visualEffectView;
 @property (nonatomic) BOOL sharing;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
@@ -49,6 +54,7 @@
 @property (nonatomic,strong) IBOutlet UIBarButtonItem *sharebutton;
 @property(nonatomic, strong) NSMutableArray *searcharray;
 @property(nonatomic, strong) NSString *searchstring;
+@property(nonatomic, strong) NSString *searchstring1;
 //-(void)showmailcomposer:(NSData*)datafile;
 - (void)handleOpenURL:(NSURL *)url;
 //- (void)reloadFetchedResults:(NSNotification*)note;

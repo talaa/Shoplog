@@ -35,7 +35,7 @@
 /* Class = "IBUILabel"; text = "Date"; ObjectID = "Qm1-jn-PNB"; */
 "Qm1-jn-PNB.text" = "日期";
 
-/* Class = "IBUILabel"; text = "WEbsite"; ObjectID = "SDN-VJ-9ts"; */
+/* Class = "IBUILabel"; text = "Website"; ObjectID = "SDN-VJ-9ts"; */
 "SDN-VJ-9ts.text" = "网站";
 
 /* Class = "IBUITableViewSection"; headerTitle = "Comments"; ObjectID = "TSa-PQ-7O8"; */

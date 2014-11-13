@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WebViewController : UIViewController
+@interface WebViewController : UIViewController<UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *Mainwebview;
+@property (nonatomic,strong) NSString *newbrowseurl;
 @property (strong,nonatomic)NSURL *browseuuurl;
 @property (weak, nonatomic) IBOutlet UINavigationBar *webnavigation;
+@property (strong,nonatomic)IBOutlet UIActivityIndicatorView *busyactive;
 @property(strong,nonatomic)NSString *thetitle;
 @end

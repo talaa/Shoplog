@@ -13,6 +13,7 @@
 @implementation Shoplog
 
 @dynamic categoryname;
+@dynamic parseid;
 @dynamic comments;
 @dynamic date;
 @dynamic email;

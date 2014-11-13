@@ -1,0 +1,108 @@
+
+/* Class = "IBUILabel"; text = "Price"; ObjectID = "0DR-lT-ZYw"; */
+"0DR-lT-ZYw.text" = "Price";
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "0Vc-Xs-FU1"; */
+"0Vc-Xs-FU1.text" = "Label";
+
+/* Class = "IBUILabel"; text = "Shop Name"; ObjectID = "0sH-Y6-qdH"; */
+"0sH-Y6-qdH.text" = "Shop Name";
+
+/* Class = "IBUIButton"; normalTitle = "I am in the Shop"; ObjectID = "1RC-3s-SmW"; */
+"1RC-3s-SmW.normalTitle" = "I am in the Shop";
+
+/* Class = "IBUILabel"; text = "Shop"; ObjectID = "6Sv-2W-Uzd"; */
+"6Sv-2W-Uzd.text" = "Shop";
+
+/* Class = "IBUITabBarItem"; title = "GO PRO"; ObjectID = "7PT-Wb-1Hg"; */
+"7PT-Wb-1Hg.title" = "GO PRO";
+
+/* Class = "IBUILabel"; text = "Rating"; ObjectID = "A5m-0l-Guv"; */
+"A5m-0l-Guv.text" = "Rating";
+
+/* Class = "IBUILabel"; text = "Date"; ObjectID = "EY0-hV-ZJ8"; */
+"EY0-hV-ZJ8.text" = "Date";
+
+/* Class = "IBUILabel"; text = "Dim & Sizes"; ObjectID = "EiI-QK-7UT"; */
+"EiI-QK-7UT.text" = "Dim & Sizes";
+
+/* Class = "IBUITableViewSection"; headerTitle = "Category"; ObjectID = "GEW-34-41N"; */
+"GEW-34-41N.headerTitle" = "Category";
+
+/* Class = "IBUILabel"; text = "0"; ObjectID = "Hnm-aa-QD9"; */
+"Hnm-aa-QD9.text" = "0";
+
+/* Class = "IBUIButton"; normalTitle = "Camera"; ObjectID = "IND-HB-XhA"; */
+"IND-HB-XhA.normalTitle" = "Camera";
+
+/* Class = "IBUILabel"; text = "Longitutde"; ObjectID = "J0b-Nw-TPu"; */
+"J0b-Nw-TPu.text" = "Longitutde";
+
+/* Class = "IBUILabel"; text = "This Application is done for the Serious Shoppers. You are about to be one of them "; ObjectID = "KQz-ua-12b"; */
+"KQz-ua-12b.text" = "This Application is done for the Serious Shoppers. You are about to be one of them ";
+
+/* Class = "IBUITableViewSection"; headerTitle = "Location"; ObjectID = "Ljo-Ru-hcr"; */
+"Ljo-Ru-hcr.headerTitle" = "Location";
+
+/* Class = "IBUIBarButtonItem"; title = "Back"; ObjectID = "Lx5-7B-khk"; */
+"Lx5-7B-khk.title" = "Back";
+
+/* Class = "IBUILabel"; text = "Website"; ObjectID = "SSH-02-YJf"; */
+"SSH-02-YJf.text" = "Website";
+
+/* Class = "IBUILabel"; text = "Latitude"; ObjectID = "Trw-ZP-6nW"; */
+"Trw-ZP-6nW.text" = "Latitude";
+
+/* Class = "IBUITableViewSection"; headerTitle = "Comments"; ObjectID = "UCv-Tv-pUV"; */
+"UCv-Tv-pUV.headerTitle" = "Comments";
+
+/* Class = "IBUILabel"; text = "Email"; ObjectID = "Yi6-MP-DJT"; */
+"Yi6-MP-DJT.text" = "Email";
+
+/* Class = "IBUITextView"; text = "This is Where you Put Your Comments"; ObjectID = "Zv1-SD-AYt"; */
+"Zv1-SD-AYt.text" = "This is Where you Put Your Comments";
+
+/* Class = "IBUILabel"; text = "Dim"; ObjectID = "afs-B9-6w0"; */
+"afs-B9-6w0.text" = "Dim";
+
+/* Class = "IBUITabBarItem"; title = "Tour"; ObjectID = "asq-1W-F9q"; */
+"asq-1W-F9q.title" = "Tour";
+
+/* Class = "IBUITableViewSection"; headerTitle = "Details"; ObjectID = "bx2-6n-zYu"; */
+"bx2-6n-zYu.headerTitle" = "Details";
+
+/* Class = "IBUIButton"; normalTitle = "Upgrade me!"; ObjectID = "bxP-hq-YWW"; */
+"bxP-hq-YWW.normalTitle" = "Upgrade me!";
+
+/* Class = "IBUITableViewSection"; headerTitle = "Contacts"; ObjectID = "cCc-RB-74p"; */
+"cCc-RB-74p.headerTitle" = "Contacts";
+
+/* Class = "IBUIButton"; normalTitle = "Library"; ObjectID = "dZr-Y8-dQ4"; */
+"dZr-Y8-dQ4.normalTitle" = "Library";
+
+/* Class = "IBUITabBarItem"; title = "Shoplog"; ObjectID = "gtm-IR-4yU"; */
+"gtm-IR-4yU.title" = "Shoplog";
+
+/* Class = "IBUIBarButtonItem"; title = "Share"; ObjectID = "kmR-AH-eDL"; */
+"kmR-AH-eDL.title" = "Share";
+
+/* Class = "IBUILabel"; text = "Comments"; ObjectID = "qtA-VW-Jkr"; */
+"qtA-VW-Jkr.text" = "Comments";
+
+/* Class = "IBUITabBarItem"; title = "Feeds"; ObjectID = "v7o-ix-D7h"; */
+"v7o-ix-D7h.title" = "Feeds";
+
+/* Class = "IBUIButton"; normalTitle = "Back"; ObjectID = "w0w-ti-WPw"; */
+"w0w-ti-WPw.normalTitle" = "Back";
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "yTe-Vd-m8v"; */
+"yTe-Vd-m8v.text" = "Label";
+
+/* Class = "IBUITableViewSection"; headerTitle = "Image"; ObjectID = "yX2-Rg-Q80"; */
+"yX2-Rg-Q80.headerTitle" = "Image";
+
+/* Class = "IBUILabel"; text = "Phone"; ObjectID = "ync-bU-VEp"; */
+"ync-bU-VEp.text" = "Phone";
+
+/* Class = "IBUINavigationItem"; title = "Title"; ObjectID = "zoH-XZ-34H"; */
+"zoH-XZ-34H.title" = "Title";

@@ -42,7 +42,7 @@
 "KQz-ua-12b.text" = "This Application is done for the Serious Shoppers. You are about to be one of them ";
 
 /* Class = "IBUITableViewSection"; headerTitle = "Location"; ObjectID = "Ljo-Ru-hcr"; */
-"Ljo-Ru-hcr.headerTitle" = "Location";
+"Ljo-Ru-hcr.headerTitle" = "Store Location";
 
 /* Class = "IBUIBarButtonItem"; title = "Back"; ObjectID = "Lx5-7B-khk"; */
 "Lx5-7B-khk.title" = "Back";
@@ -72,7 +72,7 @@
 "bxP-hq-YWW.normalTitle" = "Upgrade me!";
 
 /* Class = "IBUITableViewSection"; headerTitle = "Contacts"; ObjectID = "cCc-RB-74p"; */
-"cCc-RB-74p.headerTitle" = "Contacts";
+"cCc-RB-74p.headerTitle" = "Store Contacts";
 
 /* Class = "IBUIButton"; normalTitle = "Library"; ObjectID = "dZr-Y8-dQ4"; */
 "dZr-Y8-dQ4.normalTitle" = "Library";

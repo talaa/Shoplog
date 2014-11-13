@@ -13,7 +13,7 @@
 @end
 
 @implementation WebViewController
-@synthesize browseuuurl,Mainwebview,thetitle,webnavigation;
+@synthesize browseuuurl,Mainwebview,thetitle,webnavigation,newbrowseurl,busyactive;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -38,12 +38,14 @@
 {
     
     [super viewDidLoad];
-    NSLog(@"The Url is %@",browseuuurl);
+    NSLog(@"The Url is %@",newbrowseurl);
     //NSString *thenewUrl=[[NSString alloc]init];
-    
+    Mainwebview.delegate=self;
     // Do any additional setup after loading the view.
     webnavigation.topItem.title=thetitle;
-    [Mainwebview loadRequest:[NSURLRequest requestWithURL:browseuuurl]];
+    NSString *encodedString=[newbrowseurl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    [Mainwebview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:encodedString]]];
+    //[Mainwebview loadRequest:[NSURLRequest requestWithURL:browseuuurl]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,4 +54,29 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)webViewDidStartLoad:(UIWebView *)webView
+{
+    //Show activity indicator
+    [busyactive startAnimating];
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    //Remove Activity indicator
+    [busyactive stopAnimating];
+    [busyactive removeFromSuperview];
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+    NSLog(@"Error - %@", error);
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Problem loading" message:@"Error while loading request." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alert show];
+    alert.tag = 1;
+    
+    //Remove Activity indicator
+    [busyactive stopAnimating];
+    [busyactive removeFromSuperview];
+}
 @end

@@ -103,7 +103,7 @@
 {
  
     
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"web-elements.png"]];
+    //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"web-elements.png"]];
     //spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     [spinner setCenter:self.view.center];
     //[spinner setCenter:CGPointMake(kScreenWidth/2.0, kScreenHeight/2.0)]; // I do this because I'm in landscape mode
@@ -282,12 +282,30 @@
     Qrcodecatalogue=YES;
     
 }
-
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    NSLog(@"The button Pressed is %ld",(long)buttonIndex);
+    NSLog(@"The alert view is %@",alertView);
+    PFUser *currentUser=[PFUser currentUser];
+    NSDictionary *userdata=[[NSDictionary alloc]initWithObjectsAndKeys:[currentUser objectForKey:@"User_Name"],@"User_Name",[currentUser objectForKey:@"User_email"],@"User_email", nil];
+    if (buttonIndex==1) {
+        
+        
+        //Check if Shopdetails Are available;
+        [Flurry logEvent:@"YES send to shoplog" withParameters:userdata timed:YES];
+        NSLog(@"YES send to shoplog");
+        
+    }else{
+    
+    [Flurry logEvent:@"NO send to shoplog" withParameters:userdata timed:YES];
+        NSLog(@"NO send to shoplog");
+    }
+    
+}
 - (IBAction)editSaveButtonPressed:(id)sender
 {
     
-    BOOL fffrr =[cataloguenamefield.text isEqualToString:@""];
-    if (!fffrr) {
+    BOOL emptycatalogue =[cataloguenamefield.text isEqualToString:@""];
+    if (!emptycatalogue) {
         
     
     // If we are adding a new picture (because we didnt pass one from the table) then create an entry
@@ -336,7 +354,8 @@
             newWidth = (actualWidth / divBy);
             newHeight = resize;
         }
-        CGRect rect = CGRectMake(0.0, 0.0, newWidth, newHeight);
+        //CGRect rect = CGRectMake(0.0, 0.0, newWidth, newHeight);
+        CGRect rect = CGRectMake(0.0, 0.0, actualWidth, actualHeight);
         UIGraphicsBeginImageContext(rect.size);
         [imageField.image drawInRect:rect];
         UIImage *smallImage = UIGraphicsGetImageFromCurrentImageContext();
@@ -378,6 +397,8 @@
     
     //  Automatically pop to previous view now we're done adding
     [self.navigationController popViewControllerAnimated:YES];
+        UIAlertView *sendtoshoplog=[[UIAlertView alloc]initWithTitle:@"Send to Shoplog" message:@"If you wish to delegate Shoplog to inform the store that you are interested in this product , Please Fill all Entries & Send Again to SHOPLOG" delegate:self cancelButtonTitle:@"NO Thanks!" otherButtonTitles:@"YES, Please!", nil];
+        [sendtoshoplog show];
     }else{
         UIAlertView *nocatname=[[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Missingcategory", nil) message:NSLocalizedString(@"Fillthecategory", nil) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [nocatname show];
@@ -385,6 +406,7 @@
     
     
     }
+    
 }
 
 -(void)preparetheitemtosave{
@@ -428,7 +450,8 @@
             newWidth = (actualWidth / divBy);
             newHeight = resize;
         }
-        CGRect rect = CGRectMake(0.0, 0.0, newWidth, newHeight);
+        //CGRect rect = CGRectMake(0.0, 0.0, newWidth, newHeight);
+        CGRect rect = CGRectMake(0.0, 0.0, actualWidth, actualHeight);
         UIGraphicsBeginImageContext(rect.size);
         [imageField.image drawInRect:rect];
         UIImage *smallImage = UIGraphicsGetImageFromCurrentImageContext();
@@ -516,7 +539,7 @@
         NSLog(@"error info : %@", [error userInfo]);
     else{
         //NSLog(@"The New Item is :%@",self.currentProduct);
-        NSLog(@"The New Shop is :%@",self.currentshop);
+        NSLog(@"The Old Shop is :%@",self.currentshop);
         //[controller.collectionView setNeedsLayout];
         //[controller didClickdeleteButton];
         //[self addobjecttoarray];
@@ -525,7 +548,7 @@
     [self dismissViewControllerAnimated:YES completion:nil];
     [[NSNotificationCenter defaultCenter]postNotificationName:@"TestNotification" object:self];
     [spinner startAnimating];
-
+    
 }
 
 
@@ -590,6 +613,7 @@
     UILabel *HeaderLabel=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 23)];
     HeaderLabel.font=[UIFont fontWithName:@"HelveticaNeue-Bold" size:24];
     HeaderLabel.backgroundColor=[UIColor clearColor];
+    HeaderLabel.backgroundColor=[UIColor colorWithRed:.2 green:.3 blue:.7 alpha:1];
     HeaderLabel.textColor=[UIColor whiteColor];
     switch (section) {
         case 0:
@@ -602,10 +626,10 @@
             HeaderLabel.text=NSLocalizedString(@"Description",nil);
             break;
         case 3:
-            HeaderLabel.text=NSLocalizedString(@"Location",nil);
+            HeaderLabel.text=NSLocalizedString(@"Store Contacts",nil);
             break;
         case 4:
-            HeaderLabel.text=NSLocalizedString(@"Contacts",nil);
+            HeaderLabel.text=NSLocalizedString(@"Store Location",nil);
             break;
         case 5:
             HeaderLabel.text=NSLocalizedString(@"Comments",nil);
@@ -615,7 +639,7 @@
             break;
     }
     
-    [headerView addSubview:headerImage];
+    //[headerView addSubview:headerImage];
     [headerView addSubview:HeaderLabel];
     [headerView sendSubviewToBack:headerImage];
     

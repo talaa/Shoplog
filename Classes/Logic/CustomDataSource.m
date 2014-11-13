@@ -51,13 +51,13 @@
     
     
     ///The New Part
-    NSString *feedname=@"http://api.twitter.com/1/statuses/user_timeline.json?include_entities=true&include_rts=true&screen_name=shoplog1&count=20";
+   // NSString *feedname=@"http://api.twitter.com/1/statuses/user_timeline.json?include_entities=true&include_rts=true&screen_name=shoplog1&count=20";
     //NSData *dataurl=[[NSData alloc]init];
     dispatch_async(backgroundQueue, ^{
         NSError *anError = nil;
-        NSURL *feedURL =[NSURL URLWithString:feedname];
-        NSData *dataurl =[NSData dataWithContentsOfURL:feedURL];
-        NSLog(@"The JSON Elements are %@",JSONelements);
+        //NSURL *feedURL =[NSURL URLWithString:feedname];
+        //NSData *dataurl =[NSData dataWithContentsOfURL:feedURL];
+        //NSLog(@"The JSON Elements are %@",JSONelements);
         if (JSONelements) {
             
         
@@ -66,7 +66,7 @@
     
    // NSArray *parsedElements=[NSJSONSerialization JSONObjectWithData:dataurl options:NSJSONReadingAllowFragments error:&anError];
             NSArray *parsedElements=[[NSArray alloc]initWithArray:JSONelements];
-            NSLog(@"The parsed elements are %@",parsedElements);
+            //NSLog(@"The parsed elements are %@",parsedElements);
     //NSLog(@"The elements are :%@",parsedElements);
     for (NSMutableDictionary *aModuleDict in parsedElements){
         NSMutableDictionary *trmpdict=[[NSMutableDictionary alloc]init];
@@ -129,7 +129,7 @@
         NSError *anError = nil;
         //NSURL *feedURL =[NSURL URLWithString:feedname];
        // NSData *dataurl =[NSData dataWithContentsOfURL:feedURL];
-        NSLog(@"The JSON Elements are %@",JSONelements);
+        //NSLog(@"The JSON Elements are %@",JSONelements);
         if (JSONelements) {
             
             
@@ -138,7 +138,7 @@
             
             // NSArray *parsedElements=[NSJSONSerialization JSONObjectWithData:dataurl options:NSJSONReadingAllowFragments error:&anError];
             NSArray *parsedElements=[[NSArray alloc]initWithArray:JSONelements];
-            NSLog(@"The parsed elements are %@",parsedElements);
+            //NSLog(@"The parsed elements are %@",parsedElements);
             //NSLog(@"The elements are :%@",parsedElements);
             for (NSMutableDictionary *aModuleDict in parsedElements){
                 NSMutableDictionary *trmpdict=[[NSMutableDictionary alloc]init];
@@ -155,6 +155,7 @@
                 if ([piecesOfOriginalString count]>1) {
                     NSString *link=[@"http" stringByAppendingString:[piecesOfOriginalString objectAtIndex:1]];
                     [trmpdict setValue:link forKey:@"tweetlink"];
+                   // NSLog(@"The link is %@",link);
                     NSURL *testurl=[[NSURL alloc]initWithString:link];
                     //[trmpdict setValue:[self retrieveImageSourceTagsViaRegex:testurl] forKey:@"imagelink"];
                     [trmpdict setValue:[self retrieveImageSourceTagsViaHpple:testurl] forKey:@"imagelink"];
@@ -215,7 +216,7 @@
         CFRelease(imageProperties);
     }
     
-    NSLog(@"Image dimensions:  %.0f px", height);
+    //NSLog(@"Image dimensions:  %.0f px", height);
 
     return height;
 

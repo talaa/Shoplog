@@ -9,7 +9,7 @@
 #import "MosaicCell.h"
 #import "WebdetailViewController.h"
 #import "CustomDataSource.h"
-#import "TapForTap.h"
+
 #import "Flurry.h"
 
 @interface MosaicViewController()
@@ -84,6 +84,7 @@ NSString *feedname=@"http://api.twitter.com/1/statuses/user_timeline.json?includ
 - (void)collectionView:(UICollectionView *)collectionView
 didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     selectedindex=indexPath.row;
+    NSLog(@"I am Here");
     [self performSegueWithIdentifier:@"gotowebdetail" sender:self];
     
 }
@@ -92,7 +93,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         WebdetailViewController *webdetailcontr = (WebdetailViewController *)[segue destinationViewController];
         //CustomDataSource *cds=[[CustomDataSource alloc]init];
         int cont=[cds._elements count];
-        NSLog(@"The Elements are %d  & %ld",cont,(long)selectedindex);
+        //NSLog(@"The Elements are %d  & %ld",cont,(long)selectedindex);
         if (cont>0 && selectedindex<=cont-1) {
             
             [activityindicator stopAnimating];

@@ -37,8 +37,8 @@
     if (self) {
         UIView *bgView = [[UIView alloc]
                           initWithFrame:self.backgroundView.frame];
-        //bgView.backgroundColor = [UIColor blueColor];
-        bgView.layer.borderColor = [[UIColor blueColor]CGColor];
+        bgView.backgroundColor = [UIColor clearColor];
+        bgView.layer.borderColor = [[UIColor greenColor]CGColor];
         bgView.layer.borderWidth = 4;
         self.selectedBackgroundView = bgView;
     }
@@ -49,10 +49,10 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
-    self.layer.cornerRadius = 25.0;
-    CALayer *jjj=[cellImage layer];
-    [jjj setMasksToBounds:YES];
-    [jjj setCornerRadius:20];
+    //self.layer.cornerRadius = 25.0;
+    //CALayer *jjj=[cellImage layer];
+    //[jjj setMasksToBounds:YES];
+    //[jjj setCornerRadius:20];
     
     /*
     CALayer *imageLayer = [CALayer layer];
@@ -64,11 +64,11 @@
     [self.layer addSublayer:imageLayer];
     */
     //cellImage.layer.cornerRadius=25.0;
-    self.layer.shadowOffset = CGSizeMake(0, 10);
-    self.layer.shadowRadius = 5.0;
-    self.layer.shadowColor = [UIColor whiteColor].CGColor;
+    //self.layer.shadowOffset = CGSizeMake(0, 10);
+    //self.layer.shadowRadius = 5.0;
+    //self.layer.shadowColor = [UIColor whiteColor].CGColor;
     
-    self.layer.shadowOpacity = 0.3;
+    //self.layer.shadowOpacity = 0.3;
     // Drawing code
 }
 

@@ -15,7 +15,7 @@
 @end
 
 @implementation UpgradeViewController
-@synthesize buybutton,spinner;
+@synthesize buybutton,spinner,product;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -70,8 +70,8 @@
 
 -(IBAction)buyproduct:(id)sender{
 
-    
-    SKPayment *payment =[SKPayment paymentWithProductIdentifier:kInAppPurchaseProUpgradeProductId];
+    SKPayment *payment=[SKPayment paymentWithProduct:product];
+    //SKPayment *payment =[SKPayment paymentWithProductIdentifier:kInAppPurchaseProUpgradeProductId];
     [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
     [[SKPaymentQueue defaultQueue] addPayment:payment];
     [Flurry logEvent:@"upgrade is done " ];
@@ -103,6 +103,7 @@
     int count=[response.products count];
     if (count>0) {
         validproduct =[response.products objectAtIndex:0];
+        product=validproduct;
         NSLog(@"Product title: %@" , validproduct.localizedTitle);
         NSLog(@"Product description: %@" , validproduct.localizedDescription);
         NSLog(@"Product price: %@" , validproduct.price);
