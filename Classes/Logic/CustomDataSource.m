@@ -42,6 +42,7 @@
     }];
     
 }
+/*
 -(void)loadFromDisk{
     //[self newtwitterauthorize];
     _elements = [[NSMutableArray alloc] init];
@@ -114,6 +115,8 @@
     
     
 }
+ 
+ */
 -(void)loadFromDisk2{
     //[self newtwitterauthorize];
     _elements = [[NSMutableArray alloc] init];
@@ -208,9 +211,13 @@
             CFNumberGetValue(widthNum, kCFNumberFloatType, &width);
         }
         */
-        CFNumberRef heightNum = CFDictionaryGetValue(imageProperties, kCGImagePropertyPixelHeight);
+        NSNumber *heightNum=CFDictionaryGetValue(imageProperties, kCGImagePropertyPixelHeight);
+        
+        
+        //CFNumberRef heightNum = CFDictionaryGetValue(imageProperties, kCGImagePropertyPixelHeight);
         if (heightNum != NULL) {
-            CFNumberGetValue(heightNum, kCFNumberFloatType, &height);
+            height=[heightNum floatValue];
+            //CFNumberGetValue(heightNum, kCFNumberFloatType, &height);
         }
         
         CFRelease(imageProperties);
@@ -236,10 +243,14 @@
         {
             NSString *src = [element objectForKey:@"src"];
             lasthope=src;
-            if (![src hasSuffix:@"gif"]&&[src hasPrefix:@"http"]&&[self gettingimagedimensions:src]>200) {
-                
+            if (![src hasSuffix:@"gif"]) {
+                if ([src hasPrefix:@"http"]) {
+                    if ([self gettingimagedimensions:src]>200) {
+                         return src;
+                    }
+                }
                 //[imagesarray addObject:src];
-                return src;
+               
                 
             }
             

@@ -78,7 +78,7 @@
     
     NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     [Flurry setCrashReportingEnabled:YES];
-    //[Flurry startSession:@"S4R4TRC7HXCKJYNGNP8Z"];
+    [Flurry startSession:@"S4R4TRC7HXCKJYNGNP8Z"];
     [Flurry logPageView];
     
     /*

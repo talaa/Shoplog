@@ -1013,7 +1013,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" id="nf1-wn-rj2">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="510" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="adK-pW-wIL">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -1392,7 +1392,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="tuD-nv-Pay"/>
         <segue reference="44l-Sf-gUA"/>
+        <segue reference="b4g-di-S58"/>
     </inferredMetricsTieBreakers>
 </document>
