@@ -60,6 +60,7 @@
             } else {
                 NSLog(@"User already logged in through Facebook!");
             //[self performSegueWithIdentifier:@"shoplogers" sender:self];
+                [self userisalreadysignedin];
                 
             }
             user[@"FacebookID"]=facebookID;
@@ -67,6 +68,8 @@
             user[@"User_Location"]=userlocation;
             user[@"User_Gender"]=usergender;
             user[@"email"]=useremail;
+            user[@"Loyalty_Points"]=0;
+            user[@"Wish_Lists"]=nil;
             //[user setObject:facebookID forKey:@"FacebookID"];
             //[user setObject:username forKey:@"User_Name"];
             //[user setObject:userlocation forKey:@"User_Location"];

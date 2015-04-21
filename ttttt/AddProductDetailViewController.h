@@ -18,7 +18,7 @@
 @class Shoplog;
 @class Shop;
 @protocol addproductdetailviewcontrollerdelegate;
-@interface AddProductDetailViewController : UITableViewController<UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIPopoverControllerDelegate,UITextFieldDelegate,MKMapViewDelegate,UITextViewDelegate, UIAlertViewDelegate>
+@interface AddProductDetailViewController : UITableViewController<UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIPopoverControllerDelegate,UITextFieldDelegate,MKMapViewDelegate,UITextViewDelegate, UIAlertViewDelegate,CLLocationManagerDelegate>
 {
 
     //CLLocationManager *lm;
@@ -41,6 +41,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextView *commentsView;
 @property (weak, nonatomic) IBOutlet MKMapView *Maplocation;
+@property(nonatomic, retain) CLLocationManager *locationManager;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 

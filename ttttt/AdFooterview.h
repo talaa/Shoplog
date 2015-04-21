@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "GADBannerView.h"
+#import <StartApp/StartApp.h>
 #import "TestViewController.h"
 
 @interface AdFooterview : UICollectionReusableView{
-    GADBannerView *adbanner;
+    //GADBannerView *adbanner;
+     STABannerView* bannerView;
 }
 
 @end

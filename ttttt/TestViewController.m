@@ -394,7 +394,8 @@ NSUserDefaults *userdefaults =[NSUserDefaults standardUserDefaults];
     if (!check){
         if ([kind isEqual:UICollectionElementKindSectionFooter]){
             AdFooterview *adfoot=[self.collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"adFooterview" forIndexPath:indexPath];
-           
+            STABannerView *adbanner;
+           /*
             GADBannerView *adbanner;
             // Create a view of the standard size at the top of the screen.
             // Available AdSize constants are explained in GADAdSize.h.
@@ -421,6 +422,14 @@ NSUserDefaults *userdefaults =[NSUserDefaults standardUserDefaults];
             // Initiate a generic request to load it with an ad.
             gadrequest.testDevices = [NSArray arrayWithObjects:GAD_SIMULATOR_ID, nil];
             [adbanner loadRequest:[GADRequest request]];
+            */
+            
+            if (adbanner == nil) {
+                adbanner = [[STABannerView alloc] initWithSize:STA_AutoAdSize  autoOrigin:STAAdOrigin_Top                                                        withView:self.view withDelegate:nil];
+                //[bannerView setAutoresizesSubviews:YES];
+                //bannerView.autoresizingMask=UIViewAutoresizingFlexibleWidth;
+                [adfoot addSubview:adbanner];
+            }
             return adfoot;
 
         

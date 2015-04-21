@@ -122,12 +122,25 @@
             [bbitemStart setTitle:@"Start!" forState:UIControlStateNormal];
             //[bbitemStart performSelectorOnMainThread:@selector(setTitle: forState:) withObject:@"Start!" waitUntilDone:NO];
             _isReading = NO;
-            
+            //[self returnback_fillthedata];
+            [self.navigationController popToRootViewControllerAnimated:YES];
+            /*[self dismissViewControllerAnimated:YES completion:^{
+                [self returnback_fillthedata];
+            }];
+            */
             if (_audioPlayer) {
                 [_audioPlayer play];
             }
         }
     }
+}
+-(void)returnback_fillthedata{
+
+    _addviewcontroller.cataloguenamefield.text=[DataTransfer CategorynameQr];
+    _addviewcontroller.PriceField.text=[NSString stringWithFormat:@"%f",[DataTransfer priceQr]];
+    _addviewcontroller.ShopField.text=[DataTransfer shopnameQr];
+    _addviewcontroller.DimensionsField.text=[DataTransfer dimSizeQr];
+
 }
 -(void)stopReading{
     [_captureSession stopRunning];

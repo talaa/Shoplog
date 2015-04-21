@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AddProductDetailViewController.h"
 #import <AVFoundation/AVFoundation.h>
 #import "DataTransfer.h"
 
@@ -14,5 +15,6 @@
 @property (weak, nonatomic) IBOutlet UIView *viewPreview;
 @property (weak, nonatomic) IBOutlet UILabel *lblStatus;
 @property (weak, nonatomic) IBOutlet UIButton *bbitemStart;
+@property (nonatomic) AddProductDetailViewController *addviewcontroller;
 - (IBAction)startStopReading:(id)sender;
 @end

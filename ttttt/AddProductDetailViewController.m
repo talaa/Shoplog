@@ -101,7 +101,17 @@
 
 - (void)viewDidLoad
 {
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.distanceFilter = kCLDistanceFilterNone;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [self.locationManager startUpdatingLocation];
  
+    if(IS_OS_8_OR_LATER) {
+        [self.locationManager requestAlwaysAuthorization];
+        [self.locationManager requestWhenInUseAuthorization];
+    }
+
+    
     
     //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"web-elements.png"]];
     //spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
@@ -376,7 +386,11 @@
         //NSLog(@"The New Item is :%@",self.currentProduct);
         //NSLog(@"The New shop Item is %@ ",self.currentshop);
         [spinner startAnimating];
-        NSDictionary *flurrydicttionary=[[NSDictionary alloc]initWithObjectsAndKeys:self.currentProduct.categoryname,@"Categoryname",self.currentshop.shopname,@"shopname",self.currentProduct.price,@"Price", nil];
+        NSString *Flurry_shopname=self.currentshop.shopname;
+        NSNumber *Flurry_price=[[NSNumber alloc]initWithFloat:self.currentProduct.price];
+        NSString *Flurry_category=self.currentProduct.categoryname;
+        
+        NSMutableDictionary *flurrydicttionary=[[NSMutableDictionary alloc]initWithObjectsAndKeys:Flurry_category,@"Categoryname",Flurry_shopname,@"shopname",Flurry_price,@"Price", nil];
         [Flurry logEvent:@"Catalogue" withParameters:flurrydicttionary timed:YES];
         /*
          //The Part where the USer should Rate the Application 

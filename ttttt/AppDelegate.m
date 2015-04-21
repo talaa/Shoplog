@@ -16,7 +16,10 @@
 #import "UpgradeViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import <ParseFacebookUtils/PFFacebookUtils.h>
+#import <StartApp/StartApp.h>
 
+#define DevID @"102387467"
+#define AppID @"202653362"
 
 
 
@@ -48,6 +51,10 @@
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     // Override point for customization after application launch.
     [PFFacebookUtils initializeFacebook];
+    STAStartAppSDK* sdk = [STAStartAppSDK sharedInstance];
+    sdk.devID = DevID;
+    sdk.appID = AppID;
+
     //[FBLoginView class];
     
     /*
