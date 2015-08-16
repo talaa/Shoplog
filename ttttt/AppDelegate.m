@@ -16,11 +16,9 @@
 #import "UpgradeViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import <ParseFacebookUtils/PFFacebookUtils.h>
-
-
-
-
-
+//Facebook SDK
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 
 
 @implementation AppDelegate
@@ -29,25 +27,33 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
+//Facebook log activities
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    [FBSDKAppEvents activateApp];
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
     // Override point for customization after application launch.
     
-    UITabBarController *tabBarController =(UITabBarController *)self.window.rootViewController;
-    UINavigationController *navigationController = [[tabBarController viewControllers] objectAtIndex:0];
+//    UITabBarController *tabBarController =(UITabBarController *)self.window.rootViewController;
+//    UINavigationController *navigationController = [[tabBarController viewControllers] objectAtIndex:0];
     
     //UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     //[navigationController.navigationBar setBackgroundImage:gradientImage32 forBarMetrics:UIBarMetricsDefault];
     //navigationController.navigationBar.tintColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"blueleather.png"]];
-    navigationController.navigationBar.tintColor = [UIColor colorWithRed:48.0f/255.0f green:74.0f/255.0f blue:147.0f/255.0f alpha:1];
-    TestViewController *controller = (TestViewController *)navigationController.topViewController;
-    controller.managedObjectContext = self.managedObjectContext;
+    //////////////////
+    //navigationController.navigationBar.tintColor = [UIColor colorWithRed:48.0f/255.0f green:74.0f/255.0f blue:147.0f/255.0f alpha:1];
+    //TestViewController *controller = (TestViewController *)navigationController.topViewController;
+    //controller.managedObjectContext = self.managedObjectContext;
     [Parse setApplicationId:@"ywPm262lndYyBhcTFxUWF8eLxpcCkEUkHOB782s9"
                   clientKey:@"Vq3qhqkveSpAqSRKShP0OtLfmNG3lyNB8VpwbEX8"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    ///////////////////
+    
     // Override point for customization after application launch.
-    [PFFacebookUtils initializeFacebook];
+    //[PFFacebookUtils initializeFacebook];
     //[FBLoginView class];
     
     /*
@@ -90,15 +96,16 @@
      horizontalAccuracy:location.horizontalAccuracy
        verticalAccuracy:location.verticalAccuracy];
      */
-    return YES;
+    
+    //Facebook connection
+    [FBSDKLoginButton class];
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                    didFinishLaunchingWithOptions:launchOptions];
 }
 
 void uncaughtExceptionHandler(NSException *exception) {
     [Flurry logError:@"Uncaught" message:@"Crash!" exception:exception];
 }
-
-
-
 
 //How to Open Internal Catalogues
 -(BOOL) application:(UIApplication *)application handleOpenURL:(NSURL *)url {
@@ -130,13 +137,6 @@ void uncaughtExceptionHandler(NSException *exception) {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    [FBAppCall handleDidBecomeActiveWithSession:[PFFacebookUtils session]];
-
-}
-
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
@@ -159,10 +159,12 @@ void uncaughtExceptionHandler(NSException *exception) {
             openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation {
-    return [FBAppCall handleOpenURL:url
-                  sourceApplication:sourceApplication
-                        withSession:[PFFacebookUtils session]];
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                          openURL:url
+                                                sourceApplication:sourceApplication
+                                                       annotation:annotation];
 }
+
 
 
 #pragma mark - Core Data stack

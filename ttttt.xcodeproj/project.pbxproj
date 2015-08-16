@@ -99,8 +99,6 @@
 		698A279616696760005F1EE6 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6986BCAF163205940023E2EE /* Default@2x.png */; };
 		698A2798166967A0005F1EE6 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 698A2797166967A0005F1EE6 /* Default-Portrait~ipad.png */; };
 		698A279A166967AD005F1EE6 /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 698A2799166967AD005F1EE6 /* Default-Portrait@2x~ipad.png */; };
-		698A279C16696831005F1EE6 /* logo1536x2008_big copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 698A279B16696831005F1EE6 /* logo1536x2008_big copy.png */; };
-		698A279E1669692A005F1EE6 /* logo640x1136_big copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 698A279D1669692A005F1EE6 /* logo640x1136_big copy.png */; };
 		698A27A016696939005F1EE6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 698A279F16696939005F1EE6 /* Default-568h@2x.png */; };
 		698A62C51607BE0B004DAC94 /* MyCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 698A62C41607BE0B004DAC94 /* MyCustomCell.m */; };
 		698BBDD6171C9DD9002E3344 /* SampleBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 698BBDD2171C9DD9002E3344 /* SampleBackground.png */; };
@@ -176,6 +174,10 @@
 		69FD714C165956B0001919DD /* Taobaosearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FD714B165956B0001919DD /* Taobaosearch.m */; };
 		69FD714F165956D3001919DD /* GoogleShoppingSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FD714E165956D3001919DD /* GoogleShoppingSearch.m */; };
 		69FD7152165956E9001919DD /* YahoobuySearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FD7151165956E9001919DD /* YahoobuySearch.m */; };
+		F5E8D8411B80DFED00B8EFB5 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5E8D83E1B80DFEC00B8EFB5 /* FBSDKCoreKit.framework */; };
+		F5E8D8421B80DFED00B8EFB5 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5E8D83F1B80DFEC00B8EFB5 /* FBSDKLoginKit.framework */; };
+		F5E8D8431B80DFED00B8EFB5 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5E8D8401B80DFEC00B8EFB5 /* FBSDKShareKit.framework */; };
+		F5E8D8491B80F17F00B8EFB5 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E8D8481B80F17F00B8EFB5 /* MainTabBarController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -317,8 +319,6 @@
 		698A279316696746005F1EE6 /* logo1337x2004_big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo1337x2004_big.png; sourceTree = "<group>"; };
 		698A2797166967A0005F1EE6 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
 		698A2799166967AD005F1EE6 /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
-		698A279B16696831005F1EE6 /* logo1536x2008_big copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo1536x2008_big copy.png"; path = "../../../Inas Folder/for tamer/logo1536x2008_big copy.png"; sourceTree = "<group>"; };
-		698A279D1669692A005F1EE6 /* logo640x1136_big copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo640x1136_big copy.png"; path = "../../../Inas Folder/for tamer/logo640x1136_big copy.png"; sourceTree = "<group>"; };
 		698A279F16696939005F1EE6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		698A62C31607BE0B004DAC94 /* MyCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCustomCell.h; sourceTree = "<group>"; };
 		698A62C41607BE0B004DAC94 /* MyCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCustomCell.m; sourceTree = "<group>"; };
@@ -458,6 +458,11 @@
 		69FD714E165956D3001919DD /* GoogleShoppingSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleShoppingSearch.m; sourceTree = "<group>"; };
 		69FD7150165956E9001919DD /* YahoobuySearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YahoobuySearch.h; sourceTree = "<group>"; };
 		69FD7151165956E9001919DD /* YahoobuySearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YahoobuySearch.m; sourceTree = "<group>"; };
+		F5E8D83E1B80DFEC00B8EFB5 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "Facebook SDK /FBSDKCoreKit.framework"; sourceTree = "<group>"; };
+		F5E8D83F1B80DFEC00B8EFB5 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "Facebook SDK /FBSDKLoginKit.framework"; sourceTree = "<group>"; };
+		F5E8D8401B80DFEC00B8EFB5 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "Facebook SDK /FBSDKShareKit.framework"; sourceTree = "<group>"; };
+		F5E8D8471B80F17F00B8EFB5 /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
+		F5E8D8481B80F17F00B8EFB5 /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -465,6 +470,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5E8D8421B80DFED00B8EFB5 /* FBSDKLoginKit.framework in Frameworks */,
 				699AF7BA1A0FC76F00F7EA47 /* EventKitUI.framework in Frameworks */,
 				699AF7B81A0FC75500F7EA47 /* EventKit.framework in Frameworks */,
 				699AF7B61A0FC6B000F7EA47 /* libGoogleAdMobAds.a in Frameworks */,
@@ -481,6 +487,7 @@
 				695B194E19EB4FD90056DDE2 /* Parse.framework in Frameworks */,
 				693C5CD8169DD425008DA75C /* Accounts.framework in Frameworks */,
 				699AF7BE1A112FF400F7EA47 /* libFlurry_5.4.0.a in Frameworks */,
+				F5E8D8431B80DFED00B8EFB5 /* FBSDKShareKit.framework in Frameworks */,
 				692807E7169B9B8900D5EDFF /* iAd.framework in Frameworks */,
 				692807E5169B9B8100D5EDFF /* AdSupport.framework in Frameworks */,
 				692807E3169B9B6600D5EDFF /* AudioToolbox.framework in Frameworks */,
@@ -490,6 +497,7 @@
 				69667C051648807E003FC921 /* CoreLocation.framework in Frameworks */,
 				69E29BF91646C91F00573B8C /* MapKit.framework in Frameworks */,
 				698CC5D5162F7AE1001EE01A /* libz.dylib in Frameworks */,
+				F5E8D8411B80DFED00B8EFB5 /* FBSDKCoreKit.framework in Frameworks */,
 				69205004162B45B300358C65 /* Social.framework in Frameworks */,
 				69204FFF162B458700358C65 /* MessageUI.framework in Frameworks */,
 				692A22E11616E5470031CB4E /* QuartzCore.framework in Frameworks */,
@@ -698,8 +706,6 @@
 				698A279F16696939005F1EE6 /* Default-568h@2x.png */,
 				698A2799166967AD005F1EE6 /* Default-Portrait@2x~ipad.png */,
 				698A2797166967A0005F1EE6 /* Default-Portrait~ipad.png */,
-				698A279D1669692A005F1EE6 /* logo640x1136_big copy.png */,
-				698A279B16696831005F1EE6 /* logo1536x2008_big copy.png */,
 				698A279216696746005F1EE6 /* logo768x1004_big copy_1.png */,
 				698A279316696746005F1EE6 /* logo1337x2004_big.png */,
 				69C87D8F1668FFE200656E9A /* MyIcon copy_57.png */,
@@ -934,6 +940,9 @@
 		69F625721606364800004196 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F5E8D83E1B80DFEC00B8EFB5 /* FBSDKCoreKit.framework */,
+				F5E8D83F1B80DFEC00B8EFB5 /* FBSDKLoginKit.framework */,
+				F5E8D8401B80DFEC00B8EFB5 /* FBSDKShareKit.framework */,
 				699AF7B91A0FC76F00F7EA47 /* EventKitUI.framework */,
 				699AF7B71A0FC75500F7EA47 /* EventKit.framework */,
 				692608B919EC716700C37E72 /* FacebookSDK.framework */,
@@ -975,6 +984,7 @@
 		69F625791606364800004196 /* ttttt */ = {
 			isa = PBXGroup;
 			children = (
+				F5E8D8461B80F13D00B8EFB5 /* TabBarControler */,
 				698210DD191FF393001DB6D7 /* QR Code Reader */,
 				69ECA95B1712186A00347A6C /* Mosaic Classes */,
 				692807E9169BD46600D5EDFF /* Database */,
@@ -1028,6 +1038,16 @@
 				690C25AF1726A2AB00139FDA /* Localizable.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F5E8D8461B80F13D00B8EFB5 /* TabBarControler */ = {
+			isa = PBXGroup;
+			children = (
+				F5E8D8471B80F17F00B8EFB5 /* MainTabBarController.h */,
+				F5E8D8481B80F17F00B8EFB5 /* MainTabBarController.m */,
+			);
+			name = TabBarControler;
+			path = Controller/TabBarControler;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1132,8 +1152,6 @@
 				698A279616696760005F1EE6 /* Default@2x.png in Resources */,
 				698A2798166967A0005F1EE6 /* Default-Portrait~ipad.png in Resources */,
 				698A279A166967AD005F1EE6 /* Default-Portrait@2x~ipad.png in Resources */,
-				698A279C16696831005F1EE6 /* logo1536x2008_big copy.png in Resources */,
-				698A279E1669692A005F1EE6 /* logo640x1136_big copy.png in Resources */,
 				698A27A016696939005F1EE6 /* Default-568h@2x.png in Resources */,
 				6942DF2916A1A58D00C920C3 /* icon_post.png in Resources */,
 				6942DF2B16A1A5E800C920C3 /* icon_shopping_bag.png in Resources */,
@@ -1179,6 +1197,7 @@
 				69F6259B1606369400004196 /* TestViewController.m in Sources */,
 				698A62C51607BE0B004DAC94 /* MyCustomCell.m in Sources */,
 				693FBA5816091E9700EA2136 /* HeaderView.m in Sources */,
+				F5E8D8491B80F17F00B8EFB5 /* MainTabBarController.m in Sources */,
 				6948B5A716121780008BA37E /* ttttt.xcdatamodeld in Sources */,
 				6948B5AD16122819008BA37E /* AddProductDetailViewController.m in Sources */,
 				698337C21618B8C500E2BC9E /* DetailPopViewController.m in Sources */,
@@ -1373,11 +1392,15 @@
 					"$(PROJECT_DIR)/parse-library-1",
 					"/Users/tamerenas/Downloads/parse-library-1",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Facebook",
+					SDK,
+					"$(PROJECT_DIR)/Facebook",
+					SDK,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ttttt/ttttt-Prefix.pch";
 				INFOPLIST_FILE = "ttttt/ttttt-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
@@ -1404,11 +1427,15 @@
 					"$(PROJECT_DIR)/parse-library-1",
 					"/Users/tamerenas/Downloads/parse-library-1",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Facebook",
+					SDK,
+					"$(PROJECT_DIR)/Facebook",
+					SDK,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ttttt/ttttt-Prefix.pch";
 				INFOPLIST_FILE = "ttttt/ttttt-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
