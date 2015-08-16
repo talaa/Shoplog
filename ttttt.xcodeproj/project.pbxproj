@@ -174,10 +174,10 @@
 		69FD714C165956B0001919DD /* Taobaosearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FD714B165956B0001919DD /* Taobaosearch.m */; };
 		69FD714F165956D3001919DD /* GoogleShoppingSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FD714E165956D3001919DD /* GoogleShoppingSearch.m */; };
 		69FD7152165956E9001919DD /* YahoobuySearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FD7151165956E9001919DD /* YahoobuySearch.m */; };
-		F5E8D8411B80DFED00B8EFB5 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5E8D83E1B80DFEC00B8EFB5 /* FBSDKCoreKit.framework */; };
-		F5E8D8421B80DFED00B8EFB5 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5E8D83F1B80DFEC00B8EFB5 /* FBSDKLoginKit.framework */; };
-		F5E8D8431B80DFED00B8EFB5 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5E8D8401B80DFEC00B8EFB5 /* FBSDKShareKit.framework */; };
-		F5E8D8491B80F17F00B8EFB5 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E8D8481B80F17F00B8EFB5 /* MainTabBarController.m */; };
+		F5E8D84E1B80FA7300B8EFB5 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E8D84D1B80FA7300B8EFB5 /* MainTabBarController.m */; };
+		F5E8D8531B80FB3800B8EFB5 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5E8D8501B80FB3800B8EFB5 /* FBSDKCoreKit.framework */; };
+		F5E8D8541B80FB3800B8EFB5 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5E8D8511B80FB3800B8EFB5 /* FBSDKLoginKit.framework */; };
+		F5E8D8551B80FB3800B8EFB5 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5E8D8521B80FB3800B8EFB5 /* FBSDKShareKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -458,11 +458,11 @@
 		69FD714E165956D3001919DD /* GoogleShoppingSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleShoppingSearch.m; sourceTree = "<group>"; };
 		69FD7150165956E9001919DD /* YahoobuySearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YahoobuySearch.h; sourceTree = "<group>"; };
 		69FD7151165956E9001919DD /* YahoobuySearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YahoobuySearch.m; sourceTree = "<group>"; };
-		F5E8D83E1B80DFEC00B8EFB5 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "Facebook SDK /FBSDKCoreKit.framework"; sourceTree = "<group>"; };
-		F5E8D83F1B80DFEC00B8EFB5 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "Facebook SDK /FBSDKLoginKit.framework"; sourceTree = "<group>"; };
-		F5E8D8401B80DFEC00B8EFB5 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "Facebook SDK /FBSDKShareKit.framework"; sourceTree = "<group>"; };
-		F5E8D8471B80F17F00B8EFB5 /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
-		F5E8D8481B80F17F00B8EFB5 /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
+		F5E8D84C1B80FA7300B8EFB5 /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
+		F5E8D84D1B80FA7300B8EFB5 /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
+		F5E8D8501B80FB3800B8EFB5 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		F5E8D8511B80FB3800B8EFB5 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		F5E8D8521B80FB3800B8EFB5 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -470,7 +470,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5E8D8421B80DFED00B8EFB5 /* FBSDKLoginKit.framework in Frameworks */,
 				699AF7BA1A0FC76F00F7EA47 /* EventKitUI.framework in Frameworks */,
 				699AF7B81A0FC75500F7EA47 /* EventKit.framework in Frameworks */,
 				699AF7B61A0FC6B000F7EA47 /* libGoogleAdMobAds.a in Frameworks */,
@@ -480,14 +479,15 @@
 				698E2DF1190D77E300DD3A13 /* Security.framework in Frameworks */,
 				697DE63B174D5C970008D996 /* ImageIO.framework in Frameworks */,
 				692608B819EC6FBC00C37E72 /* ParseFacebookUtils.framework in Frameworks */,
+				F5E8D8541B80FB3800B8EFB5 /* FBSDKLoginKit.framework in Frameworks */,
 				698EE6A31747702800A1475D /* libxml2.dylib in Frameworks */,
+				F5E8D8551B80FB3800B8EFB5 /* FBSDKShareKit.framework in Frameworks */,
 				690C257E171DF56600139FDA /* libsqlite3.dylib in Frameworks */,
 				69205C3B16B4012F00762138 /* CoreTelephony.framework in Frameworks */,
 				69205002162B459A00358C65 /* Twitter.framework in Frameworks */,
 				695B194E19EB4FD90056DDE2 /* Parse.framework in Frameworks */,
 				693C5CD8169DD425008DA75C /* Accounts.framework in Frameworks */,
 				699AF7BE1A112FF400F7EA47 /* libFlurry_5.4.0.a in Frameworks */,
-				F5E8D8431B80DFED00B8EFB5 /* FBSDKShareKit.framework in Frameworks */,
 				692807E7169B9B8900D5EDFF /* iAd.framework in Frameworks */,
 				692807E5169B9B8100D5EDFF /* AdSupport.framework in Frameworks */,
 				692807E3169B9B6600D5EDFF /* AudioToolbox.framework in Frameworks */,
@@ -495,9 +495,9 @@
 				691C5790165C25D100A8CAE7 /* SystemConfiguration.framework in Frameworks */,
 				692608BA19EC716700C37E72 /* FacebookSDK.framework in Frameworks */,
 				69667C051648807E003FC921 /* CoreLocation.framework in Frameworks */,
+				F5E8D8531B80FB3800B8EFB5 /* FBSDKCoreKit.framework in Frameworks */,
 				69E29BF91646C91F00573B8C /* MapKit.framework in Frameworks */,
 				698CC5D5162F7AE1001EE01A /* libz.dylib in Frameworks */,
-				F5E8D8411B80DFED00B8EFB5 /* FBSDKCoreKit.framework in Frameworks */,
 				69205004162B45B300358C65 /* Social.framework in Frameworks */,
 				69204FFF162B458700358C65 /* MessageUI.framework in Frameworks */,
 				692A22E11616E5470031CB4E /* QuartzCore.framework in Frameworks */,
@@ -940,9 +940,7 @@
 		69F625721606364800004196 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F5E8D83E1B80DFEC00B8EFB5 /* FBSDKCoreKit.framework */,
-				F5E8D83F1B80DFEC00B8EFB5 /* FBSDKLoginKit.framework */,
-				F5E8D8401B80DFEC00B8EFB5 /* FBSDKShareKit.framework */,
+				F5E8D84F1B80FB3800B8EFB5 /* Facebook SDK  */,
 				699AF7B91A0FC76F00F7EA47 /* EventKitUI.framework */,
 				699AF7B71A0FC75500F7EA47 /* EventKit.framework */,
 				692608B919EC716700C37E72 /* FacebookSDK.framework */,
@@ -984,7 +982,7 @@
 		69F625791606364800004196 /* ttttt */ = {
 			isa = PBXGroup;
 			children = (
-				F5E8D8461B80F13D00B8EFB5 /* TabBarControler */,
+				F5E8D84A1B80FA7300B8EFB5 /* Controller */,
 				698210DD191FF393001DB6D7 /* QR Code Reader */,
 				69ECA95B1712186A00347A6C /* Mosaic Classes */,
 				692807E9169BD46600D5EDFF /* Database */,
@@ -1040,14 +1038,31 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		F5E8D8461B80F13D00B8EFB5 /* TabBarControler */ = {
+		F5E8D84A1B80FA7300B8EFB5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				F5E8D8471B80F17F00B8EFB5 /* MainTabBarController.h */,
-				F5E8D8481B80F17F00B8EFB5 /* MainTabBarController.m */,
+				F5E8D84B1B80FA7300B8EFB5 /* TabBarControler */,
 			);
-			name = TabBarControler;
-			path = Controller/TabBarControler;
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F5E8D84B1B80FA7300B8EFB5 /* TabBarControler */ = {
+			isa = PBXGroup;
+			children = (
+				F5E8D84C1B80FA7300B8EFB5 /* MainTabBarController.h */,
+				F5E8D84D1B80FA7300B8EFB5 /* MainTabBarController.m */,
+			);
+			path = TabBarControler;
+			sourceTree = "<group>";
+		};
+		F5E8D84F1B80FB3800B8EFB5 /* Facebook SDK  */ = {
+			isa = PBXGroup;
+			children = (
+				F5E8D8501B80FB3800B8EFB5 /* FBSDKCoreKit.framework */,
+				F5E8D8511B80FB3800B8EFB5 /* FBSDKLoginKit.framework */,
+				F5E8D8521B80FB3800B8EFB5 /* FBSDKShareKit.framework */,
+			);
+			path = "Facebook SDK ";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1197,7 +1212,7 @@
 				69F6259B1606369400004196 /* TestViewController.m in Sources */,
 				698A62C51607BE0B004DAC94 /* MyCustomCell.m in Sources */,
 				693FBA5816091E9700EA2136 /* HeaderView.m in Sources */,
-				F5E8D8491B80F17F00B8EFB5 /* MainTabBarController.m in Sources */,
+				F5E8D84E1B80FA7300B8EFB5 /* MainTabBarController.m in Sources */,
 				6948B5A716121780008BA37E /* ttttt.xcdatamodeld in Sources */,
 				6948B5AD16122819008BA37E /* AddProductDetailViewController.m in Sources */,
 				698337C21618B8C500E2BC9E /* DetailPopViewController.m in Sources */,
@@ -1396,6 +1411,8 @@
 					SDK,
 					"$(PROJECT_DIR)/Facebook",
 					SDK,
+					"$(PROJECT_DIR)/Facebook",
+					SDK,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ttttt/ttttt-Prefix.pch";
@@ -1427,6 +1444,8 @@
 					"$(PROJECT_DIR)/parse-library-1",
 					"/Users/tamerenas/Downloads/parse-library-1",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Facebook",
+					SDK,
 					"$(PROJECT_DIR)/Facebook",
 					SDK,
 					"$(PROJECT_DIR)/Facebook",
