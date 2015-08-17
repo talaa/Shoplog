@@ -12,7 +12,7 @@
 #import <dispatch/dispatch.h>
 #import "TFHpple.h"
 #import <ImageIO/ImageIO.h>
-#import "STTwitterAPIWrapper.h"
+//#import "STTwitterAPIWrapper.h"
 @interface CustomDataSource()
 -(void)loadFromDisk;
 @end
@@ -20,16 +20,17 @@
 @implementation CustomDataSource
 @synthesize _elements,JSONelements;
 #pragma mark - Private
+/*
 -(void)newtwitterauthorize{
     
-    STTwitterAPIWrapper *twitter = [STTwitterAPIWrapper twitterAPIApplicationOnlyWithConsumerKey:@"8OcbEuQWD5LNscOBBP8ww"
-                                                                                  consumerSecret:@"d1SlDEsZGQGG2IJH8QYr4vlKZeUpTOMOfErkgl02tw"];
+    //STTwitterAPIWrapper *twitter = [STTwitterAPIWrapper twitterAPIApplicationOnlyWithConsumerKey:@"8OcbEuQWD5LNscOBBP8ww"
+                                                                                  //consumerSecret:@"d1SlDEsZGQGG2IJH8QYr4vlKZeUpTOMOfErkgl02tw"];
     
-    [twitter verifyCredentialsWithSuccessBlock:^(NSString *bearerToken) {
+   // [twitter verifyCredentialsWithSuccessBlock:^(NSString *bearerToken) {
         
         //NSLog(@"Access granted with %@", bearerToken);
         
-        [twitter getUserTimelineWithScreenName:@"shoplog1" successBlock:^(NSArray *statuses) {
+       // [twitter getUserTimelineWithScreenName:@"shoplog1" successBlock:^(NSArray *statuses) {
        //NSLog(@"-- statuses: %@", statuses);
             JSONelements=[[NSArray alloc]initWithArray: statuses];
             [self loadFromDisk2];
@@ -40,8 +41,9 @@
     } errorBlock:^(NSError *error) {
         NSLog(@"-- error %@", error);
     }];
-    
+ 
 }
+  */
 -(void)loadFromDisk{
     //[self newtwitterauthorize];
     _elements = [[NSMutableArray alloc] init];
@@ -264,7 +266,7 @@
     self = [super init];
     if (self){
         //[self loadFromDisk];
-        [self newtwitterauthorize];
+       // [self newtwitterauthorize];
         self.thumbnailQueue = [[NSOperationQueue alloc] init];
         self.thumbnailQueue.maxConcurrentOperationCount = 3;
     }
