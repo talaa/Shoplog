@@ -42,7 +42,6 @@
 		6957FEEF16472D4500290403 /* SliderValueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6957FEEC16472D4500290403 /* SliderValueViewController.m */; };
 		6957FEF016472D4500290403 /* SliderValueViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6957FEED16472D4500290403 /* SliderValueViewController.xib */; };
 		6957FEF41647357E00290403 /* PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6957FEF31647357E00290403 /* PopoverView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		695B194819EB466C0056DDE2 /* SigninViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 695B194719EB466C0056DDE2 /* SigninViewController.m */; };
 		695B194E19EB4FD90056DDE2 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 695B194B19EB4FD90056DDE2 /* Parse.framework */; };
 		695B195119EB50470056DDE2 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 695B195019EB50470056DDE2 /* CFNetwork.framework */; };
 		695B195319EB507F0056DDE2 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 695B195219EB507F0056DDE2 /* MobileCoreServices.framework */; };
@@ -89,6 +88,7 @@
 		69FD714C165956B0001919DD /* Taobaosearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FD714B165956B0001919DD /* Taobaosearch.m */; };
 		69FD714F165956D3001919DD /* GoogleShoppingSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FD714E165956D3001919DD /* GoogleShoppingSearch.m */; };
 		69FD7152165956E9001919DD /* YahoobuySearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FD7151165956E9001919DD /* YahoobuySearch.m */; };
+		F520D24E1B81EB640078517C /* SigninViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F520D24D1B81EB640078517C /* SigninViewController.m */; };
 		F5D30B841B81DC3600A99708 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D30A371B81DC3500A99708 /* FBSDKCoreKit.framework */; };
 		F5D30B851B81DC3600A99708 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D30A381B81DC3500A99708 /* FBSDKLoginKit.framework */; };
 		F5D30B871B81DC3600A99708 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D30A3A1B81DC3500A99708 /* FBSDKShareKit.framework */; };
@@ -235,8 +235,6 @@
 		6957FEED16472D4500290403 /* SliderValueViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SliderValueViewController.xib; sourceTree = "<group>"; };
 		6957FEF21647357E00290403 /* PopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverView.h; sourceTree = "<group>"; };
 		6957FEF31647357E00290403 /* PopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverView.m; sourceTree = "<group>"; };
-		695B194619EB466C0056DDE2 /* SigninViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SigninViewController.h; sourceTree = "<group>"; };
-		695B194719EB466C0056DDE2 /* SigninViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SigninViewController.m; sourceTree = "<group>"; };
 		695B194B19EB4FD90056DDE2 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "parse-library-1/Parse.framework"; sourceTree = "<group>"; };
 		695B195019EB50470056DDE2 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		695B195219EB507F0056DDE2 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -317,6 +315,8 @@
 		69FD714E165956D3001919DD /* GoogleShoppingSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleShoppingSearch.m; sourceTree = "<group>"; };
 		69FD7150165956E9001919DD /* YahoobuySearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YahoobuySearch.h; sourceTree = "<group>"; };
 		69FD7151165956E9001919DD /* YahoobuySearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YahoobuySearch.m; sourceTree = "<group>"; };
+		F520D24C1B81EB640078517C /* SigninViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SigninViewController.h; sourceTree = "<group>"; };
+		F520D24D1B81EB640078517C /* SigninViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SigninViewController.m; sourceTree = "<group>"; };
 		F5D30A371B81DC3500A99708 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		F5D30A381B81DC3500A99708 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		F5D30A3A1B81DC3500A99708 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
@@ -731,8 +731,6 @@
 				69F6258E1606364900004196 /* MainStoryboard_iPad.storyboard */,
 				69F625991606369400004196 /* TestViewController.h */,
 				69F6259A1606369400004196 /* TestViewController.m */,
-				695B194619EB466C0056DDE2 /* SigninViewController.h */,
-				695B194719EB466C0056DDE2 /* SigninViewController.m */,
 				69F4417119E990B600D7BD6F /* DetailViewController.h */,
 				69F4417219E990B600D7BD6F /* DetailViewController.m */,
 				698337C01618B8C500E2BC9E /* DetailPopViewController.h */,
@@ -768,6 +766,15 @@
 				690C25AF1726A2AB00139FDA /* Localizable.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F520D24B1B81EB640078517C /* Facebook_Login */ = {
+			isa = PBXGroup;
+			children = (
+				F520D24C1B81EB640078517C /* SigninViewController.h */,
+				F520D24D1B81EB640078517C /* SigninViewController.m */,
+			);
+			path = Facebook_Login;
 			sourceTree = "<group>";
 		};
 		F5D30A291B81DC3500A99708 /* Resources */ = {
@@ -1016,6 +1023,7 @@
 		F5E8D84A1B80FA7300B8EFB5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F520D24B1B81EB640078517C /* Facebook_Login */,
 				F5E8D84B1B80FA7300B8EFB5 /* TabBarControler */,
 			);
 			path = Controller;
@@ -1220,6 +1228,7 @@
 				690C2588171E02EB00139FDA /* nexttagsearch.m in Sources */,
 				F5D30D2E1B81E25D00A99708 /* AFHTTPRequestOperation.m in Sources */,
 				690C258D171E088500139FDA /* pricegrabbersearch.m in Sources */,
+				F520D24E1B81EB640078517C /* SigninViewController.m in Sources */,
 				F5D30D331B81E25D00A99708 /* AFURLConnectionOperation.m in Sources */,
 				F5D30D171B81E22D00A99708 /* TFHppleElement.m in Sources */,
 				690C2590171E0A0400139FDA /* Shoppingcom.m in Sources */,
@@ -1228,7 +1237,6 @@
 				697847B3174B89DD00E38120 /* ShoplogactivityViewController.m in Sources */,
 				697DE636174D14840008D996 /* UpgradeViewController.m in Sources */,
 				697DE639174D14E40008D996 /* TPKeyboardAvoidingTableView.m in Sources */,
-				695B194819EB466C0056DDE2 /* SigninViewController.m in Sources */,
 				6990D6B41923EB7600807B13 /* DataTransfer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
