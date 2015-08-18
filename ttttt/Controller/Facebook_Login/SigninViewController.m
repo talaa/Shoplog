@@ -116,7 +116,11 @@
              _profileImageView.image = [UIImage imageWithData:data];
              _profileImageView.layer.borderWidth = 1.0f;
              _profileImageView.layer.borderColor = [UIColor whiteColor].CGColor;
-             _profileImageView.layer.cornerRadius = 50;
+             if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
+                 _profileImageView.layer.cornerRadius = 100;
+             }else{
+                 _profileImageView.layer.cornerRadius = 50;
+             }
              _profileImageView.layer.masksToBounds = YES;
              
          }
