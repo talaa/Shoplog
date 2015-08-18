@@ -19,7 +19,8 @@
 //Facebook SDK
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
-
+//ParseSDK
+#import <ParseFacebookUtils/PFFacebookUtils.h>
 
 @implementation AppDelegate
 
@@ -47,9 +48,12 @@
     //navigationController.navigationBar.tintColor = [UIColor colorWithRed:48.0f/255.0f green:74.0f/255.0f blue:147.0f/255.0f alpha:1];
     //TestViewController *controller = (TestViewController *)navigationController.topViewController;
     //controller.managedObjectContext = self.managedObjectContext;
-    [Parse setApplicationId:@"ywPm262lndYyBhcTFxUWF8eLxpcCkEUkHOB782s9"
-                  clientKey:@"Vq3qhqkveSpAqSRKShP0OtLfmNG3lyNB8VpwbEX8"];
-    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+//    [Parse setApplicationId:@"Ejzm5I1GtXYB6coByuhQCWrbbKHINGS9Y1FAGUCT"
+//                  clientKey:@"4ugpJBoAsePdVL0jew7MeeIRxw5g9FzfhEX76r7t"];
+//    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    [Parse setApplicationId:@"ywPm262lndYyBhcTFxUWF8eLxpcCkEUkHOB782s9" clientKey:@"Vq3qhqkveSpAqSRKShP0OtLfmNG3lyNB8VpwbEX8"];
+    [PFFacebookUtils initializeFacebook];
     ///////////////////
     
     // Override point for customization after application launch.
@@ -116,7 +120,6 @@ void uncaughtExceptionHandler(NSException *exception) {
         [controller handleOpenURL:url];
     }
     return YES;
-    
 }
 
 

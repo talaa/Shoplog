@@ -7,6 +7,7 @@
 //
 
 #import "SigninViewController.h"
+#import <ParseFacebookUtils/PFFacebookUtils.h>
 
 @interface SigninViewController ()
 {
@@ -54,16 +55,17 @@
 }
 
 - (void)parseSaving{
-    // Login PFUser using Facebook
-//    [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
-//        if (!user) {
-//            NSLog(@"Uh oh. The user cancelled the Facebook login.");
-//        } else if (user.isNew) {
-//            NSLog(@"User signed up and logged in through Facebook!");
-//        } else {
-//            NSLog(@"User logged in through Facebook!");
-//        }
-//    }];
+     //Login PFUser using Facebook
+    [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
+        if (!user) {
+            NSLog(@"Uh oh. The user cancelled the Facebook login.");
+        } else if (user.isNew) {
+            NSLog(@"User signed up and logged in through Facebook!");
+        } else {
+            NSLog(@"User logged in through Facebook!");
+        }
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -79,6 +81,12 @@
 }
 
 -(void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton{
+    //Unlink user to facebook
+//    [PFFacebookUtils unlinkUserInBackground:user block:^(BOOL succeeded, NSError *error) {
+//        if (succeeded) {
+//            NSLog(@"The user is no longer associated with their Facebook account.");
+//        }
+//    }];
     [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me/permissions"
                                        parameters:nil
                                        HTTPMethod:@"DELETE"]

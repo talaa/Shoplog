@@ -89,6 +89,7 @@
 		69FD714F165956D3001919DD /* GoogleShoppingSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FD714E165956D3001919DD /* GoogleShoppingSearch.m */; };
 		69FD7152165956E9001919DD /* YahoobuySearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FD7151165956E9001919DD /* YahoobuySearch.m */; };
 		F520D24E1B81EB640078517C /* SigninViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F520D24D1B81EB640078517C /* SigninViewController.m */; };
+		F59F645C1B8398290071CC68 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F59F645B1B8398290071CC68 /* ParseFacebookUtils.framework */; };
 		F5D30B841B81DC3600A99708 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D30A371B81DC3500A99708 /* FBSDKCoreKit.framework */; };
 		F5D30B851B81DC3600A99708 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D30A381B81DC3500A99708 /* FBSDKLoginKit.framework */; };
 		F5D30B871B81DC3600A99708 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D30A3A1B81DC3500A99708 /* FBSDKShareKit.framework */; };
@@ -317,6 +318,7 @@
 		69FD7151165956E9001919DD /* YahoobuySearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YahoobuySearch.m; sourceTree = "<group>"; };
 		F520D24C1B81EB640078517C /* SigninViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SigninViewController.h; sourceTree = "<group>"; };
 		F520D24D1B81EB640078517C /* SigninViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SigninViewController.m; sourceTree = "<group>"; };
+		F59F645B1B8398290071CC68 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
 		F5D30A371B81DC3500A99708 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		F5D30A381B81DC3500A99708 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		F5D30A3A1B81DC3500A99708 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
@@ -452,6 +454,7 @@
 			files = (
 				699AF7BA1A0FC76F00F7EA47 /* EventKitUI.framework in Frameworks */,
 				699AF7B81A0FC75500F7EA47 /* EventKit.framework in Frameworks */,
+				F59F645C1B8398290071CC68 /* ParseFacebookUtils.framework in Frameworks */,
 				F5D30B851B81DC3600A99708 /* FBSDKLoginKit.framework in Frameworks */,
 				695B195319EB507F0056DDE2 /* MobileCoreServices.framework in Frameworks */,
 				695B195119EB50470056DDE2 /* CFNetwork.framework in Frameworks */,
@@ -777,6 +780,14 @@
 			path = Facebook_Login;
 			sourceTree = "<group>";
 		};
+		F59F645A1B8398290071CC68 /* ParseSDK */ = {
+			isa = PBXGroup;
+			children = (
+				F59F645B1B8398290071CC68 /* ParseFacebookUtils.framework */,
+			);
+			path = ParseSDK;
+			sourceTree = "<group>";
+		};
 		F5D30A291B81DC3500A99708 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -879,6 +890,7 @@
 		F5D30A2D1B81DC3500A99708 /* SDK */ = {
 			isa = PBXGroup;
 			children = (
+				F59F645A1B8398290071CC68 /* ParseSDK */,
 				F5D30D4E1B81E66500A99708 /* GoogleMobileAdsSdkiOS-6.12.2 */,
 				F5D30CF01B81E13500A99708 /* Flurry */,
 				F5D30A2E1B81DC3500A99708 /* FacebookSDKs-iOS-20150813 */,
@@ -1382,6 +1394,7 @@
 					"$(PROJECT_DIR)/Facebook",
 					SDK,
 					"$(PROJECT_DIR)/ttttt/Resources/SDK/FacebookSDKs-iOS-20150813",
+					"$(PROJECT_DIR)/ttttt/Resources/SDK/ParseSDK",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ttttt/ttttt-Prefix.pch";
@@ -1422,6 +1435,7 @@
 					"$(PROJECT_DIR)/Facebook",
 					SDK,
 					"$(PROJECT_DIR)/ttttt/Resources/SDK/FacebookSDKs-iOS-20150813",
+					"$(PROJECT_DIR)/ttttt/Resources/SDK/ParseSDK",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ttttt/ttttt-Prefix.pch";
