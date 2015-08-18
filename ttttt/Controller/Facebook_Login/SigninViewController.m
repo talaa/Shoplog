@@ -9,6 +9,9 @@
 #import "SigninViewController.h"
 
 @interface SigninViewController ()
+{
+    NSArray *permissionsArray;
+}
 @property (strong, nonatomic) UIWindow *window;
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @end
@@ -17,14 +20,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
-    loginButton.delegate = self;
-    loginButton.center = self.view.center;
-    [self.view addSubview:loginButton];
-    
-    loginButton.readPermissions = @[@"public_profile", @"email", @"user_birthday"];
-    [FBSDKProfile enableUpdatesOnAccessTokenChange:YES];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(profileUpdated:) name:FBSDKProfileDidChangeNotification object:nil];
+    permissionsArray = @[ @"user_about_me",@"email"];//, @"user_relationships", @"user_birthday", @"user_location"];
+    [self facebookLogin];
 }
 
 -(void)profileUpdated:(NSNotification *) notification{
@@ -36,16 +33,37 @@
     if ([FBSDKAccessToken currentAccessToken]) {
         // User is logged in, do work such as go to next view controller.
         [self showUserData];
-        NSLog(@"Welcom");
         [self facebookGraphRequest];
         self.nameLabel.text = [FBSDKProfile currentProfile].name;
         NSLog(@"User ID: %@",[FBSDKProfile currentProfile].userID);
         NSLog(@"User Email: %@",[FBSDKProfile currentProfile].firstName);
-        
         //[self performSegueWithIdentifier:@"LoginSuccessSegue" sender:self] ;
     }else{
         [self hiddenUserData];
     }
+}
+
+-(void)facebookLogin{
+    FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
+    loginButton.delegate = self;
+    loginButton.center = self.view.center;
+    [self.view addSubview:loginButton];
+    loginButton.readPermissions = permissionsArray;
+    [FBSDKProfile enableUpdatesOnAccessTokenChange:YES];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(profileUpdated:) name:FBSDKProfileDidChangeNotification object:nil];
+}
+
+- (void)parseSaving{
+    // Login PFUser using Facebook
+//    [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
+//        if (!user) {
+//            NSLog(@"Uh oh. The user cancelled the Facebook login.");
+//        } else if (user.isNew) {
+//            NSLog(@"User signed up and logged in through Facebook!");
+//        } else {
+//            NSLog(@"User logged in through Facebook!");
+//        }
+//    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,6 +73,7 @@
 
 #pragma mark - FBSDKLoginButtonDelegete
 -(void)loginButton:(FBSDKLoginButton *)loginButton didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result error:(NSError *)error{
+    [self parseSaving];
     [self showUserData];
     [self facebookGraphRequest];
 }
@@ -83,24 +102,29 @@
 }
 
 - (void)facebookGraphRequest{
-    [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields": @"picture, email"}] startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id res, NSError *error)
+    [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields": @"picture, email, age_range,locale,gender"}] startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id res, NSError *error)
      {
          if (!error) {
              NSDictionary *dataDic = [res objectForKey:@"picture"];
              NSDictionary *urlDic = [dataDic objectForKey:@"data"];
              NSString *pictureURL = [urlDic objectForKey:@"url"];
-             //NSString *pictureURL = [NSString stringWithFormat:@"%@",[res objectForKey:@"picture"]];
              
+             self.nameLabel.text = [FBSDKProfile currentProfile].name;
              self.emailLabel.text = [res objectForKey:@"email"];
              
              NSData  *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:pictureURL]];
              _profileImageView.image = [UIImage imageWithData:data];
+             _profileImageView.layer.borderWidth = 1.0f;
+             _profileImageView.layer.borderColor = [UIColor whiteColor].CGColor;
+             _profileImageView.layer.cornerRadius = 50;
+             _profileImageView.layer.masksToBounds = YES;
+             
          }
          else
          {
              NSLog(@"%@", [error localizedDescription]);
          }}];
-
+    
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"LoginSuccessSegue"]){
