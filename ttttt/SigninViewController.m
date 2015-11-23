@@ -7,6 +7,7 @@
 //
 
 #import "SigninViewController.h"
+#import "TempData.h"
 
 @interface SigninViewController ()
 
@@ -14,35 +15,82 @@
 
 @implementation SigninViewController
 @synthesize logoimage,userimage,logoutbutton,logintbutton,welcomenote,facebookID,userbirthday,usergender,userlocation,username,userrelationship,useremail;
+@synthesize shopbagimage,shoplogerstatus,Signupbutton,wishlistcount,wishlistimage;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self loaddata];
+    logoutbutton.hidden=YES;
+    welcomenote.hidden=YES;
+    //This is part of Facebook Login
+    //[self loaddata];
+    [Signupbutton.layer setCornerRadius:15.0f];
+    [Signupbutton.layer setMasksToBounds:YES];
+    
     [welcomenote.layer setCornerRadius:30.f];
     [welcomenote.layer setMasksToBounds:YES];
+    
+    [logintbutton.layer setCornerRadius:5.0f];
+    [logintbutton.layer setMasksToBounds:YES];
     
     [userimage.layer setCornerRadius:30.0f];
     [userimage.layer setMasksToBounds:YES];
     
-    [logoimage.layer setCornerRadius:30.0f];
-    [logoimage.layer setMasksToBounds:YES];
+   
+
+    //[logoimage.layer setCornerRadius:30.0f];
+    //[logoimage.layer setMasksToBounds:YES];
 
 
-    logoutbutton.hidden=YES;
-    welcomenote.hidden=YES;
+    //this is part of Facebook Login
+    /*
+     
      NSUserDefaults *userdefaults =[NSUserDefaults standardUserDefaults];
     if ([userdefaults boolForKey: Ksingedinalready]) {
         //[self userisalreadysignedin];
         UIAlertView *confirmation=[[UIAlertView alloc]initWithTitle:@"Confirmation" message:@"Please Login for confirmation" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [confirmation show];
     }
+*/
+}
+-(void)viewWillAppear:(BOOL)animated{
 
+    NSUserDefaults *userdefault=[NSUserDefaults standardUserDefaults];
+    if ([userdefault objectForKey:@"username"]) {
+        username=[userdefault objectForKey:@"username"];
+        welcomenote.hidden=NO;
+        welcomenote.text=[NSString stringWithFormat:@"Welcome %@",username];
+        wishlistcount.text=[NSString stringWithFormat:@"%lu",(unsigned long)[TempData count]];
+        if ([TempData count]<5) {
+            shoplogerstatus.text=@"Beginner Shoploger";
+        }else if (([TempData count]>5)&& ([TempData count]<10)){
+        shoplogerstatus.text=@"Pro Shoploger";
+        }else {
+        
+        shoplogerstatus.text=@"Expert Shoploger";
+        }
+         PFUser *currentUser=[PFUser currentUser];
+        PFFile *userImageFile = currentUser[@"Avatar"];
+        [userImageFile getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
+            if (!error) {
+                UIImage *image = [UIImage imageWithData:imageData];
+                userimage.image=image;
+            }
+        }];
+        Signupbutton.hidden=YES;
+    }
+
+}
+-(IBAction)prepareForUnwind:(UIStoryboardSegue *)segue {
+    if ([segue.identifier isEqualToString:@"gotoprofile"] ) {
+        NSLog(@"Iam back from  %@", segue.identifier);
+    }
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+/*
 -(IBAction)Signin:(id)sender{
     NSArray *permissions=@[@"public_profile", @"email", @"user_friends"];
     [PFFacebookUtils logInWithPermissions:permissions block:^(PFUser *user, NSError *error) {
@@ -51,6 +99,13 @@
             UIAlertView *Connectioncheck=[[UIAlertView alloc]initWithTitle:@"OOOPS" message:@"Something Happened while Connecting to Facebook" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [Connectioncheck show];
         } else {
+            facebookID=user[@"FacebookID"];
+            username=user[@"User_Name"];
+            userlocation=user[@"User_Location"];
+            usergender=user[@"User_Gender"];
+            useremail=user[@"email"];
+            
+            
             if (user.isNew) {
                 //[self loaddata];
             NSLog(@"User signed up and logged in through Facebook!");
@@ -70,6 +125,7 @@
             user[@"email"]=useremail;
             user[@"Loyalty_Points"]=0;
             user[@"Wish_Lists"]=nil;
+            
             //[user setObject:facebookID forKey:@"FacebookID"];
             //[user setObject:username forKey:@"User_Name"];
             //[user setObject:userlocation forKey:@"User_Location"];
@@ -93,7 +149,8 @@
         }
     }];
     
-
+    
+    
 }
 
 -(void)userisalreadysignedin{
@@ -141,12 +198,15 @@
             NSLog(@"I have finished retreiving the user data ");
             // Now add the data to the UI elements
             // ...
-                       
+            [self userisalreadysignedin];
         }
     }];
     
 
 }
+
+
+*/
 - (IBAction)logoutButtonAction:(id)sender  {
     [PFUser logOut]; // Log out
     logintbutton.hidden=NO;

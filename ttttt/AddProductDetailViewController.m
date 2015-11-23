@@ -20,7 +20,7 @@
 @synthesize DimensionsField,PhoneField,EmailField,WebsiteField,commentsView;
 @synthesize imagePicker,popoverController,edit_add,Saveeditbutton,newcatalogue;
 @synthesize Maplocation,ratingslider,spinner,Qrcodecatalogue;
-@synthesize longsaved,latsaved;
+@synthesize longsaved,latsaved,gradientview;
 @synthesize LongTextfield,LatTextField,Lgpressgesture;
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -101,6 +101,8 @@
 
 - (void)viewDidLoad
 {
+    
+    //self.view.backgroundColor=[UIColor greenColor];
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.distanceFilter = kCLDistanceFilterNone;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
@@ -176,12 +178,29 @@
         
     }
     
-    
+    [self configuregradient];
     //NSLog(@"The Supposed Saved values are %f %f",longsaved,latsaved);
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
 }
-
+-(void)configuregradient{
+    //gradientview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)] ;
+    UIColor *shoblue=[UIColor colorWithRed:19.0f/255.0f green:125.0f/255.0f blue:236.0f/255.0f alpha:1.0f];
+    UIColor *shoorange=[UIColor colorWithRed:237.0f/255.0f green:146.0f/255.0f blue:18.0f/255.0f alpha:1.0f];
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    float nnn;
+    if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad )
+    {
+        nnn=1.75f;
+        //return YES; /* Device is iPad */
+    }else{
+        nnn=3.0f;
+    }
+    gradient.frame=CGRectMake(0, 0, self.tableView.bounds.size.width, self.tableView.bounds.size.height*nnn);
+    //gradient.frame = self.tableView.bounds;
+    NSLog(@"%f    %f",self.tableView.bounds.size.width,self.tableView.bounds.size.height);
+    gradient.colors = [NSArray arrayWithObjects:(id)[shoorange CGColor], (id)[shoblue CGColor], nil];
+    [self.tableView.layer insertSublayer:gradient atIndex:0];}
 
 - (IBAction)Lgpraction:(id)sender {
     if (Lgpressgesture.state != UIGestureRecognizerStateBegan)
@@ -620,14 +639,14 @@
 ///To be used Later on When Tweaking the Viewontroller 
 - (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 23)] ;
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 25)] ;
     UIImageView *headerImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"header_gradient_blue"]] ;
     
-    headerImage.frame = CGRectMake(0, 0, tableView.bounds.size.width, 23);
-    UILabel *HeaderLabel=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 23)];
-    HeaderLabel.font=[UIFont fontWithName:@"HelveticaNeue-Bold" size:24];
+    headerImage.frame = CGRectMake(0, 0, tableView.bounds.size.width, 25);
+    UILabel *HeaderLabel=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 29)];
+    HeaderLabel.font=[UIFont fontWithName:@"HelveticaNeue" size:24];
     HeaderLabel.backgroundColor=[UIColor clearColor];
-    HeaderLabel.backgroundColor=[UIColor colorWithRed:.2 green:.3 blue:.7 alpha:1];
+    //HeaderLabel.backgroundColor=[UIColor colorWithRed:.2 green:.3 blue:.7 alpha:1];
     HeaderLabel.textColor=[UIColor whiteColor];
     switch (section) {
         case 0:
@@ -659,6 +678,7 @@
     
     return headerView;
 }
+
  
  
 - (IBAction)save:(UIStoryboardSegue *)segue
@@ -702,10 +722,12 @@
     [sender resignFirstResponder];
 
 }
+
 -(void)tableView:(UITableView*)tableView willDisplayCell:(UITableViewCell*)cell forRowAtIndexPath:(NSIndexPath*)indexPath {
     
     //cell.backgroundColor=[UIColor colorWithRed:125.0f/255.0f green:125.0f/255.0f blue:125.0f/255.0f alpha:1];
 
+    cell.backgroundColor=[UIColor clearColor];
 
 
 

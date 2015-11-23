@@ -10,7 +10,7 @@
 #import <MessageUI/MessageUI.h>
 #import <MapKit/MapKit.h>
 #import <Parse/Parse.h>
-#import <ParseFacebookUtils/PFFacebookUtils.h>
+//#import <ParseFacebookUtils/PFFacebookUtils.h>
 #import "AddProductDetailViewController.h"
 @class Shoplog;
 
