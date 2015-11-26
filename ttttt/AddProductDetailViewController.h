@@ -38,7 +38,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *cataloguenamefield;
 @property (strong, nonatomic) IBOutlet UIImageView *imageField;
 @property (strong, nonatomic) IBOutlet UITextField *DimensionsField;
-
+@property (strong,nonatomic) IBOutlet UIView *gradientview;
 @property (weak, nonatomic) IBOutlet UITextView *commentsView;
 @property (weak, nonatomic) IBOutlet MKMapView *Maplocation;
 @property(nonatomic, retain) CLLocationManager *locationManager;

@@ -3,7 +3,7 @@
 //  StartAppAdSDK
 //
 //  Copyright (c) 2013 StartApp. All rights reserved.
-//  SDK version 2.3.5
+//  SDK version 3.2.2
 
 #import <UIKit/UIKit.h>
 #import "STAAbstractAd.h"
@@ -25,17 +25,22 @@ typedef enum {
 
 - (id) init;
 
+
+- (void) loadRewardedVideoAdWithDelegate:(id<STADelegateProtocol>) delegate;
+- (void) loadRewardedVideoAdWithDelegate:(id<STADelegateProtocol>) delegate withAdPreferences:(STAAdPreferences*) adPrefs;
+
 - (void) loadAd;
 - (void) loadAdWithAdPreferences:(STAAdPreferences*) adPrefs;
 - (void) loadAdWithDelegate:(id<STADelegateProtocol>) delegate;
 - (void) loadAdWithDelegate:(id<STADelegateProtocol>) delegate withAdPreferences:(STAAdPreferences*) adPrefs;
 
-- (void) loadAd:(STAAdType) adType;
-- (void) loadAd:(STAAdType) adType withAdPreferences:(STAAdPreferences*) adPrefs;
-- (void) loadAd:(STAAdType) adType withDelegate:(id<STADelegateProtocol>) delegate;
+- (void) loadAd:(STAAdType) adType __attribute__((deprecated));
+- (void) loadAd:(STAAdType) adType withAdPreferences:(STAAdPreferences*) adPrefs __attribute__((deprecated));
+- (void) loadAd:(STAAdType) adType withDelegate:(id<STADelegateProtocol>) delegate __attribute__((deprecated));
 
-- (void) loadAd:(STAAdType) adType withDelegate:(id<STADelegateProtocol>) delegate withAdPreferences:(STAAdPreferences*) adPrefs;
+- (void) loadAd:(STAAdType) adType withDelegate:(id<STADelegateProtocol>) delegate withAdPreferences:(STAAdPreferences*) adPrefs __attribute__((deprecated));
 - (void) showAd;
+- (void) showAdWithAdTag:(NSString *)adTag;
 
 // initWithAppID is depreceted, will be removed in future SDKs, please use StartAppSDK instead.
 + (void) initWithAppId: (NSString*)applicationId developerId:(NSString*)developerId __attribute__((deprecated));

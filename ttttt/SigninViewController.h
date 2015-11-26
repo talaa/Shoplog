@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import <Parse/Parse.h>
-#import <FacebookSDK/FacebookSDK.h>
-#import <ParseFacebookUtils/PFFacebookUtils.h>
+//#import <FBSDKCoreKit/FBSDKCoreKit.h>
+//#import <ParseFacebookUtilsV4/ParseFacebookUtilsV4.h>
 #import "Flurry.h"
 #define Ksingedinalready @"signedalready"
 
@@ -21,6 +21,12 @@
 @property (nonatomic,strong)IBOutlet UILabel *welcomenote;
 @property (nonatomic,strong)IBOutlet UIButton *logintbutton;
 @property (nonatomic,strong)IBOutlet UIButton *logoutbutton;
+@property (nonatomic,strong)IBOutlet UIButton *Signupbutton;
+@property (nonatomic,strong)IBOutlet UIImageView *wishlistimage;
+@property (nonatomic,strong)IBOutlet UIImageView *shopbagimage;
+@property (nonatomic,strong)IBOutlet UILabel *wishlistcount;
+@property (nonatomic,strong)IBOutlet UILabel *shoplogerstatus;
+
 @property (nonatomic)NSString *facebookID ;
 @property (nonatomic)NSString *username ;
 @property (nonatomic)NSString *userlocation ;

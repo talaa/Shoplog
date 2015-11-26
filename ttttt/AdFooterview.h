@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GADBannerView.h"
+//#import "GADBannerView.h"
 #import <StartApp/StartApp.h>
 #import "TestViewController.h"
 
