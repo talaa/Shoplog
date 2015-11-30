@@ -109,41 +109,39 @@
         if ([[metadataObj type] isEqualToString:AVMetadataObjectTypeQRCode]) {
             [lblStatus performSelectorOnMainThread:@selector(setText:) withObject:[metadataObj stringValue] waitUntilDone:NO];
             QRstring=[metadataObj stringValue];
+            NSLog(@"Code is %@", QRstring);
             NSArray *strings = [[metadataObj stringValue] componentsSeparatedByString:@";"];
             
-            if ([strings[0] isEqualToString:@"Shoplog"]) {
-                
-            
-            
-            [DataTransfer setCategorynameQr:strings[1]];
-            [DataTransfer setPriceQr:[strings[2] floatValue]];
-            [DataTransfer setRatingQr:[strings[3] integerValue]];
-            [DataTransfer setShopnameQr:strings[4]];
-            [DataTransfer setdimSizeQr:strings[5]];
-            [DataTransfer setlongshopQr:[strings[6] doubleValue]];
-            [DataTransfer setlatshopQr:[strings[7] doubleValue]];
-            [DataTransfer setphoneQr:[strings[8] doubleValue]];
-            [DataTransfer setemailQr:strings[9]];
-            [DataTransfer setwebsiteurlQr:strings[10]];
-            [DataTransfer setcommentsQr:strings[11]];
-            [self performSelectorOnMainThread:@selector(stopReading) withObject:nil waitUntilDone:NO];
-            [bbitemStart setTitle:@"Start!" forState:UIControlStateNormal];
-            //[bbitemStart performSelectorOnMainThread:@selector(setTitle: forState:) withObject:@"Start!" waitUntilDone:NO];
-            _isReading = NO;
-            //[self returnback_fillthedata];
-            [self.navigationController popToRootViewControllerAnimated:YES];
-            /*[self dismissViewControllerAnimated:YES completion:^{
-                [self returnback_fillthedata];
-            }];
-            */
-            if (_audioPlayer) {
-                [_audioPlayer play];
-            }
-            }else{
-                UIAlertView *Sorryview=[[UIAlertView alloc]initWithTitle:@"Sorry" message:@"We are Afraid that QR Code is not part of the Shoplog Database, Please Ask your Retail to contact Shoplog@bluewavesolutions.net " delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                [Sorryview show];
-            
-            }
+//            if ([strings[0] isEqualToString:@"Shoplog"]) {
+//            [DataTransfer setCategorynameQr:strings[1]];
+//            [DataTransfer setPriceQr:[strings[2] floatValue]];
+//            [DataTransfer setRatingQr:[strings[3] integerValue]];
+//            [DataTransfer setShopnameQr:strings[4]];
+//            [DataTransfer setdimSizeQr:strings[5]];
+//            [DataTransfer setlongshopQr:[strings[6] doubleValue]];
+//            [DataTransfer setlatshopQr:[strings[7] doubleValue]];
+//            [DataTransfer setphoneQr:[strings[8] doubleValue]];
+//            [DataTransfer setemailQr:strings[9]];
+//            [DataTransfer setwebsiteurlQr:strings[10]];
+//            [DataTransfer setcommentsQr:strings[11]];
+//            [self performSelectorOnMainThread:@selector(stopReading) withObject:nil waitUntilDone:NO];
+//            [bbitemStart setTitle:@"Start!" forState:UIControlStateNormal];
+//            //[bbitemStart performSelectorOnMainThread:@selector(setTitle: forState:) withObject:@"Start!" waitUntilDone:NO];
+//            _isReading = NO;
+//            //[self returnback_fillthedata];
+//            [self.navigationController popToRootViewControllerAnimated:YES];
+//            /*[self dismissViewControllerAnimated:YES completion:^{
+//                [self returnback_fillthedata];
+//            }];
+//            */
+//            if (_audioPlayer) {
+//                [_audioPlayer play];
+//            }
+//            }else{
+//                UIAlertView *Sorryview=[[UIAlertView alloc]initWithTitle:@"Sorry" message:@"We are Afraid that QR Code is not part of the Shoplog Database, Please Ask your Retail to contact Shoplog@bluewavesolutions.net " delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//                [Sorryview show];
+//            
+//            }
         }
     }
 }
