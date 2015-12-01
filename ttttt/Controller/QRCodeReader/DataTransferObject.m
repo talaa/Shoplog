@@ -9,5 +9,19 @@
 #import "DataTransferObject.h"
 
 @implementation DataTransferObject
+static DataTransferObject *instance = nil;
+
++(DataTransferObject *)getInstance
+{
+    @synchronized(self)
+    {
+        if(instance==nil)
+        {
+            instance= [DataTransferObject new];
+        }
+    }
+    return instance;
+}
+
 
 @end

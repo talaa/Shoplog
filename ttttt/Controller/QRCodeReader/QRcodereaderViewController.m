@@ -116,7 +116,9 @@
             QRstring=[metadataObj stringValue];
             NSLog(@"Code is %@", QRstring);
             NSArray *strings = [[metadataObj stringValue] componentsSeparatedByString:@","];
-            DataTransferObject *dTranferObje = [DataTransferObject new];
+            
+            //save data from QR Code to DataTranferObject Instance
+            DataTransferObject *dTranferObje=[DataTransferObject getInstance];
             dTranferObje.defprice = [strings[2] floatValue];
             dTranferObje.defcatqr = strings[1];
             dTranferObje.defimagenameqr = strings[14];
@@ -146,12 +148,9 @@
     //[self.bbitemStart setTitle:@"Start" forState:UIControlStateNormal];
     _captureSession = nil;
     [_videoPreviewLayer removeFromSuperlayer];
-    //[self.navigationController popViewControllerAnimated:YES];
     
-    
+    //get back to AddNewProduct View
     [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:1] animated:YES];
-    
-
 }
 
 -(void)loadBeepSound{

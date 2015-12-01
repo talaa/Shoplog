@@ -10,6 +10,7 @@
 #import "TestViewController.h"
 #import "DataTransfer.h"
 #import "Flurry.h"
+#import "DataTransferObject.h"
 @interface AddProductDetailViewController ()
 
 @end
@@ -43,6 +44,19 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    
+    DataTransferObject *dTranferObje=[DataTransferObject getInstance];
+    if (dTranferObje.defcatqr == nil){
+        
+    }else{
+        self.PriceField.text = [NSString stringWithFormat:@"%f",dTranferObje.defprice];
+        self.cataloguenamefield.text = dTranferObje.defcatqr;
+        self.imageField.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:dTranferObje.defimagenameqr]]];
+    }
+    
+   
+    
+
     [self performSelector:@selector(updatecurrentLocation) withObject:nil afterDelay:5];
     /*
     if (self.currentProduct.shop.longcoordinate) {

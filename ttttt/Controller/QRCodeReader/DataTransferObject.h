@@ -23,5 +23,6 @@
 @property (nonatomic) float defprice;
 @property (nonatomic) int defrating;
 
++ (DataTransferObject*)getInstance;
 
 @end
