@@ -7,8 +7,12 @@
 //
 
 #import "QRcodereaderViewController.h"
+#import "DataTransferObject.h"
 
 @interface QRcodereaderViewController ()
+{
+    NSMutableArray *dataTransferMArray;
+}
 @property (nonatomic) BOOL isReading;
 @property (nonatomic, strong) AVCaptureSession *captureSession;
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer *videoPreviewLayer;
@@ -36,9 +40,12 @@
 
 - (void)viewDidLoad
 {
+    dataTransferMArray = [NSMutableArray new];
     
-    UIAlertView *helloQRCode=[[UIAlertView alloc]initWithTitle:@"Hello" message:@"Please Make Sure that the Shop is already registered with Sholog retailers Program, For More Information contact Shoplog@bluewavesolutions.net." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-    [helloQRCode show];
+    UIAlertController *alertcontroller = [UIAlertController alertControllerWithTitle:@"Hello" message:@"Please Make Sure that the Shop is already registered with Sholog retailers Program, For More Information contact Shoplog@bluewavesolutions.net." preferredStyle:UIAlertControllerStyleAlert];
+    [alertcontroller addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil]];
+    [self presentViewController:alertcontroller animated:YES completion:nil];
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     QRstring=@"";
@@ -55,14 +62,12 @@
 - (IBAction)startStopReading:(id)sender{
     if (!_isReading) {
         if ([self startReading]) {
-            
-            [bbitemStart setTitle:@"Stop" forState:UIControlStateNormal];
-            [lblStatus setText:@"Scanning for QR Code..."];
+            [self.bbitemStart setTitle:@"Stop" forState:UIControlStateNormal];
         }
     }
     else{
         [self stopReading];
-        [bbitemStart setTitle:@"Start!" forState:UIControlStateNormal];
+        [self.bbitemStart setTitle:@"Start" forState:UIControlStateNormal];
     }
     
     _isReading = !_isReading;
@@ -107,16 +112,16 @@
     if (metadataObjects != nil && [metadataObjects count] > 0) {
         AVMetadataMachineReadableCodeObject *metadataObj = [metadataObjects objectAtIndex:0];
         if ([[metadataObj type] isEqualToString:AVMetadataObjectTypeQRCode]) {
-            [lblStatus performSelectorOnMainThread:@selector(setText:) withObject:[metadataObj stringValue] waitUntilDone:NO];
-            QRstring=[metadataObj stringValue];
-            NSLog(@"Code is %@", QRstring);
-            NSArray *strings = [[metadataObj stringValue] componentsSeparatedByString:@";"];
+//            [lblStatus performSelectorOnMainThread:@selector(setText:) withObject:[metadataObj stringValue] waitUntilDone:NO];
+//            QRstring=[metadataObj stringValue];
+//            NSLog(@"Code is %@", QRstring);
+            //NSArray *strings = [[metadataObj stringValue] componentsSeparatedByString:@","];
             
-//            if ([strings[0] isEqualToString:@"Shoplog"]) {
+ //          if ([strings[0] isEqualToString:@"Shoplog"]) {
 //            [DataTransfer setCategorynameQr:strings[1]];
 //            [DataTransfer setPriceQr:[strings[2] floatValue]];
 //            [DataTransfer setRatingQr:[strings[3] integerValue]];
-//            [DataTransfer setShopnameQr:strings[4]];
+//            [DataTransfer [4]];
 //            [DataTransfer setdimSizeQr:strings[5]];
 //            [DataTransfer setlongshopQr:[strings[6] doubleValue]];
 //            [DataTransfer setlatshopQr:[strings[7] doubleValue]];
@@ -138,13 +143,36 @@
 //                [_audioPlayer play];
 //            }
 //            }else{
-//                UIAlertView *Sorryview=[[UIAlertView alloc]initWithTitle:@"Sorry" message:@"We are Afraid that QR Code is not part of the Shoplog Database, Please Ask your Retail to contact Shoplog@bluewavesolutions.net " delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-//                [Sorryview show];
+//                UIAlertController *alertControleller = [UIAlertController alertControllerWithTitle:@"Sorry" message:@"We are Afraid that QR Code is not part of the Shoplog Database, Please Ask your Retail to contact Shoplog@bluewavesolutions.net" preferredStyle:UIAlertControllerStyleAlert];
+//                [alertControleller addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil]];
+//                [self presentViewController:alertControleller animated:YES completion:nil];
 //            
 //            }
+//            [self performSelectorOnMainThread:@selector(stopReading) withObject:nil waitUntilDone:NO];
+//            [self.bbitemStart performSelectorOnMainThread:@selector(setTitle:) withObject:@"Start" waitUntilDone:NO];
+//            [self.bbitemStart setTitle:@"Start" forState:UIControlStateNormal];
+//            
+//            _isReading = NO;
+//            
+//            // If the audio player is not nil, then play the sound effect.
+//            if (_audioPlayer) {
+//                [_audioPlayer play];
+//            }
+            [lblStatus performSelectorOnMainThread:@selector(setText:) withObject:[metadataObj stringValue] waitUntilDone:NO];
+            
+            [self performSelectorOnMainThread:@selector(stopReading) withObject:nil waitUntilDone:NO];            
+            _isReading = NO;
+            
+            // If the audio player is not nil, then play the sound effect.
+            if (_audioPlayer) {
+                [_audioPlayer play];
+            }
+
         }
     }
 }
+
+
 -(void)returnback_fillthedata{
 
     _addviewcontroller.cataloguenamefield.text=[DataTransfer CategorynameQr];
@@ -155,10 +183,12 @@
 }
 -(void)stopReading{
     [_captureSession stopRunning];
+    [self.bbitemStart setTitle:@"Start" forState:UIControlStateNormal];
     _captureSession = nil;
     
     [_videoPreviewLayer removeFromSuperlayer];
 }
+
 -(void)loadBeepSound{
     NSString *beepFilePath = [[NSBundle mainBundle] pathForResource:@"beep" ofType:@"mp3"];
     NSURL *beepURL = [NSURL URLWithString:beepFilePath];

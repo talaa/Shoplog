@@ -10,4 +10,18 @@
 
 @interface DataTransferObject : NSObject
 
+@property (strong, nonatomic) NSString *defcatqr;
+@property (strong, nonatomic) NSString *defimagenameqr;
+@property (strong, nonatomic) NSString *defshopname;
+@property (strong, nonatomic) NSString *defdimsize;
+@property (strong, nonatomic) NSString *defemail;
+@property (strong, nonatomic) NSString *defcomments;
+@property (strong, nonatomic) NSString *defwebsiteurl;
+@property (nonatomic) double defphone;
+@property (nonatomic) double deflong;
+@property (nonatomic) double deflat;
+@property (nonatomic) float defprice;
+@property (nonatomic) int defrating;
+
+
 @end
