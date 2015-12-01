@@ -38,8 +38,6 @@
         EmailField.delegate=self;
         PhoneField.delegate=self;
         EmailField.delegate=self;
-        
-        
     }
     return self;
 }
@@ -101,6 +99,7 @@
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
     
     //self.view.backgroundColor=[UIColor greenColor];
     self.locationManager = [[CLLocationManager alloc] init];
@@ -121,7 +120,7 @@
     //[spinner setCenter:CGPointMake(kScreenWidth/2.0, kScreenHeight/2.0)]; // I do this because I'm in landscape mode
     [self.view addSubview:spinner]; // spinner is not visible until started
     
-    [super viewDidLoad];
+    
     if (_currentProduct)
     {
         //[[PriceField setText:[[_currentProduct price]stringValue]];
