@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "AddProductDetailViewController.h"
 #import <AVFoundation/AVFoundation.h>
-#import "DataTransfer.h"
 
 @interface QRcodereaderViewController : UIViewController<AVCaptureMetadataOutputObjectsDelegate>
 @property (weak, nonatomic) IBOutlet UIView *viewPreview;

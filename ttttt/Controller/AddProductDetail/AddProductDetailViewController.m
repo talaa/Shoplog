@@ -49,6 +49,9 @@
     if (dTranferObje.defcatqr == nil){
         
     }else{
+        self.WebsiteField.text = dTranferObje.defwebsiteurl;
+        self.ShopField.text = dTranferObje.defshopname;
+        self.PhoneField.text = [NSString stringWithFormat:@"%@", dTranferObje.defphone];
         self.PriceField.text = [NSString stringWithFormat:@"%f",dTranferObje.defprice];
         self.cataloguenamefield.text = dTranferObje.defcatqr;
         self.imageField.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:dTranferObje.defimagenameqr]]];

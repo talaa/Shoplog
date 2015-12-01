@@ -119,9 +119,13 @@
             
             //save data from QR Code to DataTranferObject Instance
             DataTransferObject *dTranferObje=[DataTransferObject getInstance];
-            dTranferObje.defprice = [strings[2] floatValue];
-            dTranferObje.defcatqr = strings[1];
+            dTranferObje.defprice = [strings[3] floatValue];
+            dTranferObje.defcatqr = strings[0];
             dTranferObje.defimagenameqr = strings[14];
+            dTranferObje.defemail = strings[6];
+            dTranferObje.defphone = strings[5];
+            dTranferObje.defshopname = strings[4];
+            dTranferObje.defwebsiteurl = strings[7];
             [dataTransferMArray addObject:dTranferObje];
             
             // If the audio player is not nil, then play the sound effect.
@@ -133,14 +137,6 @@
             _isReading = NO;
         }
     }
-}
-
-
--(void)returnback_fillthedata{
-    _addviewcontroller.cataloguenamefield.text=[DataTransfer CategorynameQr];
-    _addviewcontroller.PriceField.text=[NSString stringWithFormat:@"%f",[DataTransfer priceQr]];
-    _addviewcontroller.ShopField.text=[DataTransfer shopnameQr];
-    _addviewcontroller.DimensionsField.text=[DataTransfer dimSizeQr];
 }
 
 -(void)stopReading{
