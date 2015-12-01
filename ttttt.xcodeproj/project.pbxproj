@@ -62,7 +62,6 @@
 		6942DF2D16A1A83800C920C3 /* Headerview.png in Resources */ = {isa = PBXBuildFile; fileRef = 6942DF2C16A1A83800C920C3 /* Headerview.png */; };
 		6948B5A31612160B008BA37E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6948B5A21612160B008BA37E /* CoreData.framework */; };
 		6948B5A716121780008BA37E /* ttttt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6948B5A516121780008BA37E /* ttttt.xcdatamodeld */; };
-		6948B5AD16122819008BA37E /* AddProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6948B5AC16122819008BA37E /* AddProductDetailViewController.m */; };
 		6957FEEE16472D4500290403 /* ELCSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6957FEEA16472D4500290403 /* ELCSlider.m */; };
 		6957FEEF16472D4500290403 /* SliderValueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6957FEEC16472D4500290403 /* SliderValueViewController.m */; };
 		6957FEF016472D4500290403 /* SliderValueViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6957FEED16472D4500290403 /* SliderValueViewController.xib */; };
@@ -169,8 +168,9 @@
 		69FD7152165956E9001919DD /* YahoobuySearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FD7151165956E9001919DD /* YahoobuySearch.m */; };
 		77DF9CFB8F004A16AC6AEF64 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E0A4B3C70E374774A6BB7206 /* libPods.a */; };
 		F5D724671C0DA12800BC2BDF /* DataTransfer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D724621C0DA12800BC2BDF /* DataTransfer.m */; };
-		F5D724681C0DA12800BC2BDF /* DataTransferObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D724641C0DA12800BC2BDF /* DataTransferObject.m */; };
 		F5D724691C0DA12800BC2BDF /* QRcodereaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D724661C0DA12800BC2BDF /* QRcodereaderViewController.m */; };
+		F5D7247B1C0DEA2B00BC2BDF /* AddProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D7247A1C0DEA2B00BC2BDF /* AddProductDetailViewController.m */; };
+		F5D724801C0DEA6A00BC2BDF /* DataTransferObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D7247F1C0DEA6A00BC2BDF /* DataTransferObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -255,8 +255,6 @@
 		6942DF2C16A1A83800C920C3 /* Headerview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Headerview.png; sourceTree = "<group>"; };
 		6948B5A21612160B008BA37E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		6948B5A616121780008BA37E /* ttttt.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ttttt.xcdatamodel; sourceTree = "<group>"; };
-		6948B5AB16122819008BA37E /* AddProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddProductDetailViewController.h; sourceTree = "<group>"; };
-		6948B5AC16122819008BA37E /* AddProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddProductDetailViewController.m; sourceTree = "<group>"; };
 		6957FEE916472D4500290403 /* ELCSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCSlider.h; sourceTree = "<group>"; };
 		6957FEEA16472D4500290403 /* ELCSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCSlider.m; sourceTree = "<group>"; };
 		6957FEEB16472D4500290403 /* SliderValueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SliderValueViewController.h; sourceTree = "<group>"; };
@@ -417,10 +415,12 @@
 		E0A4B3C70E374774A6BB7206 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5D724611C0DA12800BC2BDF /* DataTransfer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataTransfer.h; sourceTree = "<group>"; };
 		F5D724621C0DA12800BC2BDF /* DataTransfer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataTransfer.m; sourceTree = "<group>"; };
-		F5D724631C0DA12800BC2BDF /* DataTransferObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataTransferObject.h; sourceTree = "<group>"; };
-		F5D724641C0DA12800BC2BDF /* DataTransferObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataTransferObject.m; sourceTree = "<group>"; };
 		F5D724651C0DA12800BC2BDF /* QRcodereaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRcodereaderViewController.h; sourceTree = "<group>"; };
 		F5D724661C0DA12800BC2BDF /* QRcodereaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRcodereaderViewController.m; sourceTree = "<group>"; };
+		F5D724791C0DEA2B00BC2BDF /* AddProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddProductDetailViewController.h; sourceTree = "<group>"; };
+		F5D7247A1C0DEA2B00BC2BDF /* AddProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddProductDetailViewController.m; sourceTree = "<group>"; };
+		F5D7247E1C0DEA6A00BC2BDF /* DataTransferObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataTransferObject.h; sourceTree = "<group>"; };
+		F5D7247F1C0DEA6A00BC2BDF /* DataTransferObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataTransferObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -866,6 +866,7 @@
 		69F625791606364800004196 /* ttttt */ = {
 			isa = PBXGroup;
 			children = (
+				F5D7247C1C0DEA6A00BC2BDF /* Model */,
 				F5D7245F1C0DA12800BC2BDF /* Controller */,
 				69ECA95B1712186A00347A6C /* Mosaic Classes */,
 				692807E9169BD46600D5EDFF /* Database */,
@@ -890,8 +891,6 @@
 				69F4417219E990B600D7BD6F /* DetailViewController.m */,
 				698337C01618B8C500E2BC9E /* DetailPopViewController.h */,
 				698337C11618B8C500E2BC9E /* DetailPopViewController.m */,
-				6948B5AB16122819008BA37E /* AddProductDetailViewController.h */,
-				6948B5AC16122819008BA37E /* AddProductDetailViewController.m */,
 				69D86306162CA46100BB78E1 /* CreateShoplogTagImage.h */,
 				69D86307162CA46100BB78E1 /* CreateShoplogTagImage.m */,
 				6900BC6E16343B6C0028400D /* Shoplogactivity.h */,
@@ -926,6 +925,7 @@
 		F5D7245F1C0DA12800BC2BDF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F5D724781C0DEA2B00BC2BDF /* AddProductDetail */,
 				F5D724601C0DA12800BC2BDF /* QRCodeReader */,
 			);
 			path = Controller;
@@ -936,12 +936,36 @@
 			children = (
 				F5D724611C0DA12800BC2BDF /* DataTransfer.h */,
 				F5D724621C0DA12800BC2BDF /* DataTransfer.m */,
-				F5D724631C0DA12800BC2BDF /* DataTransferObject.h */,
-				F5D724641C0DA12800BC2BDF /* DataTransferObject.m */,
 				F5D724651C0DA12800BC2BDF /* QRcodereaderViewController.h */,
 				F5D724661C0DA12800BC2BDF /* QRcodereaderViewController.m */,
 			);
 			path = QRCodeReader;
+			sourceTree = "<group>";
+		};
+		F5D724781C0DEA2B00BC2BDF /* AddProductDetail */ = {
+			isa = PBXGroup;
+			children = (
+				F5D724791C0DEA2B00BC2BDF /* AddProductDetailViewController.h */,
+				F5D7247A1C0DEA2B00BC2BDF /* AddProductDetailViewController.m */,
+			);
+			path = AddProductDetail;
+			sourceTree = "<group>";
+		};
+		F5D7247C1C0DEA6A00BC2BDF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F5D7247D1C0DEA6A00BC2BDF /* Data Transfer */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F5D7247D1C0DEA6A00BC2BDF /* Data Transfer */ = {
+			isa = PBXGroup;
+			children = (
+				F5D7247E1C0DEA6A00BC2BDF /* DataTransferObject.h */,
+				F5D7247F1C0DEA6A00BC2BDF /* DataTransferObject.m */,
+			);
+			path = "Data Transfer";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1139,7 +1163,6 @@
 				698A62C51607BE0B004DAC94 /* MyCustomCell.m in Sources */,
 				693FBA5816091E9700EA2136 /* HeaderView.m in Sources */,
 				6948B5A716121780008BA37E /* ttttt.xcdatamodeld in Sources */,
-				6948B5AD16122819008BA37E /* AddProductDetailViewController.m in Sources */,
 				698337C21618B8C500E2BC9E /* DetailPopViewController.m in Sources */,
 				69F4417319E990B600D7BD6F /* DetailViewController.m in Sources */,
 				69DAE201162624A8008802E4 /* UIPopover+Iphone.m in Sources */,
@@ -1150,6 +1173,8 @@
 				6957FEEE16472D4500290403 /* ELCSlider.m in Sources */,
 				6957FEEF16472D4500290403 /* SliderValueViewController.m in Sources */,
 				6957FEF41647357E00290403 /* PopoverView.m in Sources */,
+				F5D7247B1C0DEA2B00BC2BDF /* AddProductDetailViewController.m in Sources */,
+				F5D724801C0DEA6A00BC2BDF /* DataTransferObject.m in Sources */,
 				69667C0C16488BCF003FC921 /* Shop.m in Sources */,
 				69667C0F164891DD003FC921 /* MyAnotation.m in Sources */,
 				6930253A16495C31003E63D7 /* WebViewController.m in Sources */,
@@ -1183,7 +1208,6 @@
 				690C258D171E088500139FDA /* pricegrabbersearch.m in Sources */,
 				690C2590171E0A0400139FDA /* Shoppingcom.m in Sources */,
 				690C2593171E0CE300139FDA /* Shopzila.m in Sources */,
-				F5D724681C0DA12800BC2BDF /* DataTransferObject.m in Sources */,
 				697847B3174B89DD00E38120 /* ShoplogactivityViewController.m in Sources */,
 				697DE636174D14840008D996 /* UpgradeViewController.m in Sources */,
 				697DE639174D14E40008D996 /* TPKeyboardAvoidingTableView.m in Sources */,
