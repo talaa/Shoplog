@@ -54,14 +54,12 @@
 		693386291BA5ECF400E5069F /* CountryPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 693386131BA5ECF400E5069F /* CountryPicker.m */; };
 		6933862A1BA5ECF400E5069F /* CountryPicker.podspec.json in Resources */ = {isa = PBXBuildFile; fileRef = 693386141BA5ECF400E5069F /* CountryPicker.podspec.json */; };
 		6933863A1BA5EFDE00E5069F /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 693386391BA5EFDE00E5069F /* SignupViewController.m */; };
-		693386431BB8642900E5069F /* TempData.m in Sources */ = {isa = PBXBuildFile; fileRef = 693386421BB8642900E5069F /* TempData.m */; };
 		693C5CD8169DD425008DA75C /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 693C5CD7169DD425008DA75C /* Accounts.framework */; };
 		693FBA5816091E9700EA2136 /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 693FBA5716091E9700EA2136 /* HeaderView.m */; };
 		6942DF2916A1A58D00C920C3 /* icon_post.png in Resources */ = {isa = PBXBuildFile; fileRef = 6942DF2816A1A58D00C920C3 /* icon_post.png */; };
 		6942DF2B16A1A5E800C920C3 /* icon_shopping_bag.png in Resources */ = {isa = PBXBuildFile; fileRef = 6942DF2A16A1A5E800C920C3 /* icon_shopping_bag.png */; };
 		6942DF2D16A1A83800C920C3 /* Headerview.png in Resources */ = {isa = PBXBuildFile; fileRef = 6942DF2C16A1A83800C920C3 /* Headerview.png */; };
 		6948B5A31612160B008BA37E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6948B5A21612160B008BA37E /* CoreData.framework */; };
-		6948B5A716121780008BA37E /* ttttt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6948B5A516121780008BA37E /* ttttt.xcdatamodeld */; };
 		6957FEEE16472D4500290403 /* ELCSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 6957FEEA16472D4500290403 /* ELCSlider.m */; };
 		6957FEEF16472D4500290403 /* SliderValueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6957FEEC16472D4500290403 /* SliderValueViewController.m */; };
 		6957FEF016472D4500290403 /* SliderValueViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6957FEED16472D4500290403 /* SliderValueViewController.xib */; };
@@ -72,7 +70,6 @@
 		695B195319EB507F0056DDE2 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 695B195219EB507F0056DDE2 /* MobileCoreServices.framework */; };
 		6963FA75166503ED006C3AE9 /* shopping_girl_01_vector_156382.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6963FA74166503ED006C3AE9 /* shopping_girl_01_vector_156382.jpg */; };
 		69667C051648807E003FC921 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69667C041648807E003FC921 /* CoreLocation.framework */; };
-		69667C0C16488BCF003FC921 /* Shop.m in Sources */ = {isa = PBXBuildFile; fileRef = 69667C0B16488BCF003FC921 /* Shop.m */; };
 		69667C0F164891DD003FC921 /* MyAnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 69667C0E164891DD003FC921 /* MyAnotation.m */; };
 		697506C7165F504F0042BCFA /* headerviewimage.png in Resources */ = {isa = PBXBuildFile; fileRef = 697506C6165F504F0042BCFA /* headerviewimage.png */; };
 		697506CE165F5F0B0042BCFA /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 697506CD165F5F0B0042BCFA /* StoreKit.framework */; };
@@ -129,7 +126,6 @@
 		69CB0133165410AC000EC708 /* amazon-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 69CB0130165410AC000EC708 /* amazon-logo.png */; };
 		69CB013816541415000EC708 /* ebay-logo-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 69CB013716541415000EC708 /* ebay-logo-01.png */; };
 		69CB013A16541476000EC708 /* Fancy-Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 69CB013916541476000EC708 /* Fancy-Logo.png */; };
-		69CB013D165419B7000EC708 /* Shoplog.m in Sources */ = {isa = PBXBuildFile; fileRef = 69CB013C165419B7000EC708 /* Shoplog.m */; };
 		69CB014316543E4A000EC708 /* header_gradient_blue.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 69CB014216543E4A000EC708 /* header_gradient_blue.jpg */; };
 		69D86308162CA46100BB78E1 /* CreateShoplogTagImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D86307162CA46100BB78E1 /* CreateShoplogTagImage.m */; };
 		69DAE201162624A8008802E4 /* UIPopover+Iphone.m in Sources */ = {isa = PBXBuildFile; fileRef = 69DAE200162624A8008802E4 /* UIPopover+Iphone.m */; };
@@ -171,6 +167,10 @@
 		F5D724691C0DA12800BC2BDF /* QRcodereaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D724661C0DA12800BC2BDF /* QRcodereaderViewController.m */; };
 		F5D7247B1C0DEA2B00BC2BDF /* AddProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D7247A1C0DEA2B00BC2BDF /* AddProductDetailViewController.m */; };
 		F5D724801C0DEA6A00BC2BDF /* DataTransferObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D7247F1C0DEA6A00BC2BDF /* DataTransferObject.m */; };
+		F5FD6A631C0F02C20054C7D2 /* Shop.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FD6A5B1C0F02C20054C7D2 /* Shop.m */; };
+		F5FD6A641C0F02C20054C7D2 /* Shoplog.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FD6A5D1C0F02C20054C7D2 /* Shoplog.m */; };
+		F5FD6A651C0F02C20054C7D2 /* TempData.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FD6A5F1C0F02C20054C7D2 /* TempData.m */; };
+		F5FD6A661C0F02C20054C7D2 /* ttttt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F5FD6A601C0F02C20054C7D2 /* ttttt.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -245,8 +245,6 @@
 		693386141BA5ECF400E5069F /* CountryPicker.podspec.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CountryPicker.podspec.json; sourceTree = "<group>"; };
 		693386381BA5EFDE00E5069F /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
 		693386391BA5EFDE00E5069F /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
-		693386411BB8642900E5069F /* TempData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TempData.h; sourceTree = "<group>"; };
-		693386421BB8642900E5069F /* TempData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TempData.m; sourceTree = "<group>"; };
 		693C5CD7169DD425008DA75C /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		693FBA5616091E9700EA2136 /* HeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderView.h; sourceTree = "<group>"; };
 		693FBA5716091E9700EA2136 /* HeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderView.m; sourceTree = "<group>"; };
@@ -254,7 +252,6 @@
 		6942DF2A16A1A5E800C920C3 /* icon_shopping_bag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_shopping_bag.png; sourceTree = "<group>"; };
 		6942DF2C16A1A83800C920C3 /* Headerview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Headerview.png; sourceTree = "<group>"; };
 		6948B5A21612160B008BA37E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		6948B5A616121780008BA37E /* ttttt.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ttttt.xcdatamodel; sourceTree = "<group>"; };
 		6957FEE916472D4500290403 /* ELCSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCSlider.h; sourceTree = "<group>"; };
 		6957FEEA16472D4500290403 /* ELCSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCSlider.m; sourceTree = "<group>"; };
 		6957FEEB16472D4500290403 /* SliderValueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SliderValueViewController.h; sourceTree = "<group>"; };
@@ -269,8 +266,6 @@
 		695B195219EB507F0056DDE2 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		6963FA74166503ED006C3AE9 /* shopping_girl_01_vector_156382.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = shopping_girl_01_vector_156382.jpg; sourceTree = "<group>"; };
 		69667C041648807E003FC921 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		69667C0A16488BCF003FC921 /* Shop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shop.h; sourceTree = "<group>"; };
-		69667C0B16488BCF003FC921 /* Shop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shop.m; sourceTree = "<group>"; };
 		69667C0D164891DD003FC921 /* MyAnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAnotation.h; sourceTree = "<group>"; };
 		69667C0E164891DD003FC921 /* MyAnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAnotation.m; sourceTree = "<group>"; };
 		697506C6165F504F0042BCFA /* headerviewimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = headerviewimage.png; sourceTree = "<group>"; };
@@ -331,7 +326,6 @@
 		699CD7271BCAC7D900BDF592 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		69A13F2B16A60DC300765801 /* icon_star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_star.png; sourceTree = "<group>"; };
 		69A13F2E16A6230C00765801 /* icon_circle_arrow_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_circle_arrow_right.png; sourceTree = "<group>"; };
-		69ABA25819EDE0300090853A /* ttttt 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ttttt 2.xcdatamodel"; sourceTree = "<group>"; };
 		69C53A321643E14800FE2CB3 /* ExtendedManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtendedManagedObject.h; sourceTree = "<group>"; };
 		69C53A331643E14800FE2CB3 /* ExtendedManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtendedManagedObject.m; sourceTree = "<group>"; };
 		69C65BB51652EE120071B062 /* removeicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = removeicon.png; sourceTree = "<group>"; };
@@ -348,8 +342,6 @@
 		69CB0130165410AC000EC708 /* amazon-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "amazon-logo.png"; sourceTree = "<group>"; };
 		69CB013716541415000EC708 /* ebay-logo-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ebay-logo-01.png"; sourceTree = "<group>"; };
 		69CB013916541476000EC708 /* Fancy-Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Fancy-Logo.png"; sourceTree = "<group>"; };
-		69CB013B165419B7000EC708 /* Shoplog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shoplog.h; sourceTree = "<group>"; };
-		69CB013C165419B7000EC708 /* Shoplog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shoplog.m; sourceTree = "<group>"; };
 		69CB014216543E4A000EC708 /* header_gradient_blue.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = header_gradient_blue.jpg; sourceTree = "<group>"; };
 		69D86306162CA46100BB78E1 /* CreateShoplogTagImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateShoplogTagImage.h; sourceTree = "<group>"; };
 		69D86307162CA46100BB78E1 /* CreateShoplogTagImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateShoplogTagImage.m; sourceTree = "<group>"; };
@@ -421,6 +413,14 @@
 		F5D7247A1C0DEA2B00BC2BDF /* AddProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddProductDetailViewController.m; sourceTree = "<group>"; };
 		F5D7247E1C0DEA6A00BC2BDF /* DataTransferObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataTransferObject.h; sourceTree = "<group>"; };
 		F5D7247F1C0DEA6A00BC2BDF /* DataTransferObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataTransferObject.m; sourceTree = "<group>"; };
+		F5FD6A5A1C0F02C20054C7D2 /* Shop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shop.h; sourceTree = "<group>"; };
+		F5FD6A5B1C0F02C20054C7D2 /* Shop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shop.m; sourceTree = "<group>"; };
+		F5FD6A5C1C0F02C20054C7D2 /* Shoplog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shoplog.h; sourceTree = "<group>"; };
+		F5FD6A5D1C0F02C20054C7D2 /* Shoplog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shoplog.m; sourceTree = "<group>"; };
+		F5FD6A5E1C0F02C20054C7D2 /* TempData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TempData.h; sourceTree = "<group>"; };
+		F5FD6A5F1C0F02C20054C7D2 /* TempData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TempData.m; sourceTree = "<group>"; };
+		F5FD6A611C0F02C20054C7D2 /* ttttt 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ttttt 2.xcdatamodel"; sourceTree = "<group>"; };
+		F5FD6A621C0F02C20054C7D2 /* ttttt.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ttttt.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -501,20 +501,6 @@
 				693FBA5716091E9700EA2136 /* HeaderView.m */,
 			);
 			name = "Collectionviews&cells";
-			sourceTree = "<group>";
-		};
-		692807E9169BD46600D5EDFF /* Database */ = {
-			isa = PBXGroup;
-			children = (
-				69667C0A16488BCF003FC921 /* Shop.h */,
-				69667C0B16488BCF003FC921 /* Shop.m */,
-				69CB013B165419B7000EC708 /* Shoplog.h */,
-				69CB013C165419B7000EC708 /* Shoplog.m */,
-				6948B5A516121780008BA37E /* ttttt.xcdatamodeld */,
-				693386411BB8642900E5069F /* TempData.h */,
-				693386421BB8642900E5069F /* TempData.m */,
-			);
-			name = Database;
 			sourceTree = "<group>";
 		};
 		693025421649C9FB003E63D7 /* Activities */ = {
@@ -869,7 +855,6 @@
 				F5D7247C1C0DEA6A00BC2BDF /* Model */,
 				F5D7245F1C0DA12800BC2BDF /* Controller */,
 				69ECA95B1712186A00347A6C /* Mosaic Classes */,
-				692807E9169BD46600D5EDFF /* Database */,
 				692807E8169BD40D00D5EDFF /* Collectionviews&cells */,
 				6957FEF11647357E00290403 /* PopoverView */,
 				6957FEE816472D4500290403 /* ELCSlider */,
@@ -954,6 +939,7 @@
 		F5D7247C1C0DEA6A00BC2BDF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F5FD6A591C0F02C20054C7D2 /* CoreData */,
 				F5D7247D1C0DEA6A00BC2BDF /* Data Transfer */,
 			);
 			path = Model;
@@ -966,6 +952,20 @@
 				F5D7247F1C0DEA6A00BC2BDF /* DataTransferObject.m */,
 			);
 			path = "Data Transfer";
+			sourceTree = "<group>";
+		};
+		F5FD6A591C0F02C20054C7D2 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				F5FD6A5A1C0F02C20054C7D2 /* Shop.h */,
+				F5FD6A5B1C0F02C20054C7D2 /* Shop.m */,
+				F5FD6A5C1C0F02C20054C7D2 /* Shoplog.h */,
+				F5FD6A5D1C0F02C20054C7D2 /* Shoplog.m */,
+				F5FD6A5E1C0F02C20054C7D2 /* TempData.h */,
+				F5FD6A5F1C0F02C20054C7D2 /* TempData.m */,
+				F5FD6A601C0F02C20054C7D2 /* ttttt.xcdatamodeld */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1158,11 +1158,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				69F625801606364800004196 /* main.m in Sources */,
+				F5FD6A631C0F02C20054C7D2 /* Shop.m in Sources */,
 				69F625841606364800004196 /* AppDelegate.m in Sources */,
 				69F6259B1606369400004196 /* TestViewController.m in Sources */,
 				698A62C51607BE0B004DAC94 /* MyCustomCell.m in Sources */,
 				693FBA5816091E9700EA2136 /* HeaderView.m in Sources */,
-				6948B5A716121780008BA37E /* ttttt.xcdatamodeld in Sources */,
 				698337C21618B8C500E2BC9E /* DetailPopViewController.m in Sources */,
 				69F4417319E990B600D7BD6F /* DetailViewController.m in Sources */,
 				69DAE201162624A8008802E4 /* UIPopover+Iphone.m in Sources */,
@@ -1175,13 +1175,11 @@
 				6957FEF41647357E00290403 /* PopoverView.m in Sources */,
 				F5D7247B1C0DEA2B00BC2BDF /* AddProductDetailViewController.m in Sources */,
 				F5D724801C0DEA6A00BC2BDF /* DataTransferObject.m in Sources */,
-				69667C0C16488BCF003FC921 /* Shop.m in Sources */,
 				69667C0F164891DD003FC921 /* MyAnotation.m in Sources */,
 				6930253A16495C31003E63D7 /* WebViewController.m in Sources */,
 				693025451649CA2E003E63D7 /* Fancysearch.m in Sources */,
 				692FAE24164AA5C2006A1AF0 /* EBaySearch.m in Sources */,
 				692FAE27164AA7FF006A1AF0 /* Amazonsearch.m in Sources */,
-				69CB013D165419B7000EC708 /* Shoplog.m in Sources */,
 				69FD71491659562A001919DD /* Rakutensearch.m in Sources */,
 				69FD714C165956B0001919DD /* Taobaosearch.m in Sources */,
 				69FD714F165956D3001919DD /* GoogleShoppingSearch.m in Sources */,
@@ -1194,7 +1192,9 @@
 				69ECA96E1712186A00347A6C /* MosaicCell.m in Sources */,
 				69ECA98317121AFB00347A6C /* AFHTTPClient.m in Sources */,
 				69ECA98417121AFB00347A6C /* AFHTTPRequestOperation.m in Sources */,
+				F5FD6A641C0F02C20054C7D2 /* Shoplog.m in Sources */,
 				69ECA98517121AFB00347A6C /* AFImageRequestOperation.m in Sources */,
+				F5FD6A661C0F02C20054C7D2 /* ttttt.xcdatamodeld in Sources */,
 				69ECA98617121AFB00347A6C /* AFJSONRequestOperation.m in Sources */,
 				69ECA98717121AFB00347A6C /* AFNetworkActivityIndicatorManager.m in Sources */,
 				F5D724691C0DA12800BC2BDF /* QRcodereaderViewController.m in Sources */,
@@ -1211,7 +1211,7 @@
 				697847B3174B89DD00E38120 /* ShoplogactivityViewController.m in Sources */,
 				697DE636174D14840008D996 /* UpgradeViewController.m in Sources */,
 				697DE639174D14E40008D996 /* TPKeyboardAvoidingTableView.m in Sources */,
-				693386431BB8642900E5069F /* TempData.m in Sources */,
+				F5FD6A651C0F02C20054C7D2 /* TempData.m in Sources */,
 				6982B518177076E6007CA1E8 /* NSString+STTwitter.m in Sources */,
 				693386291BA5ECF400E5069F /* CountryPicker.m in Sources */,
 				6982B519177076E6007CA1E8 /* STTwitterAPIWrapper.m in Sources */,
@@ -1464,13 +1464,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		6948B5A516121780008BA37E /* ttttt.xcdatamodeld */ = {
+		F5FD6A601C0F02C20054C7D2 /* ttttt.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				69ABA25819EDE0300090853A /* ttttt 2.xcdatamodel */,
-				6948B5A616121780008BA37E /* ttttt.xcdatamodel */,
+				F5FD6A611C0F02C20054C7D2 /* ttttt 2.xcdatamodel */,
+				F5FD6A621C0F02C20054C7D2 /* ttttt.xcdatamodel */,
 			);
-			currentVersion = 69ABA25819EDE0300090853A /* ttttt 2.xcdatamodel */;
+			currentVersion = F5FD6A611C0F02C20054C7D2 /* ttttt 2.xcdatamodel */;
 			path = ttttt.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

@@ -332,14 +332,30 @@
 {
     BOOL emptycatalogue =[cataloguenamefield.text isEqualToString:@""];
     if (!emptycatalogue) {
-        
+        //save on Core data
+        [self saveProductOnCoreData];
     
     }else{
-        UIAlertController *alertcontroller = [UIAlertController alertControllerWithTitle:@"" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alertcontroller = [UIAlertController alertControllerWithTitle:@"Error" message:@"Scan QR Code first.Press the button below." preferredStyle:UIAlertControllerStyleAlert];
         [alertcontroller addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil]];
         [self presentViewController:alertcontroller animated:YES completion:nil];
     }
 }
+
+/*
+ *
+ **** Save Product on Core Data *******
+ *
+ */
+- (void)saveProductOnCoreData {
+    // Create Managed Object
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"ShopLog" inManagedObjectContext:self.managedObjectContext];
+    NSManagedObject *newShopLog = [[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:self.managedObjectContext];
+    
+    [newShopLog setValue:@"Bart" forKey:@"first"];
+    [newShopLog setValue:@"Jacobs" forKey:@"last"];
+}
+
 
 -(void)preparetheitemtosave{
     //[spinner startAnimating];
