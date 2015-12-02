@@ -11,7 +11,7 @@
 #import "DataTransferObject.h"
 #import "DataParsing.h"
 #import "AppDelegate.h"
-
+#import "SVProgressHUD.h"
 
 @interface AddProductDetailViewController ()
 
@@ -359,7 +359,7 @@
  *
  */
 - (void)saveProductOnCoreData {
-    
+    [SVProgressHUD showWithStatus:@"Saving Data..."];
     // Create Managed Object
     AppDelegate *app= (AppDelegate*)[[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = [app managedObjectContext];
@@ -400,20 +400,16 @@
     
     newShopLog.shop = newShop;
     //[newShopLog setValue:[NSSet setWithObject:newShop] forKey:@"shop"];
-     
-    if (![newShopLog.managedObjectContext save:&errorRelation]) {
-        NSLog(@"Unable to save managed object context.");
-        NSLog(@"%@, %@", error, error.localizedDescription);
-    }else{
-        NSLog(@"Save object");
-    }
     
-    NSLog(@"fetch %@", newShopLog);
-    NSLog(@"fetch shop %@", newShop);
+    if (![newShopLog.managedObjectContext save:&errorRelation]) {
+        [SVProgressHUD showErrorWithStatus:@"Sorry,failed to save data now please tray again!."];
+    }else{
+        [SVProgressHUD showSuccessWithStatus:@"The product has been saved successfully."];
+    }
     
     //Flush DataTansfer Public Object
     [DataParsing dataTransferObjectDeAllocat];
-    
+    [SVProgressHUD dismiss];
 }
 
 

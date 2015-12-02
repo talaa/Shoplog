@@ -8,6 +8,7 @@
 
 #import "QRcodereaderViewController.h"
 #import "DataTransferObject.h"
+#import "SVProgressHUD.h"
 
 @interface QRcodereaderViewController ()
 {
@@ -116,7 +117,7 @@
             QRstring=[metadataObj stringValue];
             NSLog(@"Code is %@", QRstring);
             NSArray *strings = [[metadataObj stringValue] componentsSeparatedByString:@","];
-            
+            [SVProgressHUD showWithStatus:@"Loading..."];
             //save data from QR Code to DataTranferObject Instance
             DataTransferObject *dTranferObje=[DataTransferObject getInstance];
             dTranferObje.defprice = [strings[3] floatValue];
@@ -146,7 +147,7 @@
     //[self.bbitemStart setTitle:@"Start" forState:UIControlStateNormal];
     _captureSession = nil;
     [_videoPreviewLayer removeFromSuperlayer];
-    
+    [SVProgressHUD dismiss];
     //get back to AddNewProduct View
     [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:1] animated:YES];
 }
