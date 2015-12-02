@@ -330,15 +330,22 @@
 
 - (IBAction)editSaveButtonPressed:(id)sender
 {
+    UIAlertController *alertController;
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
     BOOL emptycatalogue =[cataloguenamefield.text isEqualToString:@""];
     if (!emptycatalogue) {
         //save on Core data
-        [self saveProductOnCoreData];
-    
+        if ([commentsView.text isEqual:@""]){
+            alertController = [UIAlertController alertControllerWithTitle:@"Warring" message:@"Don't forgit write your comments to save your product." preferredStyle:UIAlertControllerStyleAlert];
+            [alertController addAction:ok];
+            [self presentViewController:alertController animated:YES completion:nil];
+        }else{
+            [self saveProductOnCoreData];
+        }
     }else{
-        UIAlertController *alertcontroller = [UIAlertController alertControllerWithTitle:@"Error" message:@"Scan QR Code first.Press the button below." preferredStyle:UIAlertControllerStyleAlert];
-        [alertcontroller addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil]];
-        [self presentViewController:alertcontroller animated:YES completion:nil];
+        alertController = [UIAlertController alertControllerWithTitle:@"Error" message:@"Scan QR Code first.Press the button below." preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:ok];
+        [self presentViewController:alertController animated:YES completion:nil];
     }
 }
 
@@ -352,8 +359,22 @@
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"ShopLog" inManagedObjectContext:self.managedObjectContext];
     NSManagedObject *newShopLog = [[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:self.managedObjectContext];
     
-    [newShopLog setValue:@"Bart" forKey:@"first"];
-    [newShopLog setValue:@"Jacobs" forKey:@"last"];
+    DataTransferObject *dTranferObje = [DataTransferObject getInstance];
+    
+    //save imageurl as NSData
+    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:dTranferObje.defimagenameqr]];
+    
+    [newShopLog setValue:dTranferObje.defcatqr forKey:@"categoryname"];
+    [newShopLog setValue:commentsView.text forKey:@"comments"];
+    [newShopLog setValue:[NSDate date] forKey:@"date"];
+    [newShopLog setValue:dTranferObje.defemail forKey:@"email"];
+    [newShopLog setValue:imageData forKey:@"image"];
+    [newShopLog setValue: forKey:@"phone"];
+    [newShopLog setValue:@"Jacobs" forKey:@"price"];
+    [newShopLog setValue:@"Jacobs" forKey:@"rating"];
+    [newShopLog setValue:@"Jacobs" forKey:@"websiteurl"];
+    [newShopLog setValue:@"Jacobs" forKey:@"dim_size"];
+    
 }
 
 
