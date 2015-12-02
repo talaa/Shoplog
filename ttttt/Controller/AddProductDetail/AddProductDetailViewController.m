@@ -8,8 +8,6 @@
 #define METERS_PER_MILE 1609.344
 #import "AddProductDetailViewController.h"
 #import "TestViewController.h"
-#import "DataTransfer.h"
-#import "Flurry.h"
 #import "DataTransferObject.h"
 @interface AddProductDetailViewController ()
 
@@ -44,7 +42,6 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    
     DataTransferObject *dTranferObje=[DataTransferObject getInstance];
     if (dTranferObje.defcatqr == nil){
         
@@ -60,8 +57,6 @@
     }
     
    
-    
-
     [self performSelector:@selector(updatecurrentLocation) withObject:nil afterDelay:5];
     /*
     if (self.currentProduct.shop.longcoordinate) {
@@ -178,22 +173,7 @@
     cataloguenamefield.text=self.title;
     if (Qrcodecatalogue) {
         //
-        [cataloguenamefield setText:[DataTransfer CategorynameQr]];
-        [PriceField setText:[NSString stringWithFormat:@"%.2f",[DataTransfer priceQr]]];
-        [ratingslider setValue:[DataTransfer ratingQr] animated:YES];
-        [ShopField setText:[DataTransfer shopnameQr]];
-        [DimensionsField setText:[DataTransfer dimSizeQr]];
-        [LongTextfield setText:[NSString stringWithFormat:@"%f",[DataTransfer longshopQr]]];
-        [LatTextField setText:[NSString stringWithFormat:@"%f",[DataTransfer latshopQr]]];
-        longsaved=[DataTransfer longshopQr];
-        latsaved=[DataTransfer latshopQr];
-        [PhoneField setText:[NSString stringWithFormat:@"%f",[DataTransfer phoneQr]]];
-        [EmailField setText:[DataTransfer emailQr]];
-        [WebsiteField setText:[DataTransfer websiteurlQr]];
-        [commentsView setText:[_currentProduct comments]];
-        [imageField setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[DataTransfer ImageQr]]]]];
         Qrcodecatalogue=NO;
-        
     }
     
     [self configuregradient];
@@ -346,118 +326,19 @@
     [Flurry logEvent:@"NO send to shoplog" withParameters:userdata timed:YES];
         NSLog(@"NO send to shoplog");
     }
-    
 }
+
 - (IBAction)editSaveButtonPressed:(id)sender
 {
-    
     BOOL emptycatalogue =[cataloguenamefield.text isEqualToString:@""];
     if (!emptycatalogue) {
         
     
-    // If we are adding a new picture (because we didnt pass one from the table) then create an entry
-    if (!_currentProduct)
-        self.currentProduct = (Shoplog *)[NSEntityDescription insertNewObjectForEntityForName:@"Shoplog"inManagedObjectContext:self.managedObjectContext];
-    if(!_currentshop)
-        self.currentshop=(Shop*)[NSEntityDescription insertNewObjectForEntityForName:@"Shop" inManagedObjectContext:self.managedObjectContext];
-    //[spinner startAnimating];
-    // For both new and existing pictures, fill in the details from the form
-    NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
-    [f setNumberStyle:NSNumberFormatterDecimalStyle];
-    float myNumber = [[PriceField text]floatValue];
-    
-    [self.currentProduct setPrice:myNumber];
-    [self.currentshop setShopname:[ShopField text]];
-    longsaved=[[LongTextfield text]floatValue];
-    latsaved=[[LatTextField text]floatValue];
-    [self.currentProduct setDate:[NSDate date]];
-    [self.currentshop setLatcoordinate:latsaved ];
-    [self.currentshop setLongcoordinate:longsaved];
-    [self.currentProduct setDim_size:[DimensionsField text]];
-    [self.currentProduct setEmail:[EmailField text]];
-    [self.currentProduct setWebsiteurl:[WebsiteField text]];
-    [self.currentProduct setComments:[commentsView text]];
-    NSDecimalNumber *decimal = [NSDecimalNumber decimalNumberWithString:[PhoneField text]];
-    [self.currentProduct setPhone:decimal];
-    
-    
-    
-    
-    [self.currentProduct setCategoryname:[cataloguenamefield text]];
-    [self.currentProduct setRating:ratingslider.value];
-    if (imageField.image)
-    {
-        // Resize and save a smaller version for the table
-        float resize = 420;
-        float actualWidth = imageField.image.size.width;
-        float actualHeight = imageField.image.size.height;
-        float divBy, newWidth, newHeight;
-        if (actualWidth > actualHeight) {
-            divBy = (actualWidth / resize);
-            newWidth = resize;
-            newHeight = (actualHeight / divBy);
-        } else {
-            divBy = (actualHeight / resize);
-            newWidth = (actualWidth / divBy);
-            newHeight = resize;
-        }
-        //CGRect rect = CGRectMake(0.0, 0.0, newWidth, newHeight);
-        CGRect rect = CGRectMake(0.0, 0.0, actualWidth, actualHeight);
-        UIGraphicsBeginImageContext(rect.size);
-        [imageField.image drawInRect:rect];
-        UIImage *smallImage = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        
-        // Save the small image version
-        NSData *smallImageData = UIImageJPEGRepresentation(smallImage, 1.0);
-        [self.currentProduct setImage:smallImageData];
-    }
-    [self.currentshop setShopdetails:self.currentProduct];
-    [self.currentProduct setShop:self.currentshop];
-    
-    //  Commit item to core data
-    NSError *error;
-    if (![self.managedObjectContext save:&error])
-        NSLog(@"Failed to add new picture with error: %@", [error domain]);
-    else{
-        //NSLog(@"The New Item is :%@",self.currentProduct);
-        //NSLog(@"The New shop Item is %@ ",self.currentshop);
-        [spinner startAnimating];
-        NSString *Flurry_shopname=self.currentshop.shopname;
-        NSNumber *Flurry_price=[[NSNumber alloc]initWithFloat:self.currentProduct.price];
-        NSString *Flurry_category=self.currentProduct.categoryname;
-        
-        NSMutableDictionary *flurrydicttionary=[[NSMutableDictionary alloc]initWithObjectsAndKeys:Flurry_category,@"Categoryname",Flurry_shopname,@"shopname",Flurry_price,@"Price", nil];
-        [Flurry logEvent:@"Catalogue" withParameters:flurrydicttionary timed:YES];
-        /*
-         //The Part where the USer should Rate the Application 
-        NSUserDefaults *userdefaults =[NSUserDefaults standardUserDefaults];
-        if (![userdefaults boolForKey:KRated]) {
-            UIAlertView *ratemeplease=[[UIAlertView alloc]initWithTitle:@"Rate me Please " message:@"If you like our App , Please Rate our App in the App Store " delegate:self cancelButtonTitle:@"Later" otherButtonTitles:@"Rate it", nil];
-            [ratemeplease show];
-            
-            
-        }
-
-         */
-        
-        
-    }
-    
-    
-    
-    //  Automatically pop to previous view now we're done adding
-    [self.navigationController popViewControllerAnimated:YES];
-        UIAlertView *sendtoshoplog=[[UIAlertView alloc]initWithTitle:@"Send to Shoplog" message:@"If you wish to delegate Shoplog to inform the store that you are interested in this product , Please Fill all Entries & Send Again to SHOPLOG" delegate:self cancelButtonTitle:@"NO Thanks!" otherButtonTitles:@"YES, Please!", nil];
-        [sendtoshoplog show];
     }else{
-        UIAlertView *nocatname=[[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Missingcategory", nil) message:NSLocalizedString(@"Fillthecategory", nil) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [nocatname show];
-
-    
-    
+        UIAlertController *alertcontroller = [UIAlertController alertControllerWithTitle:@"" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+        [alertcontroller addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil]];
+        [self presentViewController:alertcontroller animated:YES completion:nil];
     }
-    
 }
 
 -(void)preparetheitemtosave{
@@ -699,9 +580,9 @@
 
  
  
-- (IBAction)save:(UIStoryboardSegue *)segue
-{
+- (IBAction)save:(UIStoryboardSegue *)segue{
 }
+
 #pragma The Text Fieled Adjustments Part 
 -(void)keyboardDidshow:(NSNotification*)notification{
     if (_keyboardisShown) return;
@@ -718,11 +599,8 @@
     viewframe.size.height-=Keyboardrect.size.height;
     self.tableView.frame=viewframe;
     //scroll to the Current Field
-    
-    
-
-
 }
+
 -(IBAction)keyboardisalive:(id)sender{
     CGRect textfieldalive=[sender frame];
     NSLog(@"The Rectangle are %f",textfieldalive.size.height);
