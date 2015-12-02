@@ -49,6 +49,8 @@
     if (dTranferObje.defcatqr == nil){
         
     }else{
+        self.LatTextField.text = [NSString stringWithFormat:@"%f",dTranferObje.deflat];
+        self.LongTextfield.text = [NSString stringWithFormat:@"%f",dTranferObje.deflong];
         self.WebsiteField.text = dTranferObje.defwebsiteurl;
         self.ShopField.text = dTranferObje.defshopname;
         self.PhoneField.text = [NSString stringWithFormat:@"%@", dTranferObje.defphone];

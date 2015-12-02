@@ -126,6 +126,8 @@
             dTranferObje.defphone = strings[5];
             dTranferObje.defshopname = strings[4];
             dTranferObje.defwebsiteurl = strings[7];
+            dTranferObje.deflat = [strings[8] doubleValue];
+            dTranferObje.deflong = [strings[9] doubleValue];
             [dataTransferMArray addObject:dTranferObje];
             
             // If the audio player is not nil, then play the sound effect.
