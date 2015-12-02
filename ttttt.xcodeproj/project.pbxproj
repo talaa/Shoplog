@@ -171,6 +171,7 @@
 		F5FD6A641C0F02C20054C7D2 /* Shoplog.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FD6A5D1C0F02C20054C7D2 /* Shoplog.m */; };
 		F5FD6A651C0F02C20054C7D2 /* TempData.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FD6A5F1C0F02C20054C7D2 /* TempData.m */; };
 		F5FD6A661C0F02C20054C7D2 /* ttttt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F5FD6A601C0F02C20054C7D2 /* ttttt.xcdatamodeld */; };
+		F5FD6A8A1C0F14480054C7D2 /* DataParsing.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FD6A891C0F14480054C7D2 /* DataParsing.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -421,6 +422,8 @@
 		F5FD6A5F1C0F02C20054C7D2 /* TempData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TempData.m; sourceTree = "<group>"; };
 		F5FD6A611C0F02C20054C7D2 /* ttttt 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ttttt 2.xcdatamodel"; sourceTree = "<group>"; };
 		F5FD6A621C0F02C20054C7D2 /* ttttt.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ttttt.xcdatamodel; sourceTree = "<group>"; };
+		F5FD6A881C0F14480054C7D2 /* DataParsing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataParsing.h; sourceTree = "<group>"; };
+		F5FD6A891C0F14480054C7D2 /* DataParsing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataParsing.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -939,6 +942,7 @@
 		F5D7247C1C0DEA6A00BC2BDF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F5FD6A871C0F14330054C7D2 /* DataParsing */,
 				F5FD6A591C0F02C20054C7D2 /* CoreData */,
 				F5D7247D1C0DEA6A00BC2BDF /* Data Transfer */,
 			);
@@ -966,6 +970,15 @@
 				F5FD6A601C0F02C20054C7D2 /* ttttt.xcdatamodeld */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		F5FD6A871C0F14330054C7D2 /* DataParsing */ = {
+			isa = PBXGroup;
+			children = (
+				F5FD6A881C0F14480054C7D2 /* DataParsing.h */,
+				F5FD6A891C0F14480054C7D2 /* DataParsing.m */,
+			);
+			path = DataParsing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1221,6 +1234,7 @@
 				6982B51C177076E6007CA1E8 /* STTwitterOAuth.m in Sources */,
 				6982B51D177076E6007CA1E8 /* STTwitterOAuthOSX.m in Sources */,
 				6982B51E177076E6007CA1E8 /* STHTTPRequest.m in Sources */,
+				F5FD6A8A1C0F14480054C7D2 /* DataParsing.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

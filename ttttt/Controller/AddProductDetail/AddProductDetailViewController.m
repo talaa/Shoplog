@@ -9,6 +9,9 @@
 #import "AddProductDetailViewController.h"
 #import "TestViewController.h"
 #import "DataTransferObject.h"
+#import "DataParsing.h"
+#import "AppDelegate.h"
+
 @interface AddProductDetailViewController ()
 
 @end
@@ -356,8 +359,13 @@
  */
 - (void)saveProductOnCoreData {
     // Create Managed Object
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"ShopLog" inManagedObjectContext:self.managedObjectContext];
-    NSManagedObject *newShopLog = [[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:self.managedObjectContext];
+    AppDelegate *app= (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [app managedObjectContext];
+    NSError *error;
+    Shoplog *newShopLog = [NSEntityDescription
+                        insertNewObjectForEntityForName:@"Shoplog"
+                        inManagedObjectContext:context];
+
     
     DataTransferObject *dTranferObje = [DataTransferObject getInstance];
     
@@ -369,11 +377,40 @@
     [newShopLog setValue:[NSDate date] forKey:@"date"];
     [newShopLog setValue:dTranferObje.defemail forKey:@"email"];
     [newShopLog setValue:imageData forKey:@"image"];
-    [newShopLog setValue: forKey:@"phone"];
-    [newShopLog setValue:@"Jacobs" forKey:@"price"];
-    [newShopLog setValue:@"Jacobs" forKey:@"rating"];
-    [newShopLog setValue:@"Jacobs" forKey:@"websiteurl"];
-    [newShopLog setValue:@"Jacobs" forKey:@"dim_size"];
+    [newShopLog setValue:[NSDecimalNumber decimalNumberWithString:dTranferObje.defphone] forKey:@"phone"];
+    [newShopLog setValue:[NSNumber numberWithFloat:dTranferObje.defprice] forKey:@"price"];
+    [newShopLog setValue:[NSNumber numberWithFloat:ratingslider.value] forKey:@"rating"];
+    [newShopLog setValue:dTranferObje.defwebsiteurl forKey:@"websiteurl"];
+    [newShopLog setValue:dTranferObje.defdimsize forKey:@"dim_size"];
+    
+    //Create Shop Core Data
+    // Create Address
+    Shop *newShop = [NSEntityDescription
+                           insertNewObjectForEntityForName:@"Shop"
+                           inManagedObjectContext:context];
+    
+    // Set First and Last Name
+    [newShop setValue:dTranferObje.defshopname forKey:@"shopname"];
+    [newShop setValue:[NSNumber numberWithDouble: dTranferObje.deflong] forKey:@"longcoordinate"];
+    [newShop setValue:[NSNumber numberWithDouble: dTranferObje.deflat] forKey:@"latcoordinate"];
+    
+    NSError *errorRelation = nil;
+    
+    newShopLog.shop = newShop;
+    //[newShopLog setValue:[NSSet setWithObject:newShop] forKey:@"shop"];
+     
+    if (![newShopLog.managedObjectContext save:&errorRelation]) {
+        NSLog(@"Unable to save managed object context.");
+        NSLog(@"%@, %@", error, error.localizedDescription);
+    }else{
+        NSLog(@"Save object");
+    }
+    
+    NSLog(@"fetch %@", newShopLog);
+    NSLog(@"fetch shop %@", newShop);
+    
+    //Flush DataTansfer Public Object
+    [DataParsing dataTransferObjectDeAllocat];
     
 }
 
