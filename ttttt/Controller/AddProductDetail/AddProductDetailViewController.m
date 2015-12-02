@@ -12,6 +12,7 @@
 #import "DataParsing.h"
 #import "AppDelegate.h"
 
+
 @interface AddProductDetailViewController ()
 
 @end
