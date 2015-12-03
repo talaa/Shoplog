@@ -22,8 +22,16 @@
         <attribute name="websiteurl" optional="YES" attributeType="String" defaultValueString="http://www.google.com" syncable="YES"/>
         <relationship name="shop" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Shop" inverseName="shopdetails" inverseEntity="Shop" syncable="YES"/>
     </entity>
+    <entity name="User" representedClassName="User" syncable="YES">
+        <attribute name="bdate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
         <element name="Shop" positionX="-6183" positionY="-3636" width="128" height="105"/>
         <element name="Shoplog" positionX="-6381" positionY="-3654" width="128" height="255"/>
+        <element name="User" positionX="-6282" positionY="-3537" width="128" height="120"/>
     </elements>
 </model>

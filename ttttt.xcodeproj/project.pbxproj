@@ -161,8 +161,16 @@
 		69FD714F165956D3001919DD /* GoogleShoppingSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FD714E165956D3001919DD /* GoogleShoppingSearch.m */; };
 		69FD7152165956E9001919DD /* YahoobuySearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FD7151165956E9001919DD /* YahoobuySearch.m */; };
 		77DF9CFB8F004A16AC6AEF64 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E0A4B3C70E374774A6BB7206 /* libPods.a */; };
-		F5CD0CAE1C103FD300BBD508 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CD0CAD1C103FD300BBD508 /* SignupViewController.m */; };
+		F5114CB41C105EA2009D677C /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5114CB31C105EA2009D677C /* SignUpViewController.m */; };
+		F5114CBF1C10644E009D677C /* FlatDatePicker-Icon-Check.png in Resources */ = {isa = PBXBuildFile; fileRef = F5114CB91C10644E009D677C /* FlatDatePicker-Icon-Check.png */; };
+		F5114CC01C10644E009D677C /* FlatDatePicker-Icon-Check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5114CBA1C10644E009D677C /* FlatDatePicker-Icon-Check@2x.png */; };
+		F5114CC11C10644E009D677C /* FlatDatePicker-Icon-Close.png in Resources */ = {isa = PBXBuildFile; fileRef = F5114CBB1C10644E009D677C /* FlatDatePicker-Icon-Close.png */; };
+		F5114CC21C10644E009D677C /* FlatDatePicker-Icon-Close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5114CBC1C10644E009D677C /* FlatDatePicker-Icon-Close@2x.png */; };
+		F5114CC31C10644E009D677C /* FlatDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = F5114CBE1C10644E009D677C /* FlatDatePicker.m */; };
+		F5114CC71C10673C009D677C /* UserObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F5114CC61C10673C009D677C /* UserObject.m */; };
 		F5CD0CB21C10406700BBD508 /* SigninViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CD0CB11C10406700BBD508 /* SigninViewController.m */; };
+		F5CD0CB71C10453700BBD508 /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CD0CB41C10453700BBD508 /* User+CoreDataProperties.m */; };
+		F5CD0CB81C10453700BBD508 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CD0CB61C10453700BBD508 /* User.m */; };
 		F5D724671C0DA12800BC2BDF /* DataTransfer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D724621C0DA12800BC2BDF /* DataTransfer.m */; };
 		F5D724691C0DA12800BC2BDF /* QRcodereaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D724661C0DA12800BC2BDF /* QRcodereaderViewController.m */; };
 		F5D7247B1C0DEA2B00BC2BDF /* AddProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D7247A1C0DEA2B00BC2BDF /* AddProductDetailViewController.m */; };
@@ -402,10 +410,22 @@
 		69FD7151165956E9001919DD /* YahoobuySearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YahoobuySearch.m; sourceTree = "<group>"; };
 		BA747E259C681B99DD342770 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E0A4B3C70E374774A6BB7206 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		F5CD0CAC1C103FD300BBD508 /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
-		F5CD0CAD1C103FD300BBD508 /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
+		F5114CB21C105EA2009D677C /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		F5114CB31C105EA2009D677C /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		F5114CB91C10644E009D677C /* FlatDatePicker-Icon-Check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FlatDatePicker-Icon-Check.png"; sourceTree = "<group>"; };
+		F5114CBA1C10644E009D677C /* FlatDatePicker-Icon-Check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FlatDatePicker-Icon-Check@2x.png"; sourceTree = "<group>"; };
+		F5114CBB1C10644E009D677C /* FlatDatePicker-Icon-Close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FlatDatePicker-Icon-Close.png"; sourceTree = "<group>"; };
+		F5114CBC1C10644E009D677C /* FlatDatePicker-Icon-Close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FlatDatePicker-Icon-Close@2x.png"; sourceTree = "<group>"; };
+		F5114CBD1C10644E009D677C /* FlatDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlatDatePicker.h; sourceTree = "<group>"; };
+		F5114CBE1C10644E009D677C /* FlatDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlatDatePicker.m; sourceTree = "<group>"; };
+		F5114CC51C10673C009D677C /* UserObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserObject.h; sourceTree = "<group>"; };
+		F5114CC61C10673C009D677C /* UserObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserObject.m; sourceTree = "<group>"; };
 		F5CD0CB01C10406700BBD508 /* SigninViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SigninViewController.h; sourceTree = "<group>"; };
 		F5CD0CB11C10406700BBD508 /* SigninViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SigninViewController.m; sourceTree = "<group>"; };
+		F5CD0CB31C10453700BBD508 /* User+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "User+CoreDataProperties.h"; sourceTree = "<group>"; };
+		F5CD0CB41C10453700BBD508 /* User+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "User+CoreDataProperties.m"; sourceTree = "<group>"; };
+		F5CD0CB51C10453700BBD508 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		F5CD0CB61C10453700BBD508 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		F5D724611C0DA12800BC2BDF /* DataTransfer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataTransfer.h; sourceTree = "<group>"; };
 		F5D724621C0DA12800BC2BDF /* DataTransfer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataTransfer.m; sourceTree = "<group>"; };
 		F5D724651C0DA12800BC2BDF /* QRcodereaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRcodereaderViewController.h; sourceTree = "<group>"; };
@@ -855,6 +875,7 @@
 		69F625791606364800004196 /* ttttt */ = {
 			isa = PBXGroup;
 			children = (
+				F5114CB51C1063CF009D677C /* Resources */,
 				F5D7247C1C0DEA6A00BC2BDF /* Model */,
 				F5D7245F1C0DA12800BC2BDF /* Controller */,
 				69ECA95B1712186A00347A6C /* Mosaic Classes */,
@@ -906,11 +927,57 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		F5114CB51C1063CF009D677C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F5114CB61C1063CF009D677C /* Library */,
+				F5114CB71C1063CF009D677C /* SDK */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F5114CB61C1063CF009D677C /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				F5114CB81C10644E009D677C /* FlatDatePicker */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		F5114CB71C1063CF009D677C /* SDK */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SDK;
+			sourceTree = "<group>";
+		};
+		F5114CB81C10644E009D677C /* FlatDatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				F5114CB91C10644E009D677C /* FlatDatePicker-Icon-Check.png */,
+				F5114CBA1C10644E009D677C /* FlatDatePicker-Icon-Check@2x.png */,
+				F5114CBB1C10644E009D677C /* FlatDatePicker-Icon-Close.png */,
+				F5114CBC1C10644E009D677C /* FlatDatePicker-Icon-Close@2x.png */,
+				F5114CBD1C10644E009D677C /* FlatDatePicker.h */,
+				F5114CBE1C10644E009D677C /* FlatDatePicker.m */,
+			);
+			path = FlatDatePicker;
+			sourceTree = "<group>";
+		};
+		F5114CC41C10666F009D677C /* UserObject */ = {
+			isa = PBXGroup;
+			children = (
+				F5114CC51C10673C009D677C /* UserObject.h */,
+				F5114CC61C10673C009D677C /* UserObject.m */,
+			);
+			path = UserObject;
+			sourceTree = "<group>";
+		};
 		F5CD0CAB1C103FD300BBD508 /* SingUp */ = {
 			isa = PBXGroup;
 			children = (
-				F5CD0CAC1C103FD300BBD508 /* SignupViewController.h */,
-				F5CD0CAD1C103FD300BBD508 /* SignupViewController.m */,
+				F5114CB21C105EA2009D677C /* SignUpViewController.h */,
+				F5114CB31C105EA2009D677C /* SignUpViewController.m */,
 			);
 			path = SingUp;
 			sourceTree = "<group>";
@@ -958,6 +1025,7 @@
 		F5D7247C1C0DEA6A00BC2BDF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F5114CC41C10666F009D677C /* UserObject */,
 				F5FD6A871C0F14330054C7D2 /* DataParsing */,
 				F5FD6A591C0F02C20054C7D2 /* CoreData */,
 				F5D7247D1C0DEA6A00BC2BDF /* Data Transfer */,
@@ -977,6 +1045,10 @@
 		F5FD6A591C0F02C20054C7D2 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				F5CD0CB31C10453700BBD508 /* User+CoreDataProperties.h */,
+				F5CD0CB41C10453700BBD508 /* User+CoreDataProperties.m */,
+				F5CD0CB51C10453700BBD508 /* User.h */,
+				F5CD0CB61C10453700BBD508 /* User.m */,
 				F5FD6A5A1C0F02C20054C7D2 /* Shop.h */,
 				F5FD6A5B1C0F02C20054C7D2 /* Shop.m */,
 				F5FD6A5C1C0F02C20054C7D2 /* Shoplog.h */,
@@ -1087,8 +1159,10 @@
 				691A8BE4165EEE5900DDF2A8 /* Phone1.png in Resources */,
 				691A8BE6165EEF0E00DDF2A8 /* Email1.png in Resources */,
 				697506C7165F504F0042BCFA /* headerviewimage.png in Resources */,
+				F5114CC11C10644E009D677C /* FlatDatePicker-Icon-Close.png in Resources */,
 				6914CF9E183D4ED100DF9909 /* MyIcon_120.png in Resources */,
 				6963FA75166503ED006C3AE9 /* shopping_girl_01_vector_156382.jpg in Resources */,
+				F5114CC21C10644E009D677C /* FlatDatePicker-Icon-Close@2x.png in Resources */,
 				69C87D8816681D7F00656E9A /* backend.png in Resources */,
 				69C87D8E1668FD3E00656E9A /* MyIcon.png in Resources */,
 				69C87D931668FFE300656E9A /* MyIcon copy_57.png in Resources */,
@@ -1106,6 +1180,7 @@
 				6942DF2916A1A58D00C920C3 /* icon_post.png in Resources */,
 				6942DF2B16A1A5E800C920C3 /* icon_shopping_bag.png in Resources */,
 				6942DF2D16A1A83800C920C3 /* Headerview.png in Resources */,
+				F5114CC01C10644E009D677C /* FlatDatePicker-Icon-Check@2x.png in Resources */,
 				69A13F2C16A60DC300765801 /* icon_star.png in Resources */,
 				69A13F2F16A6230C00765801 /* icon_circle_arrow_right.png in Resources */,
 				69205C0C16B336D100762138 /* web-elements2.png in Resources */,
@@ -1113,6 +1188,7 @@
 				699CD7251BCAC72300BDF592 /* StartApp.bundle in Resources */,
 				692076DA170C430B00F2661C /* icon_magnify_glass.png in Resources */,
 				692076DC170C459700F2661C /* blue-ribbon-banner-2.png in Resources */,
+				F5114CBF1C10644E009D677C /* FlatDatePicker-Icon-Check.png in Resources */,
 				6933862A1BA5ECF400E5069F /* CountryPicker.podspec.json in Resources */,
 				698BBDD7171C9DD9002E3344 /* SampleHeaderImage.png in Resources */,
 				690C2534171DC40D00139FDA /* Heart1.png in Resources */,
@@ -1206,8 +1282,10 @@
 				69667C0F164891DD003FC921 /* MyAnotation.m in Sources */,
 				6930253A16495C31003E63D7 /* WebViewController.m in Sources */,
 				693025451649CA2E003E63D7 /* Fancysearch.m in Sources */,
+				F5114CB41C105EA2009D677C /* SignUpViewController.m in Sources */,
 				692FAE24164AA5C2006A1AF0 /* EBaySearch.m in Sources */,
 				692FAE27164AA7FF006A1AF0 /* Amazonsearch.m in Sources */,
+				F5CD0CB81C10453700BBD508 /* User.m in Sources */,
 				69FD71491659562A001919DD /* Rakutensearch.m in Sources */,
 				69FD714C165956B0001919DD /* Taobaosearch.m in Sources */,
 				69FD714F165956D3001919DD /* GoogleShoppingSearch.m in Sources */,
@@ -1224,22 +1302,24 @@
 				F5FD6A641C0F02C20054C7D2 /* Shoplog.m in Sources */,
 				69ECA98517121AFB00347A6C /* AFImageRequestOperation.m in Sources */,
 				F5FD6A661C0F02C20054C7D2 /* ttttt.xcdatamodeld in Sources */,
+				F5114CC71C10673C009D677C /* UserObject.m in Sources */,
 				69ECA98617121AFB00347A6C /* AFJSONRequestOperation.m in Sources */,
 				69ECA98717121AFB00347A6C /* AFNetworkActivityIndicatorManager.m in Sources */,
 				F5D724691C0DA12800BC2BDF /* QRcodereaderViewController.m in Sources */,
 				69ECA98817121AFB00347A6C /* AFPropertyListRequestOperation.m in Sources */,
 				69ECA98917121AFB00347A6C /* AFURLConnectionOperation.m in Sources */,
 				69ECA98A17121AFB00347A6C /* AFXMLRequestOperation.m in Sources */,
+				F5114CC31C10644E009D677C /* FlatDatePicker.m in Sources */,
 				69ECA98B17121AFB00347A6C /* UIImageView+AFNetworking.m in Sources */,
 				69861EC117160F07006BDFAC /* WebdetailViewController.m in Sources */,
 				F5D724671C0DA12800BC2BDF /* DataTransfer.m in Sources */,
 				690C2588171E02EB00139FDA /* nexttagsearch.m in Sources */,
-				F5CD0CAE1C103FD300BBD508 /* SignupViewController.m in Sources */,
 				690C258D171E088500139FDA /* pricegrabbersearch.m in Sources */,
 				690C2590171E0A0400139FDA /* Shoppingcom.m in Sources */,
 				690C2593171E0CE300139FDA /* Shopzila.m in Sources */,
 				697847B3174B89DD00E38120 /* ShoplogactivityViewController.m in Sources */,
 				697DE636174D14840008D996 /* UpgradeViewController.m in Sources */,
+				F5CD0CB71C10453700BBD508 /* User+CoreDataProperties.m in Sources */,
 				697DE639174D14E40008D996 /* TPKeyboardAvoidingTableView.m in Sources */,
 				F5FD6A651C0F02C20054C7D2 /* TempData.m in Sources */,
 				6982B518177076E6007CA1E8 /* NSString+STTwitter.m in Sources */,
