@@ -25,6 +25,12 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
     self.countryPicker.hidden = YES;
+    
+    //Profile Image Layout
+    self.profileImageView.layer.borderColor = [UIColor grayColor].CGColor;
+    self.profileImageView.layer.borderWidth = 1.5f;
+    self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width/2;
+    self.profileImageView.layer.masksToBounds = YES;
 }
 
 

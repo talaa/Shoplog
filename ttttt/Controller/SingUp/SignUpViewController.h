@@ -12,6 +12,7 @@
 
 @interface SignUpViewController : UIViewController <UITextFieldDelegate,FlatDatePickerDelegate,CountryPickerDelegate>
 
+@property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UIButton *profileImageView;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextFiled;
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
