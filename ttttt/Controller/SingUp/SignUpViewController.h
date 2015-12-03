@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet CountryPicker *countryPicker;
 
 @property (nonatomic, copy) NSString *selectedCountryName;
+@property (nonatomic, strong) NSString *userGender;
 
 - (IBAction)takePhotoPressed:(id)sender;
 - (IBAction)gallaryPhotoPressed:(id)sender;
