@@ -53,7 +53,6 @@
 		693386281BA5ECF400E5069F /* CountryPicker.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 693386111BA5ECF400E5069F /* CountryPicker.bundle */; };
 		693386291BA5ECF400E5069F /* CountryPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 693386131BA5ECF400E5069F /* CountryPicker.m */; };
 		6933862A1BA5ECF400E5069F /* CountryPicker.podspec.json in Resources */ = {isa = PBXBuildFile; fileRef = 693386141BA5ECF400E5069F /* CountryPicker.podspec.json */; };
-		6933863A1BA5EFDE00E5069F /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 693386391BA5EFDE00E5069F /* SignupViewController.m */; };
 		693C5CD8169DD425008DA75C /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 693C5CD7169DD425008DA75C /* Accounts.framework */; };
 		693FBA5816091E9700EA2136 /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 693FBA5716091E9700EA2136 /* HeaderView.m */; };
 		6942DF2916A1A58D00C920C3 /* icon_post.png in Resources */ = {isa = PBXBuildFile; fileRef = 6942DF2816A1A58D00C920C3 /* icon_post.png */; };
@@ -65,7 +64,6 @@
 		6957FEF016472D4500290403 /* SliderValueViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6957FEED16472D4500290403 /* SliderValueViewController.xib */; };
 		6957FEF41647357E00290403 /* PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6957FEF31647357E00290403 /* PopoverView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		695B194519EB3D570056DDE2 /* backimage.png in Resources */ = {isa = PBXBuildFile; fileRef = 695B194419EB3D570056DDE2 /* backimage.png */; };
-		695B194819EB466C0056DDE2 /* SigninViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 695B194719EB466C0056DDE2 /* SigninViewController.m */; };
 		695B195119EB50470056DDE2 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 695B195019EB50470056DDE2 /* CFNetwork.framework */; };
 		695B195319EB507F0056DDE2 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 695B195219EB507F0056DDE2 /* MobileCoreServices.framework */; };
 		6963FA75166503ED006C3AE9 /* shopping_girl_01_vector_156382.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6963FA74166503ED006C3AE9 /* shopping_girl_01_vector_156382.jpg */; };
@@ -163,6 +161,8 @@
 		69FD714F165956D3001919DD /* GoogleShoppingSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FD714E165956D3001919DD /* GoogleShoppingSearch.m */; };
 		69FD7152165956E9001919DD /* YahoobuySearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FD7151165956E9001919DD /* YahoobuySearch.m */; };
 		77DF9CFB8F004A16AC6AEF64 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E0A4B3C70E374774A6BB7206 /* libPods.a */; };
+		F5CD0CAE1C103FD300BBD508 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CD0CAD1C103FD300BBD508 /* SignupViewController.m */; };
+		F5CD0CB21C10406700BBD508 /* SigninViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CD0CB11C10406700BBD508 /* SigninViewController.m */; };
 		F5D724671C0DA12800BC2BDF /* DataTransfer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D724621C0DA12800BC2BDF /* DataTransfer.m */; };
 		F5D724691C0DA12800BC2BDF /* QRcodereaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D724661C0DA12800BC2BDF /* QRcodereaderViewController.m */; };
 		F5D7247B1C0DEA2B00BC2BDF /* AddProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D7247A1C0DEA2B00BC2BDF /* AddProductDetailViewController.m */; };
@@ -244,8 +244,6 @@
 		693386121BA5ECF400E5069F /* CountryPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountryPicker.h; sourceTree = "<group>"; };
 		693386131BA5ECF400E5069F /* CountryPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountryPicker.m; sourceTree = "<group>"; };
 		693386141BA5ECF400E5069F /* CountryPicker.podspec.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CountryPicker.podspec.json; sourceTree = "<group>"; };
-		693386381BA5EFDE00E5069F /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
-		693386391BA5EFDE00E5069F /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 		693C5CD7169DD425008DA75C /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		693FBA5616091E9700EA2136 /* HeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderView.h; sourceTree = "<group>"; };
 		693FBA5716091E9700EA2136 /* HeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderView.m; sourceTree = "<group>"; };
@@ -261,8 +259,6 @@
 		6957FEF21647357E00290403 /* PopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverView.h; sourceTree = "<group>"; };
 		6957FEF31647357E00290403 /* PopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverView.m; sourceTree = "<group>"; };
 		695B194419EB3D570056DDE2 /* backimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backimage.png; sourceTree = "<group>"; };
-		695B194619EB466C0056DDE2 /* SigninViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SigninViewController.h; sourceTree = "<group>"; };
-		695B194719EB466C0056DDE2 /* SigninViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SigninViewController.m; sourceTree = "<group>"; };
 		695B195019EB50470056DDE2 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		695B195219EB507F0056DDE2 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		6963FA74166503ED006C3AE9 /* shopping_girl_01_vector_156382.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = shopping_girl_01_vector_156382.jpg; sourceTree = "<group>"; };
@@ -406,6 +402,10 @@
 		69FD7151165956E9001919DD /* YahoobuySearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YahoobuySearch.m; sourceTree = "<group>"; };
 		BA747E259C681B99DD342770 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E0A4B3C70E374774A6BB7206 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5CD0CAC1C103FD300BBD508 /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
+		F5CD0CAD1C103FD300BBD508 /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
+		F5CD0CB01C10406700BBD508 /* SigninViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SigninViewController.h; sourceTree = "<group>"; };
+		F5CD0CB11C10406700BBD508 /* SigninViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SigninViewController.m; sourceTree = "<group>"; };
 		F5D724611C0DA12800BC2BDF /* DataTransfer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataTransfer.h; sourceTree = "<group>"; };
 		F5D724621C0DA12800BC2BDF /* DataTransfer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataTransfer.m; sourceTree = "<group>"; };
 		F5D724651C0DA12800BC2BDF /* QRcodereaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRcodereaderViewController.h; sourceTree = "<group>"; };
@@ -871,10 +871,6 @@
 				69F6258E1606364900004196 /* MainStoryboard_iPad.storyboard */,
 				69F625991606369400004196 /* TestViewController.h */,
 				69F6259A1606369400004196 /* TestViewController.m */,
-				695B194619EB466C0056DDE2 /* SigninViewController.h */,
-				695B194719EB466C0056DDE2 /* SigninViewController.m */,
-				693386381BA5EFDE00E5069F /* SignupViewController.h */,
-				693386391BA5EFDE00E5069F /* SignupViewController.m */,
 				69F4417119E990B600D7BD6F /* DetailViewController.h */,
 				69F4417219E990B600D7BD6F /* DetailViewController.m */,
 				698337C01618B8C500E2BC9E /* DetailPopViewController.h */,
@@ -910,9 +906,29 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		F5CD0CAB1C103FD300BBD508 /* SingUp */ = {
+			isa = PBXGroup;
+			children = (
+				F5CD0CAC1C103FD300BBD508 /* SignupViewController.h */,
+				F5CD0CAD1C103FD300BBD508 /* SignupViewController.m */,
+			);
+			path = SingUp;
+			sourceTree = "<group>";
+		};
+		F5CD0CAF1C10406700BBD508 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				F5CD0CB01C10406700BBD508 /* SigninViewController.h */,
+				F5CD0CB11C10406700BBD508 /* SigninViewController.m */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
 		F5D7245F1C0DA12800BC2BDF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F5CD0CAF1C10406700BBD508 /* SignIn */,
+				F5CD0CAB1C103FD300BBD508 /* SingUp */,
 				F5D724781C0DEA2B00BC2BDF /* AddProductDetail */,
 				F5D724601C0DA12800BC2BDF /* QRCodeReader */,
 			);
@@ -1180,7 +1196,6 @@
 				69F4417319E990B600D7BD6F /* DetailViewController.m in Sources */,
 				69DAE201162624A8008802E4 /* UIPopover+Iphone.m in Sources */,
 				69D86308162CA46100BB78E1 /* CreateShoplogTagImage.m in Sources */,
-				6933863A1BA5EFDE00E5069F /* SignupViewController.m in Sources */,
 				6900BC7016343B6C0028400D /* Shoplogactivity.m in Sources */,
 				69C53A341643E14800FE2CB3 /* ExtendedManagedObject.m in Sources */,
 				6957FEEE16472D4500290403 /* ELCSlider.m in Sources */,
@@ -1203,6 +1218,7 @@
 				69ECA96C1712186A00347A6C /* MosaicData.m in Sources */,
 				69ECA96D1712186A00347A6C /* CustomDataSource.m in Sources */,
 				69ECA96E1712186A00347A6C /* MosaicCell.m in Sources */,
+				F5CD0CB21C10406700BBD508 /* SigninViewController.m in Sources */,
 				69ECA98317121AFB00347A6C /* AFHTTPClient.m in Sources */,
 				69ECA98417121AFB00347A6C /* AFHTTPRequestOperation.m in Sources */,
 				F5FD6A641C0F02C20054C7D2 /* Shoplog.m in Sources */,
@@ -1218,6 +1234,7 @@
 				69861EC117160F07006BDFAC /* WebdetailViewController.m in Sources */,
 				F5D724671C0DA12800BC2BDF /* DataTransfer.m in Sources */,
 				690C2588171E02EB00139FDA /* nexttagsearch.m in Sources */,
+				F5CD0CAE1C103FD300BBD508 /* SignupViewController.m in Sources */,
 				690C258D171E088500139FDA /* pricegrabbersearch.m in Sources */,
 				690C2590171E0A0400139FDA /* Shoppingcom.m in Sources */,
 				690C2593171E0CE300139FDA /* Shopzila.m in Sources */,
@@ -1228,7 +1245,6 @@
 				6982B518177076E6007CA1E8 /* NSString+STTwitter.m in Sources */,
 				693386291BA5ECF400E5069F /* CountryPicker.m in Sources */,
 				6982B519177076E6007CA1E8 /* STTwitterAPIWrapper.m in Sources */,
-				695B194819EB466C0056DDE2 /* SigninViewController.m in Sources */,
 				6982B51A177076E6007CA1E8 /* STTwitterAppOnly.m in Sources */,
 				6982B51B177076E6007CA1E8 /* STTwitterHTML.m in Sources */,
 				6982B51C177076E6007CA1E8 /* STTwitterOAuth.m in Sources */,
