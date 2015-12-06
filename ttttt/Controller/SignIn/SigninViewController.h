@@ -14,8 +14,21 @@
 
 
 @interface SigninViewController : UIViewController
-@property (nonatomic,strong)IBOutlet UIButton *Signupbutton;
-@property (weak, nonatomic) IBOutlet UIView *currentUserView;
-@property (weak, nonatomic) IBOutlet UIView *newUserView;
 
+@property (weak, nonatomic) IBOutlet UIView *currentUserView;
+@property (weak, nonatomic) IBOutlet UIView *newuserView;
+@property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *emailLabel;
+@property (weak, nonatomic) IBOutlet UILabel *countryLabel;
+@property (weak, nonatomic) IBOutlet UIButton *editButton;
+@property (weak, nonatomic) IBOutlet UIButton *logoutButton;
+@property (weak, nonatomic) IBOutlet UIButton *signupButton;
+
+- (IBAction)loginPressed:(id)sender;
+- (IBAction)editPressed:(id)sender;
+- (IBAction)logoutPressed:(id)sender;
+- (IBAction)signupPressed:(id)sender;
+- (IBAction)forgotPasswordPressed:(id)sender;
 @end
