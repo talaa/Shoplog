@@ -15,5 +15,7 @@
 
 @interface SigninViewController : UIViewController
 @property (nonatomic,strong)IBOutlet UIButton *Signupbutton;
+@property (weak, nonatomic) IBOutlet UIView *currentUserView;
+@property (weak, nonatomic) IBOutlet UIView *newUserView;
 
 @end
