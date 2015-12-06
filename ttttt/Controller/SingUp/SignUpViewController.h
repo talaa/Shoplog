@@ -28,6 +28,8 @@
 
 @property (nonatomic, copy) NSString *selectedCountryName;
 @property (nonatomic, strong) NSString *userGender;
+@property (nonatomic) BOOL emailIsTrue;
+@property (strong, nonatomic) NSString *password;
 
 - (IBAction)takePhotoPressed:(id)sender;
 - (IBAction)gallaryPhotoPressed:(id)sender;

@@ -7,6 +7,7 @@
 //
 
 #import "SignUpViewController.h"
+#import <Parse/Parse.h>
 
 @implementation SignUpViewController
 
@@ -14,6 +15,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.emailIsTrue = NO;
     
     //Init BirthDate
     self.flatDatePicker = [[FlatDatePicker alloc] initWithParentView:self.view];
@@ -111,12 +114,112 @@
             self.userGender = @"Female";
             break;
         default:
-            self.userGender = @"Female";
+            self.userGender = @"";
             break; 
     }
 }
 
+/***********************************************/
+#pragma mark - Sumbit Account Methods
+/***********************************************/
+
 - (IBAction)submitPressed:(id)sender {
+    if (self.nameTextFiled.text.length >0 && self.usernameTextField.text.length >0 && self.emailIsTrue == YES && self.countryTextField.text.length >0){
+        [self passwordAndAddAccountAlertController];
+    }else{
+        [self submitFailedAlertController];
+    }
+}
+
+- (void)submitFailedAlertController {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error" message:@"Kindly make sure that you has entered manadorty field and a valid E-mail" preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil]];
+    [self presentViewController:alertController animated:YES completion:nil];
+    
+}
+
+- (void)passwordAndAddAccountAlertController {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Submit" message:@"Kindly type and confirm your password." preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *submit = [UIAlertAction actionWithTitle:@"Sumbit" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //Code
+        UITextField *password       = alertController.textFields.firstObject;
+        UITextField *retypePassword = alertController.textFields.lastObject;
+        if ([password.text isEqualToString:retypePassword.text]){
+            //Same Password
+            //Save New Account
+            self.password = password.text;
+            [self saveNewAccount];
+            
+        }else{
+            //Different Password
+            [self differnetPasswordAlertController];
+        }
+        
+    }];
+    
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField)
+     {
+         textField.placeholder      = @"Password";
+         textField.secureTextEntry  = YES;
+     }];
+    
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField)
+     {
+         textField.placeholder      = @"Retype Password";
+         textField.secureTextEntry  = YES;
+     }];
+    
+    [alertController addAction:submit];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void)saveNewAccount {
+    PFUser *user = [PFUser user];
+    
+    user.username = self.usernameTextField.text;
+    user.email = self.emailTextField.text;
+    user.password = self.password;
+    
+    user[@"country"] = self.countryTextField.text;
+    user[@"name"] = self.nameTextFiled.text;
+    
+    //Save profile pic image if exist
+    if ([self isPicProfileImageViewEmpty] == YES) {
+        //don't save because there is no image is uploaded
+    }else { //user has uploaded an image then save it
+        NSString *userImageName = [self.usernameTextField.text stringByAppendingString:@"_image.png"];
+        NSData *imageData = UIImagePNGRepresentation(self.profileImageView.image);
+        PFFile *imageFile = [PFFile fileWithName:userImageName data:imageData];
+        user[@"image"] = imageFile;
+    }
+    
+    //check Gender
+    if (self.userGender.length >0){
+        user[@"gender"] = self.userGender;
+    }
+    
+    //check bDateTextFiled
+    if (self.bDateTextField.text.length>0){
+        user[@"birthDate"] = self.bDateTextField.text;
+    }
+    
+    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error) {   // Hooray! Let them use the app now.
+        } else {
+            NSString *errorString = [error userInfo][@"error"];
+            // Show the errorString somewhere and let the user try again.
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error" message:errorString preferredStyle:UIAlertControllerStyleAlert];
+            [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDestructive handler:nil]];
+            [self presentViewController:alertController animated:YES completion:nil];
+        }
+    }];
+}
+
+- (void)differnetPasswordAlertController {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error" message:@"Passwords are not the same.Retype same password please!." preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDestructive handler:nil]];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 #pragma mark - FlatDatePicker Delegate
@@ -183,6 +286,7 @@
     [self showEmailActivityIndicatorAndHideEmailImage];
     if ([self validEmail:self.emailTextField.text] == YES){
         [self hideEmailActivityIndicatorShowEmailImage];
+        self.emailIsTrue = YES;
     }
 }
 
@@ -232,4 +336,19 @@
     self.emailActivityIndicator.hidden = YES;
 }
 
+/********************************************/
+#pragma mark - Is Pic Profile Is The Default or User Enter His/Her Pic
+- (bool)isPicProfileImageViewEmpty {
+    //Check if picProfileImageView empty
+    UIImage *picture;
+    picture = [UIImage imageNamed:@"user"];
+    
+    if ([self.profileImageView.image isEqual:picture]){
+        //no image set
+        return YES;
+    }
+    else{
+        return NO;
+    }
+}
 @end
