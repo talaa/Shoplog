@@ -236,8 +236,6 @@
 - (void)getBackToWelcomeView {
     [SVProgressHUD showSuccessWithStatus:@"Your count has been added successfully.Welcome on Shoplog land."];
     [SVProgressHUD dismissWithDelay:2];
-    [SVProgressHUD dealloc];
-    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -252,7 +250,10 @@
     self.emailIsTrue                = NO;
 
 }
+
+/*****************************************/
 #pragma mark - FlatDatePicker Delegate
+/****************************************/
 
 - (void)flatDatePicker:(FlatDatePicker*)datePicker dateDidChange:(NSDate*)date {
 }
