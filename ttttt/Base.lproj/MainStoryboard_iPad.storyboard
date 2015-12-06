@@ -955,18 +955,12 @@
                                 <state key="normal" backgroundImage="facebooklogin">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="Signin:" destination="ZrZ-AU-og5" eventType="touchUpInside" id="Ze8-wv-L3L"/>
-                                </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYA-XZ-mhU">
                                 <rect key="frame" x="160" y="743" width="464" height="60"/>
                                 <state key="normal" backgroundImage="logout_FB">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="logoutButtonAction:" destination="ZrZ-AU-og5" eventType="touchUpInside" id="BJO-of-XRC"/>
-                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shopping_bag" translatesAutoresizingMaskIntoConstraints="NO" id="EmZ-2F-GBE">
                                 <rect key="frame" x="563" y="671" width="182" height="170"/>
@@ -1002,15 +996,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Login" image="user1" id="yFO-tU-y2h"/>
                     <connections>
-                        <outlet property="Signupbutton" destination="KMU-q1-YO1" id="lwe-Vg-qQj"/>
-                        <outlet property="logintbutton" destination="qUg-0I-yHP" id="10C-AK-KNj"/>
-                        <outlet property="logoutbutton" destination="aYA-XZ-mhU" id="kFl-Ob-fNF"/>
-                        <outlet property="shopbagimage" destination="EmZ-2F-GBE" id="Kh4-ob-qnd"/>
-                        <outlet property="shoplogerstatus" destination="i4o-ao-wd6" id="eQF-1x-aHG"/>
-                        <outlet property="userimage" destination="q3H-Rf-Qyc" id="xK0-oG-8Pc"/>
-                        <outlet property="welcomenote" destination="tiq-Lh-Nei" id="zRD-g2-cW8"/>
-                        <outlet property="wishlistcount" destination="u9k-D7-yLC" id="JOd-x2-hHa"/>
-                        <outlet property="wishlistimage" destination="S9F-Gu-uA2" id="ZhN-YT-XRp"/>
+                        <outlet property="signupButton" destination="KMU-q1-YO1" id="1Ys-I4-dmh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IHf-zR-DLT" userLabel="First Responder" sceneMemberID="firstResponder"/>
