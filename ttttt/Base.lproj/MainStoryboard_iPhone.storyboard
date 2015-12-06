@@ -1396,16 +1396,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cpf-v1-adE">
-                                <rect key="frame" x="20" y="169" width="170" height="30"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.10000000000000001" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Ikq-cs-E2f"/>
-                                    <constraint firstAttribute="width" constant="170" id="mJO-Ng-xsU"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zZl-PY-sPh">
                                 <rect key="frame" x="20" y="131" width="170" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.10000000000000001" colorSpace="calibratedWhite"/>
@@ -1415,17 +1405,7 @@
                                     <constraint firstAttribute="height" constant="30" id="RyQ-N3-zTz"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="170" id="mRq-Ox-9bY"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2EU-3s-3de">
-                                <rect key="frame" x="20" y="207" width="170" height="30"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.10000000000000001" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="170" id="G8T-8j-WDx"/>
-                                    <constraint firstAttribute="height" constant="30" id="VX0-pK-4fH"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WG8-hn-EEq">
@@ -1438,16 +1418,6 @@
                                 <connections>
                                     <action selector="closePressed:" destination="Sah-CV-zNu" eventType="touchUpInside" id="8fV-Ht-seX"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YAl-I4-LWV">
-                                <rect key="frame" x="125" y="20" width="70" height="70"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="G2n-65-Ifm"/>
-                                    <constraint firstAttribute="width" constant="70" id="lGy-Qg-cxn"/>
-                                </constraints>
-                                <state key="normal" image="user">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
                             </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GlQ-K4-6Ng" customClass="CountryPicker">
                                 <rect key="frame" x="0.0" y="393" width="320" height="175"/>
@@ -1466,7 +1436,7 @@
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Birth Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Uq-hp-c9b">
                                         <rect key="frame" x="0.0" y="0.0" width="170" height="30"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.10000000000000001" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8bn-TD-ROd">
@@ -1489,7 +1459,7 @@
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Coutry" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JaS-ms-Si6">
                                         <rect key="frame" x="0.0" y="0.0" width="170" height="30"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.10000000000000001" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hEk-ba-8kW">
@@ -1557,6 +1527,45 @@
                                     <constraint firstAttribute="width" constant="70" id="b7I-f2-kph"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="smV-WP-8hF">
+                                <rect key="frame" x="20" y="207" width="240" height="30"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2EU-3s-3de">
+                                        <rect key="frame" x="0.0" y="0.0" width="170" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.10000000000000001" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="zhy-IL-GAH">
+                                        <rect key="frame" x="178" y="5" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon-true" translatesAutoresizingMaskIntoConstraints="NO" id="wuG-hn-3b7">
+                                        <rect key="frame" x="178" y="0.0" width="30" height="30"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="cDd-2j-Mun"/>
+                                    <constraint firstAttribute="width" constant="240" id="iUr-Pt-RIg"/>
+                                </constraints>
+                            </view>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cpf-v1-adE">
+                                <rect key="frame" x="20" y="169" width="170" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.10000000000000001" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Ikq-cs-E2f"/>
+                                    <constraint firstAttribute="width" constant="170" id="mJO-Ng-xsU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="6BQ-DL-3gh">
+                                <rect key="frame" x="125" y="20" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="W8S-St-Gdc"/>
+                                    <constraint firstAttribute="width" constant="70" id="ay7-hQ-uoU"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1567,17 +1576,16 @@
                             <constraint firstItem="cpf-v1-adE" firstAttribute="top" secondItem="zZl-PY-sPh" secondAttribute="bottom" constant="8" symbolic="YES" id="AYo-2v-noU"/>
                             <constraint firstItem="ZIi-4P-ifQ" firstAttribute="top" secondItem="0tR-44-CUo" secondAttribute="bottom" constant="8" id="BeQ-C1-hFd"/>
                             <constraint firstItem="WG8-hn-EEq" firstAttribute="leading" secondItem="veP-Bj-9Op" secondAttribute="leading" constant="20" id="Cpl-dY-lVK"/>
-                            <constraint firstItem="YAl-I4-LWV" firstAttribute="top" secondItem="fRO-ZQ-ZFm" secondAttribute="bottom" id="DJG-zf-VWk"/>
+                            <constraint firstItem="6BQ-DL-3gh" firstAttribute="top" secondItem="fRO-ZQ-ZFm" secondAttribute="bottom" id="DaZ-Xd-uZ3"/>
                             <constraint firstItem="zZl-PY-sPh" firstAttribute="leading" secondItem="0tR-44-CUo" secondAttribute="leading" id="EGV-G9-V2E"/>
                             <constraint firstItem="zZl-PY-sPh" firstAttribute="leading" secondItem="r5c-rM-UVh" secondAttribute="leading" id="EmC-m6-z6n"/>
-                            <constraint firstItem="qGT-nm-o8e" firstAttribute="top" secondItem="YAl-I4-LWV" secondAttribute="bottom" constant="8" id="LnH-KB-2OM"/>
-                            <constraint firstItem="zZl-PY-sPh" firstAttribute="leading" secondItem="2EU-3s-3de" secondAttribute="leading" id="Los-KH-ABa"/>
-                            <constraint firstItem="qGT-nm-o8e" firstAttribute="top" secondItem="YAl-I4-LWV" secondAttribute="bottom" constant="8" id="M6I-Zq-r2C"/>
+                            <constraint firstItem="qGT-nm-o8e" firstAttribute="top" secondItem="6BQ-DL-3gh" secondAttribute="bottom" constant="8" id="Fza-Id-AN1"/>
                             <constraint firstItem="zZl-PY-sPh" firstAttribute="top" secondItem="qGT-nm-o8e" secondAttribute="bottom" constant="8" id="V62-VE-lw0"/>
+                            <constraint firstItem="smV-WP-8hF" firstAttribute="leading" secondItem="veP-Bj-9Op" secondAttribute="leading" constant="20" id="YRx-Wd-DYW"/>
                             <constraint firstItem="0tR-44-CUo" firstAttribute="leading" secondItem="veP-Bj-9Op" secondAttribute="leading" constant="20" id="Yfn-bS-6Cq"/>
+                            <constraint firstItem="6BQ-DL-3gh" firstAttribute="centerX" secondItem="veP-Bj-9Op" secondAttribute="centerX" id="Zdt-HA-BUo"/>
                             <constraint firstItem="qGT-nm-o8e" firstAttribute="centerX" secondItem="veP-Bj-9Op" secondAttribute="centerX" id="ZhG-IN-jki"/>
                             <constraint firstItem="zZl-PY-sPh" firstAttribute="leading" secondItem="cpf-v1-adE" secondAttribute="leading" id="agR-0e-vXP"/>
-                            <constraint firstItem="YAl-I4-LWV" firstAttribute="centerX" secondItem="veP-Bj-9Op" secondAttribute="centerX" id="d1l-cM-Wk3"/>
                             <constraint firstItem="GlQ-K4-6Ng" firstAttribute="top" secondItem="ZIi-4P-ifQ" secondAttribute="bottom" constant="8" id="dBO-Hl-aXC"/>
                             <constraint firstItem="GlQ-K4-6Ng" firstAttribute="top" secondItem="ZIi-4P-ifQ" secondAttribute="bottom" constant="8" id="drP-2c-sxd"/>
                             <constraint firstItem="0tR-44-CUo" firstAttribute="top" secondItem="r5c-rM-UVh" secondAttribute="bottom" constant="8" id="ewn-7G-Yjk"/>
@@ -1586,12 +1594,9 @@
                             <constraint firstAttribute="trailing" secondItem="ZIi-4P-ifQ" secondAttribute="trailing" id="fHJ-4N-tGD"/>
                             <constraint firstItem="r5c-rM-UVh" firstAttribute="leading" secondItem="veP-Bj-9Op" secondAttribute="leading" constant="20" id="mSx-27-se7"/>
                             <constraint firstItem="ZIi-4P-ifQ" firstAttribute="leading" secondItem="veP-Bj-9Op" secondAttribute="leading" id="nct-2B-J8P"/>
-                            <constraint firstItem="zZl-PY-sPh" firstAttribute="trailing" secondItem="2EU-3s-3de" secondAttribute="trailing" id="oZT-o5-HbS"/>
                             <constraint firstAttribute="trailing" secondItem="GlQ-K4-6Ng" secondAttribute="trailing" id="ot7-aY-qyI"/>
-                            <constraint firstItem="2EU-3s-3de" firstAttribute="top" secondItem="cpf-v1-adE" secondAttribute="bottom" constant="8" id="pJv-uu-cMS"/>
                             <constraint firstItem="WDA-Ah-wp3" firstAttribute="top" secondItem="GlQ-K4-6Ng" secondAttribute="bottom" id="qbs-20-RH8"/>
-                            <constraint firstItem="2EU-3s-3de" firstAttribute="leading" secondItem="veP-Bj-9Op" secondAttribute="leading" constant="20" id="rAE-07-DLD"/>
-                            <constraint firstItem="r5c-rM-UVh" firstAttribute="top" secondItem="2EU-3s-3de" secondAttribute="bottom" constant="8" id="t5l-2k-mUS"/>
+                            <constraint firstItem="smV-WP-8hF" firstAttribute="top" secondItem="cpf-v1-adE" secondAttribute="bottom" constant="8" id="tMm-7X-YQ7"/>
                             <constraint firstItem="cpf-v1-adE" firstAttribute="top" secondItem="zZl-PY-sPh" secondAttribute="bottom" constant="8" id="xgi-di-LBb"/>
                             <constraint firstItem="zZl-PY-sPh" firstAttribute="trailing" secondItem="cpf-v1-adE" secondAttribute="trailing" id="yyb-YH-rVg"/>
                         </constraints>
@@ -1601,9 +1606,11 @@
                         <outlet property="closeButton" destination="WG8-hn-EEq" id="tme-yb-gaK"/>
                         <outlet property="countryPicker" destination="GlQ-K4-6Ng" id="J36-UO-E66"/>
                         <outlet property="countryTextField" destination="JaS-ms-Si6" id="niA-xo-UHh"/>
+                        <outlet property="emailActivityIndicator" destination="zhy-IL-GAH" id="Ugf-ts-jzL"/>
                         <outlet property="emailTextField" destination="2EU-3s-3de" id="rZ9-Rp-NKF"/>
+                        <outlet property="emailTrueImageView" destination="wuG-hn-3b7" id="xLD-63-8SB"/>
                         <outlet property="nameTextFiled" destination="cpf-v1-adE" id="Fy3-D4-k7z"/>
-                        <outlet property="profileImageView" destination="YAl-I4-LWV" id="BlJ-ec-lEt"/>
+                        <outlet property="profileImageView" destination="6BQ-DL-3gh" id="yVF-Bh-Mqd"/>
                         <outlet property="usernameTextField" destination="zZl-PY-sPh" id="uIh-ER-4iM"/>
                     </connections>
                 </viewController>
@@ -1707,6 +1714,7 @@
         <image name="icon-camera-128" width="128" height="128"/>
         <image name="icon-close-black" width="25" height="25"/>
         <image name="icon-countries" width="32" height="32"/>
+        <image name="icon-true" width="16" height="16"/>
         <image name="icon_magnify_glass.png" width="30" height="30"/>
         <image name="icon_post.png" width="30" height="30"/>
         <image name="icon_shopping_bag.png" width="30" height="30"/>

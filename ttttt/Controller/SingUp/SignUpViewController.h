@@ -10,15 +10,17 @@
 #import "FlatDatePicker.h"
 #import "CountryPicker.h"
 
-@interface SignUpViewController : UIViewController <UITextFieldDelegate,FlatDatePickerDelegate,CountryPickerDelegate>
+@interface SignUpViewController : UIViewController <UITextFieldDelegate,FlatDatePickerDelegate,CountryPickerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
-@property (weak, nonatomic) IBOutlet UIButton *profileImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextFiled;
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *bDateTextField;
 @property (weak, nonatomic) IBOutlet UITextField *countryTextField;
 @property (weak, nonatomic) IBOutlet UIButton *closeButton;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *emailActivityIndicator;
+@property (weak, nonatomic) IBOutlet UIImageView *emailTrueImageView;
 @property (nonatomic, assign) id<CountryPickerDelegate> delegate;
 @property (nonatomic, strong) FlatDatePicker *flatDatePicker;
 @property (weak, nonatomic) IBOutlet CountryPicker *countryPicker;
