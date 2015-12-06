@@ -8,6 +8,7 @@
 
 #import "SignUpViewController.h"
 #import <Parse/Parse.h>
+#import "SVProgressHUD.h"
 
 @implementation SignUpViewController
 
@@ -49,7 +50,6 @@
     
     [self.view addGestureRecognizer:tap];
 }
-
 
 - (IBAction)takePhotoPressed:(id)sender {
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
@@ -141,6 +141,8 @@
 - (void)passwordAndAddAccountAlertController {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Submit" message:@"Kindly type and confirm your password." preferredStyle:UIAlertControllerStyleAlert];
     
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDestructive handler:nil];
+    
     UIAlertAction *submit = [UIAlertAction actionWithTitle:@"Sumbit" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         //Code
         UITextField *password       = alertController.textFields.firstObject;
@@ -171,10 +173,12 @@
      }];
     
     [alertController addAction:submit];
+    [alertController addAction:cancel];
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
 - (void)saveNewAccount {
+    [SVProgressHUD showWithStatus:@"Loading...."];
     PFUser *user = [PFUser user];
     
     user.username = self.usernameTextField.text;
@@ -205,14 +209,21 @@
     }
     
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (!error) {   // Hooray! Let them use the app now.
+        if (!error) {
+            // Hooray! Let them use the app now.
+            //turn to previous page
+            [self resetPropretriesAfterSave];
+            [self getBackToWelcomeView];
+            
         } else {
+            [SVProgressHUD dealloc];
             NSString *errorString = [error userInfo][@"error"];
             // Show the errorString somewhere and let the user try again.
             UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error" message:errorString preferredStyle:UIAlertControllerStyleAlert];
             [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDestructive handler:nil]];
             [self presentViewController:alertController animated:YES completion:nil];
         }
+        
     }];
 }
 
@@ -222,6 +233,25 @@
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
+- (void)getBackToWelcomeView {
+    [SVProgressHUD showSuccessWithStatus:@"Your count has been added successfully.Welcome on Shoplog land."];
+    [SVProgressHUD dismissWithDelay:2];
+    [SVProgressHUD dealloc];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)resetPropretriesAfterSave{
+    self.usernameTextField.text     = @"";
+    self.countryTextField.text      = @"";
+    self.bDateTextField.text        = @"";
+    self.emailTextField.text        = @"";
+    self.nameTextFiled.text         = @"";
+    
+    self.password                   = @"";
+    self.emailIsTrue                = NO;
+
+}
 #pragma mark - FlatDatePicker Delegate
 
 - (void)flatDatePicker:(FlatDatePicker*)datePicker dateDidChange:(NSDate*)date {
