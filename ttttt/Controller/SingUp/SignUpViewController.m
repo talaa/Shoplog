@@ -101,7 +101,19 @@
     }
 }
 
-- (IBAction)segmentPressed:(id)sender {
+- (IBAction)segmentPressed:(UISegmentedControl *)sender {
+    switch (self.genderSegment.selectedSegmentIndex)
+    {
+        case 0:
+            self.userGender = @"Male";
+            break;
+        case 1:
+            self.userGender = @"Female";
+            break;
+        default:
+            self.userGender = @"Female";
+            break; 
+    }
 }
 
 - (IBAction)submitPressed:(id)sender {

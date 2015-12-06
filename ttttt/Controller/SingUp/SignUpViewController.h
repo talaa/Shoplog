@@ -24,6 +24,7 @@
 @property (nonatomic, assign) id<CountryPickerDelegate> delegate;
 @property (nonatomic, strong) FlatDatePicker *flatDatePicker;
 @property (weak, nonatomic) IBOutlet CountryPicker *countryPicker;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *genderSegment;
 
 @property (nonatomic, copy) NSString *selectedCountryName;
 @property (nonatomic, strong) NSString *userGender;
@@ -33,6 +34,6 @@
 - (IBAction)closePressed:(id)sender;
 - (IBAction)bDatePressed:(id)sender;
 - (IBAction)countryPressed:(id)sender;
-- (IBAction)segmentPressed:(id)sender;
+- (IBAction)segmentPressed:(UISegmentedControl *)sender;
 - (IBAction)submitPressed:(id)sender;
 @end

@@ -16,6 +16,7 @@
         self.name = user[@"name"];
         self.username = user.username;
         self.email = user.email;
+        self.gender = user[@"gender"];
         self.birthDate = user[@"birthDate"];
         self.country = user[@"country"];
         PFFile *imageFile = user[@"image"];

@@ -17,6 +17,7 @@
 @property (strong, nonatomic) NSString *country;
 @property (strong, nonatomic) NSData *imageData;
 @property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic) NSString *gender;
 
 - (instancetype)initWithObject:(PFUser*)user;
 

@@ -1493,7 +1493,7 @@
                                             <segment title="Female"/>
                                         </segments>
                                         <connections>
-                                            <action selector="segmentPressed:" destination="Sah-CV-zNu" eventType="valueChanged" id="kRa-3N-y4w"/>
+                                            <action selector="segmentPressed:" destination="Sah-CV-zNu" eventType="valueChanged" id="tWs-MZ-Wvg"/>
                                         </connections>
                                     </segmentedControl>
                                 </subviews>
@@ -1609,6 +1609,7 @@
                         <outlet property="emailActivityIndicator" destination="zhy-IL-GAH" id="Ugf-ts-jzL"/>
                         <outlet property="emailTextField" destination="2EU-3s-3de" id="rZ9-Rp-NKF"/>
                         <outlet property="emailTrueImageView" destination="wuG-hn-3b7" id="xLD-63-8SB"/>
+                        <outlet property="genderSegment" destination="tGZ-hM-ym9" id="QWR-md-5jZ"/>
                         <outlet property="nameTextFiled" destination="cpf-v1-adE" id="Fy3-D4-k7z"/>
                         <outlet property="profileImageView" destination="6BQ-DL-3gh" id="yVF-Bh-Mqd"/>
                         <outlet property="usernameTextField" destination="zZl-PY-sPh" id="uIh-ER-4iM"/>
