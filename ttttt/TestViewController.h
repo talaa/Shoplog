@@ -20,8 +20,8 @@
 #import "PopoverView.h"
 #import "AdFooterview.h"
 //#import "LAWalkthroughViewController.h"
-#import "GADBannerView.h"
-#import "GADRequest.h"
+//#import "GADBannerView.h"
+//#import "GADRequest.h"
 
 #define Kintrodone @"introdone"
 #define KPROUprade @"isProversionpurchased"

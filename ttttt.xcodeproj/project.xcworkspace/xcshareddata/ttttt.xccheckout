@@ -5,7 +5,11 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
+<<<<<<< HEAD
 	<string>887FD9CE-9D62-47DF-A6E5-F635F9AA4664</string>
+=======
+	<string>823A0481-B87B-4911-B32A-B87B887577F4</string>
+>>>>>>> QRCODE
 	<key>IDESourceControlProjectName</key>
 	<string>ttttt</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
@@ -34,7 +38,11 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>1A0D673FF6FBF48ACEBD2C5783A7B712E4E57A07</string>
 			<key>IDESourceControlWCCName</key>
+<<<<<<< HEAD
 			<string>Shoplog</string>
+=======
+			<string>Shoplog_backup16042013working</string>
+>>>>>>> QRCODE
 		</dict>
 	</array>
 </dict>

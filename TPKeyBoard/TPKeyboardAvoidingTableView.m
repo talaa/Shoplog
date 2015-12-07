@@ -21,6 +21,19 @@
 - (void)setup {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    //[self configuregradient];
+}
+-(void)configuregradient{
+    UIView *gradientview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height)] ;
+    UIColor *shoblue=[UIColor colorWithRed:19.0f/255.0f green:125.0f/255.0f blue:236.0f/255.0f alpha:1.0f];
+    UIColor *shoorange=[UIColor colorWithRed:237.0f/255.0f green:146.0f/255.0f blue:18.0f/255.0f alpha:1.0f];
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient.frame = gradientview.bounds;
+    NSLog(@"%f    %f",self.bounds.size.height,self.bounds.size.width);
+    gradient.colors = [NSArray arrayWithObjects:(id)[shoorange CGColor], (id)[shoblue CGColor], nil];
+    [gradientview.layer insertSublayer:gradient atIndex:0];
+    
+    //[self.backgroundView.layer insertSublayer:gradient atIndex:0];
 }
 
 -(id)initWithFrame:(CGRect)frame {
