@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<<<<<<< HEAD
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="ohn-lO-cDE">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+=======
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="g3H-Eu-hXG">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+>>>>>>> QRCODE
     </dependencies>
     <scenes>
         <!--Test View Controller-->
@@ -19,7 +25,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="Cell" id="h5B-os-a2k" customClass="MyCustomCell">
-                                <rect key="frame" x="0.0" y="99" width="159" height="152"/>
+                                <rect key="frame" x="0.0" y="35" width="159" height="152"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="159" height="152"/>
@@ -58,7 +64,7 @@
                                 </connections>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell1" id="kmW-AG-6Cb" customClass="MyCustomCell">
-                                <rect key="frame" x="159" y="100" width="159" height="150"/>
+                                <rect key="frame" x="159" y="36" width="159" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="159" height="150"/>
@@ -77,7 +83,7 @@
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="HeaderView" id="Z7U-xT-yk1" customClass="HeaderView">
-                            <rect key="frame" x="0.0" y="64" width="320" height="35"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="35"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" image="Headerview.png" translatesAutoresizingMaskIntoConstraints="NO" id="9sa-dT-F9I">
@@ -111,7 +117,11 @@
                             </connections>
                         </collectionReusableView>
                         <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="adFooterview" id="zG7-oz-kmE" customClass="AdFooterview">
+<<<<<<< HEAD
+                            <rect key="frame" x="0.0" y="187" width="320" height="50"/>
+=======
                             <rect key="frame" x="0.0" y="251" width="320" height="80"/>
+>>>>>>> QRCODE
                             <autoresizingMask key="autoresizingMask"/>
                         </collectionReusableView>
                         <connections>
@@ -277,7 +287,11 @@
                             <tableViewSection headerTitle="Category Name" id="Htx-UI-ucH">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="nsc-GU-8Xb">
+<<<<<<< HEAD
+                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+=======
                                         <rect key="frame" x="0.0" y="94" width="320" height="44"/>
+>>>>>>> QRCODE
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nsc-GU-8Xb" id="4yY-aV-f3m">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -300,11 +314,19 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Image" id="B1W-Yf-Gsf">
                                 <cells>
+<<<<<<< HEAD
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="249" id="7Cd-Ox-XZ3">
+                                        <rect key="frame" x="0.0" y="88" width="320" height="249"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Cd-Ox-XZ3" id="TsF-8T-Woi">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="248"/>
+=======
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="291" id="7Cd-Ox-XZ3">
                                         <rect key="frame" x="0.0" y="168" width="320" height="291"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Cd-Ox-XZ3" id="TsF-8T-Woi">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="290"/>
+>>>>>>> QRCODE
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A0Q-9x-5Qa">
@@ -373,7 +395,11 @@
                             <tableViewSection headerTitle="Description" id="8eM-kh-tQC">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="U7c-su-X9A">
+<<<<<<< HEAD
+                                        <rect key="frame" x="0.0" y="359" width="320" height="44"/>
+=======
                                         <rect key="frame" x="0.0" y="489" width="320" height="44"/>
+>>>>>>> QRCODE
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="U7c-su-X9A" id="e9F-jt-neK">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -401,7 +427,11 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="wbD-xr-LBI">
+<<<<<<< HEAD
+                                        <rect key="frame" x="0.0" y="403" width="320" height="44"/>
+=======
                                         <rect key="frame" x="0.0" y="533" width="320" height="44"/>
+>>>>>>> QRCODE
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wbD-xr-LBI" id="fdv-St-wXU">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -428,7 +458,11 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="7B7-P1-yaW">
+<<<<<<< HEAD
+                                        <rect key="frame" x="0.0" y="447" width="320" height="44"/>
+=======
                                         <rect key="frame" x="0.0" y="577" width="320" height="44"/>
+>>>>>>> QRCODE
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7B7-P1-yaW" id="Rfz-w6-x5u">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -451,7 +485,11 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="1Y5-dj-YVs">
+<<<<<<< HEAD
+                                        <rect key="frame" x="0.0" y="491" width="320" height="44"/>
+=======
                                         <rect key="frame" x="0.0" y="621" width="320" height="44"/>
+>>>>>>> QRCODE
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Y5-dj-YVs" id="5Eq-jA-UC6">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -481,7 +519,11 @@
                             <tableViewSection headerTitle="Shop Contacts" id="srt-LC-tS0">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="JMW-7h-Na6">
+<<<<<<< HEAD
+                                        <rect key="frame" x="0.0" y="557" width="320" height="44"/>
+=======
                                         <rect key="frame" x="0.0" y="695" width="320" height="44"/>
+>>>>>>> QRCODE
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JMW-7h-Na6" id="ths-SB-asK">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -507,7 +549,11 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="fzR-jH-U99">
+<<<<<<< HEAD
+                                        <rect key="frame" x="0.0" y="601" width="320" height="44"/>
+=======
                                         <rect key="frame" x="0.0" y="739" width="320" height="44"/>
+>>>>>>> QRCODE
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fzR-jH-U99" id="Vbs-9r-U7k">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -533,7 +579,11 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="s4F-aF-4Mo">
+<<<<<<< HEAD
+                                        <rect key="frame" x="0.0" y="645" width="320" height="44"/>
+=======
                                         <rect key="frame" x="0.0" y="783" width="320" height="44"/>
+>>>>>>> QRCODE
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="s4F-aF-4Mo" id="R8x-D6-Chk">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -577,7 +627,11 @@
                             <tableViewSection headerTitle="Store Location" id="rch-np-JHJ">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="255" id="2zm-IA-2Q7">
+<<<<<<< HEAD
+                                        <rect key="frame" x="0.0" y="711" width="320" height="255"/>
+=======
                                         <rect key="frame" x="0.0" y="857" width="320" height="255"/>
+>>>>>>> QRCODE
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2zm-IA-2Q7" id="fgq-bl-cLG">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="254"/>
@@ -593,7 +647,11 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="lv8-2Y-U9B">
+<<<<<<< HEAD
+                                        <rect key="frame" x="0.0" y="966" width="320" height="44"/>
+=======
                                         <rect key="frame" x="0.0" y="1112" width="320" height="44"/>
+>>>>>>> QRCODE
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lv8-2Y-U9B" id="Ebz-wP-WoT">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -614,7 +672,11 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="yEb-Iy-WuC">
+<<<<<<< HEAD
+                                        <rect key="frame" x="0.0" y="1010" width="320" height="44"/>
+=======
                                         <rect key="frame" x="0.0" y="1156" width="320" height="44"/>
+>>>>>>> QRCODE
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yEb-Iy-WuC" id="5wF-k5-VTu">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -635,7 +697,11 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="tBT-3y-Xqn">
+<<<<<<< HEAD
+                                        <rect key="frame" x="0.0" y="1054" width="320" height="44"/>
+=======
                                         <rect key="frame" x="0.0" y="1200" width="320" height="44"/>
+>>>>>>> QRCODE
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tBT-3y-Xqn" id="5fL-BH-7a7">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -660,7 +726,11 @@
                             <tableViewSection headerTitle="Comments" id="TSa-PQ-7O8">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="300" id="5zn-49-NpH">
+<<<<<<< HEAD
+                                        <rect key="frame" x="0.0" y="1120" width="320" height="300"/>
+=======
                                         <rect key="frame" x="0.0" y="1274" width="320" height="300"/>
+>>>>>>> QRCODE
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5zn-49-NpH" id="Jjx-cP-Lgg">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="299"/>
@@ -1268,10 +1338,10 @@
             </objects>
             <point key="canvasLocation" x="1110" y="6"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar Controller-->
         <scene sceneID="1W7-mh-9Rl">
             <objects>
-                <tabBarController id="g3H-Eu-hXG" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="NavigationBar" useStoryboardIdentifierAsRestorationIdentifier="YES" id="g3H-Eu-hXG" customClass="MainTabBarController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="9oa-8a-P3r"/>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -1283,7 +1353,10 @@
                     <connections>
                         <segue destination="o6D-vv-51P" kind="relationship" relationship="viewControllers" id="PCc-Lp-uRs"/>
                         <segue destination="ijT-s1-pFb" kind="relationship" relationship="viewControllers" id="9ct-5U-nCx"/>
+<<<<<<< HEAD
+=======
                         <segue destination="ohn-lO-cDE" kind="relationship" relationship="viewControllers" id="i5n-BU-8F3"/>
+>>>>>>> QRCODE
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nth-aM-9Gk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1302,6 +1375,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+<<<<<<< HEAD
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backimage.png" id="r4f-oh-csr">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MyIcon copy_144.png" id="sXG-cc-0tO">
+                                <rect key="frame" x="16" y="34" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="a5g-h8-R9Y">
+                                <rect key="frame" x="92" y="149" width="136" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8lS-Fi-4b2">
+                                <rect key="frame" x="54" y="178" width="212" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="3E9-Uw-rUp">
+                                <rect key="frame" x="204" y="34" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+=======
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backimage.png" translatesAutoresizingMaskIntoConstraints="NO" id="r4f-oh-csr">
                                 <rect key="frame" x="0.0" y="0.0" width="508" height="568"/>
                             </imageView>
@@ -1676,6 +1777,7 @@
                                     <constraint firstAttribute="width" constant="240" id="cO8-0S-rv7"/>
                                 </constraints>
                             </view>
+>>>>>>> QRCODE
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1705,6 +1807,16 @@
                             <constraint firstItem="WG8-hn-EEq" firstAttribute="top" secondItem="fRO-ZQ-ZFm" secondAttribute="bottom" id="zfb-8P-FK2"/>
                         </constraints>
                     </view>
+<<<<<<< HEAD
+                    <tabBarItem key="tabBarItem" title="Login" image="facebook-512" id="ZZg-pN-cz1"/>
+                    <navigationItem key="navigationItem" id="kbd-U7-hyh"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="emailLabel" destination="8lS-Fi-4b2" id="rEQ-Pa-Jh8"/>
+                        <outlet property="nameLabel" destination="a5g-h8-R9Y" id="PBM-jU-JR5"/>
+                        <outlet property="profileImageView" destination="3E9-Uw-rUp" id="gRH-Dc-dqN"/>
+                        <segue destination="g3H-Eu-hXG" kind="modal" identifier="LoginSuccessSegue" id="iW1-vg-bAt"/>
+=======
                     <connections>
                         <outlet property="bDateTextField" destination="5Uq-hp-c9b" id="97v-aw-lhz"/>
                         <outlet property="closeButton" destination="WG8-hn-EEq" id="tme-yb-gaK"/>
@@ -1717,11 +1829,16 @@
                         <outlet property="nameTextFiled" destination="cpf-v1-adE" id="Fy3-D4-k7z"/>
                         <outlet property="profileImageView" destination="6BQ-DL-3gh" id="yVF-Bh-Mqd"/>
                         <outlet property="usernameTextField" destination="zZl-PY-sPh" id="uIh-ER-4iM"/>
+>>>>>>> QRCODE
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D9q-Pq-zQ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
+            <point key="canvasLocation" x="-1177" y="6"/>
+=======
             <point key="canvasLocation" x="-167" y="1002"/>
+>>>>>>> QRCODE
         </scene>
         <!--Feeds-->
         <scene sceneID="xtK-dh-ZCB">
@@ -1764,10 +1881,13 @@
         <image name="icon_post.png" width="30" height="30"/>
         <image name="icon_shopping_bag.png" width="30" height="30"/>
         <image name="icon_star.png" width="30" height="30"/>
+<<<<<<< HEAD
+=======
         <image name="icon_wishlist" width="160" height="170"/>
         <image name="icone-calender" width="25" height="25"/>
         <image name="images1" width="153" height="153"/>
         <image name="images2" width="252" height="251"/>
+>>>>>>> QRCODE
         <image name="phone-icon" width="256" height="256"/>
         <image name="plus-sign.png" width="256" height="256"/>
         <image name="removeicon1.png" width="50" height="49"/>

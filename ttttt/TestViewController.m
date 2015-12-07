@@ -806,7 +806,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 
 
 #pragma mark - Fetched results controller
-
+/* I commented it 
 - (NSFetchedResultsController *)fetchedResultsController
 {
     if (_fetchedResultsController != nil) {
@@ -844,7 +844,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     return _fetchedResultsController;
 }
-
+*/
 
 -(void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
 atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type

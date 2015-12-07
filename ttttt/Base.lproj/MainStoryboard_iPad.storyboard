@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<<<<<<< HEAD
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="ZrZ-AU-og5">
+    <dependencies>
+        <development version="6000" identifier="xcode"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+=======
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="7yp-8s-ZlK">
     <dependencies>
         <development version="6000" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+>>>>>>> QRCODE
     </dependencies>
     <scenes>
         <!--Web View Controller-->
@@ -288,7 +295,11 @@
                             <tableViewSection headerTitle="Store Contacts" id="cCc-RB-74p">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Wm2-U9-9tI">
+<<<<<<< HEAD
+                                        <rect key="frame" x="0.0" y="733" width="768" height="44"/>
+=======
                                         <rect key="frame" x="0.0" y="689" width="768" height="44"/>
+>>>>>>> QRCODE
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wm2-U9-9tI" id="ki2-Ui-KUC">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
@@ -304,9 +315,33 @@
                                                         <action selector="textFieldDidEndEditing::" destination="kQ7-Yt-TmH" eventType="editingDidEnd" id="26f-cR-Mgj"/>
                                                     </connections>
                                                 </textField>
+<<<<<<< HEAD
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Phone" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ync-bU-VEp">
+                                                    <rect key="frame" x="61" y="13" width="79" height="18"/>
+                                                    <fontDescription key="fontDescription" name="Didot-Bold" family="Didot" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="1" green="0.80874534750000004" blue="0.38110406359999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="0.80874534750000004" blue="0.38110406359999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="geD-Qr-Gui">
+                                        <rect key="frame" x="0.0" y="777" width="768" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="geD-Qr-Gui" id="lbB-Cl-rto">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Shop@shop.com" minimumFontSize="17" id="cFH-2g-oD2">
+                                                    <rect key="frame" x="355" y="7" width="320" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+=======
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email:" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cFH-2g-oD2">
                                                     <rect key="frame" x="400" y="7" width="352" height="30"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
+>>>>>>> QRCODE
                                                     <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                     <connections>
                                                         <action selector="resignKeyboard:" destination="kQ7-Yt-TmH" eventType="editingDidEndOnExit" id="vFH-sE-Rhv"/>
@@ -320,7 +355,11 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="XfN-sR-DGB">
+<<<<<<< HEAD
+                                        <rect key="frame" x="0.0" y="821" width="768" height="44"/>
+=======
                                         <rect key="frame" x="0.0" y="733" width="768" height="44"/>
+>>>>>>> QRCODE
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XfN-sR-DGB" id="muH-xb-3IX">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
@@ -345,8 +384,13 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Store Location" id="Ljo-Ru-hcr">
                                 <cells>
+<<<<<<< HEAD
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="425" id="6fE-eR-sOj">
+                                        <rect key="frame" x="0.0" y="887" width="768" height="425"/>
+=======
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="384" id="6fE-eR-sOj">
                                         <rect key="frame" x="0.0" y="799" width="768" height="384"/>
+>>>>>>> QRCODE
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6fE-eR-sOj" id="1AI-nN-qGY">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="383"/>
@@ -360,6 +404,25 @@
                                                         <action selector="resignKeyboard:" destination="kQ7-Yt-TmH" eventType="editingDidEndOnExit" id="367-ys-dVE"/>
                                                         <action selector="resignKeyboard:" destination="kQ7-Yt-TmH" eventType="editingDidEnd" id="6hA-Da-YPn"/>
                                                     </connections>
+<<<<<<< HEAD
+                                                </mapView>
+                                            </subviews>
+                                            <color key="backgroundColor" red="1" green="0.80874534750000004" blue="0.38110406359999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="0.80874534750000004" blue="0.38110406359999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" rowHeight="62" id="wjg-Im-gSL">
+                                        <rect key="frame" x="0.0" y="1312" width="768" height="62"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wjg-Im-gSL" id="zMG-Gu-rPy">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="61"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1RC-3s-SmW">
+                                                    <rect key="frame" x="103" y="7" width="562" height="48"/>
+                                                    <fontDescription key="fontDescription" name="Didot-Bold" family="Didot" pointSize="45"/>
+                                                    <state key="normal" title="I am inside the Shop" backgroundImage="Button.png">
+=======
                                                 </textField>
                                                 <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Lat:" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZOH-47-PDd">
                                                     <rect key="frame" x="423" y="275" width="300" height="30"/>
@@ -374,6 +437,7 @@
                                                     <rect key="frame" x="417" y="71" width="322" height="48"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="32"/>
                                                     <state key="normal" title="I am inside the Shop">
+>>>>>>> QRCODE
                                                         <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
@@ -384,9 +448,61 @@
                                                         <action selector="GetcurrentLocation1:" destination="kQ7-Yt-TmH" eventType="touchUpInside" id="7qc-fH-Thz"/>
                                                     </connections>
                                                 </button>
+<<<<<<< HEAD
+                                            </subviews>
+                                            <color key="backgroundColor" red="1" green="0.80874534750000004" blue="0.38110406359999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="0.80874534750000004" blue="0.38110406359999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="4R2-mi-DlC">
+                                        <rect key="frame" x="0.0" y="1374" width="768" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4R2-mi-DlC" id="WLm-15-nVp">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Longitutde" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="J0b-Nw-TPu">
+                                                    <rect key="frame" x="66" y="11" width="112" height="21"/>
+                                                    <fontDescription key="fontDescription" name="Didot-Bold" family="Didot" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="17L-c5-JO2">
+                                                    <rect key="frame" x="360" y="8" width="300" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="resignKeyboard:" destination="kQ7-Yt-TmH" eventType="editingDidEndOnExit" id="367-ys-dVE"/>
+                                                        <action selector="resignKeyboard:" destination="kQ7-Yt-TmH" eventType="editingDidEnd" id="6hA-Da-YPn"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <color key="backgroundColor" red="1" green="0.80874534750000004" blue="0.38110406359999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="0.80874534750000004" blue="0.38110406359999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="4ku-q3-gNo">
+                                        <rect key="frame" x="0.0" y="1418" width="768" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4ku-q3-gNo" id="T8H-3z-UrQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Latitude" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Trw-ZP-6nW">
+                                                    <rect key="frame" x="65" y="11" width="99" height="21"/>
+                                                    <fontDescription key="fontDescription" name="Didot-Bold" family="Didot" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="ZOH-47-PDd">
+                                                    <rect key="frame" x="359" y="11" width="300" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+=======
                                                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d8B-Mf-PSy">
                                                     <rect key="frame" x="46" y="32" width="320" height="320"/>
                                                     <gestureRecognizers/>
+>>>>>>> QRCODE
                                                     <connections>
                                                         <outletCollection property="gestureRecognizers" destination="dAu-io-vaa" appends="YES" id="PxO-xm-0UR"/>
                                                     </connections>
@@ -762,7 +878,11 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="XdZ-Li-uHL" customClass="MyCustomCell">
+<<<<<<< HEAD
+                                <rect key="frame" x="0.0" y="50" width="240" height="240"/>
+=======
                                 <rect key="frame" x="0.0" y="114" width="240" height="240"/>
+>>>>>>> QRCODE
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="240" height="240"/>
@@ -799,7 +919,11 @@
                                 </connections>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell1" id="EVq-vy-tqn" customClass="MyCustomCell">
+<<<<<<< HEAD
+                                <rect key="frame" x="264" y="50" width="240" height="240"/>
+=======
                                 <rect key="frame" x="264" y="114" width="240" height="240"/>
+>>>>>>> QRCODE
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="240" height="240"/>
@@ -850,7 +974,7 @@
                             </connections>
                         </collectionReusableView>
                         <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="adFooterview" id="o7T-1j-ugo" customClass="AdFooterview">
-                            <rect key="frame" x="0.0" y="354" width="768" height="85"/>
+                            <rect key="frame" x="0.0" y="290" width="768" height="85"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         </collectionReusableView>
                         <connections>
@@ -904,10 +1028,10 @@
             </objects>
             <point key="canvasLocation" x="1798" y="-264"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar Controller-->
         <scene sceneID="IEI-fV-ej0">
             <objects>
-                <tabBarController id="7yp-8s-ZlK" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="NavigationBar" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7yp-8s-ZlK" customClass="MainTabBarController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="dL2-iL-Khg">
@@ -918,7 +1042,6 @@
                     <connections>
                         <segue destination="yrQ-gj-5DR" kind="relationship" relationship="viewControllers" id="gCw-gC-xUE"/>
                         <segue destination="tDI-bn-LQV" kind="relationship" relationship="viewControllers" id="XHa-13-WuN"/>
-                        <segue destination="ZrZ-AU-og5" kind="relationship" relationship="viewControllers" id="bO2-DF-VFb"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g2E-uf-Fa4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -939,6 +1062,32 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backimage.png" translatesAutoresizingMaskIntoConstraints="NO" id="qvU-iP-U69">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+<<<<<<< HEAD
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MyIcon_152.png" id="fPa-ED-4fi">
+                                <rect key="frame" x="36" y="90" width="200" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="q3H-Rf-Qyc">
+                                <rect key="frame" x="529" y="90" width="200" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HIb-F0-ZzB">
+                                <rect key="frame" x="236" y="330" width="297" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="idw-Yy-FWm">
+                                <rect key="frame" x="185" y="376" width="399" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+=======
                             </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="65f-Ow-NPl">
                                 <rect key="frame" x="18" y="28" width="735" height="425"/>
@@ -1263,6 +1412,7 @@
                                     <constraint firstAttribute="width" constant="728" id="asi-U8-bgP"/>
                                 </constraints>
                             </view>
+>>>>>>> QRCODE
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1294,6 +1444,12 @@
                         </constraints>
                     </view>
                     <connections>
+<<<<<<< HEAD
+                        <outlet property="emailLabel" destination="idw-Yy-FWm" id="AtJ-Xk-HaR"/>
+                        <outlet property="nameLabel" destination="HIb-F0-ZzB" id="vgr-a1-uq4"/>
+                        <outlet property="profileImageView" destination="q3H-Rf-Qyc" id="LJ5-58-CPa"/>
+                        <segue destination="7yp-8s-ZlK" kind="modal" identifier="LoginSuccessSegue" id="HDd-Il-bGQ"/>
+=======
                         <outlet property="bDateTextField" destination="LND-xz-WFS" id="Q8r-2S-WXZ"/>
                         <outlet property="closeButton" destination="Xgm-DB-Jr1" id="yj8-UQ-PRh"/>
                         <outlet property="countryPicker" destination="3bz-3h-tr8" id="HFC-pJ-4Lc"/>
@@ -1306,12 +1462,17 @@
                         <outlet property="profileImageView" destination="fF9-vR-ips" id="XVW-9Y-UNE"/>
                         <outlet property="usernameTextField" destination="DK1-Vw-fxk" id="AyE-pn-yT5"/>
                         <segue destination="8dS-lB-KUN" kind="unwind" identifier="gotoprofile" unwindAction="prepareForUnwind:" id="qxY-He-LoG"/>
+>>>>>>> QRCODE
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0AP-Fv-V3u" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="8dS-lB-KUN" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
+<<<<<<< HEAD
+            <point key="canvasLocation" x="-1871" y="-278"/>
+=======
             <point key="canvasLocation" x="-198" y="1831"/>
+>>>>>>> QRCODE
         </scene>
         <!--Feeds-->
         <scene sceneID="9kR-Ud-lLW">
@@ -1353,10 +1514,13 @@
         <image name="icon_magnify_glass.png" width="30" height="30"/>
         <image name="icon_post.png" width="30" height="30"/>
         <image name="icon_shopping_bag.png" width="30" height="30"/>
+<<<<<<< HEAD
+=======
         <image name="icon_wishlist" width="160" height="170"/>
         <image name="icone-calender" width="25" height="25"/>
         <image name="images" width="225" height="225"/>
         <image name="images2" width="252" height="251"/>
+>>>>>>> QRCODE
         <image name="plus-sign.png" width="256" height="256"/>
         <image name="removeicon1.png" width="50" height="49"/>
         <image name="shopping_bag" width="512" height="512"/>

@@ -14,6 +14,15 @@
 #import <Social/Social.h>
 #import <Accounts/Accounts.h>
 #import "UpgradeViewController.h"
+<<<<<<< HEAD
+#import <FacebookSDK/FacebookSDK.h>
+#import <ParseFacebookUtils/PFFacebookUtils.h>
+//Facebook SDK
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+//ParseSDK
+#import <ParseFacebookUtils/PFFacebookUtils.h>
+=======
 //#import <FBSDKCoreKit/FBSDKCoreKit.h>
 //#import <PFFacebookUtils.h>
 
@@ -26,6 +35,7 @@
 
 
 
+>>>>>>> QRCODE
 
 @implementation AppDelegate
 
@@ -33,21 +43,42 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
+//Facebook log activities
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    [FBSDKAppEvents activateApp];
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
     // Override point for customization after application launch.
     //UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     //TestViewController *controller = (TestViewController *)navigationController.topViewController;
 
     
     
-    UITabBarController *tabBarController =(UITabBarController *)self.window.rootViewController;
-    UINavigationController *navigationController = [[tabBarController viewControllers] objectAtIndex:0];
+//    UITabBarController *tabBarController =(UITabBarController *)self.window.rootViewController;
+//    UINavigationController *navigationController = [[tabBarController viewControllers] objectAtIndex:0];
     
     //UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     //[navigationController.navigationBar setBackgroundImage:gradientImage32 forBarMetrics:UIBarMetricsDefault];
     //navigationController.navigationBar.tintColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"blueleather.png"]];
+<<<<<<< HEAD
+    //////////////////
+    //navigationController.navigationBar.tintColor = [UIColor colorWithRed:48.0f/255.0f green:74.0f/255.0f blue:147.0f/255.0f alpha:1];
+    //TestViewController *controller = (TestViewController *)navigationController.topViewController;
+    //controller.managedObjectContext = self.managedObjectContext;
+//    [Parse setApplicationId:@"Ejzm5I1GtXYB6coByuhQCWrbbKHINGS9Y1FAGUCT"
+//                  clientKey:@"4ugpJBoAsePdVL0jew7MeeIRxw5g9FzfhEX76r7t"];
+//    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    [Parse setApplicationId:@"ywPm262lndYyBhcTFxUWF8eLxpcCkEUkHOB782s9" clientKey:@"Vq3qhqkveSpAqSRKShP0OtLfmNG3lyNB8VpwbEX8"];
+    [PFFacebookUtils initializeFacebook];
+    ///////////////////
+    
+    // Override point for customization after application launch.
+    //[PFFacebookUtils initializeFacebook];
+=======
     navigationController.navigationBar.tintColor = [UIColor colorWithRed:48.0f/255.0f green:74.0f/255.0f blue:147.0f/255.0f alpha:1];
     TestViewController *controller = (TestViewController *)navigationController.topViewController;
      
@@ -62,6 +93,7 @@
     sdk.devID = DevID;
     sdk.appID = AppID;
 
+>>>>>>> QRCODE
     //[FBLoginView class];
     
     /*
@@ -104,15 +136,16 @@
      horizontalAccuracy:location.horizontalAccuracy
        verticalAccuracy:location.verticalAccuracy];
      */
-    return YES;
+    
+    //Facebook connection
+    [FBSDKLoginButton class];
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                    didFinishLaunchingWithOptions:launchOptions];
 }
 
 void uncaughtExceptionHandler(NSException *exception) {
     [Flurry logError:@"Uncaught" message:@"Crash!" exception:exception];
 }
-
-
-
 
 //How to Open Internal Catalogues
 -(BOOL) application:(UIApplication *)application handleOpenURL:(NSURL *)url {
@@ -126,7 +159,6 @@ void uncaughtExceptionHandler(NSException *exception) {
     
     //return [PFFacebookUtils handleOpenURL:url];
     return YES;
-    
 }
 /*
 - (BOOL) handleOpenURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
@@ -152,6 +184,8 @@ void uncaughtExceptionHandler(NSException *exception) {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 
+<<<<<<< HEAD
+=======
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
@@ -159,6 +193,7 @@ void uncaughtExceptionHandler(NSException *exception) {
 
 }
 
+>>>>>>> QRCODE
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
@@ -182,12 +217,20 @@ void uncaughtExceptionHandler(NSException *exception) {
             openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation {
+<<<<<<< HEAD
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                          openURL:url
+                                                sourceApplication:sourceApplication
+                                                       annotation:annotation];
+=======
     
     return [FBAppCall handleOpenURL:url
                   sourceApplication:sourceApplication
                         withSession:[PFFacebookUtils session]];
+>>>>>>> QRCODE
 }
 */
+
 
 #pragma mark - Core Data stack
 
