@@ -14,8 +14,9 @@
 #import <Social/Social.h>
 #import <Accounts/Accounts.h>
 #import "UpgradeViewController.h"
-#import <FacebookSDK/FacebookSDK.h>
-#import <ParseFacebookUtils/PFFacebookUtils.h>
+//#import <FBSDKCoreKit/FBSDKCoreKit.h>
+//#import <PFFacebookUtils.h>
+
 #import <StartApp/StartApp.h>
 
 #define DevID @"102387467"
@@ -36,6 +37,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    //UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+    //TestViewController *controller = (TestViewController *)navigationController.topViewController;
+
+    
     
     UITabBarController *tabBarController =(UITabBarController *)self.window.rootViewController;
     UINavigationController *navigationController = [[tabBarController viewControllers] objectAtIndex:0];
@@ -45,12 +50,14 @@
     //navigationController.navigationBar.tintColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"blueleather.png"]];
     navigationController.navigationBar.tintColor = [UIColor colorWithRed:48.0f/255.0f green:74.0f/255.0f blue:147.0f/255.0f alpha:1];
     TestViewController *controller = (TestViewController *)navigationController.topViewController;
+     
     controller.managedObjectContext = self.managedObjectContext;
+    
     [Parse setApplicationId:@"ywPm262lndYyBhcTFxUWF8eLxpcCkEUkHOB782s9"
                   clientKey:@"Vq3qhqkveSpAqSRKShP0OtLfmNG3lyNB8VpwbEX8"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     // Override point for customization after application launch.
-    [PFFacebookUtils initializeFacebook];
+    //[PFFacebookUtils initializeFacebook];
     STAStartAppSDK* sdk = [STAStartAppSDK sharedInstance];
     sdk.devID = DevID;
     sdk.appID = AppID;
@@ -109,17 +116,25 @@ void uncaughtExceptionHandler(NSException *exception) {
 
 //How to Open Internal Catalogues
 -(BOOL) application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     TestViewController *controller = (TestViewController *)navigationController.topViewController;
     
     if (url != nil && [url isFileURL]) {
         [controller handleOpenURL:url];
     }
+    
+    //return [PFFacebookUtils handleOpenURL:url];
     return YES;
     
 }
-
-
+/*
+- (BOOL) handleOpenURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [FBAppCall handleOpenURL:url
+                  sourceApplication:sourceApplication
+                        withSession:[PFFacebookUtils session]];
+}
+ */
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -140,7 +155,7 @@ void uncaughtExceptionHandler(NSException *exception) {
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    [FBAppCall handleDidBecomeActiveWithSession:[PFFacebookUtils session]];
+    //[FBAppCall handleDidBecomeActiveWithSession:[PFFacebookUtils session]];
 
 }
 
@@ -162,15 +177,17 @@ void uncaughtExceptionHandler(NSException *exception) {
     }
 }
 #pragma Facebook
+/*
 - (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation {
+    
     return [FBAppCall handleOpenURL:url
                   sourceApplication:sourceApplication
                         withSession:[PFFacebookUtils session]];
 }
-
+*/
 
 #pragma mark - Core Data stack
 

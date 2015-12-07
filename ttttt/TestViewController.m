@@ -33,6 +33,7 @@ typedef enum SocialButtonTags
 #import "Shoppingcom.h"
 #import "pricegrabbersearch.h"
 #import "WebViewController.h"
+#import "TempData.h"
 
 //#import "MyCustomCell.h"
 //#import "HeaderView.h"
@@ -66,6 +67,12 @@ typedef enum SocialButtonTags
 -(void)viewWillAppear:(BOOL)animated{
     [self controllerDidChangeContent:self.fetchedResultsController ];
     [self.collectionView reloadData];
+    //Check the number of items
+    NSUInteger nnn;
+    nnn=[[self.fetchedResultsController fetchedObjects]count];
+    NSLog(@"The number of items is %lui",(unsigned long)nnn);
+    [TempData setShoplogscount:nnn];
+
    
 //[self.collectionView setNeedsLayout ];
 
@@ -158,8 +165,10 @@ typedef enum SocialButtonTags
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(WebSearchactivated1:)
                                                  name:@"webSearchactivated"
+     
                                                object:nil];
-
+    
+    
     //[self startintroduction];
     if ([self checkConnection]) {
         
@@ -356,6 +365,7 @@ NSUserDefaults *userdefaults =[NSUserDefaults standardUserDefaults];
     x=indexPath.row;
     int y;
     y=[[[self.fetchedResultsController sections]objectAtIndex:indexPath.section]numberOfObjects];
+    //[TempData setShoplogscount:y];
     //NSLog(@"The count is %i   %i",y,x);
     //NSString *cellid=[[NSString alloc]init];
     MyCustomCell *Cc = [[MyCustomCell alloc]init];
