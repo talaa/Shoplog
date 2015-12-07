@@ -1,16 +1,19 @@
 PODS:
-  - Bolts/Tasks (1.3.0)
+  - Bolts/Tasks (1.5.0)
   - hpple (0.2.0)
-  - Parse (1.8.5):
-    - Bolts/Tasks (>= 1.2.2)
+  - Parse (1.10.0):
+    - Bolts/Tasks (~> 1.5)
+  - SVProgressHUD (HEAD based on 2.0-beta)
 
 DEPENDENCIES:
   - hpple (= 0.2.0)
   - Parse
+  - SVProgressHUD (HEAD)
 
 SPEC CHECKSUMS:
-  Bolts: 805a4a87413e49d4a0c2b7d469084cbc46b09342
+  Bolts: 722ab9a4f8b50fc4ed1b9998a5a7a2b3f16d80b4
   hpple: 3b765f96fc2cd56ad1a49aef6f7be5cb2aa64b57
-  Parse: 17ad8e0677ed682f7f00503860fcda0f4eb74168
+  Parse: 90b2544822200f84b18bfacc4e8b0a3a6c3584a2
+  SVProgressHUD: c83337f10ed32d701c423d519059a249973c8662
 
 COCOAPODS: 0.39.0
