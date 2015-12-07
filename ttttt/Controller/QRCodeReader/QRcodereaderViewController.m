@@ -117,27 +117,39 @@
             QRstring=[metadataObj stringValue];
             NSLog(@"Code is %@", QRstring);
             NSArray *strings = [[metadataObj stringValue] componentsSeparatedByString:@","];
-            [SVProgressHUD showWithStatus:@"Loading..."];
-            //save data from QR Code to DataTranferObject Instance
-            DataTransferObject *dTranferObje=[DataTransferObject getInstance];
-            dTranferObje.defprice = [strings[3] floatValue];
-            dTranferObje.defcatqr = strings[0];
-            dTranferObje.defimagenameqr = strings[14];
-            dTranferObje.defemail = strings[6];
-            dTranferObje.defphone = strings[5];
-            dTranferObje.defshopname = strings[4];
-            dTranferObje.defwebsiteurl = strings[7];
-            dTranferObje.deflat = [strings[8] doubleValue];
-            dTranferObje.deflong = [strings[9] doubleValue];
-            [dataTransferMArray addObject:dTranferObje];
-            
-            // If the audio player is not nil, then play the sound effect.
-            if (_audioPlayer) {
-                [_audioPlayer play];
+            if ([strings[0] isEqualToString:@"Shoplog"]){
+                [SVProgressHUD showWithStatus:@"Loading..."];
+                //save data from QR Code to DataTranferObject Instance
+                DataTransferObject *dTranferObje=[DataTransferObject getInstance];
+                dTranferObje.defprice = [strings[4] floatValue];
+                dTranferObje.defcatqr = strings[1];
+                dTranferObje.defimagenameqr = strings[15];
+                dTranferObje.defemail = strings[7];
+                dTranferObje.defphone = strings[6];
+                dTranferObje.defshopname = strings[5];
+                dTranferObje.defwebsiteurl = strings[8];
+                dTranferObje.deflat = [strings[9] doubleValue];
+                dTranferObje.deflong = [strings[10] doubleValue];
+                [dataTransferMArray addObject:dTranferObje];
+                
+                // If the audio player is not nil, then play the sound effect.
+                if (_audioPlayer) {
+                    [_audioPlayer play];
+                }
+                
+                [self performSelectorOnMainThread:@selector(stopReading) withObject:nil waitUntilDone:NO];
+                _isReading = NO;
+                
+            }else{
+                if (_audioPlayer) {
+                    [_audioPlayer play];
+                }
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Warnning" message:@"This QR is not a Shoplog QR Code" preferredStyle:UIAlertControllerStyleAlert];
+                [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:nil]];
+                [self presentViewController:alertController animated:YES completion:nil];
+                [self performSelectorOnMainThread:@selector(stopReadingNonShoplog) withObject:nil waitUntilDone:NO];
+                _isReading = NO;
             }
-            
-            [self performSelectorOnMainThread:@selector(stopReading) withObject:nil waitUntilDone:NO];
-            _isReading = NO;
         }
     }
 }
@@ -152,6 +164,15 @@
     [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:1] animated:YES];
 }
 
+-(void)stopReadingNonShoplog{
+    [_captureSession stopRunning];
+    [self.bbitemStart setTitle:@"Start" forState:UIControlStateNormal];
+    _captureSession = nil;
+    [_videoPreviewLayer removeFromSuperlayer];
+    [SVProgressHUD dismiss];
+    //get back to AddNewProduct View
+    [self viewDidLoad];
+}
 -(void)loadBeepSound{
     NSString *beepFilePath = [[NSBundle mainBundle] pathForResource:@"beep" ofType:@"mp3"];
     NSURL *beepURL = [NSURL URLWithString:beepFilePath];
@@ -169,14 +190,14 @@
 
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+ {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
