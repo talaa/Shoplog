@@ -11,6 +11,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import <QuartzCore/QuartzCore.h>
 #import "MyAnotation.h"
+#import <Parse/Parse.h>
 
 #import "Shoplog.h"
 #import "Shop.h"

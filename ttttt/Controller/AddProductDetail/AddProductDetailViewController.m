@@ -14,6 +14,9 @@
 #import "SVProgressHUD.h"
 
 @interface AddProductDetailViewController ()
+{
+    NSOperationQueue    *operationQueue;
+}
 
 @end
 
@@ -60,20 +63,20 @@
         self.imageField.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:dTranferObje.defimagenameqr]]];
     }
     
-   
+    
     [self performSelector:@selector(updatecurrentLocation) withObject:nil afterDelay:5];
     /*
-    if (self.currentProduct.shop.longcoordinate) {
-        NSLog(@"i have Coordinates ");
-        [self step1locationupdate];
-        //[self step2locationupdate];
-    } else {
-         NSLog(@"i have Nothing ");
-        [self step2locationupdate];
-    }
+     if (self.currentProduct.shop.longcoordinate) {
+     NSLog(@"i have Coordinates ");
+     [self step1locationupdate];
+     //[self step2locationupdate];
+     } else {
+     NSLog(@"i have Nothing ");
+     [self step2locationupdate];
+     }
      */
-
-        }
+    
+}
 -(void)step1locationupdate{
     //1
     CLLocationCoordinate2D zoomLocation;
@@ -81,7 +84,7 @@
     zoomLocation.longitude= self.currentProduct.shop.longcoordinate;
     MKCoordinateSpan mapspan= MKCoordinateSpanMake(2, 2);
     // 2
-
+    
     // Add the Annotation
     MyAnotation *annot = [[MyAnotation alloc] init];
     annot.coordinate = zoomLocation;
@@ -92,8 +95,8 @@
     MKCoordinateRegion adjustedRegion = [Maplocation regionThatFits:viewRegion];
     // 4
     [Maplocation setRegion:adjustedRegion animated:YES];
-
-
+    
+    
 }
 -(void)step2locationupdate{
     Maplocation.showsUserLocation=YES;
@@ -110,26 +113,28 @@
     
     [Maplocation setRegion:mapRegion animated:YES];
     NSLog(@"The USer Location are :%f %f",Maplocation.userLocation.coordinate.latitude,Maplocation.userLocation.coordinate.longitude);
-
-
-
+    
+    
+    
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    operationQueue = [[NSOperationQueue alloc] init];
+    
     //self.view.backgroundColor=[UIColor greenColor];
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.distanceFilter = kCLDistanceFilterNone;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     [self.locationManager startUpdatingLocation];
- 
+    
     if(IS_OS_8_OR_LATER) {
         [self.locationManager requestAlwaysAuthorization];
         [self.locationManager requestWhenInUseAuthorization];
     }
-
+    
     
     
     //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"web-elements.png"]];
@@ -142,7 +147,7 @@
     if (_currentProduct)
     {
         //[[PriceField setText:[[_currentProduct price]stringValue]];
-         [PriceField setText:[NSString stringWithFormat:@"%.2f", [_currentProduct price]]];
+        [PriceField setText:[NSString stringWithFormat:@"%.2f", [_currentProduct price]]];
         [ShopField setText:[_currentProduct.shop shopname]];
         [LongTextfield setText:[NSString stringWithFormat:@"%f",[_currentProduct.shop longcoordinate]]];
         [LatTextField setText:[NSString stringWithFormat:@"%f",[_currentProduct.shop latcoordinate]]];
@@ -159,21 +164,21 @@
         if ([_currentProduct image])
             [imageField setImage:[UIImage imageWithData:[_currentProduct image]]];
         
-            
+        
     }
     
-    ///Enabling the Catalogue Filed Name 
+    ///Enabling the Catalogue Filed Name
     if (newcatalogue) {
         self.cataloguenamefield.enabled=YES;
     }
-
-    //Enabling the Done Button @ the Bottom 
+    
+    //Enabling the Done Button @ the Bottom
     if (edit_add) {
         self.Testnavigation.hidden=YES;
     } else {
         self.Testnavigation.hidden=NO;
     }
-        //self.Testnavigation.hidden=YES;
+    //self.Testnavigation.hidden=YES;
     cataloguenamefield.text=self.title;
     if (Qrcodecatalogue) {
         //
@@ -230,7 +235,7 @@
 
 
 -(void)updatecurrentLocation{
-
+    
     
     if (self.currentProduct.shop.longcoordinate) {
         NSLog(@"i have Coordinates ");
@@ -241,12 +246,12 @@
         [self step2locationupdate];
     }
     /*
-    Maplocation.showsUserLocation=YES;
-    MKCoordinateRegion mapregion;
-    mapregion.center=Maplocation.userLocation.coordinate;
-    mapregion.span.latitudeDelta = 2;
-    mapregion.span.longitudeDelta = 2;
-    [Maplocation setRegion:mapregion animated: YES];
+     Maplocation.showsUserLocation=YES;
+     MKCoordinateRegion mapregion;
+     mapregion.center=Maplocation.userLocation.coordinate;
+     mapregion.span.latitudeDelta = 2;
+     mapregion.span.longitudeDelta = 2;
+     [Maplocation setRegion:mapregion animated: YES];
      */
 }
 
@@ -279,13 +284,13 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([[segue identifier] isEqualToString:@"setshoploc"]) {
-    //setlocationViewController *sholocatviewcontroller=(setlocationViewController*)[segue destinationViewController];
+        //setlocationViewController *sholocatviewcontroller=(setlocationViewController*)[segue destinationViewController];
         //[self presentViewController:sholocatviewcontroller animated:YES completion:nil];
-    //sholocatviewcontroller.shoplocationlong=50 ;
-    //sholocatviewcontroller.shoplocationlat=-120;
+        //sholocatviewcontroller.shoplocationlong=50 ;
+        //sholocatviewcontroller.shoplocationlat=-120;
     }
-
-
+    
+    
 }
 - (void)didReceiveMemoryWarning
 {
@@ -326,8 +331,8 @@
         NSLog(@"YES send to shoplog");
         
     }else{
-    
-    [Flurry logEvent:@"NO send to shoplog" withParameters:userdata timed:YES];
+        
+        [Flurry logEvent:@"NO send to shoplog" withParameters:userdata timed:YES];
         NSLog(@"NO send to shoplog");
     }
 }
@@ -338,13 +343,14 @@
     UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
     BOOL emptycatalogue =[cataloguenamefield.text isEqualToString:@""];
     if (!emptycatalogue) {
-        //save on Core data
         if ([commentsView.text isEqual:@""]){
             alertController = [UIAlertController alertControllerWithTitle:@"Warring" message:@"Don't forgit write your comments to save your product." preferredStyle:UIAlertControllerStyleAlert];
             [alertController addAction:ok];
             [self presentViewController:alertController animated:YES completion:nil];
         }else{
+            //save on Core data
             [self saveProductOnCoreData];
+            [self saveProductOnParse];
         }
     }else{
         alertController = [UIAlertController alertControllerWithTitle:@"Error" message:@"Scan QR Code first.Press the button below." preferredStyle:UIAlertControllerStyleAlert];
@@ -363,11 +369,11 @@
     // Create Managed Object
     AppDelegate *app= (AppDelegate*)[[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = [app managedObjectContext];
-    NSError *error;
+    //NSError *error;
     Shoplog *newShopLog = [NSEntityDescription
-                        insertNewObjectForEntityForName:@"Shoplog"
-                        inManagedObjectContext:context];
-
+                           insertNewObjectForEntityForName:@"Shoplog"
+                           inManagedObjectContext:context];
+    
     
     DataTransferObject *dTranferObje = [DataTransferObject getInstance];
     
@@ -388,8 +394,8 @@
     //Create Shop Core Data
     // Create Address
     Shop *newShop = [NSEntityDescription
-                           insertNewObjectForEntityForName:@"Shop"
-                           inManagedObjectContext:context];
+                     insertNewObjectForEntityForName:@"Shop"
+                     inManagedObjectContext:context];
     
     // Set First and Last Name
     [newShop setValue:dTranferObje.defshopname forKey:@"shopname"];
@@ -412,6 +418,42 @@
     [SVProgressHUD dismiss];
 }
 
+/*****************************************************/
+#pragma mark - SaveProductOnParseDB
+/****************************************************/
+
+- (void)saveProductOnParse{
+    [operationQueue addOperationWithBlock:^{
+        PFObject *saveFavorit = [PFObject objectWithClassName:@"SaveFavorit"];
+        saveFavorit[@"category"]    = self.cataloguenamefield.text;
+        saveFavorit[@"price"]       = self.PriceField.text;
+        saveFavorit[@"phone"]       = self.PhoneField.text;
+        saveFavorit[@"website"]     = self.WebsiteField.text;
+        saveFavorit[@"shop"]        = self.ShopField.text;
+        saveFavorit[@"lat"]         = self.LatTextField.text;
+        saveFavorit[@"long"]        = self.LongTextfield.text;
+        NSData *imageData           = UIImagePNGRepresentation(self.imageField.image);
+        PFFile *imageFile           = [PFFile fileWithName:@"image.png" data:imageData];
+        saveFavorit[@"image"]       = imageFile;
+        
+        if ([PFUser currentUser]){
+            saveFavorit[@"userId"]  = [PFUser currentUser].objectId;
+        }
+        
+        [saveFavorit saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (succeeded) {
+                // The object has been saved.
+                NSLog(@"Save Favorit on Parse Successfully");
+                
+            } else {
+                // There was a problem, check error.description
+                NSLog(@"Cant save Favorit successfully");
+            }
+        }];
+    }];
+    
+}
+
 
 -(void)preparetheitemtosave{
     //[spinner startAnimating];
@@ -424,9 +466,9 @@
     NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
     [f setNumberStyle:NSNumberFormatterDecimalStyle];
     float myNumber = [[PriceField text]floatValue];
-       
+    
     [self.currentProduct setPrice:myNumber];
-   
+    
     [self.currentProduct setCategoryname:[cataloguenamefield text]];
     
     NSLog(@"Test 2 : %i",_currentProduct.rating);
@@ -465,11 +507,11 @@
         NSData *smallImageData = UIImageJPEGRepresentation(smallImage, 1.0);
         [self.currentProduct setImage:smallImageData];
     }
-
- 
-   
-
-
+    
+    
+    
+    
+    
 }
 - (void) viewWillDisappear: (BOOL) animated {
     [super viewWillDisappear: animated];
@@ -506,7 +548,7 @@
     
     
     
-   // [self presentViewController:imagePicker animated:YES completion:nil];
+    // [self presentViewController:imagePicker animated:YES completion:nil];
 }
 //  Take an image with camera
 - (IBAction)imagefromCamera:(id)sender {
@@ -586,7 +628,7 @@
     }
     
     return YES;
-
+    
 }
 
 
@@ -607,7 +649,7 @@
     [imagePicker dismissViewControllerAnimated:YES completion:nil];
 }
 
-///To be used Later on When Tweaking the Viewontroller 
+///To be used Later on When Tweaking the Viewontroller
 - (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 25)] ;
@@ -650,19 +692,19 @@
     return headerView;
 }
 
- 
- 
+
+
 - (IBAction)save:(UIStoryboardSegue *)segue{
 }
 
-#pragma The Text Fieled Adjustments Part 
+#pragma The Text Fieled Adjustments Part
 -(void)keyboardDidshow:(NSNotification*)notification{
     if (_keyboardisShown) return;
     
     Saveeditbutton.enabled = NO;
-
+    
     NSDictionary *info =[notification userInfo];
-    //Obtain the Size of the Keyboard 
+    //Obtain the Size of the Keyboard
     NSValue *aValue=[info objectForKey:UIKeyboardFrameEndUserInfoKey];
     CGRect Keyboardrect=[self.view convertRect:[aValue CGRectValue] fromView:nil];
     NSLog(@"The Size of Keyboard is %f ",Keyboardrect.size.height);
@@ -678,26 +720,26 @@
     NSLog(@"The Rectangle are %f",textfieldalive.size.height);
     [self.tableView scrollRectToVisible:textfieldalive animated:YES];
     
-
-
+    
+    
 }
 -(IBAction)textFieldDidBeginEditing:(UITextField *)textField:(id)sender{
     [sender becomeFirstResponder];
-
+    
 }
 -(IBAction)textFieldDidEndEditing:(UITextField *)textField:(id)sender{
     
     [sender resignFirstResponder];
-
+    
 }
 
 -(void)tableView:(UITableView*)tableView willDisplayCell:(UITableViewCell*)cell forRowAtIndexPath:(NSIndexPath*)indexPath {
     
     //cell.backgroundColor=[UIColor colorWithRed:125.0f/255.0f green:125.0f/255.0f blue:125.0f/255.0f alpha:1];
-
+    
     cell.backgroundColor=[UIColor clearColor];
-
-
-
+    
+    
+    
 }
 @end

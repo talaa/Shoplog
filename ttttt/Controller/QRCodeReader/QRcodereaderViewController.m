@@ -9,6 +9,7 @@
 #import "QRcodereaderViewController.h"
 #import "DataTransferObject.h"
 #import "SVProgressHUD.h"
+#import <Parse/Parse.h>
 
 @interface QRcodereaderViewController ()
 {
@@ -173,6 +174,7 @@
     //get back to AddNewProduct View
     [self viewDidLoad];
 }
+
 -(void)loadBeepSound{
     NSString *beepFilePath = [[NSBundle mainBundle] pathForResource:@"beep" ofType:@"mp3"];
     NSURL *beepURL = [NSURL URLWithString:beepFilePath];
