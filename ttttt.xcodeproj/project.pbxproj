@@ -168,6 +168,8 @@
 		F5114CC21C10644E009D677C /* FlatDatePicker-Icon-Close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5114CBC1C10644E009D677C /* FlatDatePicker-Icon-Close@2x.png */; };
 		F5114CC31C10644E009D677C /* FlatDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = F5114CBE1C10644E009D677C /* FlatDatePicker.m */; };
 		F5114CC71C10673C009D677C /* UserObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F5114CC61C10673C009D677C /* UserObject.m */; };
+		F583CB741C16EAFB004065D7 /* Category+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = F583CB711C16EAFB004065D7 /* Category+CoreDataProperties.m */; };
+		F583CB751C16EAFB004065D7 /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = F583CB731C16EAFB004065D7 /* Category.m */; };
 		F5CD0CB21C10406700BBD508 /* SigninViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CD0CB11C10406700BBD508 /* SigninViewController.m */; };
 		F5CD0CB71C10453700BBD508 /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CD0CB41C10453700BBD508 /* User+CoreDataProperties.m */; };
 		F5CD0CB81C10453700BBD508 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CD0CB61C10453700BBD508 /* User.m */; };
@@ -420,6 +422,10 @@
 		F5114CBE1C10644E009D677C /* FlatDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlatDatePicker.m; sourceTree = "<group>"; };
 		F5114CC51C10673C009D677C /* UserObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserObject.h; sourceTree = "<group>"; };
 		F5114CC61C10673C009D677C /* UserObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserObject.m; sourceTree = "<group>"; };
+		F583CB701C16EAFB004065D7 /* Category+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Category+CoreDataProperties.h"; sourceTree = "<group>"; };
+		F583CB711C16EAFB004065D7 /* Category+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Category+CoreDataProperties.m"; sourceTree = "<group>"; };
+		F583CB721C16EAFB004065D7 /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
+		F583CB731C16EAFB004065D7 /* Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Category.m; sourceTree = "<group>"; };
 		F5CD0CB01C10406700BBD508 /* SigninViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SigninViewController.h; sourceTree = "<group>"; };
 		F5CD0CB11C10406700BBD508 /* SigninViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SigninViewController.m; sourceTree = "<group>"; };
 		F5CD0CB31C10453700BBD508 /* User+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "User+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -1045,6 +1051,10 @@
 		F5FD6A591C0F02C20054C7D2 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				F583CB701C16EAFB004065D7 /* Category+CoreDataProperties.h */,
+				F583CB711C16EAFB004065D7 /* Category+CoreDataProperties.m */,
+				F583CB721C16EAFB004065D7 /* Category.h */,
+				F583CB731C16EAFB004065D7 /* Category.m */,
 				F5CD0CB31C10453700BBD508 /* User+CoreDataProperties.h */,
 				F5CD0CB41C10453700BBD508 /* User+CoreDataProperties.m */,
 				F5CD0CB51C10453700BBD508 /* User.h */,
@@ -1286,6 +1296,7 @@
 				692FAE24164AA5C2006A1AF0 /* EBaySearch.m in Sources */,
 				692FAE27164AA7FF006A1AF0 /* Amazonsearch.m in Sources */,
 				F5CD0CB81C10453700BBD508 /* User.m in Sources */,
+				F583CB751C16EAFB004065D7 /* Category.m in Sources */,
 				69FD71491659562A001919DD /* Rakutensearch.m in Sources */,
 				69FD714C165956B0001919DD /* Taobaosearch.m in Sources */,
 				69FD714F165956D3001919DD /* GoogleShoppingSearch.m in Sources */,
@@ -1299,6 +1310,7 @@
 				F5CD0CB21C10406700BBD508 /* SigninViewController.m in Sources */,
 				69ECA98317121AFB00347A6C /* AFHTTPClient.m in Sources */,
 				69ECA98417121AFB00347A6C /* AFHTTPRequestOperation.m in Sources */,
+				F583CB741C16EAFB004065D7 /* Category+CoreDataProperties.m in Sources */,
 				F5FD6A641C0F02C20054C7D2 /* Shoplog.m in Sources */,
 				69ECA98517121AFB00347A6C /* AFImageRequestOperation.m in Sources */,
 				F5FD6A661C0F02C20054C7D2 /* ttttt.xcdatamodeld in Sources */,

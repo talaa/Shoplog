@@ -12,6 +12,7 @@
 #import "DataParsing.h"
 #import "AppDelegate.h"
 #import "SVProgressHUD.h"
+#import "Category+CoreDataProperties.h"
 
 @interface AddProductDetailViewController ()
 {
@@ -359,11 +360,10 @@
     }
 }
 
-/*
- *
- **** Save Product on Core Data *******
- *
- */
+/******************************************/
+#pragma mark - Save Product on Core Data
+/******************************************/
+
 - (void)saveProductOnCoreData {
     [SVProgressHUD showWithStatus:@"Saving Data..."];
     // Create Managed Object
@@ -393,19 +393,18 @@
     
     //Create Shop Core Data
     // Create Address
-    Shop *newShop = [NSEntityDescription
-                     insertNewObjectForEntityForName:@"Shop"
-                     inManagedObjectContext:context];
-    
-    // Set First and Last Name
+    Shop *newShop = [NSEntityDescription insertNewObjectForEntityForName:@"Shop" inManagedObjectContext:context];
     [newShop setValue:dTranferObje.defshopname forKey:@"shopname"];
     [newShop setValue:[NSNumber numberWithDouble: dTranferObje.deflong] forKey:@"longcoordinate"];
     [newShop setValue:[NSNumber numberWithDouble: dTranferObje.deflat] forKey:@"latcoordinate"];
+    newShopLog.shop = newShop;
+    
+    //Create Category Core Data
+    Category *category = [NSEntityDescription insertNewObjectForEntityForName:@"Category" inManagedObjectContext:context];
+    [category setValue:dTranferObje.defcatqr forKey:@"catName"];
+    newShopLog.category = category;
     
     NSError *errorRelation = nil;
-    
-    newShopLog.shop = newShop;
-    //[newShopLog setValue:[NSSet setWithObject:newShop] forKey:@"shop"];
     
     if (![newShopLog.managedObjectContext save:&errorRelation]) {
         [SVProgressHUD showErrorWithStatus:@"Sorry,failed to save data now please tray again!."];
