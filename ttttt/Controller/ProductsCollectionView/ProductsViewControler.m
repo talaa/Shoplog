@@ -60,6 +60,12 @@
     cell.priceLabel.text = [NSString stringWithFormat:@"%f",shoplog.price];
     cell.imageView.image = [UIImage imageWithData:shoplog.image];
     cell.rateLabel.text = [NSString stringWithFormat:@"%d", shoplog.rating];
+    cell.nameLabel.text = @"";
+    
+    cell.layer.cornerRadius = 7.0f;
+    cell.layer.masksToBounds = YES;
+    cell.layer.borderColor = [UIColor grayColor].CGColor;
+    cell.layer.borderWidth = 1.5f;
     
     return cell;
 }
