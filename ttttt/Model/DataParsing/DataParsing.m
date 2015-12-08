@@ -7,12 +7,42 @@
 //
 
 #import "DataParsing.h"
+#import "AppDelegate.h"
 
 @implementation DataParsing
 
 + (void)dataTransferObjectDeAllocat {
     DataTransferObject *dtObject = [DataTransferObject getInstance];
     dtObject.defcatqr = nil;
+}
+
+// Fetch Entities Array
++ (NSArray *)fetchEntitesArray:(NSString*)entityName {
+    AppDelegate *app= (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [app managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:entityName];
+    NSError *fetchError = nil;
+    NSArray *result = [context executeFetchRequest:fetchRequest error:&fetchError];
+    return result;
+}
+
+// Return EntitiesArray's elements number
++ (NSInteger)returnFetchEntitiesArrayCounter:(NSString*)entityName{
+    NSArray *result = [self fetchEntitesArray:entityName];
+    return (result.count)?result.count:0;
+}
+
+// Fetch by exact data by TYPE
++ (bool)isProductExistsOnCDbyImageData:(NSData*)imageData ByEntity:(NSString*)entityName{
+    BOOL isExit = NO;
+    NSArray *result = [self fetchEntitesArray:entityName];
+    for (NSManagedObject *managedObject in result) {
+        if ([[managedObject valueForKey:@"image"] isEqualToData:imageData]) {
+            isExit = YES;
+            break;
+        }
+    }
+    return isExit;
 }
 
 @end

@@ -290,8 +290,6 @@
         //sholocatviewcontroller.shoplocationlong=50 ;
         //sholocatviewcontroller.shoplocationlat=-120;
     }
-    
-    
 }
 - (void)didReceiveMemoryWarning
 {
@@ -340,12 +338,11 @@
 
 - (IBAction)editSaveButtonPressed:(id)sender
 {
-    UIAlertController *alertController;
-    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
     BOOL emptycatalogue =[cataloguenamefield.text isEqualToString:@""];
     if (!emptycatalogue) {
-        if ([commentsView.text isEqual:@""]){
-            alertController = [UIAlertController alertControllerWithTitle:@"Warring" message:@"Don't forgit write your comments to save your product." preferredStyle:UIAlertControllerStyleAlert];
+        if (([commentsView.text isEqual:@""]) || ([self isProductExistOnCoreData] == YES)){
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Warring" message:@"Don't forgit write your comments to save your product or you already saved this product before." preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
             [alertController addAction:ok];
             [self presentViewController:alertController animated:YES completion:nil];
         }else{
@@ -354,10 +351,23 @@
             [self saveProductOnParse];
         }
     }else{
-        alertController = [UIAlertController alertControllerWithTitle:@"Error" message:@"Scan QR Code first.Press the button below." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error" message:@"Scan QR Code first.Press the button below." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
         [alertController addAction:ok];
         [self presentViewController:alertController animated:YES completion:nil];
     }
+}
+
+/*
+ ************* isProductExistOnCoreData *********************
+*/
+
+- (BOOL)isProductExistOnCoreData{
+    DataTransferObject *dTranferObje = [DataTransferObject getInstance];
+    //save imageurl as NSData
+    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:dTranferObje.defimagenameqr]];
+    bool isExit = [DataParsing isProductExistsOnCDbyImageData:imageData ByEntity:@"Shoplog"];
+    return isExit;
 }
 
 /******************************************/
@@ -506,12 +516,8 @@
         NSData *smallImageData = UIImageJPEGRepresentation(smallImage, 1.0);
         [self.currentProduct setImage:smallImageData];
     }
-    
-    
-    
-    
-    
 }
+
 - (void) viewWillDisappear: (BOOL) animated {
     [super viewWillDisappear: animated];
     //NSLog( @"In viewWillDisappear" );
@@ -521,14 +527,11 @@
     longsaved=0;
     latsaved=0;
     [spinner stopAnimating];
-    
-    
-    
 }
+
 //  Pick an image from album
 - (IBAction)imageFromAlbum:(id)sender
 {
-    
     imagePicker = [[UIImagePickerController alloc] init];
     imagePicker.delegate = self;
     imagePicker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
@@ -722,15 +725,16 @@
     
     
 }
--(IBAction)textFieldDidBeginEditing:(UITextField *)textField:(id)sender{
-    [sender becomeFirstResponder];
-    
-}
--(IBAction)textFieldDidEndEditing:(UITextField *)textField:(id)sender{
-    
-    [sender resignFirstResponder];
-    
-}
+
+//-(IBAction)textFieldDidBeginEditing:(UITextField *)textField:(id)sender{
+//    [sender becomeFirstResponder];
+//
+//}
+//-(IBAction)textFieldDidEndEditing:(UITextField *)textField:(id)sender{
+//
+//    [sender resignFirstResponder];
+//
+//}
 
 -(void)tableView:(UITableView*)tableView willDisplayCell:(UITableViewCell*)cell forRowAtIndexPath:(NSIndexPath*)indexPath {
     

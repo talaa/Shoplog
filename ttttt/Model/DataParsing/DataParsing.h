@@ -12,4 +12,8 @@
 @interface DataParsing : NSObject
 
 + (void)dataTransferObjectDeAllocat;
++ (NSArray *)fetchEntitesArray:(NSString*)entityName;
++ (NSInteger)returnFetchEntitiesArrayCounter:(NSString*)entityName;
++ (bool)isProductExistsOnCDbyImageData:(NSData*)imageData ByEntity:(NSString*)entityName;
+
 @end
