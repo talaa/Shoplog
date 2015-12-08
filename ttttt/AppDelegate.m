@@ -16,7 +16,7 @@
 #import "UpgradeViewController.h"
 //#import <FBSDKCoreKit/FBSDKCoreKit.h>
 //#import <PFFacebookUtils.h>
-
+#import "ProductsViewControler.h"
 #import <StartApp/StartApp.h>
 
 #define DevID @"102387467"
@@ -49,9 +49,9 @@
     //[navigationController.navigationBar setBackgroundImage:gradientImage32 forBarMetrics:UIBarMetricsDefault];
     //navigationController.navigationBar.tintColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"blueleather.png"]];
     navigationController.navigationBar.tintColor = [UIColor colorWithRed:48.0f/255.0f green:74.0f/255.0f blue:147.0f/255.0f alpha:1];
-    TestViewController *controller = (TestViewController *)navigationController.topViewController;
+    ProductsViewControler *controller = (ProductsViewControler *)navigationController.topViewController;
      
-    controller.managedObjectContext = self.managedObjectContext;
+    //controller.managedObjectContext = self.managedObjectContext;
     
     [Parse setApplicationId:@"ywPm262lndYyBhcTFxUWF8eLxpcCkEUkHOB782s9"
                   clientKey:@"Vq3qhqkveSpAqSRKShP0OtLfmNG3lyNB8VpwbEX8"];

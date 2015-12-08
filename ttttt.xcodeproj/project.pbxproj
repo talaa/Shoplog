@@ -170,6 +170,8 @@
 		F5114CC71C10673C009D677C /* UserObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F5114CC61C10673C009D677C /* UserObject.m */; };
 		F583CB741C16EAFB004065D7 /* Category+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = F583CB711C16EAFB004065D7 /* Category+CoreDataProperties.m */; };
 		F583CB751C16EAFB004065D7 /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = F583CB731C16EAFB004065D7 /* Category.m */; };
+		F583CB791C17041C004065D7 /* ProductsViewControler.m in Sources */ = {isa = PBXBuildFile; fileRef = F583CB781C17041C004065D7 /* ProductsViewControler.m */; };
+		F583CB7C1C170444004065D7 /* ProductCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F583CB7B1C170444004065D7 /* ProductCollectionViewCell.m */; };
 		F5CD0CB21C10406700BBD508 /* SigninViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CD0CB11C10406700BBD508 /* SigninViewController.m */; };
 		F5CD0CB71C10453700BBD508 /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CD0CB41C10453700BBD508 /* User+CoreDataProperties.m */; };
 		F5CD0CB81C10453700BBD508 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CD0CB61C10453700BBD508 /* User.m */; };
@@ -426,6 +428,10 @@
 		F583CB711C16EAFB004065D7 /* Category+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Category+CoreDataProperties.m"; sourceTree = "<group>"; };
 		F583CB721C16EAFB004065D7 /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
 		F583CB731C16EAFB004065D7 /* Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Category.m; sourceTree = "<group>"; };
+		F583CB771C17041C004065D7 /* ProductsViewControler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductsViewControler.h; sourceTree = "<group>"; };
+		F583CB781C17041C004065D7 /* ProductsViewControler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductsViewControler.m; sourceTree = "<group>"; };
+		F583CB7A1C170444004065D7 /* ProductCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductCollectionViewCell.h; sourceTree = "<group>"; };
+		F583CB7B1C170444004065D7 /* ProductCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductCollectionViewCell.m; sourceTree = "<group>"; };
 		F5CD0CB01C10406700BBD508 /* SigninViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SigninViewController.h; sourceTree = "<group>"; };
 		F5CD0CB11C10406700BBD508 /* SigninViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SigninViewController.m; sourceTree = "<group>"; };
 		F5CD0CB31C10453700BBD508 /* User+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "User+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -979,6 +985,17 @@
 			path = UserObject;
 			sourceTree = "<group>";
 		};
+		F583CB761C1703E2004065D7 /* ProductsCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				F583CB771C17041C004065D7 /* ProductsViewControler.h */,
+				F583CB781C17041C004065D7 /* ProductsViewControler.m */,
+				F583CB7A1C170444004065D7 /* ProductCollectionViewCell.h */,
+				F583CB7B1C170444004065D7 /* ProductCollectionViewCell.m */,
+			);
+			path = ProductsCollectionView;
+			sourceTree = "<group>";
+		};
 		F5CD0CAB1C103FD300BBD508 /* SingUp */ = {
 			isa = PBXGroup;
 			children = (
@@ -1000,6 +1017,7 @@
 		F5D7245F1C0DA12800BC2BDF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F583CB761C1703E2004065D7 /* ProductsCollectionView */,
 				F5CD0CAF1C10406700BBD508 /* SignIn */,
 				F5CD0CAB1C103FD300BBD508 /* SingUp */,
 				F5D724781C0DEA2B00BC2BDF /* AddProductDetail */,
@@ -1297,6 +1315,7 @@
 				692FAE27164AA7FF006A1AF0 /* Amazonsearch.m in Sources */,
 				F5CD0CB81C10453700BBD508 /* User.m in Sources */,
 				F583CB751C16EAFB004065D7 /* Category.m in Sources */,
+				F583CB791C17041C004065D7 /* ProductsViewControler.m in Sources */,
 				69FD71491659562A001919DD /* Rakutensearch.m in Sources */,
 				69FD714C165956B0001919DD /* Taobaosearch.m in Sources */,
 				69FD714F165956D3001919DD /* GoogleShoppingSearch.m in Sources */,
@@ -1307,6 +1326,7 @@
 				69ECA96C1712186A00347A6C /* MosaicData.m in Sources */,
 				69ECA96D1712186A00347A6C /* CustomDataSource.m in Sources */,
 				69ECA96E1712186A00347A6C /* MosaicCell.m in Sources */,
+				F583CB7C1C170444004065D7 /* ProductCollectionViewCell.m in Sources */,
 				F5CD0CB21C10406700BBD508 /* SigninViewController.m in Sources */,
 				69ECA98317121AFB00347A6C /* AFHTTPClient.m in Sources */,
 				69ECA98417121AFB00347A6C /* AFHTTPRequestOperation.m in Sources */,

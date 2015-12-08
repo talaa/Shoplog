@@ -45,4 +45,21 @@
     return isExit;
 }
 
++ (NSMutableArray*)fetchProductsbyCategory{
+    NSMutableArray *productsByCategoryMArray = [NSMutableArray new];
+    NSMutableArray *sameProductsMArray = [NSMutableArray new];
+    NSArray *shoplogObjectsArray = [self fetchEntitesArray:@"Shoplog"];
+    NSArray *categoryObjectsArray = [self fetchEntitesArray:@"Category"];
+    
+    for (NSManagedObject *categoryManagedObject in categoryObjectsArray){
+        for (NSManagedObject *shoplogManagedObject in shoplogObjectsArray){
+            if ([[shoplogManagedObject valueForKey:@"categoryname"] isEqualToString:[categoryManagedObject valueForKey:@"catName"]]){
+                [sameProductsMArray addObject:shoplogManagedObject];
+            }
+        }
+        [productsByCategoryMArray addObject:sameProductsMArray];
+    }
+    return productsByCategoryMArray;
+}
+
 @end
