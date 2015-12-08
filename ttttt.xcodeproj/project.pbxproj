@@ -172,6 +172,7 @@
 		F583CB751C16EAFB004065D7 /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = F583CB731C16EAFB004065D7 /* Category.m */; };
 		F583CB791C17041C004065D7 /* ProductsViewControler.m in Sources */ = {isa = PBXBuildFile; fileRef = F583CB781C17041C004065D7 /* ProductsViewControler.m */; };
 		F583CB7C1C170444004065D7 /* ProductCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F583CB7B1C170444004065D7 /* ProductCollectionViewCell.m */; };
+		F583CB7F1C1730DF004065D7 /* CollectionReusableViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = F583CB7E1C1730DF004065D7 /* CollectionReusableViewHeader.m */; };
 		F5CD0CB21C10406700BBD508 /* SigninViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CD0CB11C10406700BBD508 /* SigninViewController.m */; };
 		F5CD0CB71C10453700BBD508 /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CD0CB41C10453700BBD508 /* User+CoreDataProperties.m */; };
 		F5CD0CB81C10453700BBD508 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CD0CB61C10453700BBD508 /* User.m */; };
@@ -432,6 +433,8 @@
 		F583CB781C17041C004065D7 /* ProductsViewControler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductsViewControler.m; sourceTree = "<group>"; };
 		F583CB7A1C170444004065D7 /* ProductCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductCollectionViewCell.h; sourceTree = "<group>"; };
 		F583CB7B1C170444004065D7 /* ProductCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductCollectionViewCell.m; sourceTree = "<group>"; };
+		F583CB7D1C1730DF004065D7 /* CollectionReusableViewHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionReusableViewHeader.h; sourceTree = "<group>"; };
+		F583CB7E1C1730DF004065D7 /* CollectionReusableViewHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionReusableViewHeader.m; sourceTree = "<group>"; };
 		F5CD0CB01C10406700BBD508 /* SigninViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SigninViewController.h; sourceTree = "<group>"; };
 		F5CD0CB11C10406700BBD508 /* SigninViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SigninViewController.m; sourceTree = "<group>"; };
 		F5CD0CB31C10453700BBD508 /* User+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "User+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -992,6 +995,8 @@
 				F583CB781C17041C004065D7 /* ProductsViewControler.m */,
 				F583CB7A1C170444004065D7 /* ProductCollectionViewCell.h */,
 				F583CB7B1C170444004065D7 /* ProductCollectionViewCell.m */,
+				F583CB7D1C1730DF004065D7 /* CollectionReusableViewHeader.h */,
+				F583CB7E1C1730DF004065D7 /* CollectionReusableViewHeader.m */,
 			);
 			path = ProductsCollectionView;
 			sourceTree = "<group>";
@@ -1314,6 +1319,7 @@
 				692FAE24164AA5C2006A1AF0 /* EBaySearch.m in Sources */,
 				692FAE27164AA7FF006A1AF0 /* Amazonsearch.m in Sources */,
 				F5CD0CB81C10453700BBD508 /* User.m in Sources */,
+				F583CB7F1C1730DF004065D7 /* CollectionReusableViewHeader.m in Sources */,
 				F583CB751C16EAFB004065D7 /* Category.m in Sources */,
 				F583CB791C17041C004065D7 /* ProductsViewControler.m in Sources */,
 				69FD71491659562A001919DD /* Rakutensearch.m in Sources */,

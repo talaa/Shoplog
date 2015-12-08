@@ -10,6 +10,7 @@
 #import "ProductCollectionViewCell.h"
 #import "DataParsing.h"
 #import "Shoplog.h"
+#import "CollectionReusableViewHeader.h"
 
 @interface ProductsViewControler ()
 {
@@ -68,6 +69,28 @@
     cell.layer.borderWidth = 1.5f;
     
     return cell;
+}
+
+/***********************************************/
+#pragma mark - CollectionViewDelegate
+/***********************************************/
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionReusableView *reusableview = nil;
+    if (kind == UICollectionElementKindSectionHeader) {
+        CollectionReusableViewHeader *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
+        Shoplog *shoplog = [[self.productsByCategoryMArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+        headerView.section.text = shoplog.categoryname;
+        reusableview = headerView;
+    }
+    if (kind == UICollectionElementKindSectionFooter) {
+        UICollectionReusableView *footerview = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"FooterView" forIndexPath:indexPath];
+        
+        reusableview = footerview;
+    }
+    
+    return reusableview;
 }
 
 /**********************************************/
