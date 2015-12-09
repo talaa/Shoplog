@@ -876,7 +876,7 @@
             </objects>
             <point key="canvasLocation" x="2588" y="-1514"/>
         </scene>
-        <!--Products View Controler-->
+        <!--Favorit Products-->
         <scene sceneID="azu-ww-PfP">
             <objects>
                 <viewController id="6vJ-du-cFK" customClass="ProductsViewControler" sceneMemberID="viewController">
@@ -1017,7 +1017,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="U1M-Mo-i8K">
+                    <navigationItem key="navigationItem" title="Favorit Products" id="U1M-Mo-i8K">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="diY-y8-SxV">
                             <connections>
                                 <segue destination="kQ7-Yt-TmH" kind="push" id="sUN-iM-ouw"/>
@@ -1063,8 +1063,8 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="dL2-iL-Khg">
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="1" green="0.60581805720000004" blue="0.10283460630000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="barTintColor" red="0.074509803920000006" green="0.48627450979999998" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.92549019610000005" green="0.54609816074721973" blue="0.080360125598395296" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="yrQ-gj-5DR" kind="relationship" relationship="viewControllers" id="gCw-gC-xUE"/>
