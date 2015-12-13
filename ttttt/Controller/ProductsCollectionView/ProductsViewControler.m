@@ -11,6 +11,7 @@
 #import "DataParsing.h"
 #import "Shoplog.h"
 #import "CollectionReusableViewHeader.h"
+#import "ItemImageViewController.h"
 
 @interface ProductsViewControler ()
 {
@@ -47,8 +48,7 @@
     return [[self.productsByCategoryMArray objectAtIndex:section] count]?[[self.productsByCategoryMArray objectAtIndex:section] count]:0;
 }
 
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
-{
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return [self.productsByCategoryMArray count]?[self.productsByCategoryMArray count]:0;
 }
 
@@ -69,6 +69,9 @@
     cell.layer.borderWidth = 1.5f;
     
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
 }
 
 /***********************************************/
@@ -107,6 +110,20 @@
             [self.productsCollectionView reloadData];
         }];
     }];
+}
+
+/**************************************************/
+#pragma mark - Navigator Segue      
+/**************************************************/
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    NSIndexPath *indexPath = [[self.productsCollectionView indexPathsForSelectedItems] lastObject];
+    ProductCollectionViewCell *selectedCell =(ProductCollectionViewCell *)[self.productsCollectionView cellForItemAtIndexPath:indexPath];
+    if ([segue.identifier isEqualToString:@"ITemImageSegue"]){
+        ItemImageViewController *itemImageVC = segue.destinationViewController;
+        NSData *imageData = UIImagePNGRepresentation(selectedCell.imageView.image);
+        itemImageVC.itemImageData = imageData;
+    }
 }
 
      @end

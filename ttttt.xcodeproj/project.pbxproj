@@ -168,6 +168,7 @@
 		F5114CC21C10644E009D677C /* FlatDatePicker-Icon-Close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5114CBC1C10644E009D677C /* FlatDatePicker-Icon-Close@2x.png */; };
 		F5114CC31C10644E009D677C /* FlatDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = F5114CBE1C10644E009D677C /* FlatDatePicker.m */; };
 		F5114CC71C10673C009D677C /* UserObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F5114CC61C10673C009D677C /* UserObject.m */; };
+		F57A90F21C1DDC4100EA2360 /* ItemImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F57A90F11C1DDC4100EA2360 /* ItemImageViewController.m */; };
 		F583CB741C16EAFB004065D7 /* Category+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = F583CB711C16EAFB004065D7 /* Category+CoreDataProperties.m */; };
 		F583CB751C16EAFB004065D7 /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = F583CB731C16EAFB004065D7 /* Category.m */; };
 		F583CB791C17041C004065D7 /* ProductsViewControler.m in Sources */ = {isa = PBXBuildFile; fileRef = F583CB781C17041C004065D7 /* ProductsViewControler.m */; };
@@ -425,6 +426,8 @@
 		F5114CBE1C10644E009D677C /* FlatDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlatDatePicker.m; sourceTree = "<group>"; };
 		F5114CC51C10673C009D677C /* UserObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserObject.h; sourceTree = "<group>"; };
 		F5114CC61C10673C009D677C /* UserObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserObject.m; sourceTree = "<group>"; };
+		F57A90F01C1DDC4100EA2360 /* ItemImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemImageViewController.h; sourceTree = "<group>"; };
+		F57A90F11C1DDC4100EA2360 /* ItemImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemImageViewController.m; sourceTree = "<group>"; };
 		F583CB701C16EAFB004065D7 /* Category+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Category+CoreDataProperties.h"; sourceTree = "<group>"; };
 		F583CB711C16EAFB004065D7 /* Category+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Category+CoreDataProperties.m"; sourceTree = "<group>"; };
 		F583CB721C16EAFB004065D7 /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
@@ -988,6 +991,15 @@
 			path = UserObject;
 			sourceTree = "<group>";
 		};
+		F57A90EF1C1DDC1D00EA2360 /* ItemImageController */ = {
+			isa = PBXGroup;
+			children = (
+				F57A90F01C1DDC4100EA2360 /* ItemImageViewController.h */,
+				F57A90F11C1DDC4100EA2360 /* ItemImageViewController.m */,
+			);
+			path = ItemImageController;
+			sourceTree = "<group>";
+		};
 		F583CB761C1703E2004065D7 /* ProductsCollectionView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1022,6 +1034,7 @@
 		F5D7245F1C0DA12800BC2BDF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F57A90EF1C1DDC1D00EA2360 /* ItemImageController */,
 				F583CB761C1703E2004065D7 /* ProductsCollectionView */,
 				F5CD0CAF1C10406700BBD508 /* SignIn */,
 				F5CD0CAB1C103FD300BBD508 /* SingUp */,
@@ -1331,6 +1344,7 @@
 				69ECA96B1712186A00347A6C /* MosaicViewController.m in Sources */,
 				69ECA96C1712186A00347A6C /* MosaicData.m in Sources */,
 				69ECA96D1712186A00347A6C /* CustomDataSource.m in Sources */,
+				F57A90F21C1DDC4100EA2360 /* ItemImageViewController.m in Sources */,
 				69ECA96E1712186A00347A6C /* MosaicCell.m in Sources */,
 				F583CB7C1C170444004065D7 /* ProductCollectionViewCell.m in Sources */,
 				F5CD0CB21C10406700BBD508 /* SigninViewController.m in Sources */,
