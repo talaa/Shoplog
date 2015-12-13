@@ -1452,7 +1452,7 @@
                                         </state>
                                         <connections>
                                             <action selector="signupPressed:" destination="ohn-lO-cDE" eventType="touchUpInside" id="WlO-EV-zlv"/>
-                                            <segue destination="Sah-CV-zNu" kind="modal" id="6Cj-FF-e4n"/>
+                                            <segue destination="Sah-CV-zNu" kind="modal" identifier="SignupSegue" id="6Cj-FF-e4n"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oRT-w1-iX7">
@@ -1542,6 +1542,7 @@
                                         <state key="normal" title="Edit"/>
                                         <connections>
                                             <action selector="editPressed:" destination="ohn-lO-cDE" eventType="touchUpInside" id="s3s-fj-Wlu"/>
+                                            <segue destination="Sah-CV-zNu" kind="modal" identifier="EditSegue" id="lqj-PP-xcO"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xpd-cj-xpY">
@@ -1747,7 +1748,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="smV-WP-8hF">
                                 <rect key="frame" x="20" y="207" width="240" height="30"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2EU-3s-3de">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail " textAlignment="natural" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="2EU-3s-3de">
                                         <rect key="frame" x="0.0" y="0.0" width="170" height="30"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.10000000000000001" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -1908,7 +1909,8 @@
         <image name="world-128" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="44l-Sf-gUA"/>
+        <segue reference="6Cj-FF-e4n"/>
         <segue reference="b4g-di-S58"/>
+        <segue reference="44l-Sf-gUA"/>
     </inferredMetricsTieBreakers>
 </document>

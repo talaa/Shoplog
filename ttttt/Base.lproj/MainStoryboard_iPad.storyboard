@@ -1125,6 +1125,7 @@
                                         <state key="normal" title="Edite"/>
                                         <connections>
                                             <action selector="editPressed:" destination="ZrZ-AU-og5" eventType="touchUpInside" id="UyG-ag-7cR"/>
+                                            <segue destination="IV2-rj-LZ2" kind="modal" id="eQH-B4-0np"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fSP-fH-x8Y">
@@ -1135,7 +1136,7 @@
                                             <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="logoutPressed:" destination="ZrZ-AU-og5" eventType="touchUpOutside" id="Bjf-ap-1pb"/>
+                                            <action selector="logoutPressed:" destination="ZrZ-AU-og5" eventType="touchUpInside" id="bei-s2-6V6"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1516,6 +1517,7 @@
         <image name="user1" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Yg5-oR-yc7"/>
         <segue reference="sUN-iM-ouw"/>
     </inferredMetricsTieBreakers>
 </document>
