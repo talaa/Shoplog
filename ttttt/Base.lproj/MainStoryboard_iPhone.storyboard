@@ -1290,7 +1290,13 @@
                             <constraint firstItem="Tse-BH-f8m" firstAttribute="leading" secondItem="KXx-vg-CKg" secondAttribute="leading" id="tjY-Q6-yBE"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="FZU-s9-bmg"/>
+                    <navigationItem key="navigationItem" id="FZU-s9-bmg">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="XUu-pn-f7x">
+                            <connections>
+                                <action selector="actionPressed:" destination="Ats-xP-UpG" id="Ncs-eM-NVh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="itemImageView" destination="Tse-BH-f8m" id="2Er-Gp-anP"/>
