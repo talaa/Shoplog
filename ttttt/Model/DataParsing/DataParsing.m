@@ -50,22 +50,29 @@
 
 // Fetch by exact data by Category
 + (NSMutableArray*)fetchProductsbyCategory{
-    NSMutableArray *productsByCategoryMArray = [NSMutableArray new];
-    NSMutableArray *sameProductsMArray = [NSMutableArray new];
+    NSMutableArray *productsByCategoryMArray = [[NSMutableArray alloc]init];
     NSArray *shoplogObjectsArray = [self fetchEntitesArray:@"Shoplog"];
+    NSLog(@"Count is %lu", (unsigned long)shoplogObjectsArray.count);
     NSArray *categoryObjectsArray = [self fetchEntitesArray:@"Category"];
-    
+    NSLog(@"Count is %lu", (unsigned long)categoryObjectsArray.count);
     if (shoplogObjectsArray.count >0){
         for (NSManagedObject *categoryManagedObject in categoryObjectsArray){
+            NSMutableArray *sameProductsMArray = [[NSMutableArray alloc]init];
             for (NSManagedObject *shoplogManagedObject in shoplogObjectsArray){
                 if ([[shoplogManagedObject valueForKey:@"categoryname"] isEqualToString:[categoryManagedObject valueForKey:@"catName"]]){
                     [sameProductsMArray addObject:shoplogManagedObject];
+                    NSLog(@"11111111");
                 }
             }
             [productsByCategoryMArray addObject:sameProductsMArray];
         }
     }
-    return productsByCategoryMArray;
+    for (NSArray *myarray in productsByCategoryMArray){
+        for (Shoplog *shop in myarray){
+            NSLog(@"Cat is %@", shop.categoryname);
+        }
+    }
+   return productsByCategoryMArray;
 }
 
 // Fetch Product by ImageData
