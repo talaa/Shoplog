@@ -63,16 +63,13 @@
                     [sameProductsMArray addObject:shoplogManagedObject];
                     NSLog(@"11111111");
                 }
+            }if (sameProductsMArray.count>0){
+                [productsByCategoryMArray addObject:sameProductsMArray];
             }
-            [productsByCategoryMArray addObject:sameProductsMArray];
+            
         }
     }
-    for (NSArray *myarray in productsByCategoryMArray){
-        for (Shoplog *shop in myarray){
-            NSLog(@"Cat is %@", shop.categoryname);
-        }
-    }
-   return productsByCategoryMArray;
+    return productsByCategoryMArray;
 }
 
 // Fetch Product by ImageData
