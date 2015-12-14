@@ -408,12 +408,22 @@
     [newShop setValue:[NSNumber numberWithDouble: dTranferObje.deflat] forKey:@"latcoordinate"];
     newShopLog.shop = newShop;
     
-    //Create Category Core Data
-    Category *category = [NSEntityDescription insertNewObjectForEntityForName:@"Category" inManagedObjectContext:context];
-    [category setValue:dTranferObje.defcatqr forKey:@"catName"];
-    newShopLog.category = category;
-    
     NSError *errorRelation = nil;
+    
+    //Create Category Core Data
+    // Check first if there is same exit
+    if ([DataParsing ifCategoryNameExistOnEntit:@"Category" CategoryName:dTranferObje.defcatqr] == YES){
+        //Exist no saving
+    }else{
+        //No Exist thus save it
+        Category *category = [NSEntityDescription insertNewObjectForEntityForName:@"Category" inManagedObjectContext:context];
+        [category setValue:dTranferObje.defcatqr forKey:@"catName"];
+        if (![category.managedObjectContext save:&errorRelation]) {
+            //had benn saved successfully
+        }else{
+            //hadn't been saved
+        }
+    }
     
     if (![newShopLog.managedObjectContext save:&errorRelation]) {
         [SVProgressHUD showErrorWithStatus:@"Sorry,failed to save data now please tray again!."];

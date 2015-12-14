@@ -10,7 +10,6 @@
 #import <CoreData/CoreData.h>
 #import "ExtendedManagedObject.h"
 @class Shop;
-@class Category;
 
 @interface Shoplog : ExtendedManagedObject
 
@@ -28,6 +27,6 @@
 @property (nonatomic, retain) NSString * websiteurl;
 @property (nonatomic, retain) NSString * dim_size;
 @property (nonatomic, retain) Shop *shop;
-@property (nonatomic, retain) Category *category;
+
 
 @end

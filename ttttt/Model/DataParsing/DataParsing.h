@@ -19,4 +19,5 @@
 + (NSMutableArray *)fetchProductbyImageData:(NSData*)imageData AndEntityName:(NSString*)entityName;
 + (void)removeEntityRecordbyImageData:(NSData*)imageData AndEntityName:(NSString*)entityName;
 + (void)saveContext;
++ (BOOL)ifCategoryNameExistOnEntit:(NSString*)entityName CategoryName:(NSString*)catname;
 @end
