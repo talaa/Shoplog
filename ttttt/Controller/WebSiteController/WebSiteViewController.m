@@ -8,7 +8,7 @@
 
 #import "WebSiteViewController.h"
 
-@interface WebSiteViewController ()
+@interface WebSiteViewController () <UIWebViewDelegate>
 
 @end
 
@@ -18,6 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [self.activityIdicator startAnimating];
     NSURL *url = [NSURL URLWithString:self.webSiteURL];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     [self.itemWebView loadRequest:requestObj];
@@ -26,6 +27,19 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+/********************************************/
+//              Web View Delegate           //
+/*******************************************/
+
+-(void)webViewDidFinishLoad:(UIWebView *)webView {
+    self.activityIdicator.hidden = YES;
+    [self.activityIdicator stopAnimating];
+}
+
+
+-(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
 }
 
 /*

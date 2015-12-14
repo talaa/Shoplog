@@ -11,6 +11,7 @@
 #import <MessageUI/MessageUI.h>
 #import "SVProgressHUD.h"
 #import "WebSiteViewController.h"
+#import "DataParsing.h"
 
 @interface ItemImageViewController () <MFMailComposeViewControllerDelegate>
 {
@@ -49,14 +50,20 @@
     UIAlertController *actionAlertController  = [UIAlertController alertControllerWithTitle:@"ShopLog" message:@"Choise what you would like to do." preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *editAction = [UIAlertAction actionWithTitle:@"Edit" style:UIAlertActionStyleDefault handler:nil];
     
-    UIAlertAction *removeAction = [UIAlertAction actionWithTitle:@"Remove" style:UIAlertActionStyleDefault handler:nil];
+    UIAlertAction *removeAction = [UIAlertAction actionWithTitle:@"Remove" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //<#code#>
+        [self removeItem];
+    }];
     
     UIAlertAction *callAction = [UIAlertAction actionWithTitle:@"Call" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         //Code
         [self makeACall];
     }];
     
-    UIAlertAction *visitWebSiteAction = [UIAlertAction actionWithTitle:@"Visit Web Site" style:UIAlertActionStyleDefault handler:nil];
+    UIAlertAction *visitWebSiteAction = [UIAlertAction actionWithTitle:@"Visit Web Site" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //Code
+        [self performSegueWithIdentifier:@"VisitWebSiteSegu" sender:self];
+    }];
     
     UIAlertAction *sendMailAction = [UIAlertAction actionWithTitle:@"Send Mail" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         //Code
@@ -167,6 +174,27 @@
             break;
     }
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+/*******************************************/
+//          Remove Item                    //
+/*******************************************/
+
+- (void)removeItem{
+    UIAlertController *alertcontroller = [UIAlertController alertControllerWithTitle:@"Be Careful" message:@"Would you like to remove this item?" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *remove = [UIAlertAction actionWithTitle:@"Remove" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        //<#code#>
+        [DataParsing removeEntityRecordbyImageData:shoplog.image AndEntityName:@"Shoplog"];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }];
+    
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:nil];
+    
+    [alertcontroller addAction:remove];
+    [alertcontroller addAction:cancel];
+    [self presentViewController:alertcontroller animated:YES completion:nil];
+    
 }
 
 

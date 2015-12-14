@@ -8,6 +8,7 @@
 
 #import "DataParsing.h"
 #import "AppDelegate.h"
+#import "Shoplog.h"
 
 @implementation DataParsing
 
@@ -78,5 +79,44 @@
     }
     return productByImageData;
 }
+
+// Remove Entity Record
++ (void)removeEntityRecordbyImageData:(NSData*)imageData AndEntityName:(NSString*)entityName{
+    AppDelegate *app= (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [app managedObjectContext];
+    
+    // Fetching
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:entityName];
+    
+    // Execute Fetch Request
+    NSError *fetchError = nil;
+    NSArray *result = [context executeFetchRequest:fetchRequest error:&fetchError];
+    
+    for (Shoplog *shoplog in result){
+        NSData *data = [shoplog valueForKey:@"image"];
+        if ([data isEqualToData:imageData]){
+            [context deleteObject:shoplog];
+            break;
+        }
+    }
+    [self saveContext];
+}
+
+// Save changed on Core data permenantly
++ (void)saveContext {
+    AppDelegate *app= (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [app managedObjectContext];
+    
+    if (context != nil) {
+        NSError *error = nil;
+        if ([context hasChanges] && ![context save:&error]) {
+            // Replace this implementation with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
+    }
+}
+
 
 @end

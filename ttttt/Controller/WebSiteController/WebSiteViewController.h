@@ -12,5 +12,5 @@
 
 @property (strong, nonatomic) NSString *webSiteURL;
 @property (weak, nonatomic) IBOutlet UIWebView *itemWebView;
-
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIdicator;
 @end

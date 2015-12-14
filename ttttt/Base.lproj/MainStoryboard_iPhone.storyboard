@@ -1322,18 +1322,32 @@
                                     <constraint firstAttribute="height" constant="455" id="CqR-x4-uvc"/>
                                     <constraint firstAttribute="width" constant="320" id="ocg-qR-ylk"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="Fsj-hi-Mxh" id="jaM-e4-6v1"/>
+                                </connections>
                             </webView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="e8k-DN-JLz">
+                                <rect key="frame" x="142" y="273" width="37" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="bfJ-Fl-gl4"/>
+                                    <constraint firstAttribute="width" constant="37" id="ycf-kJ-saj"/>
+                                </constraints>
+                                <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="f27-ng-Una" secondAttribute="trailing" id="AZq-Ty-d96"/>
                             <constraint firstItem="f27-ng-Una" firstAttribute="leading" secondItem="wZk-bC-N0Q" secondAttribute="leading" id="LgL-pX-Plr"/>
                             <constraint firstItem="f27-ng-Una" firstAttribute="top" secondItem="rya-hC-9g8" secondAttribute="bottom" id="WqJ-ta-xEy"/>
+                            <constraint firstItem="e8k-DN-JLz" firstAttribute="centerY" secondItem="wZk-bC-N0Q" secondAttribute="centerY" constant="7.5" id="gN1-8H-Tdr"/>
                             <constraint firstItem="HvX-SB-K4P" firstAttribute="top" secondItem="f27-ng-Una" secondAttribute="bottom" id="kAp-Lf-YcG"/>
+                            <constraint firstItem="e8k-DN-JLz" firstAttribute="centerX" secondItem="wZk-bC-N0Q" secondAttribute="centerX" id="kmM-jn-5za"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="BxW-ZU-Jkl"/>
                     <connections>
+                        <outlet property="activityIdicator" destination="e8k-DN-JLz" id="OMh-A5-2dL"/>
                         <outlet property="itemWebView" destination="f27-ng-Una" id="zSI-N0-gJo"/>
                     </connections>
                 </viewController>
