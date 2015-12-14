@@ -21,6 +21,8 @@
     AppDelegate *app= (AppDelegate*)[[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = [app managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:entityName];
+    [fetchRequest setRelationshipKeyPathsForPrefetching:[NSArray arrayWithObjects:@"Shop",nil]];
+    [fetchRequest setIncludesSubentities:YES];
     NSError *fetchError = nil;
     NSArray *result = [context executeFetchRequest:fetchRequest error:&fetchError];
     return result;
@@ -45,6 +47,7 @@
     return isExit;
 }
 
+// Fetch by exact data by Category
 + (NSMutableArray*)fetchProductsbyCategory{
     NSMutableArray *productsByCategoryMArray = [NSMutableArray new];
     NSMutableArray *sameProductsMArray = [NSMutableArray new];
@@ -60,6 +63,20 @@
         [productsByCategoryMArray addObject:sameProductsMArray];
     }
     return productsByCategoryMArray;
+}
+
+// Fetch Product by ImageData
++ (NSMutableArray *)fetchProductbyImageData:(NSData*)imageData AndEntityName:(NSString*)entityName{
+    NSMutableArray *productByImageData = [NSMutableArray new];
+    NSArray *shoplogObjectsArray = [self fetchEntitesArray:entityName];
+    for (NSManagedObject *managedObject in shoplogObjectsArray){
+        NSData *data = [managedObject valueForKey:@"image"];
+        if([data isEqualToData:imageData]){
+            [productByImageData addObject:managedObject];
+            break;
+        }
+    }
+    return productByImageData;
 }
 
 @end

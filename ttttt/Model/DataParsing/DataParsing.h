@@ -16,4 +16,5 @@
 + (NSInteger)returnFetchEntitiesArrayCounter:(NSString*)entityName;
 + (bool)isProductExistsOnCDbyImageData:(NSData*)imageData ByEntity:(NSString*)entityName;
 + (NSMutableArray*)fetchProductsbyCategory;
++ (NSMutableArray *)fetchProductbyImageData:(NSData*)imageData AndEntityName:(NSString*)entityName;
 @end

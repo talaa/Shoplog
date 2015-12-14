@@ -12,6 +12,7 @@
 
 @property (strong, nonatomic) NSData *itemImageData;
 @property (weak, nonatomic) IBOutlet UIImageView *itemImageView;
+@property (strong, nonatomic) NSMutableArray *itemDataMArray;
 
 - (IBAction)actionPressed:(id)sender;
 

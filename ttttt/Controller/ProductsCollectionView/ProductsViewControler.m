@@ -118,11 +118,12 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     NSIndexPath *indexPath = [[self.productsCollectionView indexPathsForSelectedItems] lastObject];
-    ProductCollectionViewCell *selectedCell =(ProductCollectionViewCell *)[self.productsCollectionView cellForItemAtIndexPath:indexPath];
     if ([segue.identifier isEqualToString:@"ITemImageSegue"]){
+        Shoplog *shoplog = [[self.productsByCategoryMArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
         ItemImageViewController *itemImageVC = segue.destinationViewController;
-        NSData *imageData = UIImagePNGRepresentation(selectedCell.imageView.image);
-        itemImageVC.itemImageData = imageData;
+        //NSData *imageData = UIImagePNGRepresentation(selectedCell.imageView.image);
+        itemImageVC.itemImageData = shoplog.image;
+        itemImageVC.itemDataMArray = [DataParsing fetchProductbyImageData:shoplog.image AndEntityName:@"Shoplog"];
     }
 }
 

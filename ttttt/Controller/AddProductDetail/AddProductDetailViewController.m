@@ -42,7 +42,6 @@
         //Maplocation.delegate=self;
         commentsView.delegate=self;
         DimensionsField.delegate=self;
-        EmailField.delegate=self;
         PhoneField.delegate=self;
         EmailField.delegate=self;
     }
