@@ -181,6 +181,7 @@
 		F5D724691C0DA12800BC2BDF /* QRcodereaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D724661C0DA12800BC2BDF /* QRcodereaderViewController.m */; };
 		F5D7247B1C0DEA2B00BC2BDF /* AddProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D7247A1C0DEA2B00BC2BDF /* AddProductDetailViewController.m */; };
 		F5D724801C0DEA6A00BC2BDF /* DataTransferObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D7247F1C0DEA6A00BC2BDF /* DataTransferObject.m */; };
+		F5EF68B61C1EDF1D00DABFFA /* WebSiteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5EF68B51C1EDF1D00DABFFA /* WebSiteViewController.m */; };
 		F5FD6A631C0F02C20054C7D2 /* Shop.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FD6A5B1C0F02C20054C7D2 /* Shop.m */; };
 		F5FD6A641C0F02C20054C7D2 /* Shoplog.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FD6A5D1C0F02C20054C7D2 /* Shoplog.m */; };
 		F5FD6A651C0F02C20054C7D2 /* TempData.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FD6A5F1C0F02C20054C7D2 /* TempData.m */; };
@@ -452,6 +453,8 @@
 		F5D7247A1C0DEA2B00BC2BDF /* AddProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddProductDetailViewController.m; sourceTree = "<group>"; };
 		F5D7247E1C0DEA6A00BC2BDF /* DataTransferObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataTransferObject.h; sourceTree = "<group>"; };
 		F5D7247F1C0DEA6A00BC2BDF /* DataTransferObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataTransferObject.m; sourceTree = "<group>"; };
+		F5EF68B41C1EDF1D00DABFFA /* WebSiteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebSiteViewController.h; sourceTree = "<group>"; };
+		F5EF68B51C1EDF1D00DABFFA /* WebSiteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebSiteViewController.m; sourceTree = "<group>"; };
 		F5FD6A5A1C0F02C20054C7D2 /* Shop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shop.h; sourceTree = "<group>"; };
 		F5FD6A5B1C0F02C20054C7D2 /* Shop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shop.m; sourceTree = "<group>"; };
 		F5FD6A5C1C0F02C20054C7D2 /* Shoplog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shoplog.h; sourceTree = "<group>"; };
@@ -1034,6 +1037,7 @@
 		F5D7245F1C0DA12800BC2BDF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F5EF68B31C1EDF0600DABFFA /* WebSiteController */,
 				F57A90EF1C1DDC1D00EA2360 /* ItemImageController */,
 				F583CB761C1703E2004065D7 /* ProductsCollectionView */,
 				F5CD0CAF1C10406700BBD508 /* SignIn */,
@@ -1082,6 +1086,15 @@
 				F5D7247F1C0DEA6A00BC2BDF /* DataTransferObject.m */,
 			);
 			path = "Data Transfer";
+			sourceTree = "<group>";
+		};
+		F5EF68B31C1EDF0600DABFFA /* WebSiteController */ = {
+			isa = PBXGroup;
+			children = (
+				F5EF68B41C1EDF1D00DABFFA /* WebSiteViewController.h */,
+				F5EF68B51C1EDF1D00DABFFA /* WebSiteViewController.m */,
+			);
+			path = WebSiteController;
 			sourceTree = "<group>";
 		};
 		F5FD6A591C0F02C20054C7D2 /* CoreData */ = {
@@ -1340,6 +1353,7 @@
 				69FD714F165956D3001919DD /* GoogleShoppingSearch.m in Sources */,
 				69FD7152165956E9001919DD /* YahoobuySearch.m in Sources */,
 				6928073A169B96EA00D5EDFF /* AdFooterview.m in Sources */,
+				F5EF68B61C1EDF1D00DABFFA /* WebSiteViewController.m in Sources */,
 				69ECA96A1712186A00347A6C /* MosaicLayout.m in Sources */,
 				69ECA96B1712186A00347A6C /* MosaicViewController.m in Sources */,
 				69ECA96C1712186A00347A6C /* MosaicData.m in Sources */,

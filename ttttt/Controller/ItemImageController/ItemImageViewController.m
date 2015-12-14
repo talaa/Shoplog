@@ -10,6 +10,7 @@
 #import "Shoplog.h"
 #import <MessageUI/MessageUI.h>
 #import "SVProgressHUD.h"
+#import "WebSiteViewController.h"
 
 @interface ItemImageViewController () <MFMailComposeViewControllerDelegate>
 {
@@ -71,15 +72,19 @@
     [self presentViewController:actionAlertController animated:YES completion:nil];
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"VisitWebSiteSegu"]){
+        WebSiteViewController *webSiteCV = segue.destinationViewController;
+        webSiteCV.webSiteURL = shoplog.websiteurl;
+    }
 }
-*/
+
 
 /************************************/
 //          Send Mail               //
