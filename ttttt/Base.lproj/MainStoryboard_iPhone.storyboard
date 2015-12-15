@@ -134,7 +134,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0pS-7G-LAN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2091" y="-2320"/>
+            <point key="canvasLocation" x="2093" y="-3251"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="ctg-KG-yvp">
@@ -167,7 +167,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ILq-C6-KlU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1765" y="-2380"/>
+            <point key="canvasLocation" x="1767" y="-3311"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="wLL-Ne-oMn">
@@ -246,7 +246,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x3F-9A-91p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1920" y="-2422"/>
+            <point key="canvasLocation" x="1922" y="-3353"/>
         </scene>
         <!--Add Product Detail View Controller-->
         <scene sceneID="wzG-k5-Lrz">
@@ -694,11 +694,7 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="PWh-Pe-LqK">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="XbP-vh-cEI">
-                            <connections>
-                                <action selector="editSaveButtonPressed:" destination="G1I-1g-veF" id="7i9-nu-RjH"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="undo" id="XbP-vh-cEI"/>
                     </navigationItem>
                     <connections>
                         <outlet property="DimensionsField" destination="Hvd-eI-Mjs" id="KqB-4n-usQ"/>
@@ -714,11 +710,15 @@
                         <outlet property="ShopField" destination="VCU-kM-2d4" id="UDc-mO-mck"/>
                         <outlet property="Testnavigation" destination="g8v-Q9-7wc" id="He1-Sq-NCz"/>
                         <outlet property="WebsiteField" destination="Bnh-H8-6LI" id="E0b-CF-NnZ"/>
+                        <outlet property="barButton" destination="XbP-vh-cEI" id="b9Q-7O-I4i"/>
                         <outlet property="cataloguenamefield" destination="3JG-HW-VuR" id="w3S-cH-IUF"/>
                         <outlet property="commentsView" destination="rKe-9m-HNL" id="pn5-MU-4cV"/>
                         <outlet property="imageField" destination="gNm-tJ-EzN" id="Tm8-6L-ZgD"/>
+                        <outlet property="pickPhotoButton" destination="Vrn-bs-XVB" id="1WZ-oI-92Z"/>
                         <outlet property="ratingslider" destination="Xhg-tk-H3Q" id="CAk-tj-LRZ"/>
+                        <outlet property="scanQRButton" destination="Ell-r5-LJ5" id="pvS-kk-Tby"/>
                         <outlet property="spinner" destination="KAw-bj-7TN" id="2Vf-sm-jYM"/>
+                        <outlet property="takePhotoButton" destination="Y5k-fu-wQW" id="kFC-2z-gGz"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mdt-cp-Stn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -846,7 +846,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E44-uu-8a1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="dlR-LB-e7A" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1966" y="-2210"/>
+            <point key="canvasLocation" x="1968" y="-3141"/>
         </scene>
         <!--Mosaic View Controller-->
         <scene sceneID="zHy-qG-QTU">
@@ -1172,7 +1172,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="paO-36-cdE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2553" y="-2541"/>
+            <point key="canvasLocation" x="2475" y="-3257"/>
         </scene>
         <!--Webdetail View Controller-->
         <scene sceneID="Icv-TB-aaI">
@@ -1233,7 +1233,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kal-mF-Cun" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2980" y="-2557"/>
+            <point key="canvasLocation" x="2902" y="-3273"/>
         </scene>
         <!--Item-->
         <scene sceneID="ZhA-1b-NER">
@@ -1297,6 +1297,7 @@
                     <connections>
                         <outlet property="itemImageView" destination="Tse-BH-f8m" id="2Er-Gp-anP"/>
                         <segue destination="Fsj-hi-Mxh" kind="push" identifier="VisitWebSiteSegu" id="Z1K-mJ-MJ5"/>
+                        <segue destination="G1I-1g-veF" kind="push" identifier="EditSegue" id="cYT-p2-Otx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6M4-hQ-Z88" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2004,6 +2005,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="6Cj-FF-e4n"/>
+        <segue reference="cYT-p2-Otx"/>
         <segue reference="44l-Sf-gUA"/>
     </inferredMetricsTieBreakers>
 </document>

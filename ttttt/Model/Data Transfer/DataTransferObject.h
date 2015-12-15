@@ -18,6 +18,7 @@
 @property (strong, nonatomic) NSString *defcomments;
 @property (strong, nonatomic) NSString *defwebsiteurl;
 @property (strong, nonatomic) NSString *defphone;
+@property (strong, nonatomic) NSData *defimagedata;
 @property (nonatomic) double deflong;
 @property (nonatomic) double deflat;
 @property (nonatomic) float defprice;

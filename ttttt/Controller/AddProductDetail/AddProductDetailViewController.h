@@ -28,12 +28,16 @@
 }
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-
+@property (nonatomic) BOOL isEdit;
 @property (strong, nonatomic) Shoplog *currentProduct;
 @property (strong,nonatomic)Shop *currentshop;
 @property (nonatomic ) BOOL edit_add;
 @property (nonatomic ) BOOL newcatalogue;
 @property (nonatomic ) BOOL Qrcodecatalogue;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *barButton;
+@property (weak, nonatomic) IBOutlet UIButton *scanQRButton;
+@property (weak, nonatomic) IBOutlet UIButton *takePhotoButton;
+@property (weak, nonatomic) IBOutlet UIButton *pickPhotoButton;
 @property (strong, nonatomic) IBOutlet UITextField *PriceField;
 @property (strong, nonatomic) IBOutlet UITextField *ShopField;
 @property (strong, nonatomic) IBOutlet UITextField *cataloguenamefield;

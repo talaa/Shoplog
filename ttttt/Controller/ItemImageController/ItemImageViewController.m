@@ -12,10 +12,14 @@
 #import "SVProgressHUD.h"
 #import "WebSiteViewController.h"
 #import "DataParsing.h"
+#import "DataTransferObject.h"
+#import "Shop.h"
+#import "AddProductDetailViewController.h"
 
 @interface ItemImageViewController () <MFMailComposeViewControllerDelegate>
 {
     Shoplog *shoplog;
+    Shop *shop;
 }
 
 @end
@@ -27,6 +31,7 @@
     // Do any additional setup after loading the view.
     
     shoplog = [self.itemDataMArray objectAtIndex:0];
+    shop = shoplog.shop;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -48,10 +53,14 @@
 
 - (IBAction)actionPressed:(id)sender{
     UIAlertController *actionAlertController  = [UIAlertController alertControllerWithTitle:@"ShopLog" message:@"Choise what you would like to do." preferredStyle:UIAlertControllerStyleActionSheet];
-    UIAlertAction *editAction = [UIAlertAction actionWithTitle:@"Edit" style:UIAlertActionStyleDefault handler:nil];
+    
+    UIAlertAction *editAction = [UIAlertAction actionWithTitle:@"Edit" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //Code
+        [self editItem];
+    }];
     
     UIAlertAction *removeAction = [UIAlertAction actionWithTitle:@"Remove" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        //<#code#>
+        //code
         [self removeItem];
     }];
     
@@ -89,6 +98,9 @@
     if ([segue.identifier isEqualToString:@"VisitWebSiteSegu"]){
         WebSiteViewController *webSiteCV = segue.destinationViewController;
         webSiteCV.webSiteURL = shoplog.websiteurl;
+    }else if ([segue.identifier isEqualToString:@"EditSegue"]){
+        AddProductDetailViewController *addVC = segue.destinationViewController;
+        addVC.isEdit = YES;
     }
 }
 
@@ -195,6 +207,25 @@
     [alertcontroller addAction:cancel];
     [self presentViewController:alertcontroller animated:YES completion:nil];
     
+}
+
+/****************************************/
+//          Edit Item                   //
+/****************************************/
+
+- (void)editItem{
+    DataTransferObject *dTranferObje=[DataTransferObject getInstance];
+    dTranferObje.defprice = shoplog.price;
+    dTranferObje.defcatqr = shoplog.categoryname;
+    dTranferObje.defimagedata = shoplog.image;
+    dTranferObje.defemail = shoplog.email;
+    dTranferObje.defphone = [NSString stringWithFormat:@"%@",shoplog.phone];
+    dTranferObje.defshopname = shop.shopname;
+    dTranferObje.defwebsiteurl = shoplog.websiteurl;
+    dTranferObje.deflat = shop.latcoordinate;
+    dTranferObje.deflong = shop.longcoordinate;
+    
+    [self performSegueWithIdentifier:@"EditSegue" sender:self];
 }
 
 

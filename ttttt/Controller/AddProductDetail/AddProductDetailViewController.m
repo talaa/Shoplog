@@ -62,8 +62,6 @@
         self.cataloguenamefield.text = dTranferObje.defcatqr;
         self.imageField.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:dTranferObje.defimagenameqr]]];
     }
-    
-    
     [self performSelector:@selector(updatecurrentLocation) withObject:nil afterDelay:5];
     /*
      if (self.currentProduct.shop.longcoordinate) {
@@ -121,6 +119,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    if (self.isEdit == YES){
+        //Then it is an update view
+        [self editExitItemBehaviorView];
+    }else{
+        //It is a new item
+        [self newItemBehavior];
+    }
+
     
     operationQueue = [[NSOperationQueue alloc] init];
     
@@ -750,8 +757,27 @@
     //cell.backgroundColor=[UIColor colorWithRed:125.0f/255.0f green:125.0f/255.0f blue:125.0f/255.0f alpha:1];
     
     cell.backgroundColor=[UIColor clearColor];
-    
-    
-    
+}
+
+
+/***************************************/
+//      Edit Item Behavior              //
+/****************************************/
+
+- (void)editExitItemBehaviorView{
+    self.scanQRButton.hidden = YES;
+    self.scanQRButton.enabled = NO;
+    self.barButton.style = UIBarButtonSystemItemEdit;
+}
+
+/**************************************/
+//      New Item Behavior             //
+/**************************************/
+
+- (void)newItemBehavior{
+    self.scanQRButton.hidden = NO;
+    self.scanQRButton.enabled = YES;
+    self.barButton.style = UIBarButtonSystemItemSave;
+    [DataParsing dataTransferObjectDeAllocat];
 }
 @end
