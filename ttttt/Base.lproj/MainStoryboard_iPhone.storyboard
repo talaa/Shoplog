@@ -694,7 +694,7 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="PWh-Pe-LqK">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="undo" id="XbP-vh-cEI"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="XbP-vh-cEI"/>
                     </navigationItem>
                     <connections>
                         <outlet property="DimensionsField" destination="Hvd-eI-Mjs" id="KqB-4n-usQ"/>

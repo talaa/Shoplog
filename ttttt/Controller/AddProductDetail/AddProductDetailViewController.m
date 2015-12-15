@@ -127,7 +127,6 @@
         //It is a new item
         [self newItemBehavior];
     }
-
     
     operationQueue = [[NSOperationQueue alloc] init];
     
@@ -767,7 +766,9 @@
 - (void)editExitItemBehaviorView{
     self.scanQRButton.hidden = YES;
     self.scanQRButton.enabled = NO;
-    self.barButton.style = UIBarButtonSystemItemEdit;
+    UIBarButtonItem *editItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:nil];
+    NSArray *rightBarItems = @[editItem];
+    self.navigationItem.rightBarButtonItems = rightBarItems;
 }
 
 /**************************************/
@@ -777,7 +778,9 @@
 - (void)newItemBehavior{
     self.scanQRButton.hidden = NO;
     self.scanQRButton.enabled = YES;
-    self.barButton.style = UIBarButtonSystemItemSave;
+    UIBarButtonItem *saveItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:nil];
+    NSArray *rightBarItems = @[saveItem];
+    self.navigationItem.rightBarButtonItems = rightBarItems;
     [DataParsing dataTransferObjectDeAllocat];
 }
 @end
