@@ -34,7 +34,6 @@
 @property (nonatomic ) BOOL edit_add;
 @property (nonatomic ) BOOL newcatalogue;
 @property (nonatomic ) BOOL Qrcodecatalogue;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *barButton;
 @property (weak, nonatomic) IBOutlet UIButton *scanQRButton;
 @property (weak, nonatomic) IBOutlet UIButton *takePhotoButton;
 @property (weak, nonatomic) IBOutlet UIButton *pickPhotoButton;

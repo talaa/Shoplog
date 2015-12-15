@@ -60,7 +60,13 @@
         self.PhoneField.text = [NSString stringWithFormat:@"%@", dTranferObje.defphone];
         self.PriceField.text = [NSString stringWithFormat:@"%f",dTranferObje.defprice];
         self.cataloguenamefield.text = dTranferObje.defcatqr;
-        self.imageField.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:dTranferObje.defimagenameqr]]];
+        if (self.isEdit == YES){
+            //get from edit behavior
+            self.imageField.image = [UIImage imageWithData:dTranferObje.defimagedata];
+        }else{
+            self.imageField.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:dTranferObje.defimagenameqr]]];
+        }
+        
     }
     [self performSelector:@selector(updatecurrentLocation) withObject:nil afterDelay:5];
     /*
@@ -340,6 +346,17 @@
         NSLog(@"NO send to shoplog");
     }
 }
+
+/********************************************************/
+//              Edit An Exit Item Action Button         //
+/********************************************************/
+
+- (IBAction)editExistButtonPressed:(id)sender{
+    
+}
+/*******************************************************/
+//              Save New Item Action Button             //
+/*******************************************************/
 
 - (IBAction)editSaveButtonPressed:(id)sender
 {
@@ -766,7 +783,7 @@
 - (void)editExitItemBehaviorView{
     self.scanQRButton.hidden = YES;
     self.scanQRButton.enabled = NO;
-    UIBarButtonItem *editItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:nil];
+    UIBarButtonItem *editItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editExistButtonPressed:)];
     NSArray *rightBarItems = @[editItem];
     self.navigationItem.rightBarButtonItems = rightBarItems;
 }
@@ -778,7 +795,7 @@
 - (void)newItemBehavior{
     self.scanQRButton.hidden = NO;
     self.scanQRButton.enabled = YES;
-    UIBarButtonItem *saveItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:nil];
+    UIBarButtonItem *saveItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(editSaveButtonPressed:)];
     NSArray *rightBarItems = @[saveItem];
     self.navigationItem.rightBarButtonItems = rightBarItems;
     [DataParsing dataTransferObjectDeAllocat];

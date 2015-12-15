@@ -710,7 +710,6 @@
                         <outlet property="ShopField" destination="VCU-kM-2d4" id="UDc-mO-mck"/>
                         <outlet property="Testnavigation" destination="g8v-Q9-7wc" id="He1-Sq-NCz"/>
                         <outlet property="WebsiteField" destination="Bnh-H8-6LI" id="E0b-CF-NnZ"/>
-                        <outlet property="barButton" destination="XbP-vh-cEI" id="b9Q-7O-I4i"/>
                         <outlet property="cataloguenamefield" destination="3JG-HW-VuR" id="w3S-cH-IUF"/>
                         <outlet property="commentsView" destination="rKe-9m-HNL" id="pn5-MU-4cV"/>
                         <outlet property="imageField" destination="gNm-tJ-EzN" id="Tm8-6L-ZgD"/>
