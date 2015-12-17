@@ -14,7 +14,8 @@
 
 + (void)dataTransferObjectDeAllocat {
     DataTransferObject *dtObject = [DataTransferObject getInstance];
-    dtObject.defcatqr = nil;
+    dtObject.defcatqr   = nil;
+    dtObject.defId      = nil;
 }
 
 // Fetch Entities Array
@@ -167,11 +168,20 @@
 
 // Edit Product Data
 + (void)editProductById:(NSString*)proID AndEntityName:(NSString*)entityName {
+    DataTransferObject *dTransferObj = [DataTransferObject getInstance];
     NSArray *result = [self fetchEntitesArray:entityName];
-    for (NSManagedObject *managedObject in result){
-        if ([[managedObject valueForKey:@"itemId"] isEqualToString:proID]){
+    for (Shoplog *shoplog in result){
+        if ([[shoplog valueForKey:@"itemId"] isEqualToString:proID]){
             //Do Updatting
-            //[managedObject setValue: forKey:@"rep"];
+            [shoplog setValue:dTransferObj.defcatqr forKey:@"categoryname"];
+            [shoplog setValue:[NSNumber numberWithFloat:dTransferObj.defprice] forKey:@"price"];
+            [shoplog setValue:dTransferObj.defimagedata forKey:@"image"];
+            [shoplog setValue:[NSNumber numberWithInt:dTransferObj.defrating] forKey:@"rating"];
+            [shoplog setValue:dTransferObj.defphone forKey:@"phone"];
+            [shoplog setValue:dTransferObj.defwebsiteurl forKey:@"websiteurl"];
+            
+            Shop *shop = shoplog.shop;
+            [shoplog setValue:dTransferObj.defshopname forKey:@"shopname"];
             break;
         }
     }

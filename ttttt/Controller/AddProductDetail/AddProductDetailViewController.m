@@ -17,6 +17,7 @@
 @interface AddProductDetailViewController ()
 {
     NSOperationQueue    *operationQueue;
+    DataTransferObject  *dTranferObje;
 }
 
 @end
@@ -48,8 +49,88 @@
     return self;
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    if (self.isEdit == YES){
+        //Then it is an update view
+        [self editExitItemBehaviorView];
+    }else{
+        //It is a new item
+        [self newItemBehavior];
+    }
+    
+    operationQueue = [[NSOperationQueue alloc] init];
+    
+    //self.view.backgroundColor=[UIColor greenColor];
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.distanceFilter = kCLDistanceFilterNone;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [self.locationManager startUpdatingLocation];
+    
+    if(IS_OS_8_OR_LATER) {
+        [self.locationManager requestAlwaysAuthorization];
+        [self.locationManager requestWhenInUseAuthorization];
+    }
+    
+    
+    
+    //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"web-elements.png"]];
+    //spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [spinner setCenter:self.view.center];
+    //[spinner setCenter:CGPointMake(kScreenWidth/2.0, kScreenHeight/2.0)]; // I do this because I'm in landscape mode
+    [self.view addSubview:spinner]; // spinner is not visible until started
+    
+    
+    if (_currentProduct)
+    {
+        //[[PriceField setText:[[_currentProduct price]stringValue]];
+        [PriceField setText:[NSString stringWithFormat:@"%.2f", [_currentProduct price]]];
+        [ShopField setText:[_currentProduct.shop shopname]];
+        [LongTextfield setText:[NSString stringWithFormat:@"%f",[_currentProduct.shop longcoordinate]]];
+        [LatTextField setText:[NSString stringWithFormat:@"%f",[_currentProduct.shop latcoordinate]]];
+        longsaved=[_currentProduct.shop longcoordinate];
+        latsaved=[_currentProduct.shop latcoordinate];
+        [PhoneField setText:[NSString stringWithFormat:@"%@",[_currentProduct phone]]];
+        [EmailField setText:[_currentProduct email]];
+        [WebsiteField setText:[_currentProduct websiteurl]];
+        [DimensionsField setText:[_currentProduct dim_size]];
+        [commentsView setText:[_currentProduct comments]];
+        
+        [self setTitle:[_currentProduct categoryname ]];
+        [ratingslider setValue:[_currentProduct rating] animated:YES];
+        if ([_currentProduct image])
+            [imageField setImage:[UIImage imageWithData:[_currentProduct image]]];
+        
+        
+    }
+    
+    ///Enabling the Catalogue Filed Name
+    self.cataloguenamefield.enabled=YES;
+    
+    //Enabling the Done Button @ the Bottom
+    if (edit_add) {
+        self.Testnavigation.hidden=YES;
+    } else {
+        self.Testnavigation.hidden=NO;
+    }
+    //self.Testnavigation.hidden=YES;
+    cataloguenamefield.text=self.title;
+    if (Qrcodecatalogue) {
+        //
+        Qrcodecatalogue=NO;
+    }
+    
+    [self configuregradient];
+    //NSLog(@"The Supposed Saved values are %f %f",longsaved,latsaved);
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+}
+
+
 -(void)viewWillAppear:(BOOL)animated{
-    DataTransferObject *dTranferObje=[DataTransferObject getInstance];
+    dTranferObje = [DataTransferObject getInstance];
     if (dTranferObje.defcatqr == nil){
         
     }else{
@@ -117,91 +198,8 @@
     
     [Maplocation setRegion:mapRegion animated:YES];
     NSLog(@"The USer Location are :%f %f",Maplocation.userLocation.coordinate.latitude,Maplocation.userLocation.coordinate.longitude);
-    
-    
-    
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    if (self.isEdit == YES){
-        //Then it is an update view
-        [self editExitItemBehaviorView];
-    }else{
-        //It is a new item
-        [self newItemBehavior];
-    }
-    
-    operationQueue = [[NSOperationQueue alloc] init];
-    
-    //self.view.backgroundColor=[UIColor greenColor];
-    self.locationManager = [[CLLocationManager alloc] init];
-    self.locationManager.distanceFilter = kCLDistanceFilterNone;
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    [self.locationManager startUpdatingLocation];
-    
-    if(IS_OS_8_OR_LATER) {
-        [self.locationManager requestAlwaysAuthorization];
-        [self.locationManager requestWhenInUseAuthorization];
-    }
-    
-    
-    
-    //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"web-elements.png"]];
-    //spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    [spinner setCenter:self.view.center];
-    //[spinner setCenter:CGPointMake(kScreenWidth/2.0, kScreenHeight/2.0)]; // I do this because I'm in landscape mode
-    [self.view addSubview:spinner]; // spinner is not visible until started
-    
-    
-    if (_currentProduct)
-    {
-        //[[PriceField setText:[[_currentProduct price]stringValue]];
-        [PriceField setText:[NSString stringWithFormat:@"%.2f", [_currentProduct price]]];
-        [ShopField setText:[_currentProduct.shop shopname]];
-        [LongTextfield setText:[NSString stringWithFormat:@"%f",[_currentProduct.shop longcoordinate]]];
-        [LatTextField setText:[NSString stringWithFormat:@"%f",[_currentProduct.shop latcoordinate]]];
-        longsaved=[_currentProduct.shop longcoordinate];
-        latsaved=[_currentProduct.shop latcoordinate];
-        [PhoneField setText:[NSString stringWithFormat:@"%@",[_currentProduct phone]]];
-        [EmailField setText:[_currentProduct email]];
-        [WebsiteField setText:[_currentProduct websiteurl]];
-        [DimensionsField setText:[_currentProduct dim_size]];
-        [commentsView setText:[_currentProduct comments]];
-        
-        [self setTitle:[_currentProduct categoryname ]];
-        [ratingslider setValue:[_currentProduct rating] animated:YES];
-        if ([_currentProduct image])
-            [imageField setImage:[UIImage imageWithData:[_currentProduct image]]];
-        
-        
-    }
-    
-    ///Enabling the Catalogue Filed Name
-    if (newcatalogue) {
-        self.cataloguenamefield.enabled=YES;
-    }
-    
-    //Enabling the Done Button @ the Bottom
-    if (edit_add) {
-        self.Testnavigation.hidden=YES;
-    } else {
-        self.Testnavigation.hidden=NO;
-    }
-    //self.Testnavigation.hidden=YES;
-    cataloguenamefield.text=self.title;
-    if (Qrcodecatalogue) {
-        //
-        Qrcodecatalogue=NO;
-    }
-    
-    [self configuregradient];
-    //NSLog(@"The Supposed Saved values are %f %f",longsaved,latsaved);
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-}
 -(void)configuregradient{
     //gradientview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)] ;
     UIColor *shoblue=[UIColor colorWithRed:19.0f/255.0f green:125.0f/255.0f blue:236.0f/255.0f alpha:1.0f];
@@ -352,7 +350,18 @@
 /********************************************************/
 
 - (IBAction)editExistButtonPressed:(id)sender{
-    if (self.cataloguenamefield.text.length >0 && self.PriceField.text.length>0 && self.imageField.image != nil && self.ShopField.text.length>0){
+    if (self.cataloguenamefield.text.length >0 && self.PriceField.text.length>0 && self.imageField.image != nil && self.ShopField.text.length>0 && self.PhoneField.text >0 && self.WebsiteField.text >0){
+        dTranferObje.defcatqr           = self.cataloguenamefield.text;
+        dTranferObje.defprice           = [self.PriceField.text floatValue];
+        dTranferObje.defimagedata       = UIImagePNGRepresentation(self.imageField.image);
+        dTranferObje.defshopname        = self.ShopField.text;
+        dTranferObje.defrating          = self.ratingslider.value;
+        dTranferObje.defphone           = self.PhoneField.text;
+        dTranferObje.defwebsiteurl      = self.WebsiteField.text;
+        
+        [DataParsing editProductById:dTranferObje.defId AndEntityName:@"Shoplog"];
+        [DataParsing dataTransferObjectDeAllocat];
+
     }else{
         UIAlertController *alertController  = [UIAlertController alertControllerWithTitle:@"Warning" message:@"Kindly fill all mandatory fields" preferredStyle:UIAlertControllerStyleAlert];
         [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil]];
@@ -390,7 +399,7 @@
 */
 
 - (BOOL)isProductExistOnCoreData{
-    DataTransferObject *dTranferObje = [DataTransferObject getInstance];
+    dTranferObje = [DataTransferObject getInstance];
     //save imageurl as NSData
     NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:dTranferObje.defimagenameqr]];
     bool isExit = [DataParsing isProductExistsOnCDbyImageData:imageData ByEntity:@"Shoplog"];
@@ -412,7 +421,7 @@
                            inManagedObjectContext:context];
     
     
-    DataTransferObject *dTranferObje = [DataTransferObject getInstance];
+    dTranferObje = [DataTransferObject getInstance];
     
     //save imageurl as NSData
     NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:dTranferObje.defimagenameqr]];

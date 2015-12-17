@@ -6,6 +6,7 @@
     <entity name="Shop" representedClassName="Shop" syncable="YES">
         <attribute name="latcoordinate" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="longcoordinate" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="shopId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="shopname" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="shopdetails" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Shoplog" inverseName="shop" inverseEntity="Shoplog" syncable="YES"/>
     </entity>
@@ -35,7 +36,7 @@
     </entity>
     <elements>
         <element name="Category" positionX="-6183" positionY="-3510" width="128" height="60"/>
-        <element name="Shop" positionX="-6399" positionY="-3651" width="128" height="105"/>
+        <element name="Shop" positionX="-6399" positionY="-3651" width="128" height="120"/>
         <element name="Shoplog" positionX="-6633" positionY="-3654" width="128" height="270"/>
         <element name="User" positionX="-5987" positionY="-3654" width="128" height="118"/>
     </elements>

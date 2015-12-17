@@ -13,6 +13,7 @@
 
 @interface Shop : ExtendedManagedObject
 
+@property (nonatomic, retain) NSString *shopId;
 @property (nonatomic, retain) NSString * shopname;
 @property (nonatomic) double longcoordinate;
 @property (nonatomic) double latcoordinate;

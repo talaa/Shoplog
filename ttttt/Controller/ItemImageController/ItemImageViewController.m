@@ -215,15 +215,16 @@
 
 - (void)editItem{
     DataTransferObject *dTranferObje=[DataTransferObject getInstance];
-    dTranferObje.defprice = shoplog.price;
-    dTranferObje.defcatqr = shoplog.categoryname;
-    dTranferObje.defimagedata = shoplog.image;
-    dTranferObje.defemail = shoplog.email;
-    dTranferObje.defphone = [NSString stringWithFormat:@"%@",shoplog.phone];
-    dTranferObje.defshopname = shop.shopname;
-    dTranferObje.defwebsiteurl = shoplog.websiteurl;
-    dTranferObje.deflat = shop.latcoordinate;
-    dTranferObje.deflong = shop.longcoordinate;
+    dTranferObje.defId          = shoplog.itemId;
+    dTranferObje.defprice       = shoplog.price;
+    dTranferObje.defcatqr       = shoplog.categoryname;
+    dTranferObje.defimagedata   = shoplog.image;
+    dTranferObje.defemail       = shoplog.email;
+    dTranferObje.defphone       = [NSString stringWithFormat:@"%@",shoplog.phone];
+    dTranferObje.defshopname    = shop.shopname;
+    dTranferObje.defwebsiteurl  = shoplog.websiteurl;
+    dTranferObje.deflat         = shop.latcoordinate;
+    dTranferObje.deflong        = shop.longcoordinate;
     
     [self performSegueWithIdentifier:@"EditSegue" sender:self];
 }
