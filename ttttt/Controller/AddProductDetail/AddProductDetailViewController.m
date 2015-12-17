@@ -759,15 +759,15 @@
     
 }
 
-//-(IBAction)textFieldDidBeginEditing:(UITextField *)textField:(id)sender{
-//    [sender becomeFirstResponder];
-//
-//}
-//-(IBAction)textFieldDidEndEditing:(UITextField *)textField:(id)sender{
-//
-//    [sender resignFirstResponder];
-//
-//}
+-(IBAction)textFieldDidBeginEditing:(UITextField *)textField:(id)sender{
+    [sender becomeFirstResponder];
+
+}
+-(IBAction)textFieldDidEndEditing:(UITextField *)textField:(id)sender{
+
+    [sender resignFirstResponder];
+
+}
 
 -(void)tableView:(UITableView*)tableView willDisplayCell:(UITableViewCell*)cell forRowAtIndexPath:(NSIndexPath*)indexPath {
     
