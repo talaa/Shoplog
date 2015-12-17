@@ -86,7 +86,7 @@
 }
 
 // Remove Entity Record
-+ (void)removeEntityRecordbyImageData:(NSData*)imageData AndEntityName:(NSString*)entityName{
++ (void)removeEntityRecordbyItemId:(NSString*)itemID AndEntityName:(NSString*)entityName{
     AppDelegate *app= (AppDelegate*)[[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = [app managedObjectContext];
     
@@ -98,8 +98,7 @@
     NSArray *result = [context executeFetchRequest:fetchRequest error:&fetchError];
     
     for (Shoplog *shoplog in result){
-        NSData *data = [shoplog valueForKey:@"image"];
-        if ([data isEqualToData:imageData]){
+        if ([shoplog.itemId isEqualToString:itemID]){
             [context deleteObject:shoplog];
             break;
         }
@@ -143,5 +142,26 @@
     NSString *randomId = [ NSString stringWithFormat:@"M%f", timeStamp];
     randomId = [ randomId stringByReplacingOccurrencesOfString:@"." withString:@""];
     return randomId;
+}
+
+// Delete Product form Core Data
++ (void)deleteProductByID:(NSString*)Id ByEntityName:(NSString*)entityName{
+    AppDelegate *app= (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [app managedObjectContext];
+    
+    // Fetching
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:entityName];
+    
+    // Execute Fetch Request
+    NSError *fetchError = nil;
+    NSArray *result = [context executeFetchRequest:fetchRequest error:&fetchError];
+    
+    for (Shoplog *shoplog in result) {
+        if ([shoplog.itemId isEqualToString:Id]){
+            [context deleteObject:shoplog];
+            break;
+        }
+    }
+    [self saveContext];
 }
 @end

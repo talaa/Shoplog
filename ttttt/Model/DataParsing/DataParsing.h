@@ -17,9 +17,10 @@
 + (bool)isProductExistsOnCDbyImageData:(NSData*)imageData ByEntity:(NSString*)entityName;
 + (NSMutableArray*)fetchProductsbyCategory;
 + (NSMutableArray *)fetchProductbyImageData:(NSData*)imageData AndEntityName:(NSString*)entityName;
-+ (void)removeEntityRecordbyImageData:(NSData*)imageData AndEntityName:(NSString*)entityName;
++ (void)removeEntityRecordbyItemId:(NSString*)itemID AndEntityName:(NSString*)entityName;
 + (void)saveContext;
 + (BOOL)ifCategoryNameExistOnEntit:(NSString*)entityName CategoryName:(NSString*)catname;
++ (void)deleteProductByID:(NSString*)Id ByEntityName:(NSString*)entityName;
 + (NSString *)createRandomId;
 
 @end

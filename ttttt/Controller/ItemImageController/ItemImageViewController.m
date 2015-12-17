@@ -197,7 +197,7 @@
     
     UIAlertAction *remove = [UIAlertAction actionWithTitle:@"Remove" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
         //<#code#>
-        [DataParsing removeEntityRecordbyImageData:shoplog.image AndEntityName:@"Shoplog"];
+        [DataParsing removeEntityRecordbyItemId:shoplog.itemId AndEntityName:@"Shoplog"];
         [self.navigationController popToRootViewControllerAnimated:YES];
     }];
     
