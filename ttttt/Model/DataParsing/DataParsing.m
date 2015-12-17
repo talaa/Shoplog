@@ -9,6 +9,7 @@
 #import "DataParsing.h"
 #import "AppDelegate.h"
 #import "Shoplog.h"
+#import "Shop.h"
 
 @implementation DataParsing
 
@@ -177,11 +178,15 @@
             [shoplog setValue:[NSNumber numberWithFloat:dTransferObj.defprice] forKey:@"price"];
             [shoplog setValue:dTransferObj.defimagedata forKey:@"image"];
             [shoplog setValue:[NSNumber numberWithInt:dTransferObj.defrating] forKey:@"rating"];
-            [shoplog setValue:dTransferObj.defphone forKey:@"phone"];
+            [shoplog setValue:[NSDecimalNumber decimalNumberWithString:dTransferObj.defphone] forKey:@"phone"];
             [shoplog setValue:dTransferObj.defwebsiteurl forKey:@"websiteurl"];
             
-            Shop *shop = shoplog.shop;
-            [shoplog setValue:dTransferObj.defshopname forKey:@"shopname"];
+            NSArray *shopsArray = [self fetchEntitesArray:@"Shop"];
+            for (Shop *shop in shopsArray){
+                if ([shop.shopId isEqualToString:proID]){
+                    [shop setValue:dTransferObj.defshopname forKey:@"shopname"];
+                }
+            }
             break;
         }
     }

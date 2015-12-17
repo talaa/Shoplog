@@ -441,6 +441,7 @@
     //Create Shop Core Data
     // Create Address
     Shop *newShop = [NSEntityDescription insertNewObjectForEntityForName:@"Shop" inManagedObjectContext:context];
+    [newShop setValue:dTranferObje.defId forKey:@"shopId"];
     [newShop setValue:dTranferObje.defshopname forKey:@"shopname"];
     [newShop setValue:[NSNumber numberWithDouble: dTranferObje.deflong] forKey:@"longcoordinate"];
     [newShop setValue:[NSNumber numberWithDouble: dTranferObje.deflat] forKey:@"latcoordinate"];
