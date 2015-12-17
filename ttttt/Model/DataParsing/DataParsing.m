@@ -10,6 +10,8 @@
 #import "AppDelegate.h"
 #import "Shoplog.h"
 #import "Shop.h"
+#import "Category+CoreDataProperties.h"
+#import "Category.h"
 
 @implementation DataParsing
 
@@ -181,6 +183,13 @@
             [shoplog setValue:[NSDecimalNumber decimalNumberWithString:dTransferObj.defphone] forKey:@"phone"];
             [shoplog setValue:dTransferObj.defwebsiteurl forKey:@"websiteurl"];
             
+            if ([self ifCategoryNameExistOnEntit:@"Category" CategoryName:dTransferObj.defcatqr] == YES){
+                //Exist no saving
+            }else{
+                //No Exist thus save it
+                [self saveNewCategory:dTransferObj.defcatqr];
+            }
+            
             NSArray *shopsArray = [self fetchEntitesArray:@"Shop"];
             for (Shop *shop in shopsArray){
                 if ([shop.shopId isEqualToString:proID]){
@@ -191,5 +200,21 @@
         }
     }
     [self saveContext];
+}
+
++ (void)saveNewCategory:(NSString*)catName{
+    AppDelegate *app= (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [app managedObjectContext];
+    //NSError *error;
+     Category *newCategory = [NSEntityDescription
+                           insertNewObjectForEntityForName:@"Category"
+                           inManagedObjectContext:context];
+    [newCategory setValue:catName forKey:@"catName"];
+    NSError *errorRelation;
+    if (![newCategory.managedObjectContext save:&errorRelation]) {
+        NSLog(@"Saved");
+    }else{
+        NSLog(@"Error :%@", errorRelation);
+    }
 }
 @end

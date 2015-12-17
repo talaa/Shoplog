@@ -361,6 +361,8 @@
         
         [DataParsing editProductById:dTranferObje.defId AndEntityName:@"Shoplog"];
         [DataParsing dataTransferObjectDeAllocat];
+        [SVProgressHUD showSuccessWithStatus:@"The product has been updated successfully."];
+        [self.navigationController popToRootViewControllerAnimated:YES];
 
     }else{
         UIAlertController *alertController  = [UIAlertController alertControllerWithTitle:@"Warning" message:@"Kindly fill all mandatory fields" preferredStyle:UIAlertControllerStyleAlert];
