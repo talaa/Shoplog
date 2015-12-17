@@ -412,6 +412,7 @@
     //save imageurl as NSData
     NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:dTranferObje.defimagenameqr]];
     
+    [newShopLog setValue:dTranferObje.defId forKey:@"itemId"];
     [newShopLog setValue:dTranferObje.defcatqr forKey:@"categoryname"];
     [newShopLog setValue:commentsView.text forKey:@"comments"];
     [newShopLog setValue:[NSDate date] forKey:@"date"];

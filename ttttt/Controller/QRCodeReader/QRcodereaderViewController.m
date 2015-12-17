@@ -10,6 +10,7 @@
 #import "DataTransferObject.h"
 #import "SVProgressHUD.h"
 #import <Parse/Parse.h>
+#import "DataParsing.h"
 
 @interface QRcodereaderViewController ()
 {
@@ -122,15 +123,16 @@
                 [SVProgressHUD showWithStatus:@"Loading..."];
                 //save data from QR Code to DataTranferObject Instance
                 DataTransferObject *dTranferObje=[DataTransferObject getInstance];
-                dTranferObje.defprice = [strings[4] floatValue];
-                dTranferObje.defcatqr = strings[1];
+                dTranferObje.defId          = [DataParsing createRandomId];
+                dTranferObje.defprice       = [strings[4] floatValue];
+                dTranferObje.defcatqr       = strings[1];
                 dTranferObje.defimagenameqr = strings[15];
-                dTranferObje.defemail = strings[7];
-                dTranferObje.defphone = strings[6];
-                dTranferObje.defshopname = strings[5];
-                dTranferObje.defwebsiteurl = strings[8];
-                dTranferObje.deflat = [strings[9] doubleValue];
-                dTranferObje.deflong = [strings[10] doubleValue];
+                dTranferObje.defemail       = strings[7];
+                dTranferObje.defphone       = strings[6];
+                dTranferObje.defshopname    = strings[5];
+                dTranferObje.defwebsiteurl  = strings[8];
+                dTranferObje.deflat         = [strings[9] doubleValue];
+                dTranferObje.deflong        = [strings[10] doubleValue];
                 [dataTransferMArray addObject:dTranferObje];
                 
                 // If the audio player is not nil, then play the sound effect.

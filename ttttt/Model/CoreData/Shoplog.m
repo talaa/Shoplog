@@ -12,6 +12,7 @@
 
 @implementation Shoplog
 
+@dynamic itemId;
 @dynamic categoryname;
 @dynamic parseid;
 @dynamic comments;

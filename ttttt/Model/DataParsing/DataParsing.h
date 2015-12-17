@@ -20,4 +20,6 @@
 + (void)removeEntityRecordbyImageData:(NSData*)imageData AndEntityName:(NSString*)entityName;
 + (void)saveContext;
 + (BOOL)ifCategoryNameExistOnEntit:(NSString*)entityName CategoryName:(NSString*)catname;
++ (NSString *)createRandomId;
+
 @end

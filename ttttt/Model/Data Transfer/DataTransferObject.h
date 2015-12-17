@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface DataTransferObject : NSObject
-
+@property (strong, nonatomic) NSString *defId;
 @property (strong, nonatomic) NSString *defcatqr;
 @property (strong, nonatomic) NSString *defimagenameqr;
 @property (strong, nonatomic) NSString *defshopname;

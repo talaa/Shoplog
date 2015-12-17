@@ -13,6 +13,7 @@
 
 @interface Shoplog : ExtendedManagedObject
 
+@property (nonatomic, retain) NSString * itemId;
 @property (nonatomic, retain) NSString * categoryname;
 @property (nonatomic, retain) NSString * parseid;
 @property (nonatomic, retain) NSString * comments;

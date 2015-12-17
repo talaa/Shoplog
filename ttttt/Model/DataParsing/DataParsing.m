@@ -61,7 +61,6 @@
             for (NSManagedObject *shoplogManagedObject in shoplogObjectsArray){
                 if ([[shoplogManagedObject valueForKey:@"categoryname"] isEqualToString:[categoryManagedObject valueForKey:@"catName"]]){
                     [sameProductsMArray addObject:shoplogManagedObject];
-                    NSLog(@"11111111");
                 }
             }if (sameProductsMArray.count>0){
                 [productsByCategoryMArray addObject:sameProductsMArray];
@@ -137,4 +136,12 @@
 }
 
 
+// Generate Random String
++ (NSString *)createRandomId
+{
+    NSTimeInterval timeStamp = [ [ NSDate date ] timeIntervalSince1970 ];
+    NSString *randomId = [ NSString stringWithFormat:@"M%f", timeStamp];
+    randomId = [ randomId stringByReplacingOccurrencesOfString:@"." withString:@""];
+    return randomId;
+}
 @end
