@@ -164,4 +164,17 @@
     }
     [self saveContext];
 }
+
+// Edit Product Data
++ (void)editProductById:(NSString*)proID AndEntityName:(NSString*)entityName {
+    NSArray *result = [self fetchEntitesArray:entityName];
+    for (NSManagedObject *managedObject in result){
+        if ([[managedObject valueForKey:@"itemId"] isEqualToString:proID]){
+            //Do Updatting
+            //[managedObject setValue: forKey:@"rep"];
+            break;
+        }
+    }
+    [self saveContext];
+}
 @end

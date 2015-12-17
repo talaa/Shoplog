@@ -22,5 +22,6 @@
 + (BOOL)ifCategoryNameExistOnEntit:(NSString*)entityName CategoryName:(NSString*)catname;
 + (void)deleteProductByID:(NSString*)Id ByEntityName:(NSString*)entityName;
 + (NSString *)createRandomId;
++ (void)editProductById:(NSString*)proID AndEntityName:(NSString*)entityName;
 
 @end
