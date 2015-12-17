@@ -84,7 +84,13 @@
     [actionAlertController addAction:callAction];
     [actionAlertController addAction:visitWebSiteAction];
     [actionAlertController addAction:sendMailAction];
-    [actionAlertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDestructive handler:nil]];
+    
+    if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad){
+        //Ipad
+        actionAlertController.popoverPresentationController.barButtonItem = self.actionBarButton;
+    }else{
+        //IPhone
+    }
     [self presentViewController:actionAlertController animated:YES completion:nil];
 }
 

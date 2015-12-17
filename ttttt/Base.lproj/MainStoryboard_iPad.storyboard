@@ -966,6 +966,7 @@
                                             <outlet property="imageView" destination="zjP-AD-vdE" id="tgr-AC-gko"/>
                                             <outlet property="priceLabel" destination="nBT-66-NAu" id="ggo-AR-nLo"/>
                                             <outlet property="rateLabel" destination="VF7-vX-LOY" id="8Qz-PM-Cwl"/>
+                                            <segue destination="Fp1-12-wpA" kind="push" identifier="ITemImageSegue" id="ewr-DG-SvC"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -1024,7 +1025,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="productsCollectionView" destination="cjR-8r-ePY" id="meP-Vw-Crh"/>
-                        <segue destination="Fp1-12-wpA" kind="push" identifier="ITemImageSegue" id="THu-8a-gYe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yCJ-79-VDX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1068,8 +1068,10 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="actionBarButton" destination="FdJ-Wt-yu7" id="9mK-sm-e3e"/>
                         <outlet property="itemImageView" destination="DJ9-zx-Boq" id="M8X-hz-MOf"/>
                         <segue destination="Duv-DG-Wk3" kind="push" identifier="VisitWebSiteSegu" id="gRO-Bg-lJy"/>
+                        <segue destination="kQ7-Yt-TmH" kind="push" identifier="EditSegue" id="CfN-5f-aoM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tXM-cQ-fLA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1603,5 +1605,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Yg5-oR-yc7"/>
+        <segue reference="CfN-5f-aoM"/>
     </inferredMetricsTieBreakers>
 </document>
