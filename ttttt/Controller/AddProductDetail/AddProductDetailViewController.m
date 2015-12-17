@@ -352,7 +352,12 @@
 /********************************************************/
 
 - (IBAction)editExistButtonPressed:(id)sender{
-    
+    if (self.cataloguenamefield.text.length >0 && self.PriceField.text.length>0 && self.imageField.image != nil && self.ShopField.text.length>0){
+    }else{
+        UIAlertController *alertController  = [UIAlertController alertControllerWithTitle:@"Warning" message:@"Kindly fill all mandatory fields" preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil]];
+        [self presentViewController:alertController animated:YES completion:nil];
+        }
 }
 /*******************************************************/
 //              Save New Item Action Button             //
