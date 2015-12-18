@@ -12,12 +12,29 @@
 #import "Shoplog.h"
 #import "CollectionReusableViewHeader.h"
 #import "ItemImageViewController.h"
+#import "Shoplogactivity.h"
+#import "Fancysearch.h"
+#import "EBaySearch.h"
+#import "Amazonsearch.h"
+#import "Taobaosearch.h"
+#import "YahoobuySearch.h"
+#import "GoogleShoppingSearch.h"
+#import "Rakutensearch.h"
+#import "Flurry.h"
+#import "Shopzila.h"
+#import "nexttagsearch.h"
+#import "Shoppingcom.h"
+#import "Shopzila.h"
+#import "Shoppingcom.h"
+#import "pricegrabbersearch.h"
 
 @interface ProductsViewControler ()
 {
     NSOperationQueue    *operationQueue;
+    NSString            *categoryName;
     
 }
+@property (retain, nonatomic) CollectionReusableViewHeader *myheaderview;
 @property (strong, nonatomic) NSMutableArray *productsByCategoryMArray;
 
 @end
@@ -85,6 +102,10 @@
         CollectionReusableViewHeader *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
         Shoplog *shoplog = [[self.productsByCategoryMArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
         headerView.section.text = shoplog.categoryname;
+        headerView.searchButton.tag = indexPath.section;
+        categoryName = shoplog.categoryname;
+        [headerView.searchButton addTarget:self action:@selector(searchButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        self.myheaderview = headerView;
         reusableview = headerView;
     }
     if (kind == UICollectionElementKindSectionFooter) {
@@ -94,6 +115,42 @@
     }
     
     return reusableview;
+}
+
+/***********************************************/
+#pragma mark - Search Button Pressed 
+/***********************************************/
+
+- (void)searchButtonPressed:(id)sender {
+    NSArray *productNameArray   =   [NSArray arrayWithObject:categoryName];
+    //Preparing the UIAcitvity Arrays of Objects
+    Fancysearch     * Activity1 =   [[Fancysearch alloc]init];
+    EBaySearch      * Activity2 =   [[EBaySearch alloc]init];
+    Amazonsearch    * Activity3 =   [[Amazonsearch alloc]init];
+    Rakutensearch   * Activity4 =   [[Rakutensearch alloc]init];
+    Taobaosearch    * Activity5 =   [[Taobaosearch alloc]init];
+    GoogleShoppingSearch * Activity6 =[[GoogleShoppingSearch alloc]init];
+    YahoobuySearch  * Activity7 =   [[YahoobuySearch alloc]init];
+    nexttagsearch   * Activity8 =   [[nexttagsearch alloc]init];
+    Shoppingcom     * Activity9 =   [[Shoppingcom alloc]init];
+    Shopzila        * Activity10    =[[Shopzila alloc]init];
+    pricegrabbersearch *Activity11  =[[pricegrabbersearch alloc]init];
+    
+    
+    //Activity1 set
+    NSArray *Activityarray=[[NSArray alloc]initWithObjects:Activity1,Activity2,Activity3,Activity4,Activity5,Activity6,Activity7,Activity8,Activity9,Activity10,Activity11, nil];
+    
+    //Executing the Activity View Controller
+    UIActivityViewController *activityViewController2 =[[UIActivityViewController alloc]initWithActivityItems:productNameArray applicationActivities:Activityarray];
+    
+    activityViewController2.excludedActivityTypes=@[UIActivityTypePostToWeibo, UIActivityTypeAssignToContact, UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypeSaveToCameraRoll,UIActivityTypeMail,UIActivityTypeMessage,UIActivityTypePostToFacebook,UIActivityTypePostToTwitter];
+
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        activityViewController2.popoverPresentationController.sourceView = self.myheaderview;
+    }
+    
+    [self presentViewController:activityViewController2 animated:YES completion:^{}];
+
 }
 
 /**********************************************/
