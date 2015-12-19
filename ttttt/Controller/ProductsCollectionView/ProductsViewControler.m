@@ -121,7 +121,7 @@
 #pragma mark - Search Button Pressed 
 /***********************************************/
 
-- (void)searchButtonPressed:(id)sender {
+- (IBAction)searchButtonPressed:(id)sender {
     NSArray *productNameArray   =   [NSArray arrayWithObject:categoryName];
     //Preparing the UIAcitvity Arrays of Objects
     Fancysearch     * Activity1 =   [[Fancysearch alloc]init];
@@ -149,7 +149,7 @@
         activityViewController2.popoverPresentationController.sourceView = self.myheaderview;
     }
     
-    [self presentViewController:activityViewController2 animated:YES completion:^{}];
+    [self presentViewController:activityViewController2 animated:YES completion:nil];
 
 }
 

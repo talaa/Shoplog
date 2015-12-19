@@ -11,4 +11,5 @@
 @interface CollectionReusableViewHeader : UICollectionReusableView
 @property (weak, nonatomic) IBOutlet UILabel *section;
 @property (weak, nonatomic) IBOutlet UIButton *searchButton;
+
 @end
