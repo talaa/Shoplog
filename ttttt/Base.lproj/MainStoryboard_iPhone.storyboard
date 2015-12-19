@@ -1356,6 +1356,35 @@
             </objects>
             <point key="canvasLocation" x="2386" y="-1551"/>
         </scene>
+        <!--Commerce Web View Controller-->
+        <scene sceneID="MfS-yf-sIl">
+            <objects>
+                <viewController id="vhz-pH-sRB" customClass="ECommerceWebViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iya-NS-YMd"/>
+                        <viewControllerLayoutGuide type="bottom" id="Z2Q-qM-yhF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eGD-bh-9Nt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dzm-5n-RTN">
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="0zc-ur-H7n"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="ecommerceWebView" destination="dzm-5n-RTN" id="opd-nf-T4i"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hu4-Qt-8Cc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1059" y="-1533"/>
+        </scene>
         <!--Favorit Products-->
         <scene sceneID="zyu-Fl-cN5">
             <objects>
@@ -1444,7 +1473,7 @@
                                             </constraints>
                                             <state key="normal" image="icon_magnify_glass.png"/>
                                             <connections>
-                                                <action selector="searchButtonPressed:" destination="T8V-Kp-hfn" eventType="touchUpInside" id="ja0-gI-kIj"/>
+                                                <action selector="searchButtonPressed:" destination="olj-wJ-aud" eventType="touchUpInside" id="OY4-gX-FOl"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -1455,6 +1484,7 @@
                                         <constraint firstAttribute="trailing" secondItem="hhf-pT-cO5" secondAttribute="trailing" constant="8" id="xQ9-xR-rPj"/>
                                     </constraints>
                                     <connections>
+                                        <outlet property="searchButton" destination="hhf-pT-cO5" id="QHr-TU-72f"/>
                                         <outlet property="section" destination="XhK-63-Zcu" id="aph-rg-feX"/>
                                     </connections>
                                 </collectionReusableView>
@@ -1497,6 +1527,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="productsCollectionView" destination="JbW-Le-igS" id="JA3-jG-IMi"/>
+                        <segue destination="vhz-pH-sRB" kind="push" identifier="ECommerceWebSegue" id="k82-xC-9xw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hfe-Zz-qjQ" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -27,11 +27,14 @@
 #import "Shopzila.h"
 #import "Shoppingcom.h"
 #import "pricegrabbersearch.h"
+#import "ECommerceWebViewController.h"
 
 @interface ProductsViewControler ()
 {
     NSOperationQueue    *operationQueue;
     NSString            *categoryName;
+    NSString            *searchstringtitle;
+    NSString            *searchWebSiteURLString;
     
 }
 @property (retain, nonatomic) CollectionReusableViewHeader *myheaderview;
@@ -45,11 +48,24 @@
     [super viewDidLoad];
     
     operationQueue = [[NSOperationQueue alloc] init];
+    
+    //WebSeach Notification
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(Searchactivated:) name:@"Searchactivated" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(WebSearchactivated:) name:@"webSearchactivated" object:nil];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     //Load data
     [self loadProductsByCategory];
+}
+
+-(void)WebSearchactivated:(NSNotification*)notification {
+    NSString *searchterm=[[notification userInfo] valueForKey:@"Searchwebsite"];
+    searchstringtitle = [[notification userInfo]valueForKey:@"searchstringtitle"];
+    searchWebSiteURLString=searchterm;
+    [self performSegueWithIdentifier:@"ECommerceWebSegue" sender:self];
 }
 
 - (void)didReceiveMemoryWarning{
@@ -104,7 +120,6 @@
         headerView.section.text = shoplog.categoryname;
         headerView.searchButton.tag = indexPath.section;
         categoryName = shoplog.categoryname;
-        [headerView.searchButton addTarget:self action:@selector(searchButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         self.myheaderview = headerView;
         reusableview = headerView;
     }
@@ -121,8 +136,13 @@
 #pragma mark - Search Button Pressed 
 /***********************************************/
 
-- (IBAction)searchButtonPressed:(id)sender {
-    NSArray *productNameArray   =   [NSArray arrayWithObject:categoryName];
+-(void)Searchactivated:(NSNotification*)notification {
+    if ([[notification name] isEqualToString:@"Searchactivated"])
+        NSLog(@"This is Value Passed :%@ ",[[notification userInfo] valueForKey:@"Searchterm"]);
+    //Preparing the Search Term
+    searchWebSiteURLString = nil;
+    NSString *productNameString = [[notification userInfo] valueForKey:@"Searchterm"];
+    NSArray *productNameArray=[NSArray arrayWithObject:productNameString];
     //Preparing the UIAcitvity Arrays of Objects
     Fancysearch     * Activity1 =   [[Fancysearch alloc]init];
     EBaySearch      * Activity2 =   [[EBaySearch alloc]init];
@@ -181,6 +201,11 @@
         //NSData *imageData = UIImagePNGRepresentation(selectedCell.imageView.image);
         itemImageVC.itemImageData = shoplog.image;
         itemImageVC.itemDataMArray = [DataParsing fetchProductbyImageData:shoplog.image AndEntityName:@"Shoplog"];
+    }
+    else if ([segue.identifier isEqualToString:@"ECommerceWebSegue"]){
+        ECommerceWebViewController *ecommerceVC = segue.destinationViewController;
+        ecommerceVC.ecommerceTitle = searchstringtitle;
+        ecommerceVC.ecommerceURLString = searchWebSiteURLString;
     }
 }
 
