@@ -8,7 +8,7 @@
 
 #import "ECommerceWebViewController.h"
 
-@interface ECommerceWebViewController ()
+@interface ECommerceWebViewController () <UIWebViewDelegate>
 
 @end
 
@@ -17,12 +17,31 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self.activityIdicator startAnimating];
+    NSURL *url = [NSURL URLWithString:self.ecommerceURLString];
+    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+    [self.ecommerceWebView loadRequest:requestObj];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+/********************************************/
+//              Web View Delegate           //
+/*******************************************/
+
+-(void)webViewDidFinishLoad:(UIWebView *)webView {
+    self.activityIdicator.hidden = YES;
+    [self.activityIdicator stopAnimating];
+}
+
+
+-(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+}
+
 
 /*
 #pragma mark - Navigation

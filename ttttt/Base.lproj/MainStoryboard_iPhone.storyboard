@@ -1368,16 +1368,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dzm-5n-RTN">
-                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dzm-5n-RTN">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="519" id="Lo6-hU-CkE"/>
+                                    <constraint firstAttribute="width" constant="320" id="TQF-0I-HTu"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="vhz-pH-sRB" id="y9p-4J-ywf"/>
+                                </connections>
                             </webView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="tFM-qz-PnJ">
+                                <rect key="frame" x="142" y="266" width="37" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="37" id="aI3-Pd-HsM"/>
+                                    <constraint firstAttribute="height" constant="37" id="qMu-Z5-PTo"/>
+                                </constraints>
+                                <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tFM-qz-PnJ" firstAttribute="centerX" secondItem="eGD-bh-9Nt" secondAttribute="centerX" id="4Y7-fV-e2d"/>
+                            <constraint firstAttribute="trailing" secondItem="dzm-5n-RTN" secondAttribute="trailing" id="8q4-Nd-GoQ"/>
+                            <constraint firstItem="dzm-5n-RTN" firstAttribute="top" secondItem="eGD-bh-9Nt" secondAttribute="top" id="GAg-XP-EfD"/>
+                            <constraint firstItem="dzm-5n-RTN" firstAttribute="leading" secondItem="eGD-bh-9Nt" secondAttribute="leading" id="aq0-N0-Dw6"/>
+                            <constraint firstItem="tFM-qz-PnJ" firstAttribute="centerY" secondItem="eGD-bh-9Nt" secondAttribute="centerY" id="gpr-1x-zqP"/>
+                            <constraint firstItem="Z2Q-qM-yhF" firstAttribute="top" secondItem="dzm-5n-RTN" secondAttribute="bottom" id="uwm-WM-zaw"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="0zc-ur-H7n"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="activityIdicator" destination="tFM-qz-PnJ" id="83W-Cx-9sy"/>
                         <outlet property="ecommerceWebView" destination="dzm-5n-RTN" id="opd-nf-T4i"/>
                     </connections>
                 </viewController>

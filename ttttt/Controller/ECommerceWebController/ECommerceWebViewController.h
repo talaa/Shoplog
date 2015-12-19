@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UIWebView *ecommerceWebView;
 @property (strong, nonatomic) NSString *ecommerceTitle;
 @property (strong, nonatomic) NSString *ecommerceURLString;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIdicator;
 
 @end
