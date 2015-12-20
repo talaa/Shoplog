@@ -1006,7 +1006,7 @@
                                         <constraint firstItem="X0x-kB-U7I" firstAttribute="centerY" secondItem="gtA-dD-K97" secondAttribute="centerY" id="kyp-qn-Jeq"/>
                                     </constraints>
                                     <connections>
-                                        <outlet property="searchButton" destination="NLC-Ad-EDs" id="9Zh-Dz-koV"/>
+                                        <outlet property="searchButton" destination="NLC-Ad-EDs" id="ht2-Bn-2zR"/>
                                         <outlet property="section" destination="X0x-kB-U7I" id="7oj-Jf-KOj"/>
                                     </connections>
                                 </collectionReusableView>

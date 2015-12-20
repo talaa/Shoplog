@@ -37,7 +37,6 @@
     NSString            *searchWebSiteURLString;
     
 }
-@property (retain, nonatomic) CollectionReusableViewHeader *myheaderview;
 @property (strong, nonatomic) NSMutableArray *productsByCategoryMArray;
 
 @end
@@ -105,6 +104,7 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+   // _myheaderview = [_visibleCollectionReusableHeaderViews objectForKey:indexPath];
 }
 
 /***********************************************/
@@ -118,9 +118,9 @@
         CollectionReusableViewHeader *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
         Shoplog *shoplog = [[self.productsByCategoryMArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
         headerView.section.text = shoplog.categoryname;
-        headerView.searchButton.tag = indexPath.section;
+        headerView.searchButton.tag = indexPath;
         categoryName = shoplog.categoryname;
-        self.myheaderview = headerView;
+        [_visibleCollectionReusableHeaderViews setObject:headerView forKey:indexPath];
         reusableview = headerView;
     }
     if (kind == UICollectionElementKindSectionFooter) {
@@ -137,6 +137,7 @@
 /***********************************************/
 
 -(void)Searchactivated:(NSNotification*)notification {
+//    _myheaderview = [_visibleCollectionReusableHeaderViews objectForKey:indexPath];
     if ([[notification name] isEqualToString:@"Searchactivated"])
         NSLog(@"This is Value Passed :%@ ",[[notification userInfo] valueForKey:@"Searchterm"]);
     //Preparing the Search Term
@@ -166,7 +167,14 @@
     activityViewController2.excludedActivityTypes=@[UIActivityTypePostToWeibo, UIActivityTypeAssignToContact, UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypeSaveToCameraRoll,UIActivityTypeMail,UIActivityTypeMessage,UIActivityTypePostToFacebook,UIActivityTypePostToTwitter];
 
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        activityViewController2.popoverPresentationController.sourceView = self.myheaderview.searchButton;
+        //activityViewController2.popoverPresentationController.sourceView = self.myheaderview.searchButton;
+        
+        // Remove arrow from action sheet.
+        [activityViewController2.popoverPresentationController setPermittedArrowDirections:0];
+        
+        //For set action sheet to middle of view.
+        activityViewController2.popoverPresentationController.sourceView = self.view;
+        activityViewController2.popoverPresentationController.sourceRect = self.view.bounds;
     }
     
     [self presentViewController:activityViewController2 animated:YES completion:nil];
