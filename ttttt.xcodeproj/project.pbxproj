@@ -182,6 +182,7 @@
 		F5D7247B1C0DEA2B00BC2BDF /* AddProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D7247A1C0DEA2B00BC2BDF /* AddProductDetailViewController.m */; };
 		F5D724801C0DEA6A00BC2BDF /* DataTransferObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D7247F1C0DEA6A00BC2BDF /* DataTransferObject.m */; };
 		F5EF68B61C1EDF1D00DABFFA /* WebSiteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5EF68B51C1EDF1D00DABFFA /* WebSiteViewController.m */; };
+		F5F313FA1C25CC9500FEF8BD /* ECommerceWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F313F91C25CC9500FEF8BD /* ECommerceWebViewController.m */; };
 		F5FD6A631C0F02C20054C7D2 /* Shop.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FD6A5B1C0F02C20054C7D2 /* Shop.m */; };
 		F5FD6A641C0F02C20054C7D2 /* Shoplog.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FD6A5D1C0F02C20054C7D2 /* Shoplog.m */; };
 		F5FD6A651C0F02C20054C7D2 /* TempData.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FD6A5F1C0F02C20054C7D2 /* TempData.m */; };
@@ -455,6 +456,8 @@
 		F5D7247F1C0DEA6A00BC2BDF /* DataTransferObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataTransferObject.m; sourceTree = "<group>"; };
 		F5EF68B41C1EDF1D00DABFFA /* WebSiteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebSiteViewController.h; sourceTree = "<group>"; };
 		F5EF68B51C1EDF1D00DABFFA /* WebSiteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebSiteViewController.m; sourceTree = "<group>"; };
+		F5F313F81C25CC9500FEF8BD /* ECommerceWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECommerceWebViewController.h; sourceTree = "<group>"; };
+		F5F313F91C25CC9500FEF8BD /* ECommerceWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECommerceWebViewController.m; sourceTree = "<group>"; };
 		F5FD6A5A1C0F02C20054C7D2 /* Shop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shop.h; sourceTree = "<group>"; };
 		F5FD6A5B1C0F02C20054C7D2 /* Shop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shop.m; sourceTree = "<group>"; };
 		F5FD6A5C1C0F02C20054C7D2 /* Shoplog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shoplog.h; sourceTree = "<group>"; };
@@ -1037,6 +1040,7 @@
 		F5D7245F1C0DA12800BC2BDF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F5F313F71C25CC7D00FEF8BD /* ECommerceWebController */,
 				F5EF68B31C1EDF0600DABFFA /* WebSiteController */,
 				F57A90EF1C1DDC1D00EA2360 /* ItemImageController */,
 				F583CB761C1703E2004065D7 /* ProductsCollectionView */,
@@ -1095,6 +1099,15 @@
 				F5EF68B51C1EDF1D00DABFFA /* WebSiteViewController.m */,
 			);
 			path = WebSiteController;
+			sourceTree = "<group>";
+		};
+		F5F313F71C25CC7D00FEF8BD /* ECommerceWebController */ = {
+			isa = PBXGroup;
+			children = (
+				F5F313F81C25CC9500FEF8BD /* ECommerceWebViewController.h */,
+				F5F313F91C25CC9500FEF8BD /* ECommerceWebViewController.m */,
+			);
+			path = ECommerceWebController;
 			sourceTree = "<group>";
 		};
 		F5FD6A591C0F02C20054C7D2 /* CoreData */ = {
@@ -1337,6 +1350,7 @@
 				6957FEEF16472D4500290403 /* SliderValueViewController.m in Sources */,
 				6957FEF41647357E00290403 /* PopoverView.m in Sources */,
 				F5D7247B1C0DEA2B00BC2BDF /* AddProductDetailViewController.m in Sources */,
+				F5F313FA1C25CC9500FEF8BD /* ECommerceWebViewController.m in Sources */,
 				F5D724801C0DEA6A00BC2BDF /* DataTransferObject.m in Sources */,
 				69667C0F164891DD003FC921 /* MyAnotation.m in Sources */,
 				6930253A16495C31003E63D7 /* WebViewController.m in Sources */,
@@ -1541,7 +1555,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ttttt/ttttt-Prefix.pch";
 				INFOPLIST_FILE = "ttttt/ttttt-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
@@ -1578,7 +1592,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ttttt/ttttt-Prefix.pch";
 				INFOPLIST_FILE = "ttttt/ttttt-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",

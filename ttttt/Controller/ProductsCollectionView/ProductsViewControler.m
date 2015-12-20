@@ -12,12 +12,32 @@
 #import "Shoplog.h"
 #import "CollectionReusableViewHeader.h"
 #import "ItemImageViewController.h"
+#import "Shoplogactivity.h"
+#import "Fancysearch.h"
+#import "EBaySearch.h"
+#import "Amazonsearch.h"
+#import "Taobaosearch.h"
+#import "YahoobuySearch.h"
+#import "GoogleShoppingSearch.h"
+#import "Rakutensearch.h"
+#import "Flurry.h"
+#import "Shopzila.h"
+#import "nexttagsearch.h"
+#import "Shoppingcom.h"
+#import "Shopzila.h"
+#import "Shoppingcom.h"
+#import "pricegrabbersearch.h"
+#import "ECommerceWebViewController.h"
 
 @interface ProductsViewControler ()
 {
     NSOperationQueue    *operationQueue;
+    NSString            *categoryName;
+    NSString            *searchstringtitle;
+    NSString            *searchWebSiteURLString;
     
 }
+@property (retain, nonatomic) CollectionReusableViewHeader *myheaderview;
 @property (strong, nonatomic) NSMutableArray *productsByCategoryMArray;
 
 @end
@@ -28,11 +48,24 @@
     [super viewDidLoad];
     
     operationQueue = [[NSOperationQueue alloc] init];
+    
+    //WebSeach Notification
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(Searchactivated:) name:@"Searchactivated" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(WebSearchactivated:) name:@"webSearchactivated" object:nil];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     //Load data
     [self loadProductsByCategory];
+}
+
+-(void)WebSearchactivated:(NSNotification*)notification {
+    NSString *searchterm=[[notification userInfo] valueForKey:@"Searchwebsite"];
+    searchstringtitle = [[notification userInfo]valueForKey:@"searchstring1"];
+    searchWebSiteURLString=searchterm;
+    [self performSegueWithIdentifier:@"ECommerceWebSegue" sender:self];
 }
 
 - (void)didReceiveMemoryWarning{
@@ -85,6 +118,9 @@
         CollectionReusableViewHeader *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
         Shoplog *shoplog = [[self.productsByCategoryMArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
         headerView.section.text = shoplog.categoryname;
+        headerView.searchButton.tag = indexPath.section;
+        categoryName = shoplog.categoryname;
+        self.myheaderview = headerView;
         reusableview = headerView;
     }
     if (kind == UICollectionElementKindSectionFooter) {
@@ -94,6 +130,47 @@
     }
     
     return reusableview;
+}
+
+/***********************************************/
+#pragma mark - Search Button Pressed 
+/***********************************************/
+
+-(void)Searchactivated:(NSNotification*)notification {
+    if ([[notification name] isEqualToString:@"Searchactivated"])
+        NSLog(@"This is Value Passed :%@ ",[[notification userInfo] valueForKey:@"Searchterm"]);
+    //Preparing the Search Term
+    searchWebSiteURLString = nil;
+    NSString *productNameString = [[notification userInfo] valueForKey:@"Searchterm"];
+    NSArray *productNameArray=[NSArray arrayWithObject:productNameString];
+    //Preparing the UIAcitvity Arrays of Objects
+    Fancysearch     * Activity1 =   [[Fancysearch alloc]init];
+    EBaySearch      * Activity2 =   [[EBaySearch alloc]init];
+    Amazonsearch    * Activity3 =   [[Amazonsearch alloc]init];
+    Rakutensearch   * Activity4 =   [[Rakutensearch alloc]init];
+    Taobaosearch    * Activity5 =   [[Taobaosearch alloc]init];
+    GoogleShoppingSearch * Activity6 =[[GoogleShoppingSearch alloc]init];
+    YahoobuySearch  * Activity7 =   [[YahoobuySearch alloc]init];
+    nexttagsearch   * Activity8 =   [[nexttagsearch alloc]init];
+    Shoppingcom     * Activity9 =   [[Shoppingcom alloc]init];
+    Shopzila        * Activity10    =[[Shopzila alloc]init];
+    pricegrabbersearch *Activity11  =[[pricegrabbersearch alloc]init];
+    
+    
+    //Activity1 set
+    NSArray *Activityarray=[[NSArray alloc]initWithObjects:Activity1,Activity2,Activity3,Activity4,Activity5,Activity6,Activity7,Activity8,Activity9,Activity10,Activity11, nil];
+    
+    //Executing the Activity View Controller
+    UIActivityViewController *activityViewController2 =[[UIActivityViewController alloc]initWithActivityItems:productNameArray applicationActivities:Activityarray];
+    
+    activityViewController2.excludedActivityTypes=@[UIActivityTypePostToWeibo, UIActivityTypeAssignToContact, UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypeSaveToCameraRoll,UIActivityTypeMail,UIActivityTypeMessage,UIActivityTypePostToFacebook,UIActivityTypePostToTwitter];
+
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        activityViewController2.popoverPresentationController.sourceView = self.myheaderview.searchButton;
+    }
+    
+    [self presentViewController:activityViewController2 animated:YES completion:nil];
+
 }
 
 /**********************************************/
@@ -124,6 +201,11 @@
         //NSData *imageData = UIImagePNGRepresentation(selectedCell.imageView.image);
         itemImageVC.itemImageData = shoplog.image;
         itemImageVC.itemDataMArray = [DataParsing fetchProductbyImageData:shoplog.image AndEntityName:@"Shoplog"];
+    }
+    else if ([segue.identifier isEqualToString:@"ECommerceWebSegue"]){
+        ECommerceWebViewController *ecommerceVC = segue.destinationViewController;
+        ecommerceVC.ecommerceTitle = searchstringtitle;
+        ecommerceVC.ecommerceURLString = searchWebSiteURLString;
     }
 }
 

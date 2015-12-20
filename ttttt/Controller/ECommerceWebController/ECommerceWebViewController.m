@@ -1,30 +1,30 @@
 //
-//  WebSiteViewController.m
+//  ECommerceWebViewController.m
 //  ttttt
 //
-//  Created by Mena Bebawy on 12/14/15.
+//  Created by Mena Bebawy on 12/19/15.
 //  Copyright © 2015 Tamer Alaa. All rights reserved.
 //
 
-#import "WebSiteViewController.h"
+#import "ECommerceWebViewController.h"
 
-@interface WebSiteViewController () <UIWebViewDelegate>
+@interface ECommerceWebViewController () <UIWebViewDelegate>
 
 @end
 
-@implementation WebSiteViewController
+@implementation ECommerceWebViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.activityIdicator.hidden = NO;
+    self.navigationItem.title = self.ecommerceTitle;
+    
+    self.ecommerceWebView.delegate = self;
     [self.activityIdicator startAnimating];
-    self.itemWebView.delegate = self;
-    [self.activityIdicator startAnimating];
-    NSURL *url = [NSURL URLWithString:self.webSiteURL];
+    NSURL *url = [NSURL URLWithString:self.ecommerceURLString];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
-    [self.itemWebView loadRequest:requestObj];
+    [self.ecommerceWebView loadRequest:requestObj];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,6 +44,7 @@
 
 -(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
 }
+
 
 /*
 #pragma mark - Navigation
