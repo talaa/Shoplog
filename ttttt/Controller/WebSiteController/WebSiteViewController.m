@@ -18,6 +18,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.activityIdicator.hidden = NO;
+    [self.activityIdicator startAnimating];
+    self.itemWebView.delegate = self;
     [self.activityIdicator startAnimating];
     NSURL *url = [NSURL URLWithString:self.webSiteURL];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];

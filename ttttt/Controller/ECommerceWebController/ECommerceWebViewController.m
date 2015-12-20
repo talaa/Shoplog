@@ -18,6 +18,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.navigationItem.title = self.ecommerceTitle;
+    
+    self.ecommerceWebView.delegate = self;
     [self.activityIdicator startAnimating];
     NSURL *url = [NSURL URLWithString:self.ecommerceURLString];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];

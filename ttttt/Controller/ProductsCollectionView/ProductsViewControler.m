@@ -63,7 +63,7 @@
 
 -(void)WebSearchactivated:(NSNotification*)notification {
     NSString *searchterm=[[notification userInfo] valueForKey:@"Searchwebsite"];
-    searchstringtitle = [[notification userInfo]valueForKey:@"searchstringtitle"];
+    searchstringtitle = [[notification userInfo]valueForKey:@"searchstring1"];
     searchWebSiteURLString=searchterm;
     [self performSegueWithIdentifier:@"ECommerceWebSegue" sender:self];
 }
