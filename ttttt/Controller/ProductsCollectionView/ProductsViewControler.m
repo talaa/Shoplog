@@ -166,7 +166,7 @@
     activityViewController2.excludedActivityTypes=@[UIActivityTypePostToWeibo, UIActivityTypeAssignToContact, UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypeSaveToCameraRoll,UIActivityTypeMail,UIActivityTypeMessage,UIActivityTypePostToFacebook,UIActivityTypePostToTwitter];
 
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        activityViewController2.popoverPresentationController.sourceView = self.myheaderview;
+        activityViewController2.popoverPresentationController.sourceView = self.myheaderview.searchButton;
     }
     
     [self presentViewController:activityViewController2 animated:YES completion:nil];
