@@ -23,5 +23,8 @@
 + (void)deleteProductByID:(NSString*)Id ByEntityName:(NSString*)entityName;
 + (NSString *)createRandomId;
 + (void)editProductById:(NSString*)proID AndEntityName:(NSString*)entityName;
++ (BOOL)dontShowIntroAgain;
++ (void)setIntroValueToNO;
++ (void)setIntroValueToYES;
 
 @end

@@ -4,7 +4,7 @@
         <attribute name="catName" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Intro" representedClassName="Intro" syncable="YES">
-        <attribute name="dontShowAgain" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="dontShowAgain" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Shop" representedClassName="Shop" syncable="YES">
         <attribute name="latcoordinate" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>

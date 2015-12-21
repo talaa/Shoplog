@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Intro (CoreDataProperties)
 
-@property (nullable, nonatomic, retain) NSNumber *dontShowAgain;
+@property (nullable, nonatomic, retain) NSString *dontShowAgain;
 
 @end
 

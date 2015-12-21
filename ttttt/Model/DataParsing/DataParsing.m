@@ -11,6 +11,8 @@
 #import "Shoplog.h"
 #import "Shop.h"
 #import "Category+CoreDataProperties.h"
+#import "Intro+CoreDataProperties.h"
+#import "Intro.h"
 #import "Category.h"
 
 @implementation DataParsing
@@ -216,5 +218,39 @@
     }else{
         NSLog(@"Error :%@", errorRelation);
     }
+}
+
+//
++ (BOOL)dontShowIntroAgain{
+    BOOL dontShowAgain = NO;
+    NSArray *introArray = [self fetchEntitesArray:@"Intro"];
+    for (NSManagedObject *managedObject in introArray){
+        if([[managedObject valueForKey:@"dontShowAgain"] isEqualToString:@"YES"]){
+            dontShowAgain = YES;
+        }
+    }
+    return dontShowAgain;
+}
+
++ (void)setIntroValueToNO{
+    AppDelegate *app= (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [app managedObjectContext];
+    //NSError *error;
+    Intro *introCD = [NSEntityDescription insertNewObjectForEntityForName:@"Intro" inManagedObjectContext:context];
+    [introCD setValue:@"NO" forKey:@"dontShowAgain"];
+    NSError *error;
+    if (![introCD.managedObjectContext save:&error]) {
+        NSLog(@"Done No on Intro");
+    }else{
+        NSLog(@"Error is %@", error);
+    }
+}
+
++ (void)setIntroValueToYES {
+    NSArray *introArray = [self fetchEntitesArray:@"Intro"];
+    for (NSManagedObject *mangaedObj in introArray){
+        [mangaedObj setValue:@"YES" forKey:@"dontShowAgain"];
+    }
+    [self saveContext];
 }
 @end
