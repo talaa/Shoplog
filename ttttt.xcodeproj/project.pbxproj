@@ -168,6 +168,8 @@
 		F5114CC21C10644E009D677C /* FlatDatePicker-Icon-Close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5114CBC1C10644E009D677C /* FlatDatePicker-Icon-Close@2x.png */; };
 		F5114CC31C10644E009D677C /* FlatDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = F5114CBE1C10644E009D677C /* FlatDatePicker.m */; };
 		F5114CC71C10673C009D677C /* UserObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F5114CC61C10673C009D677C /* UserObject.m */; };
+		F53189EC1C28437D00E537F4 /* Intro+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = F53189E91C28437D00E537F4 /* Intro+CoreDataProperties.m */; };
+		F53189ED1C28437D00E537F4 /* Intro.m in Sources */ = {isa = PBXBuildFile; fileRef = F53189EB1C28437D00E537F4 /* Intro.m */; };
 		F57A90F21C1DDC4100EA2360 /* ItemImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F57A90F11C1DDC4100EA2360 /* ItemImageViewController.m */; };
 		F583CB741C16EAFB004065D7 /* Category+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = F583CB711C16EAFB004065D7 /* Category+CoreDataProperties.m */; };
 		F583CB751C16EAFB004065D7 /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = F583CB731C16EAFB004065D7 /* Category.m */; };
@@ -428,6 +430,10 @@
 		F5114CBE1C10644E009D677C /* FlatDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlatDatePicker.m; sourceTree = "<group>"; };
 		F5114CC51C10673C009D677C /* UserObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserObject.h; sourceTree = "<group>"; };
 		F5114CC61C10673C009D677C /* UserObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserObject.m; sourceTree = "<group>"; };
+		F53189E81C28437D00E537F4 /* Intro+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Intro+CoreDataProperties.h"; sourceTree = "<group>"; };
+		F53189E91C28437D00E537F4 /* Intro+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Intro+CoreDataProperties.m"; sourceTree = "<group>"; };
+		F53189EA1C28437D00E537F4 /* Intro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Intro.h; sourceTree = "<group>"; };
+		F53189EB1C28437D00E537F4 /* Intro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Intro.m; sourceTree = "<group>"; };
 		F57A90F01C1DDC4100EA2360 /* ItemImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemImageViewController.h; sourceTree = "<group>"; };
 		F57A90F11C1DDC4100EA2360 /* ItemImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemImageViewController.m; sourceTree = "<group>"; };
 		F583CB701C16EAFB004065D7 /* Category+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Category+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -1113,6 +1119,10 @@
 		F5FD6A591C0F02C20054C7D2 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				F53189E81C28437D00E537F4 /* Intro+CoreDataProperties.h */,
+				F53189E91C28437D00E537F4 /* Intro+CoreDataProperties.m */,
+				F53189EA1C28437D00E537F4 /* Intro.h */,
+				F53189EB1C28437D00E537F4 /* Intro.m */,
 				F583CB701C16EAFB004065D7 /* Category+CoreDataProperties.h */,
 				F583CB711C16EAFB004065D7 /* Category+CoreDataProperties.m */,
 				F583CB721C16EAFB004065D7 /* Category.h */,
@@ -1362,6 +1372,7 @@
 				F583CB7F1C1730DF004065D7 /* CollectionReusableViewHeader.m in Sources */,
 				F583CB751C16EAFB004065D7 /* Category.m in Sources */,
 				F583CB791C17041C004065D7 /* ProductsViewControler.m in Sources */,
+				F53189EC1C28437D00E537F4 /* Intro+CoreDataProperties.m in Sources */,
 				69FD71491659562A001919DD /* Rakutensearch.m in Sources */,
 				69FD714C165956B0001919DD /* Taobaosearch.m in Sources */,
 				69FD714F165956D3001919DD /* GoogleShoppingSearch.m in Sources */,
@@ -1385,6 +1396,7 @@
 				F5114CC71C10673C009D677C /* UserObject.m in Sources */,
 				69ECA98617121AFB00347A6C /* AFJSONRequestOperation.m in Sources */,
 				69ECA98717121AFB00347A6C /* AFNetworkActivityIndicatorManager.m in Sources */,
+				F53189ED1C28437D00E537F4 /* Intro.m in Sources */,
 				F5D724691C0DA12800BC2BDF /* QRcodereaderViewController.m in Sources */,
 				69ECA98817121AFB00347A6C /* AFPropertyListRequestOperation.m in Sources */,
 				69ECA98917121AFB00347A6C /* AFURLConnectionOperation.m in Sources */,
