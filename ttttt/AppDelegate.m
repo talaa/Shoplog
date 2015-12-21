@@ -18,14 +18,9 @@
 //#import <PFFacebookUtils.h>
 #import "ProductsViewControler.h"
 #import <StartApp/StartApp.h>
-
+#import "DataParsing.h"
 #define DevID @"102387467"
 #define AppID @"202653362"
-
-
-
-
-
 
 @implementation AppDelegate
 
@@ -40,6 +35,14 @@
     //UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     //TestViewController *controller = (TestViewController *)navigationController.topViewController;
 
+    //Check Intro Core Data if it is empty, thus add record with NO value
+    NSInteger *introArrayElementsCount  = [DataParsing returnFetchEntitiesArrayCounter:@"Intro"];
+    if (introArrayElementsCount >0){
+        //there is an element exist
+    }else{
+        //is empty 
+        [DataParsing setIntroValueToNO];
+    }
     
     
     UITabBarController *tabBarController =(UITabBarController *)self.window.rootViewController;

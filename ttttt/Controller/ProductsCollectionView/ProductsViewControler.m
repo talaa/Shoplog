@@ -28,13 +28,16 @@
 #import "Shoppingcom.h"
 #import "pricegrabbersearch.h"
 #import "ECommerceWebViewController.h"
+#import "EAIntroView.h"
 
-@interface ProductsViewControler ()
+@interface ProductsViewControler () <EAIntroDelegate>
 {
     NSOperationQueue    *operationQueue;
     NSString            *categoryName;
     NSString            *searchstringtitle;
     NSString            *searchWebSiteURLString;
+    BOOL                 dontShowIntroAgain;
+    UIView              *rootView;
     
 }
 @property (strong, nonatomic) NSMutableArray *productsByCategoryMArray;
@@ -45,6 +48,9 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    
+    //check value on Intro Core data
+    [self checkIntroCoreDataValue];
     
     operationQueue = [[NSOperationQueue alloc] init];
     
@@ -217,4 +223,55 @@
     }
 }
 
+/****************************************************/
+#pragma mark - Check Intro Core Data Value
+/***************************************************/
+
+- (void)checkIntroCoreDataValue{
+    dontShowIntroAgain = [DataParsing dontShowIntroAgain];
+    if (dontShowIntroAgain == YES){
+        
+    }else{
+        rootView = self.tabBarController.view;
+        EAIntroPage *page1 = [EAIntroPage page];
+        page1.title = @"Hello world";
+        page1.desc = @"sampleDescription1";
+        page1.bgImage = [UIImage imageNamed:@"bg1"];
+        page1.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"title1"]];
+        
+        UIView *viewForPage2 = [[UIView alloc] initWithFrame:rootView.bounds];
+        UILabel *labelForPage2 = [[UILabel alloc] initWithFrame:CGRectMake(0, 300, rootView.bounds.size.width, 30)];
+        labelForPage2.text = @"Some custom view";
+        labelForPage2.font = [UIFont systemFontOfSize:32];
+        labelForPage2.textColor = [UIColor whiteColor];
+        labelForPage2.backgroundColor = [UIColor clearColor];
+        labelForPage2.transform = CGAffineTransformMakeRotation(M_PI_2*3);
+        [viewForPage2 addSubview:labelForPage2];
+        EAIntroPage *page2 = [EAIntroPage pageWithCustomView:viewForPage2];
+        page2.bgImage = [UIImage imageNamed:@"bg2"];
+        
+        EAIntroPage *page3 = [EAIntroPage page];
+        page3.title = @"This is page 3";
+        page3.desc = @"sampleDescription3";
+        page3.bgImage = [UIImage imageNamed:@"bg3"];
+        page3.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"title3"]];
+        
+        EAIntroPage *page4 = [EAIntroPage page];
+        page4.title = @"This is page 4";
+        page4.desc = @"sampleDescription4";
+        page4.bgImage = [UIImage imageNamed:@"bg4"];
+        page4.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"title4"]];
+        
+        EAIntroView *intro = [[EAIntroView alloc] initWithFrame:rootView.bounds andPages:@[page1,page2,page3,page4]];
+        [intro.skipButton setTitle:@"Skip now" forState:UIControlStateNormal];
+        [intro.skipButton addTarget:self action:@selector(skipButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+        [intro setDelegate:self];
+        
+        [intro showInView:rootView animateDuration:0.3];
+    }
+}
+
+- (void)skipButtonAction:(id)sender{
+    [DataParsing setIntroValueToYES];
+}
      @end

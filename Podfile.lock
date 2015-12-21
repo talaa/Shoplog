@@ -1,17 +1,23 @@
 PODS:
   - Bolts/Tasks (1.5.0)
+  - EAIntroView (2.8.1):
+    - EARestrictedScrollView (~> 0.2.0)
+  - EARestrictedScrollView (0.2.0)
   - hpple (0.2.0)
   - Parse (1.10.0):
     - Bolts/Tasks (~> 1.5)
   - SVProgressHUD (HEAD based on 2.0-beta)
 
 DEPENDENCIES:
+  - EAIntroView (~> 2.8.0)
   - hpple (= 0.2.0)
   - Parse
   - SVProgressHUD (HEAD)
 
 SPEC CHECKSUMS:
   Bolts: 722ab9a4f8b50fc4ed1b9998a5a7a2b3f16d80b4
+  EAIntroView: 73abfa89caa311f450af876421d950b96679e845
+  EARestrictedScrollView: f86d61e16c61d3e93c84f8e96e83122a2a3b7631
   hpple: 3b765f96fc2cd56ad1a49aef6f7be5cb2aa64b57
   Parse: 90b2544822200f84b18bfacc4e8b0a3a6c3584a2
   SVProgressHUD: c83337f10ed32d701c423d519059a249973c8662
