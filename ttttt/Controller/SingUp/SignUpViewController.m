@@ -319,18 +319,13 @@
     [dateFormatter setLocale:[NSLocale currentLocale]];
     [dateFormatter setDateFormat:@"dd MMMM yyyy"];
     NSString *value = [dateFormatter stringFromDate:date];
-    if (date > [NSDate date]){
-        NSString *message = [NSString stringWithFormat:@"Incorrect Birthdate : %@", value];
-        alertController = [UIAlertController alertControllerWithTitle:@"Incorrect Birth Date" message:message preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
-        [alertController addAction:okAction];
-    }else {
-        self.bDateTextField.text = value;
-        NSString *message = [NSString stringWithFormat:@"Did valid date : %@", value];
-        alertController = [UIAlertController alertControllerWithTitle:@"Birth Date" message:message preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
-        [alertController addAction:okAction];
-    }
+    
+    self.bDateTextField.text = value;
+    NSString *message = [NSString stringWithFormat:@"Valid date : %@", value];
+    alertController = [UIAlertController alertControllerWithTitle:@"Birth Date" message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
+    [alertController addAction:okAction];
+    
     [self presentViewController:alertController animated:YES completion:nil];
 }
 

@@ -79,36 +79,12 @@
     }
     
     
-    
     //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"web-elements.png"]];
     //spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     [spinner setCenter:self.view.center];
     //[spinner setCenter:CGPointMake(kScreenWidth/2.0, kScreenHeight/2.0)]; // I do this because I'm in landscape mode
     [self.view addSubview:spinner]; // spinner is not visible until started
     
-    
-//    if (_currentProduct)
-//    {
-//        //[[PriceField setText:[[_currentProduct price]stringValue]];
-//        [PriceField setText:[NSString stringWithFormat:@"%.2f", [_currentProduct price]]];
-//        [ShopField setText:[_currentProduct.shop shopname]];
-//        [LongTextfield setText:[NSString stringWithFormat:@"%f",[_currentProduct.shop longcoordinate]]];
-//        [LatTextField setText:[NSString stringWithFormat:@"%f",[_currentProduct.shop latcoordinate]]];
-//        longsaved=[_currentProduct.shop longcoordinate];
-//        latsaved=[_currentProduct.shop latcoordinate];
-//        [PhoneField setText:[NSString stringWithFormat:@"%@",[_currentProduct phone]]];
-//        [EmailField setText:[_currentProduct email]];
-//        [WebsiteField setText:[_currentProduct websiteurl]];
-//        [DimensionsField setText:[_currentProduct dim_size]];
-//        [commentsView setText:[_currentProduct comments]];
-//        
-//        [self setTitle:[_currentProduct categoryname ]];
-//        [ratingslider setValue:[_currentProduct rating] animated:YES];
-//        if ([_currentProduct image])
-//            [imageField setImage:[UIImage imageWithData:[_currentProduct image]]];
-//        
-//        
-//    }
     
     ///Enabling the Catalogue Filed Name
     self.cataloguenamefield.enabled=YES;
