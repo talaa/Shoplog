@@ -18,6 +18,7 @@
 {
     NSOperationQueue    *operationQueue;
     DataTransferObject  *dTranferObje;
+    NSString            *productCoreDataID;
 }
 
 @end
@@ -53,6 +54,9 @@
 {
     [super viewDidLoad];
     
+    // set Product ID
+    productCoreDataID = [DataParsing createRandomId];
+    
     if (self.isEdit == YES){
         //Then it is an update view
         [self editExitItemBehaviorView];
@@ -83,28 +87,28 @@
     [self.view addSubview:spinner]; // spinner is not visible until started
     
     
-    if (_currentProduct)
-    {
-        //[[PriceField setText:[[_currentProduct price]stringValue]];
-        [PriceField setText:[NSString stringWithFormat:@"%.2f", [_currentProduct price]]];
-        [ShopField setText:[_currentProduct.shop shopname]];
-        [LongTextfield setText:[NSString stringWithFormat:@"%f",[_currentProduct.shop longcoordinate]]];
-        [LatTextField setText:[NSString stringWithFormat:@"%f",[_currentProduct.shop latcoordinate]]];
-        longsaved=[_currentProduct.shop longcoordinate];
-        latsaved=[_currentProduct.shop latcoordinate];
-        [PhoneField setText:[NSString stringWithFormat:@"%@",[_currentProduct phone]]];
-        [EmailField setText:[_currentProduct email]];
-        [WebsiteField setText:[_currentProduct websiteurl]];
-        [DimensionsField setText:[_currentProduct dim_size]];
-        [commentsView setText:[_currentProduct comments]];
-        
-        [self setTitle:[_currentProduct categoryname ]];
-        [ratingslider setValue:[_currentProduct rating] animated:YES];
-        if ([_currentProduct image])
-            [imageField setImage:[UIImage imageWithData:[_currentProduct image]]];
-        
-        
-    }
+//    if (_currentProduct)
+//    {
+//        //[[PriceField setText:[[_currentProduct price]stringValue]];
+//        [PriceField setText:[NSString stringWithFormat:@"%.2f", [_currentProduct price]]];
+//        [ShopField setText:[_currentProduct.shop shopname]];
+//        [LongTextfield setText:[NSString stringWithFormat:@"%f",[_currentProduct.shop longcoordinate]]];
+//        [LatTextField setText:[NSString stringWithFormat:@"%f",[_currentProduct.shop latcoordinate]]];
+//        longsaved=[_currentProduct.shop longcoordinate];
+//        latsaved=[_currentProduct.shop latcoordinate];
+//        [PhoneField setText:[NSString stringWithFormat:@"%@",[_currentProduct phone]]];
+//        [EmailField setText:[_currentProduct email]];
+//        [WebsiteField setText:[_currentProduct websiteurl]];
+//        [DimensionsField setText:[_currentProduct dim_size]];
+//        [commentsView setText:[_currentProduct comments]];
+//        
+//        [self setTitle:[_currentProduct categoryname ]];
+//        [ratingslider setValue:[_currentProduct rating] animated:YES];
+//        if ([_currentProduct image])
+//            [imageField setImage:[UIImage imageWithData:[_currentProduct image]]];
+//        
+//        
+//    }
     
     ///Enabling the Catalogue Filed Name
     self.cataloguenamefield.enabled=YES;
@@ -376,20 +380,30 @@
 
 - (IBAction)editSaveButtonPressed:(id)sender
 {
-    BOOL emptycatalogue =[cataloguenamefield.text isEqualToString:@""];
-    if (!emptycatalogue) {
-        if (([commentsView.text isEqual:@""]) || ([self isProductExistOnCoreData] == YES)){
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Warring" message:@"Don't forgit write your comments to save your product or you already saved this product before." preferredStyle:UIAlertControllerStyleAlert];
+    if (self.cataloguenamefield.text.length>0 && self.imageField.image != nil && self.PriceField.text.length>0 && self.ShopField.text.length>0){
+        
+        if (self.LatTextField.text.length>0 && self.LongTextfield.text.length>0){
+            
+            if ([self isProductExistOnCoreData] == NO){
+                //save on Core data
+                [self saveProductOnCoreData];
+                [self saveProductOnParse];
+            }else{
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Warnning" message:@"You already had saved this item before." preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
+                [alertController addAction:ok];
+                [self presentViewController:alertController animated:YES completion:nil];
+            }
+            
+        }else{
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error" message:@"Press the button I am inside the shop to complete saving process" preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
             [alertController addAction:ok];
             [self presentViewController:alertController animated:YES completion:nil];
-        }else{
-            //save on Core data
-            [self saveProductOnCoreData];
-            [self saveProductOnParse];
         }
+        
     }else{
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error" message:@"Scan QR Code first.Press the button below." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error" message:@"Scan QR Code first.Press the button below.Or entre the data." preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
         [alertController addAction:ok];
         [self presentViewController:alertController animated:YES completion:nil];
@@ -422,7 +436,7 @@
                            insertNewObjectForEntityForName:@"Shoplog"
                            inManagedObjectContext:context];
     
-    
+    /*
     dTranferObje = [DataTransferObject getInstance];
     
     //save imageurl as NSData
@@ -439,14 +453,48 @@
     [newShopLog setValue:[NSNumber numberWithFloat:ratingslider.value] forKey:@"rating"];
     [newShopLog setValue:dTranferObje.defwebsiteurl forKey:@"websiteurl"];
     [newShopLog setValue:dTranferObje.defdimsize forKey:@"dim_size"];
+    */
+    
+    
+    NSData *imageData = UIImagePNGRepresentation(self.imageField.image);
+    
+    [newShopLog setValue:productCoreDataID forKey:@"itemId"];
+    [newShopLog setValue:self.cataloguenamefield.text forKey:@"categoryname"];
+    [newShopLog setValue:imageData forKey:@"image"];
+    [newShopLog setValue:commentsView.text forKey:@"comments"];
+    [newShopLog setValue:[NSDate date] forKey:@"date"];
+    [newShopLog setValue:[NSNumber numberWithFloat:[self.PriceField.text floatValue]] forKey:@"price"];
+    [newShopLog setValue:[NSNumber numberWithInt:self.ratingslider.value] forKey:@"rating"];
+    if (self.DimensionsField.text>0){
+        [newShopLog setValue:self.DimensionsField.text forKey:@"dim_size"];
+    }
+    if (self.EmailField.text.length>0){
+        [newShopLog setValue:self.EmailField.text forKey:@"email"];
+    }
+    if (self.PhoneField.text>0){
+        [newShopLog setValue:[NSDecimalNumber decimalNumberWithString:self.PhoneField.text] forKey:@"phone"];
+    }
+    if (self.WebsiteField.text.length>0){
+        [newShopLog setValue:self.WebsiteField.text forKey:@"websiteurl"];
+    }
+    
     
     //Create Shop Core Data
     // Create Address
     Shop *newShop = [NSEntityDescription insertNewObjectForEntityForName:@"Shop" inManagedObjectContext:context];
+    /*
     [newShop setValue:dTranferObje.defId forKey:@"shopId"];
     [newShop setValue:dTranferObje.defshopname forKey:@"shopname"];
     [newShop setValue:[NSNumber numberWithDouble: dTranferObje.deflong] forKey:@"longcoordinate"];
     [newShop setValue:[NSNumber numberWithDouble: dTranferObje.deflat] forKey:@"latcoordinate"];
+     */
+    
+    [newShop setValue:productCoreDataID forKey:@"shopId"];
+    [newShop setValue:self.ShopField.text forKey:@"shopname"];
+    [newShop setValue:[NSNumber numberWithDouble:[self.LatTextField.text doubleValue]] forKey:@"longcoordinate"];
+    [newShop setValue:[NSNumber numberWithDouble:[self.LongTextfield.text doubleValue]] forKey:@"latcoordinate"];
+
+    
     newShopLog.shop = newShop;
     
     NSError *errorRelation = nil;
@@ -458,7 +506,7 @@
     }else{
         //No Exist thus save it
         Category *category = [NSEntityDescription insertNewObjectForEntityForName:@"Category" inManagedObjectContext:context];
-        [category setValue:dTranferObje.defcatqr forKey:@"catName"];
+        [category setValue:self.cataloguenamefield.text forKey:@"catName"];
         if (![category.managedObjectContext save:&errorRelation]) {
             //had benn saved successfully
         }else{
@@ -475,6 +523,7 @@
     //Flush DataTansfer Public Object
     [DataParsing dataTransferObjectDeAllocat];
     [SVProgressHUD dismiss];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 /*****************************************************/
@@ -487,7 +536,9 @@
         saveFavorit[@"category"]    = self.cataloguenamefield.text;
         saveFavorit[@"price"]       = self.PriceField.text;
         saveFavorit[@"phone"]       = self.PhoneField.text;
-        saveFavorit[@"website"]     = self.WebsiteField.text;
+        if (self.WebsiteField.text>0){
+            saveFavorit[@"website"]     = self.WebsiteField.text;
+        }
         saveFavorit[@"shop"]        = self.ShopField.text;
         saveFavorit[@"lat"]         = self.LatTextField.text;
         saveFavorit[@"long"]        = self.LongTextfield.text;

@@ -34,7 +34,10 @@
     // Override point for customization after application launch.
     //UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     //TestViewController *controller = (TestViewController *)navigationController.topViewController;
-
+    
+    // deallocate Tranfer Object
+    [DataParsing dataTransferObjectDeAllocat];
+    
     //Check Intro Core Data if it is empty, thus add record with NO value
     NSInteger *introArrayElementsCount  = [DataParsing returnFetchEntitiesArrayCounter:@"Intro"];
     if (introArrayElementsCount >0){
