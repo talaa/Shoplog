@@ -1422,11 +1422,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JbW-Le-igS">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="461"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="461" id="5uT-uJ-h4C"/>
-                                    <constraint firstAttribute="width" constant="320" id="lkg-cM-WfW"/>
+                                    <constraint firstAttribute="width" constant="320" id="1cF-eX-4cj"/>
+                                    <constraint firstAttribute="height" constant="519" id="7qX-u6-JJK"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mvD-YQ-mTy">
                                     <size key="itemSize" width="145" height="152"/>
@@ -1521,25 +1521,13 @@
                                     <outlet property="delegate" destination="T8V-Kp-hfn" id="V3R-Ry-Uyo"/>
                                 </connections>
                             </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gWO-qF-itF">
-                                <rect key="frame" x="0.0" y="469" width="320" height="50"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="RD7-pu-Am6"/>
-                                    <constraint firstAttribute="width" constant="320" id="rkz-XL-ni8"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="JbW-Le-igS" secondAttribute="trailing" id="2mw-oy-hyp"/>
-                            <constraint firstItem="ZC0-vk-1iC" firstAttribute="top" secondItem="gWO-qF-itF" secondAttribute="bottom" id="Elq-Fl-6Az"/>
-                            <constraint firstItem="JbW-Le-igS" firstAttribute="top" secondItem="xse-IB-Q9C" secondAttribute="top" id="VYI-Cb-1PP"/>
-                            <constraint firstItem="gWO-qF-itF" firstAttribute="top" secondItem="JbW-Le-igS" secondAttribute="bottom" constant="8" id="obG-Uq-ehx"/>
-                            <constraint firstAttribute="trailing" secondItem="gWO-qF-itF" secondAttribute="trailing" id="pEf-Z9-H5n"/>
-                            <constraint firstItem="gWO-qF-itF" firstAttribute="leading" secondItem="xse-IB-Q9C" secondAttribute="leading" id="ufD-Vm-UDW"/>
-                            <constraint firstItem="JbW-Le-igS" firstAttribute="leading" secondItem="xse-IB-Q9C" secondAttribute="leading" id="y7X-IT-w6H"/>
-                            <constraint firstItem="gWO-qF-itF" firstAttribute="top" secondItem="JbW-Le-igS" secondAttribute="bottom" constant="8" id="yEI-N1-Vfk"/>
+                            <constraint firstAttribute="trailing" secondItem="JbW-Le-igS" secondAttribute="trailing" id="1JW-TS-J5q"/>
+                            <constraint firstItem="ZC0-vk-1iC" firstAttribute="top" secondItem="JbW-Le-igS" secondAttribute="bottom" id="MZw-0t-lx5"/>
+                            <constraint firstItem="JbW-Le-igS" firstAttribute="top" secondItem="xse-IB-Q9C" secondAttribute="top" id="UNJ-Sc-pd4"/>
+                            <constraint firstItem="JbW-Le-igS" firstAttribute="leading" secondItem="xse-IB-Q9C" secondAttribute="leading" id="erB-qz-hkC"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Favorit Products" id="s9c-EG-sz5">
