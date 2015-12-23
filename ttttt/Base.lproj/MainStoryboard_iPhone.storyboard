@@ -135,7 +135,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0pS-7G-LAN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2103" y="-3376"/>
+            <point key="canvasLocation" x="2473" y="-3554"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="ctg-KG-yvp">
@@ -168,7 +168,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ILq-C6-KlU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1391" y="-3385"/>
+            <point key="canvasLocation" x="2229" y="-3791"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="wLL-Ne-oMn">
@@ -247,7 +247,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x3F-9A-91p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1566" y="-3437"/>
+            <point key="canvasLocation" x="2352" y="-3913"/>
         </scene>
         <!--Add Product Detail View Controller-->
         <scene sceneID="wzG-k5-Lrz">
@@ -780,7 +780,7 @@
             </objects>
             <point key="canvasLocation" x="2391" y="-767"/>
         </scene>
-        <!--GO PRO-->
+        <!--Upgrade-->
         <scene sceneID="Ypl-7e-5NK">
             <objects>
                 <viewController id="iyi-9O-DU3" customClass="UpgradeViewController" sceneMemberID="viewController">
@@ -792,8 +792,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ny8-eE-oBl">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ny8-eE-oBl">
                                 <rect key="frame" x="89" y="373" width="143" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="143" id="QSU-WC-P1G"/>
+                                    <constraint firstAttribute="height" constant="54" id="l7c-Nb-3gz"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
                                 <state key="normal" title="Upgrade me !" backgroundImage="Button.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -802,8 +806,12 @@
                                     <action selector="buyproduct:" destination="iyi-9O-DU3" eventType="touchUpInside" id="ypb-69-Q5i"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="This Application is done for the Serious Shoppers. You are about to be one of them " lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rAw-vU-46x">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="This Application is done for the Serious Shoppers. You are about to be one of them " lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rAw-vU-46x">
                                 <rect key="frame" x="29" y="237" width="263" height="94"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="94" id="0wV-16-hgk"/>
+                                    <constraint firstAttribute="width" constant="263" id="JlD-ln-bNC"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <color key="textColor" red="0.018433179723502335" green="0.018433179723502335" blue="0.018433179723502335" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -812,21 +820,12 @@
                                 <rect key="frame" x="142" y="240" width="37" height="37"/>
                                 <color key="color" red="0.15207373271889402" green="0.15207373271889402" blue="0.15207373271889402" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hIb-ur-QqN">
-                                <rect key="frame" x="29" y="495" width="60" height="44"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                <state key="normal" title="Back" backgroundImage="Button.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="dlR-LB-e7A" kind="unwind" unwindAction="origin:" id="Tsb-0V-NJ9"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" fixedFrame="YES" image="shopping_girl_01_vector_156382.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ogZ-8N-aSb">
-                                <rect key="frame" x="40" y="44" width="240" height="128"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffP-sY-yyg">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffP-sY-yyg">
                                 <rect key="frame" x="134" y="435" width="53" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Zeo-V6-ngQ"/>
+                                    <constraint firstAttribute="width" constant="53" id="oex-kF-NSc"/>
+                                </constraints>
                                 <state key="normal" title="Restore">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -834,9 +833,27 @@
                                     <action selector="restoreaction:" destination="iyi-9O-DU3" eventType="touchUpInside" id="2cm-mr-m2a"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="shopping_girl_01_vector_156382.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ogZ-8N-aSb">
+                                <rect key="frame" x="40" y="72" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="IK3-GM-Vd5"/>
+                                    <constraint firstAttribute="height" constant="128" id="unv-BV-BuU"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="rAw-vU-46x" firstAttribute="top" secondItem="ogZ-8N-aSb" secondAttribute="bottom" constant="37" id="7gI-eh-MIU"/>
+                            <constraint firstItem="ogZ-8N-aSb" firstAttribute="top" secondItem="Gbb-K2-ixH" secondAttribute="bottom" constant="8" id="HeJ-sv-Swb"/>
+                            <constraint firstItem="rAw-vU-46x" firstAttribute="centerX" secondItem="TJz-pq-M0H" secondAttribute="centerX" id="Ouy-zy-aam"/>
+                            <constraint firstItem="ffP-sY-yyg" firstAttribute="centerX" secondItem="TJz-pq-M0H" secondAttribute="centerX" id="Qhj-e9-az9"/>
+                            <constraint firstItem="ogZ-8N-aSb" firstAttribute="centerX" secondItem="TJz-pq-M0H" secondAttribute="centerX" id="WLe-t6-Po0"/>
+                            <constraint firstItem="ffP-sY-yyg" firstAttribute="top" secondItem="ny8-eE-oBl" secondAttribute="bottom" constant="8" id="hDC-tN-ag3"/>
+                            <constraint firstItem="ny8-eE-oBl" firstAttribute="centerX" secondItem="TJz-pq-M0H" secondAttribute="centerX" id="iO9-MH-uEg"/>
+                            <constraint firstItem="ny8-eE-oBl" firstAttribute="top" secondItem="rAw-vU-46x" secondAttribute="bottom" constant="42" id="pQs-jg-g2t"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="GO PRO" image="icon_star.png" id="Omd-Tv-DNJ"/>
+                    <navigationItem key="navigationItem" title="Upgrade" id="ZxJ-TC-bsi"/>
                     <connections>
                         <outlet property="buybutton" destination="ny8-eE-oBl" id="YT5-Bz-y2d"/>
                         <outlet property="restorebutton" destination="ffP-sY-yyg" id="F1k-Hm-mdm"/>
@@ -844,9 +861,8 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E44-uu-8a1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="dlR-LB-e7A" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1802" y="-3355"/>
+            <point key="canvasLocation" x="1746" y="-3000"/>
         </scene>
         <!--Mosaic View Controller-->
         <scene sceneID="zHy-qG-QTU">
@@ -1407,7 +1423,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hu4-Qt-8Cc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1059" y="-1533"/>
+            <point key="canvasLocation" x="1746" y="-2311"/>
         </scene>
         <!--Favorites Products-->
         <scene sceneID="zyu-Fl-cN5">
@@ -1547,6 +1563,7 @@
                         <outlet property="shareBarButton" destination="ozX-xU-8gZ" id="r8a-1o-7IX"/>
                         <segue destination="vhz-pH-sRB" kind="push" identifier="ECommerceWebSegue" id="k82-xC-9xw"/>
                         <segue destination="G1I-1g-veF" kind="push" identifier="AddNewItemSegue" id="ybV-Fg-rUf"/>
+                        <segue destination="iyi-9O-DU3" kind="push" identifier="GoProSegue" id="Tjf-9i-hQF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hfe-Zz-qjQ" userLabel="First Responder" sceneMemberID="firstResponder"/>

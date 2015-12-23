@@ -18,6 +18,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *restorebutton;
 @property (nonatomic,retain) IBOutlet UIActivityIndicatorView *spinner;
 -(IBAction)buyproduct:(id)sender;
-- (IBAction)restoreaction:(id)sender;
+-(IBAction)restoreaction:(id)sender;
 -(void)requestProductData;
 @end

@@ -30,6 +30,7 @@
 #import "ECommerceWebViewController.h"
 #import "EAIntroView.h"
 #import "AddProductDetailViewController.h"
+#import "UpgradeViewController.h"
 
 @interface ProductsViewControler () <EAIntroDelegate>
 {
@@ -227,7 +228,8 @@
         ecommerceVC.ecommerceURLString = searchWebSiteURLString;
     }
     else if ([segue.identifier isEqualToString:@"AddNewItemSegue"]){
-        AddProductDetailViewController *addProductVC = segue.destinationViewController;
+    }
+    else if ([segue.identifier isEqualToString:@"GoProSegue"]){
     }
 }
 
@@ -310,6 +312,7 @@
         
         UIAlertAction *goPro = [UIAlertAction actionWithTitle:@"Go Pro" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             //<#code#>
+            [self performSegueWithIdentifier:@"GoProSegue" sender:self];
         }];
         
         UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDestructive handler:nil];
