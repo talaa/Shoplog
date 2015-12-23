@@ -1788,11 +1788,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zZl-PY-sPh">
-                                <rect key="frame" x="20" y="131" width="170" height="30"/>
+                                <rect key="frame" x="75" y="131" width="170" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.10000000000000001" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Fi1-LZ-OOa"/>
-                                    <constraint firstAttribute="width" constant="170" id="P9E-w1-PpP"/>
+                                    <constraint firstAttribute="width" constant="170" id="YOC-tt-TQg"/>
+                                    <constraint firstAttribute="height" constant="30" id="yN0-vS-YNB"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -1820,7 +1820,7 @@
                                 </connections>
                             </pickerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r5c-rM-UVh">
-                                <rect key="frame" x="20" y="245" width="240" height="30"/>
+                                <rect key="frame" x="75" y="245" width="240" height="30"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Birth Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Uq-hp-c9b">
                                         <rect key="frame" x="0.0" y="0.0" width="170" height="30"/>
@@ -1838,8 +1838,8 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="0XK-hk-efT"/>
-                                    <constraint firstAttribute="width" constant="240" id="rB0-nx-OYh"/>
+                                    <constraint firstAttribute="width" constant="240" id="HqE-Yy-GU6"/>
+                                    <constraint firstAttribute="height" constant="30" id="Szq-mX-4wU"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZIi-4P-ifQ">
@@ -1865,8 +1865,8 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="70u-di-utM"/>
-                                    <constraint firstAttribute="width" constant="320" id="QVu-xq-DxU"/>
+                                    <constraint firstAttribute="height" constant="64" id="1nt-AL-RsQ"/>
+                                    <constraint firstAttribute="width" constant="320" id="oE0-Yf-q04"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qGT-nm-o8e">
@@ -1894,7 +1894,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="smV-WP-8hF">
-                                <rect key="frame" x="20" y="207" width="240" height="30"/>
+                                <rect key="frame" x="75" y="207" width="240" height="30"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail " textAlignment="natural" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="2EU-3s-3de">
                                         <rect key="frame" x="0.0" y="0.0" width="170" height="30"/>
@@ -1911,16 +1911,16 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="BF0-3F-Xa7"/>
-                                    <constraint firstAttribute="width" constant="240" id="zIg-hr-wVw"/>
+                                    <constraint firstAttribute="width" constant="240" id="91A-6a-SwM"/>
+                                    <constraint firstAttribute="height" constant="30" id="uFO-50-C8S"/>
                                 </constraints>
                             </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cpf-v1-adE">
-                                <rect key="frame" x="20" y="169" width="170" height="30"/>
+                                <rect key="frame" x="75" y="169" width="170" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.10000000000000001" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="170" id="47c-59-Xih"/>
-                                    <constraint firstAttribute="height" constant="30" id="XUe-CJ-KXR"/>
+                                    <constraint firstAttribute="width" constant="170" id="81F-6O-14J"/>
+                                    <constraint firstAttribute="height" constant="30" id="ZDA-qD-4SZ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -1933,7 +1933,7 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0tR-44-CUo">
-                                <rect key="frame" x="20" y="283" width="240" height="30"/>
+                                <rect key="frame" x="75" y="283" width="240" height="30"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Coutry" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JaS-ms-Si6">
                                         <rect key="frame" x="0.0" y="0.0" width="170" height="30"/>
@@ -1951,8 +1951,8 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="aU6-gh-Rax"/>
-                                    <constraint firstAttribute="width" constant="240" id="cO8-0S-rv7"/>
+                                    <constraint firstAttribute="height" constant="30" id="FqF-Sa-nUA"/>
+                                    <constraint firstAttribute="width" constant="240" id="dZQ-3t-5HH"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1960,27 +1960,27 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="qGT-nm-o8e" secondAttribute="trailing" constant="125" id="4c0-LW-Foe"/>
                             <constraint firstItem="qGT-nm-o8e" firstAttribute="leading" secondItem="veP-Bj-9Op" secondAttribute="leading" constant="125" id="5Ny-lO-41f"/>
-                            <constraint firstItem="r5c-rM-UVh" firstAttribute="top" secondItem="smV-WP-8hF" secondAttribute="bottom" constant="8" id="Cdc-iN-YmS"/>
+                            <constraint firstItem="cpf-v1-adE" firstAttribute="top" secondItem="zZl-PY-sPh" secondAttribute="bottom" constant="8" id="8BI-Me-kAe"/>
+                            <constraint firstItem="0tR-44-CUo" firstAttribute="leading" secondItem="veP-Bj-9Op" secondAttribute="leading" constant="75" id="8Sc-ue-lfs"/>
+                            <constraint firstItem="0tR-44-CUo" firstAttribute="top" secondItem="r5c-rM-UVh" secondAttribute="bottom" constant="8" id="8jL-zn-uml"/>
+                            <constraint firstItem="zZl-PY-sPh" firstAttribute="top" secondItem="qGT-nm-o8e" secondAttribute="bottom" constant="8" id="9WT-oR-JeY"/>
                             <constraint firstAttribute="trailing" secondItem="GlQ-K4-6Ng" secondAttribute="trailing" id="DfB-mm-h8U"/>
-                            <constraint firstItem="0tR-44-CUo" firstAttribute="leading" secondItem="veP-Bj-9Op" secondAttribute="leading" constant="20" id="H4a-Hz-kN0"/>
+                            <constraint firstItem="zZl-PY-sPh" firstAttribute="leading" secondItem="veP-Bj-9Op" secondAttribute="leading" constant="75" id="ENJ-9S-Edp"/>
                             <constraint firstItem="WG8-hn-EEq" firstAttribute="leading" secondItem="veP-Bj-9Op" secondAttribute="leading" constant="20" id="KEx-8a-5Ti"/>
-                            <constraint firstItem="GlQ-K4-6Ng" firstAttribute="top" secondItem="ZIi-4P-ifQ" secondAttribute="bottom" constant="8" id="LIo-ji-rkC"/>
-                            <constraint firstItem="ZIi-4P-ifQ" firstAttribute="leading" secondItem="veP-Bj-9Op" secondAttribute="leading" id="R3k-8L-WXo"/>
-                            <constraint firstItem="smV-WP-8hF" firstAttribute="top" secondItem="cpf-v1-adE" secondAttribute="bottom" constant="8" id="S18-VY-wzw"/>
-                            <constraint firstItem="smV-WP-8hF" firstAttribute="leading" secondItem="veP-Bj-9Op" secondAttribute="leading" constant="20" id="VT5-oM-CZw"/>
-                            <constraint firstItem="zZl-PY-sPh" firstAttribute="leading" secondItem="veP-Bj-9Op" secondAttribute="leading" constant="20" id="ZqF-TO-9Fi"/>
-                            <constraint firstItem="cpf-v1-adE" firstAttribute="leading" secondItem="veP-Bj-9Op" secondAttribute="leading" constant="20" id="cHq-a4-rAQ"/>
-                            <constraint firstAttribute="trailing" secondItem="ZIi-4P-ifQ" secondAttribute="trailing" id="dUM-rv-VzU"/>
-                            <constraint firstItem="zZl-PY-sPh" firstAttribute="top" secondItem="qGT-nm-o8e" secondAttribute="bottom" constant="8" id="fRY-0l-YSg"/>
-                            <constraint firstItem="r5c-rM-UVh" firstAttribute="leading" secondItem="veP-Bj-9Op" secondAttribute="leading" constant="20" id="luK-b7-QNS"/>
+                            <constraint firstItem="smV-WP-8hF" firstAttribute="leading" secondItem="veP-Bj-9Op" secondAttribute="leading" constant="75" id="Mav-dY-pVM"/>
+                            <constraint firstItem="r5c-rM-UVh" firstAttribute="top" secondItem="smV-WP-8hF" secondAttribute="bottom" constant="8" id="XIF-zj-R11"/>
+                            <constraint firstItem="GlQ-K4-6Ng" firstAttribute="top" secondItem="ZIi-4P-ifQ" secondAttribute="bottom" constant="8" id="cxO-Qj-vY0"/>
+                            <constraint firstItem="smV-WP-8hF" firstAttribute="top" secondItem="cpf-v1-adE" secondAttribute="bottom" constant="8" id="fTY-ob-tLV"/>
                             <constraint firstItem="6BQ-DL-3gh" firstAttribute="centerX" secondItem="veP-Bj-9Op" secondAttribute="centerX" id="mog-7W-mai"/>
                             <constraint firstItem="WDA-Ah-wp3" firstAttribute="top" secondItem="GlQ-K4-6Ng" secondAttribute="bottom" id="nhd-mO-AeG"/>
+                            <constraint firstAttribute="trailing" secondItem="ZIi-4P-ifQ" secondAttribute="trailing" id="rM4-lc-uZ7"/>
+                            <constraint firstItem="ZIi-4P-ifQ" firstAttribute="leading" secondItem="veP-Bj-9Op" secondAttribute="leading" id="sCS-gp-Me6"/>
+                            <constraint firstItem="r5c-rM-UVh" firstAttribute="leading" secondItem="veP-Bj-9Op" secondAttribute="leading" constant="75" id="txT-gz-rGQ"/>
                             <constraint firstItem="qGT-nm-o8e" firstAttribute="top" secondItem="6BQ-DL-3gh" secondAttribute="bottom" constant="8" id="uaT-A5-ZJF"/>
-                            <constraint firstItem="0tR-44-CUo" firstAttribute="top" secondItem="r5c-rM-UVh" secondAttribute="bottom" constant="8" id="vIY-Dn-QRo"/>
+                            <constraint firstItem="ZIi-4P-ifQ" firstAttribute="top" secondItem="0tR-44-CUo" secondAttribute="bottom" constant="8" id="vOo-IP-7YW"/>
+                            <constraint firstItem="cpf-v1-adE" firstAttribute="leading" secondItem="veP-Bj-9Op" secondAttribute="leading" constant="75" id="vhz-VZ-hEu"/>
                             <constraint firstItem="GlQ-K4-6Ng" firstAttribute="leading" secondItem="veP-Bj-9Op" secondAttribute="leading" id="w1c-me-lsd"/>
-                            <constraint firstItem="ZIi-4P-ifQ" firstAttribute="top" secondItem="0tR-44-CUo" secondAttribute="bottom" constant="8" id="wAY-8k-TFj"/>
                             <constraint firstItem="6BQ-DL-3gh" firstAttribute="top" secondItem="fRO-ZQ-ZFm" secondAttribute="bottom" id="y0b-Ve-xi0"/>
-                            <constraint firstItem="cpf-v1-adE" firstAttribute="top" secondItem="zZl-PY-sPh" secondAttribute="bottom" constant="8" id="zFN-2p-bhP"/>
                             <constraint firstItem="WG8-hn-EEq" firstAttribute="top" secondItem="fRO-ZQ-ZFm" secondAttribute="bottom" id="zfb-8P-FK2"/>
                         </constraints>
                     </view>
