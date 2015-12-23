@@ -305,7 +305,7 @@
 - (IBAction)addNewItemPressed:(id)sender {
     //get categories count if > 3 then no longer to add new categories
     NSInteger categoriesCount = [DataParsing returnFetchEntitiesArrayCounter:@"Category"];
-    if (categoriesCount > 3){
+    if (categoriesCount > 2){
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Oh!" message:@"Adding more than three categories requires upgrade to Pro version.Go ahead and press upgrade" preferredStyle:UIAlertControllerStyleAlert];
         
         UIAlertAction *goPro = [UIAlertAction actionWithTitle:@"Go Pro" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {

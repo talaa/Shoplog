@@ -1538,7 +1538,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="KUA-Bx-9cZ">
                             <connections>
-                                <action selector="addNewItemPressed:" destination="T8V-Kp-hfn" id="3O5-im-uez"/>
+                                <action selector="addNewItemPressed:" destination="T8V-Kp-hfn" id="wEa-bX-snb"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
