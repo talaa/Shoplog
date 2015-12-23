@@ -1409,7 +1409,7 @@
             </objects>
             <point key="canvasLocation" x="1059" y="-1533"/>
         </scene>
-        <!--Favorit Products-->
+        <!--Favorites Products-->
         <scene sceneID="zyu-Fl-cN5">
             <objects>
                 <viewController id="T8V-Kp-hfn" customClass="ProductsViewControler" sceneMemberID="viewController">
@@ -1530,7 +1530,12 @@
                             <constraint firstItem="JbW-Le-igS" firstAttribute="leading" secondItem="xse-IB-Q9C" secondAttribute="leading" id="erB-qz-hkC"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Favorit Products" id="s9c-EG-sz5">
+                    <navigationItem key="navigationItem" title="Favorites Products" id="s9c-EG-sz5">
+                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="ozX-xU-8gZ">
+                            <connections>
+                                <action selector="shareButtonPressed:" destination="T8V-Kp-hfn" id="u46-N5-Mko"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="KUA-Bx-9cZ">
                             <connections>
                                 <segue destination="G1I-1g-veF" kind="push" id="Qif-Ft-ovf"/>
@@ -1539,6 +1544,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="productsCollectionView" destination="JbW-Le-igS" id="JA3-jG-IMi"/>
+                        <outlet property="shareBarButton" destination="ozX-xU-8gZ" id="r8a-1o-7IX"/>
                         <segue destination="vhz-pH-sRB" kind="push" identifier="ECommerceWebSegue" id="k82-xC-9xw"/>
                     </connections>
                 </viewController>

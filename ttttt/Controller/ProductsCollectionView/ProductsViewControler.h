@@ -12,5 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UICollectionView *productsCollectionView;
 @property (nonatomic, strong, readonly) NSMapTable *visibleCollectionReusableHeaderViews;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *shareBarButton;
 
+- (IBAction)shareButtonPressed:(id)sender;
 @end
