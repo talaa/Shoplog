@@ -15,8 +15,9 @@
 #import "DataTransferObject.h"
 #import "Shop.h"
 #import "AddProductDetailViewController.h"
+#import <FBSDKShareKit/FBSDKShareKit.h>
 
-@interface ItemImageViewController () <MFMailComposeViewControllerDelegate>
+@interface ItemImageViewController () <MFMailComposeViewControllerDelegate,FBSDKSharingDelegate>
 {
     Shoplog *shoplog;
     Shop *shop;
@@ -54,6 +55,11 @@
 - (IBAction)actionPressed:(id)sender{
     UIAlertController *actionAlertController  = [UIAlertController alertControllerWithTitle:@"ShopLog" message:@"Choise what you would like to do." preferredStyle:UIAlertControllerStyleActionSheet];
     
+    UIAlertAction *shareFB = [UIAlertAction actionWithTitle:@"Share with friends" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //<#code#>
+        [self shareWithFriendsFB];
+    }];
+    
     UIAlertAction *editAction = [UIAlertAction actionWithTitle:@"Edit" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         //Code
         [self editItem];
@@ -79,11 +85,15 @@
         [self sendMail];
     }];
     
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDestructive handler:nil];
+    
+    [actionAlertController addAction:shareFB];
     [actionAlertController addAction:editAction];
     [actionAlertController addAction:removeAction];
     [actionAlertController addAction:callAction];
     [actionAlertController addAction:visitWebSiteAction];
     [actionAlertController addAction:sendMailAction];
+    [actionAlertController addAction:cancel];
     
     if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad){
         //Ipad
@@ -237,5 +247,23 @@
     [self performSegueWithIdentifier:@"EditSegue" sender:self];
 }
 
+/****************************************/
+//      Share With Friends FB           //
+/****************************************/
+
+- (void)shareWithFriendsFB{
+//    FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
+//    content.contentURL = [NSURL URLWithString:@"https://itunes.apple.com/eg/app/shoplog/id557686446?mt=8"];
+//    [FBSDKShareDialog showFromViewController:self
+//                                 withContent:content
+//                                    delegate:self];
+    SLComposeViewController *fbVC = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+    
+    [fbVC setInitialText:@"Hello Facebook"];
+    [fbVC addURL:[NSURL URLWithString:@"https://itunes.apple.com/eg/app/shoplog/id557686446?mt=8"]];
+    [fbVC addImage:[UIImage imageNamed:@"shoplogIcon"]];
+    
+    [self presentViewController:fbVC animated:YES completion:nil];
+}
 
 @end

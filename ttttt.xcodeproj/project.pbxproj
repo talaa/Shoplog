@@ -74,7 +74,6 @@
 		697847AE1748F57800E38120 /* MyIcon copy_57_BW.png in Resources */ = {isa = PBXBuildFile; fileRef = 697847AD1748F57800E38120 /* MyIcon copy_57_BW.png */; };
 		697847B01748F6CA00E38120 /* MyIcon copy_57 copy_BW.png in Resources */ = {isa = PBXBuildFile; fileRef = 697847AF1748F6CA00E38120 /* MyIcon copy_57 copy_BW.png */; };
 		697847B3174B89DD00E38120 /* ShoplogactivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 697847B2174B89DD00E38120 /* ShoplogactivityViewController.m */; };
-		697DE636174D14840008D996 /* UpgradeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 697DE635174D14840008D996 /* UpgradeViewController.m */; };
 		697DE639174D14E40008D996 /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 697DE638174D14E40008D996 /* TPKeyboardAvoidingTableView.m */; };
 		697DE63B174D5C970008D996 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 697DE63A174D5C970008D996 /* ImageIO.framework */; };
 		698210DC191FE3E6001DB6D7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 698210DB191FE3E6001DB6D7 /* AVFoundation.framework */; };
@@ -191,6 +190,9 @@
 		F583CB791C17041C004065D7 /* ProductsViewControler.m in Sources */ = {isa = PBXBuildFile; fileRef = F583CB781C17041C004065D7 /* ProductsViewControler.m */; };
 		F583CB7C1C170444004065D7 /* ProductCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F583CB7B1C170444004065D7 /* ProductCollectionViewCell.m */; };
 		F583CB7F1C1730DF004065D7 /* CollectionReusableViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = F583CB7E1C1730DF004065D7 /* CollectionReusableViewHeader.m */; };
+		F595ACC41C2AF0F2003B6F02 /* UpgradeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F595ACC31C2AF0F2003B6F02 /* UpgradeViewController.m */; };
+		F595ACC91C2AF7E7003B6F02 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F595ACC81C2AF7E7003B6F02 /* FBSDKCoreKit.framework */; };
+		F595ACCB1C2AF96A003B6F02 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F595ACCA1C2AF96A003B6F02 /* FBSDKShareKit.framework */; };
 		F5CD0CB21C10406700BBD508 /* SigninViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CD0CB11C10406700BBD508 /* SigninViewController.m */; };
 		F5CD0CB71C10453700BBD508 /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CD0CB41C10453700BBD508 /* User+CoreDataProperties.m */; };
 		F5CD0CB81C10453700BBD508 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CD0CB61C10453700BBD508 /* User.m */; };
@@ -304,8 +306,6 @@
 		697847AF1748F6CA00E38120 /* MyIcon copy_57 copy_BW.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MyIcon copy_57 copy_BW.png"; sourceTree = "<group>"; };
 		697847B1174B89DD00E38120 /* ShoplogactivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoplogactivityViewController.h; sourceTree = "<group>"; };
 		697847B2174B89DD00E38120 /* ShoplogactivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoplogactivityViewController.m; sourceTree = "<group>"; };
-		697DE634174D14840008D996 /* UpgradeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpgradeViewController.h; sourceTree = SOURCE_ROOT; };
-		697DE635174D14840008D996 /* UpgradeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpgradeViewController.m; sourceTree = SOURCE_ROOT; };
 		697DE637174D14E40008D996 /* TPKeyboardAvoidingTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPKeyboardAvoidingTableView.h; path = TPKeyBoard/TPKeyboardAvoidingTableView.h; sourceTree = SOURCE_ROOT; };
 		697DE638174D14E40008D996 /* TPKeyboardAvoidingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPKeyboardAvoidingTableView.m; path = TPKeyBoard/TPKeyboardAvoidingTableView.m; sourceTree = SOURCE_ROOT; };
 		697DE63A174D5C970008D996 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
@@ -476,6 +476,10 @@
 		F583CB7B1C170444004065D7 /* ProductCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductCollectionViewCell.m; sourceTree = "<group>"; };
 		F583CB7D1C1730DF004065D7 /* CollectionReusableViewHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionReusableViewHeader.h; sourceTree = "<group>"; };
 		F583CB7E1C1730DF004065D7 /* CollectionReusableViewHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionReusableViewHeader.m; sourceTree = "<group>"; };
+		F595ACC21C2AF0F2003B6F02 /* UpgradeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpgradeViewController.h; sourceTree = "<group>"; };
+		F595ACC31C2AF0F2003B6F02 /* UpgradeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpgradeViewController.m; sourceTree = "<group>"; };
+		F595ACC81C2AF7E7003B6F02 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		F595ACCA1C2AF96A003B6F02 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		F5CD0CB01C10406700BBD508 /* SigninViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SigninViewController.h; sourceTree = "<group>"; };
 		F5CD0CB11C10406700BBD508 /* SigninViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SigninViewController.m; sourceTree = "<group>"; };
 		F5CD0CB31C10453700BBD508 /* User+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "User+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -524,9 +528,11 @@
 				698EE6A31747702800A1475D /* libxml2.dylib in Frameworks */,
 				690C257E171DF56600139FDA /* libsqlite3.dylib in Frameworks */,
 				69205C3B16B4012F00762138 /* CoreTelephony.framework in Frameworks */,
+				F595ACC91C2AF7E7003B6F02 /* FBSDKCoreKit.framework in Frameworks */,
 				699CD7111BC6B51000BDF592 /* libFlurry_7.2.1.a in Frameworks */,
 				69205002162B459A00358C65 /* Twitter.framework in Frameworks */,
 				693C5CD8169DD425008DA75C /* Accounts.framework in Frameworks */,
+				F595ACCB1C2AF96A003B6F02 /* FBSDKShareKit.framework in Frameworks */,
 				692807E7169B9B8900D5EDFF /* iAd.framework in Frameworks */,
 				692807E5169B9B8100D5EDFF /* AdSupport.framework in Frameworks */,
 				692807E3169B9B6600D5EDFF /* AudioToolbox.framework in Frameworks */,
@@ -662,16 +668,6 @@
 				697DE638174D14E40008D996 /* TPKeyboardAvoidingTableView.m */,
 			);
 			name = KTableView;
-			path = Flurry;
-			sourceTree = "<group>";
-		};
-		697506CC165F535F0042BCFA /* InAppHelper */ = {
-			isa = PBXGroup;
-			children = (
-				697DE634174D14840008D996 /* UpgradeViewController.h */,
-				697DE635174D14840008D996 /* UpgradeViewController.m */,
-			);
-			name = InAppHelper;
 			path = Flurry;
 			sourceTree = "<group>";
 		};
@@ -877,7 +873,6 @@
 				69ECA96F17121AFB00347A6C /* AFNetworking */,
 				692807DD169B993000D5EDFF /* Ads */,
 				6963FA7B16650EB9006C3AE9 /* KTableView */,
-				697506CC165F535F0042BCFA /* InAppHelper */,
 				693025421649C9FB003E63D7 /* Activities */,
 				6986BCAD1632056A0023E2EE /* Images */,
 				69F625791606364800004196 /* ttttt */,
@@ -990,9 +985,9 @@
 		F5114CB51C1063CF009D677C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F595ACC71C2AF7CF003B6F02 /* SDK */,
 				F53189EE1C28545300E537F4 /* Image */,
 				F5114CB61C1063CF009D677C /* Library */,
-				F5114CB71C1063CF009D677C /* SDK */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1003,13 +998,6 @@
 				F5114CB81C10644E009D677C /* FlatDatePicker */,
 			);
 			path = Library;
-			sourceTree = "<group>";
-		};
-		F5114CB71C1063CF009D677C /* SDK */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = SDK;
 			sourceTree = "<group>";
 		};
 		F5114CB81C10644E009D677C /* FlatDatePicker */ = {
@@ -1086,6 +1074,24 @@
 			path = ProductsCollectionView;
 			sourceTree = "<group>";
 		};
+		F595ACC11C2AF0F2003B6F02 /* UpgradeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F595ACC21C2AF0F2003B6F02 /* UpgradeViewController.h */,
+				F595ACC31C2AF0F2003B6F02 /* UpgradeViewController.m */,
+			);
+			path = UpgradeViewController;
+			sourceTree = "<group>";
+		};
+		F595ACC71C2AF7CF003B6F02 /* SDK */ = {
+			isa = PBXGroup;
+			children = (
+				F595ACCA1C2AF96A003B6F02 /* FBSDKShareKit.framework */,
+				F595ACC81C2AF7E7003B6F02 /* FBSDKCoreKit.framework */,
+			);
+			path = SDK;
+			sourceTree = "<group>";
+		};
 		F5CD0CAB1C103FD300BBD508 /* SingUp */ = {
 			isa = PBXGroup;
 			children = (
@@ -1107,6 +1113,7 @@
 		F5D7245F1C0DA12800BC2BDF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F595ACC11C2AF0F2003B6F02 /* UpgradeViewController */,
 				F5F313F71C25CC7D00FEF8BD /* ECommerceWebController */,
 				F5EF68B31C1EDF0600DABFFA /* WebSiteController */,
 				F57A90EF1C1DDC1D00EA2360 /* ItemImageController */,
@@ -1486,9 +1493,9 @@
 				690C2590171E0A0400139FDA /* Shoppingcom.m in Sources */,
 				690C2593171E0CE300139FDA /* Shopzila.m in Sources */,
 				697847B3174B89DD00E38120 /* ShoplogactivityViewController.m in Sources */,
-				697DE636174D14840008D996 /* UpgradeViewController.m in Sources */,
 				F5CD0CB71C10453700BBD508 /* User+CoreDataProperties.m in Sources */,
 				697DE639174D14E40008D996 /* TPKeyboardAvoidingTableView.m in Sources */,
+				F595ACC41C2AF0F2003B6F02 /* UpgradeViewController.m in Sources */,
 				F5FD6A651C0F02C20054C7D2 /* TempData.m in Sources */,
 				6982B518177076E6007CA1E8 /* NSString+STTwitter.m in Sources */,
 				693386291BA5ECF400E5069F /* CountryPicker.m in Sources */,
@@ -1639,6 +1646,7 @@
 					"$(PROJECT_DIR)/parse-library-1",
 					"/Users/tamerenas/Downloads/parse-library-1",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/ttttt/Resources/SDK",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ttttt/ttttt-Prefix.pch";
@@ -1676,6 +1684,7 @@
 					"$(PROJECT_DIR)/parse-library-1",
 					"/Users/tamerenas/Downloads/parse-library-1",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/ttttt/Resources/SDK",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ttttt/ttttt-Prefix.pch";

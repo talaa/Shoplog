@@ -14,7 +14,7 @@
 #import <Social/Social.h>
 #import <Accounts/Accounts.h>
 #import "UpgradeViewController.h"
-//#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 //#import <PFFacebookUtils.h>
 #import "ProductsViewControler.h"
 #import <StartApp/StartApp.h>
@@ -55,7 +55,7 @@
     //[navigationController.navigationBar setBackgroundImage:gradientImage32 forBarMetrics:UIBarMetricsDefault];
     //navigationController.navigationBar.tintColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"blueleather.png"]];
     navigationController.navigationBar.tintColor = [UIColor colorWithRed:48.0f/255.0f green:74.0f/255.0f blue:147.0f/255.0f alpha:1];
-    ProductsViewControler *controller = (ProductsViewControler *)navigationController.topViewController;
+    //ProductsViewControler *controller = (ProductsViewControler *)navigationController.topViewController;
      
     //controller.managedObjectContext = self.managedObjectContext;
     
@@ -110,6 +110,11 @@
      horizontalAccuracy:location.horizontalAccuracy
        verticalAccuracy:location.verticalAccuracy];
      */
+    
+    //Facebook Integration
+    [[FBSDKApplicationDelegate sharedInstance] application:application
+                             didFinishLaunchingWithOptions:launchOptions];
+
     return YES;
 }
 
@@ -134,13 +139,7 @@ void uncaughtExceptionHandler(NSException *exception) {
     return YES;
     
 }
-/*
-- (BOOL) handleOpenURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    return [FBAppCall handleOpenURL:url
-                  sourceApplication:sourceApplication
-                        withSession:[PFFacebookUtils session]];
-}
- */
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -161,7 +160,7 @@ void uncaughtExceptionHandler(NSException *exception) {
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    //[FBAppCall handleDidBecomeActiveWithSession:[PFFacebookUtils session]];
+    [FBSDKAppEvents activateApp];
 
 }
 
@@ -183,17 +182,9 @@ void uncaughtExceptionHandler(NSException *exception) {
     }
 }
 #pragma Facebook
-/*
-- (BOOL)application:(UIApplication *)application
-            openURL:(NSURL *)url
-  sourceApplication:(NSString *)sourceApplication
-         annotation:(id)annotation {
-    
-    return [FBAppCall handleOpenURL:url
-                  sourceApplication:sourceApplication
-                        withSession:[PFFacebookUtils session]];
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [[FBSDKApplicationDelegate sharedInstance] application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
 }
-*/
 
 #pragma mark - Core Data stack
 
