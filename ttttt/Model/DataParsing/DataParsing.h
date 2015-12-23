@@ -18,6 +18,7 @@
 + (NSMutableArray*)fetchProductsbyCategory;
 + (NSMutableArray *)fetchProductbyImageData:(NSData*)imageData AndEntityName:(NSString*)entityName;
 + (void)removeEntityRecordbyItemId:(NSString*)itemID AndEntityName:(NSString*)entityName;
++ (void)removeCategoryInCaseOfNoItems:(NSString*)catName;
 + (void)saveContext;
 + (BOOL)ifCategoryNameExistOnEntit:(NSString*)entityName CategoryName:(NSString*)catname;
 + (void)deleteProductByID:(NSString*)Id ByEntityName:(NSString*)entityName;
@@ -26,5 +27,6 @@
 + (BOOL)dontShowIntroAgain;
 + (void)setIntroValueToNO;
 + (void)setIntroValueToYES;
+
 
 @end

@@ -29,6 +29,7 @@
 #import "pricegrabbersearch.h"
 #import "ECommerceWebViewController.h"
 #import "EAIntroView.h"
+#import "AddProductDetailViewController.h"
 
 @interface ProductsViewControler () <EAIntroDelegate>
 {
@@ -38,7 +39,7 @@
     NSString            *searchWebSiteURLString;
     BOOL                 dontShowIntroAgain;
     UIView              *rootView;
-    
+    UIRefreshControl    *refreshControl;
 }
 @property (strong, nonatomic) NSMutableArray *productsByCategoryMArray;
 
@@ -49,9 +50,17 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     
+    //Pull to refresh
+    refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(startRefresh:)
+             forControlEvents:UIControlEventValueChanged];
+    [self.productsCollectionView addSubview:refreshControl];
+    self.productsCollectionView.alwaysBounceVertical = YES;
+    
     //check value on Intro Core data
     [self checkIntroCoreDataValue];
     
+    self.productsByCategoryMArray = [NSMutableArray new];
     operationQueue = [[NSOperationQueue alloc] init];
     
     //WebSeach Notification
@@ -59,11 +68,11 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(WebSearchactivated:) name:@"webSearchactivated" object:nil];
 
+    //Load data
+    [self loadProductsByCategory];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-    //Load data
-    [self loadProductsByCategory];
 }
 
 -(void)WebSearchactivated:(NSNotification*)notification {
@@ -193,8 +202,8 @@
 
 - (void)loadProductsByCategory{
     [operationQueue addOperationWithBlock:^{
-        [self.productsByCategoryMArray removeAllObjects];
         // Perform long-running tasks without blocking main thread
+        [self.productsByCategoryMArray removeAllObjects];
         self.productsByCategoryMArray = [DataParsing fetchProductsbyCategory];
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             // Main thread work (UI usually)
@@ -202,6 +211,13 @@
         }];
     }];
 }
+
+
+//-(void)loadProductsByCategory{
+//    self.productsByCategoryMArray = [NSMutableArray new];
+//    self.productsByCategoryMArray = [DataParsing fetchProductsbyCategory];
+//    [self.productsCollectionView reloadData];
+//}
 
 /**************************************************/
 #pragma mark - Navigator Segue      
@@ -220,6 +236,9 @@
         ECommerceWebViewController *ecommerceVC = segue.destinationViewController;
         ecommerceVC.ecommerceTitle = searchstringtitle;
         ecommerceVC.ecommerceURLString = searchWebSiteURLString;
+    }
+    else if ([segue.identifier isEqualToString:@"AddNewItemSegue"]){
+        AddProductDetailViewController *addProductVC = segue.destinationViewController;
     }
 }
 
@@ -290,4 +309,36 @@
     
     [self presentViewController:activityVC animated:YES completion:nil];
 }
-     @end
+
+/***********************************************************/
+#pragma mark -      Add New Item Segue  
+/**********************************************************/
+- (IBAction)addNewItemPressed:(id)sender {
+    //get categories count if > 3 then no longer to add new categories
+    NSInteger categoriesCount = [DataParsing returnFetchEntitiesArrayCounter:@"Category"];
+    if (categoriesCount > 3){
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Oh!" message:@"Adding more than three categories requires upgrade to Pro version.Go ahead and press upgrade" preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *goPro = [UIAlertAction actionWithTitle:@"Go Pro" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            //<#code#>
+        }];
+        
+        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDestructive handler:nil];
+        
+        [alertController addAction:goPro];
+        [alertController addAction:cancel];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }else{
+        [self performSegueWithIdentifier:@"AddNewItemSegue" sender:self];
+    }
+}
+
+/****************************************************/
+//      Observing that CollectionView End Loading
+/****************************************************/
+- (void)startRefresh:(id)sender{
+    [self loadProductsByCategory];
+    [refreshControl endRefreshing];
+}
+
+@end

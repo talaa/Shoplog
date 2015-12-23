@@ -58,9 +58,7 @@
 + (NSMutableArray*)fetchProductsbyCategory{
     NSMutableArray *productsByCategoryMArray = [[NSMutableArray alloc]init];
     NSArray *shoplogObjectsArray = [self fetchEntitesArray:@"Shoplog"];
-    NSLog(@"Count is %lu", (unsigned long)shoplogObjectsArray.count);
     NSArray *categoryObjectsArray = [self fetchEntitesArray:@"Category"];
-    NSLog(@"Count is %lu", (unsigned long)categoryObjectsArray.count);
     if (shoplogObjectsArray.count >0){
         for (NSManagedObject *categoryManagedObject in categoryObjectsArray){
             NSMutableArray *sameProductsMArray = [[NSMutableArray alloc]init];
@@ -110,6 +108,38 @@
         }
     }
     [self saveContext];
+}
+
+// remove category in case of no item is longer to it
++ (void)removeCategoryInCaseOfNoItems:(NSString*)catName{
+    AppDelegate *app= (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [app managedObjectContext];
+    // Fetching
+    NSFetchRequest *fetchShoploRequest = [[NSFetchRequest alloc] initWithEntityName:@"Shoplog"];
+    NSFetchRequest *fetchCategoryRequest = [[NSFetchRequest alloc] initWithEntityName:@"Category"];
+    // Execute Fetch Request
+    NSError *fetchError = nil;
+    NSArray *shoplogArray = [context executeFetchRequest:fetchShoploRequest error:&fetchError];
+    NSArray *categoryArray = [context executeFetchRequest:fetchCategoryRequest error:&fetchError];
+    
+    if (shoplogArray>0){
+        BOOL *categoryIsExistInShoplogItems = NO;
+        for (Category *category in categoryArray){
+            for (Shoplog *shoplog in shoplogArray){
+                if ([shoplog.categoryname isEqualToString:category.catName]){
+                    categoryIsExistInShoplogItems = YES;
+                }
+            }
+            if (categoryIsExistInShoplogItems == NO){
+                [context deleteObject:category];
+            }
+        }
+    }else{
+        for (Category *category in categoryArray){
+            [context deleteObject:category];
+        }
+        [self saveContext];
+    }
 }
 
 // Save changed on Core data permenantly

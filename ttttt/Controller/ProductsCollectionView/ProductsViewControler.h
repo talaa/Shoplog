@@ -15,4 +15,5 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *shareBarButton;
 
 - (IBAction)shareButtonPressed:(id)sender;
+- (IBAction)addNewItemPressed:(id)sender;
 @end

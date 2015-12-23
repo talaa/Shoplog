@@ -1538,7 +1538,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="KUA-Bx-9cZ">
                             <connections>
-                                <segue destination="G1I-1g-veF" kind="push" id="Qif-Ft-ovf"/>
+                                <action selector="addNewItemPressed:" destination="T8V-Kp-hfn" id="3O5-im-uez"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1546,6 +1546,7 @@
                         <outlet property="productsCollectionView" destination="JbW-Le-igS" id="JA3-jG-IMi"/>
                         <outlet property="shareBarButton" destination="ozX-xU-8gZ" id="r8a-1o-7IX"/>
                         <segue destination="vhz-pH-sRB" kind="push" identifier="ECommerceWebSegue" id="k82-xC-9xw"/>
+                        <segue destination="G1I-1g-veF" kind="push" identifier="AddNewItemSegue" id="ybV-Fg-rUf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hfe-Zz-qjQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2063,8 +2064,8 @@
         <image name="world-128" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Qif-Ft-ovf"/>
         <segue reference="6Cj-FF-e4n"/>
+        <segue reference="ybV-Fg-rUf"/>
         <segue reference="44l-Sf-gUA"/>
     </inferredMetricsTieBreakers>
 </document>
