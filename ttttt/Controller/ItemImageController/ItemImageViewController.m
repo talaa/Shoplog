@@ -205,6 +205,7 @@
         //<#code#>
         [DataParsing removeEntityRecordbyItemId:shoplog.itemId AndEntityName:@"Shoplog"];
         //check if there aren't any items longer to a category, thus delete this category from core data
+        [DataParsing removeCategoryInCaseOfNoItems:shoplog.categoryname];
         [self.navigationController popToRootViewControllerAnimated:YES];
     }];
     

@@ -33,7 +33,6 @@
 
 @interface ProductsViewControler () <EAIntroDelegate>
 {
-    NSOperationQueue    *operationQueue;
     NSString            *categoryName;
     NSString            *searchstringtitle;
     NSString            *searchWebSiteURLString;
@@ -60,19 +59,15 @@
     //check value on Intro Core data
     [self checkIntroCoreDataValue];
     
-    self.productsByCategoryMArray = [NSMutableArray new];
-    operationQueue = [[NSOperationQueue alloc] init];
-    
     //WebSeach Notification
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(Searchactivated:) name:@"Searchactivated" object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(WebSearchactivated:) name:@"webSearchactivated" object:nil];
-
-    //Load data
-    [self loadProductsByCategory];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
+    //Load data
+    [self loadProductsByCategory];
 }
 
 -(void)WebSearchactivated:(NSNotification*)notification {
@@ -80,6 +75,11 @@
     searchstringtitle = [[notification userInfo]valueForKey:@"searchstring1"];
     searchWebSiteURLString=searchterm;
     [self performSegueWithIdentifier:@"ECommerceWebSegue" sender:self];
+}
+
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:YES];
+    [self.productsByCategoryMArray removeAllObjects];
 }
 
 - (void)didReceiveMemoryWarning{
@@ -201,23 +201,12 @@
 /*********************************************/
 
 - (void)loadProductsByCategory{
-    [operationQueue addOperationWithBlock:^{
-        // Perform long-running tasks without blocking main thread
-        [self.productsByCategoryMArray removeAllObjects];
-        self.productsByCategoryMArray = [DataParsing fetchProductsbyCategory];
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            // Main thread work (UI usually)
-            [self.productsCollectionView reloadData];
-        }];
-    }];
+    self.productsByCategoryMArray = [[NSMutableArray alloc]init];
+    [self.productsByCategoryMArray removeAllObjects];
+    self.productsByCategoryMArray = [DataParsing fetchProductsbyCategory];
+    [self.productsCollectionView reloadData];
 }
 
-
-//-(void)loadProductsByCategory{
-//    self.productsByCategoryMArray = [NSMutableArray new];
-//    self.productsByCategoryMArray = [DataParsing fetchProductsbyCategory];
-//    [self.productsCollectionView reloadData];
-//}
 
 /**************************************************/
 #pragma mark - Navigator Segue      

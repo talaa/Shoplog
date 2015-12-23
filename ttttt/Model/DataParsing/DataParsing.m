@@ -56,10 +56,11 @@
 
 // Fetch by exact data by Category
 + (NSMutableArray*)fetchProductsbyCategory{
-    NSMutableArray *productsByCategoryMArray = [[NSMutableArray alloc]init];
+    NSMutableArray *productsByCategoryMArray;
     NSArray *shoplogObjectsArray = [self fetchEntitesArray:@"Shoplog"];
     NSArray *categoryObjectsArray = [self fetchEntitesArray:@"Category"];
     if (shoplogObjectsArray.count >0){
+        productsByCategoryMArray = [[NSMutableArray alloc]init];
         for (NSManagedObject *categoryManagedObject in categoryObjectsArray){
             NSMutableArray *sameProductsMArray = [[NSMutableArray alloc]init];
             for (NSManagedObject *shoplogManagedObject in shoplogObjectsArray){
@@ -122,18 +123,21 @@
     NSArray *shoplogArray = [context executeFetchRequest:fetchShoploRequest error:&fetchError];
     NSArray *categoryArray = [context executeFetchRequest:fetchCategoryRequest error:&fetchError];
     
-    if (shoplogArray>0){
+    if (shoplogArray.count>0){
         BOOL *categoryIsExistInShoplogItems = NO;
-        for (Category *category in categoryArray){
-            for (Shoplog *shoplog in shoplogArray){
-                if ([shoplog.categoryname isEqualToString:category.catName]){
-                    categoryIsExistInShoplogItems = YES;
+        for (Shoplog *shoplog in shoplogArray){
+            if ([shoplog.categoryname isEqualToString:catName]){
+                categoryIsExistInShoplogItems = YES;
+            }
+        }if(categoryIsExistInShoplogItems == NO){
+            for (Category *category in categoryArray){
+                if ([category.catName isEqualToString:catName]){
+                    [context deleteObject:category];
+                    [self saveContext];
                 }
             }
-            if (categoryIsExistInShoplogItems == NO){
-                [context deleteObject:category];
-            }
         }
+        
     }else{
         for (Category *category in categoryArray){
             [context deleteObject:category];

@@ -140,8 +140,9 @@
      [self step2locationupdate];
      }
      */
-    
 }
+
+
 -(void)step1locationupdate{
     //1
     CLLocationCoordinate2D zoomLocation;
@@ -412,25 +413,6 @@
                            insertNewObjectForEntityForName:@"Shoplog"
                            inManagedObjectContext:context];
     
-    /*
-    dTranferObje = [DataTransferObject getInstance];
-    
-    //save imageurl as NSData
-    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:dTranferObje.defimagenameqr]];
-    
-    [newShopLog setValue:dTranferObje.defId forKey:@"itemId"];
-    [newShopLog setValue:dTranferObje.defcatqr forKey:@"categoryname"];
-    [newShopLog setValue:commentsView.text forKey:@"comments"];
-    [newShopLog setValue:[NSDate date] forKey:@"date"];
-    [newShopLog setValue:dTranferObje.defemail forKey:@"email"];
-    [newShopLog setValue:imageData forKey:@"image"];
-    [newShopLog setValue:[NSDecimalNumber decimalNumberWithString:dTranferObje.defphone] forKey:@"phone"];
-    [newShopLog setValue:[NSNumber numberWithFloat:dTranferObje.defprice] forKey:@"price"];
-    [newShopLog setValue:[NSNumber numberWithFloat:ratingslider.value] forKey:@"rating"];
-    [newShopLog setValue:dTranferObje.defwebsiteurl forKey:@"websiteurl"];
-    [newShopLog setValue:dTranferObje.defdimsize forKey:@"dim_size"];
-    */
-    
     
     NSData *imageData = UIImagePNGRepresentation(self.imageField.image);
     
@@ -458,13 +440,6 @@
     //Create Shop Core Data
     // Create Address
     Shop *newShop = [NSEntityDescription insertNewObjectForEntityForName:@"Shop" inManagedObjectContext:context];
-    /*
-    [newShop setValue:dTranferObje.defId forKey:@"shopId"];
-    [newShop setValue:dTranferObje.defshopname forKey:@"shopname"];
-    [newShop setValue:[NSNumber numberWithDouble: dTranferObje.deflong] forKey:@"longcoordinate"];
-    [newShop setValue:[NSNumber numberWithDouble: dTranferObje.deflat] forKey:@"latcoordinate"];
-     */
-    
     [newShop setValue:productCoreDataID forKey:@"shopId"];
     [newShop setValue:self.ShopField.text forKey:@"shopname"];
     [newShop setValue:[NSNumber numberWithDouble:[self.LatTextField.text doubleValue]] forKey:@"longcoordinate"];
@@ -477,7 +452,7 @@
     
     //Create Category Core Data
     // Check first if there is same exit
-    if ([DataParsing ifCategoryNameExistOnEntit:@"Category" CategoryName:dTranferObje.defcatqr] == YES){
+    if ([DataParsing ifCategoryNameExistOnEntit:@"Category" CategoryName:self.cataloguenamefield.text] == YES){
         //Exist no saving
     }else{
         //No Exist thus save it
@@ -511,7 +486,9 @@
         PFObject *saveFavorit = [PFObject objectWithClassName:@"SaveFavorit"];
         saveFavorit[@"category"]    = self.cataloguenamefield.text;
         saveFavorit[@"price"]       = self.PriceField.text;
-        saveFavorit[@"phone"]       = self.PhoneField.text;
+        if (self.PhoneField.text>0){
+            saveFavorit[@"phone"]       = self.PhoneField.text;
+        }
         if (self.WebsiteField.text>0){
             saveFavorit[@"website"]     = self.WebsiteField.text;
         }
