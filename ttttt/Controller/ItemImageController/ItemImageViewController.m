@@ -16,6 +16,7 @@
 #import "Shop.h"
 #import "AddProductDetailViewController.h"
 #import <FBSDKShareKit/FBSDKShareKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 
 @interface ItemImageViewController () <MFMailComposeViewControllerDelegate,FBSDKSharingDelegate>
 {
@@ -257,13 +258,41 @@
 //    [FBSDKShareDialog showFromViewController:self
 //                                 withContent:content
 //                                    delegate:self];
-    SLComposeViewController *fbVC = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
     
-    [fbVC setInitialText:@"Hello Facebook"];
-    [fbVC addURL:[NSURL URLWithString:@"https://itunes.apple.com/eg/app/shoplog/id557686446?mt=8"]];
-    [fbVC addImage:[UIImage imageNamed:@"shoplogIcon"]];
     
-    [self presentViewController:fbVC animated:YES completion:nil];
+//    SLComposeViewController *fbVC = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+//    
+//    [fbVC setInitialText:@"Hello Facebook"];
+//    [fbVC addURL:[NSURL URLWithString:@"https://itunes.apple.com/eg/app/shoplog/id557686446?mt=8"]];
+//    [fbVC addImage:[UIImage imageNamed:@"shoplogIcon"]];
+//    
+//    [self presentViewController:fbVC animated:YES completion:nil];
+    
+    
+    NSString *strName= @"Mohit Thatai";
+    FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
+    [login
+     logInWithReadPermissions: @[@"public_profile", @"email"]
+     handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+         if (error)
+         {
+             NSLog(@"Process error");
+         }
+         else if (result.isCancelled)
+         {
+             NSLog(@"Cancelled");
+         }
+         else
+         {
+             FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
+             [content setContentTitle:@"GPS Tracker"];
+             [content setContentDescription:[NSString stringWithFormat:@"%@ shared an interesting link\n       This might be interesting to you: GPS Tracker for Kids",strName]];
+             content.contentURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://gpsphonetrackerkids.com"]];
+             [FBSDKShareDialog showFromViewController:self
+                                          withContent:content
+                                             delegate:nil];
+         }
+     }];
 }
 
 @end

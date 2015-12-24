@@ -193,6 +193,9 @@
 		F595ACC41C2AF0F2003B6F02 /* UpgradeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F595ACC31C2AF0F2003B6F02 /* UpgradeViewController.m */; };
 		F595ACC91C2AF7E7003B6F02 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F595ACC81C2AF7E7003B6F02 /* FBSDKCoreKit.framework */; };
 		F595ACCB1C2AF96A003B6F02 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F595ACCA1C2AF96A003B6F02 /* FBSDKShareKit.framework */; };
+		F5A2640C1C2C0131008CB17C /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5A2640B1C2C0131008CB17C /* FBSDKLoginKit.framework */; };
+		F5A2640E1C2C025D008CB17C /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F5A2640D1C2C025D008CB17C /* libz.tbd */; };
+		F5A264101C2C0267008CB17C /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F5A2640F1C2C0267008CB17C /* libsqlite3.tbd */; };
 		F5CD0CB21C10406700BBD508 /* SigninViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CD0CB11C10406700BBD508 /* SigninViewController.m */; };
 		F5CD0CB71C10453700BBD508 /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CD0CB41C10453700BBD508 /* User+CoreDataProperties.m */; };
 		F5CD0CB81C10453700BBD508 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CD0CB61C10453700BBD508 /* User.m */; };
@@ -480,6 +483,9 @@
 		F595ACC31C2AF0F2003B6F02 /* UpgradeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpgradeViewController.m; sourceTree = "<group>"; };
 		F595ACC81C2AF7E7003B6F02 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		F595ACCA1C2AF96A003B6F02 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		F5A2640B1C2C0131008CB17C /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		F5A2640D1C2C025D008CB17C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		F5A2640F1C2C0267008CB17C /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		F5CD0CB01C10406700BBD508 /* SigninViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SigninViewController.h; sourceTree = "<group>"; };
 		F5CD0CB11C10406700BBD508 /* SigninViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SigninViewController.m; sourceTree = "<group>"; };
 		F5CD0CB31C10453700BBD508 /* User+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "User+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -515,15 +521,25 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5A264101C2C0267008CB17C /* libsqlite3.tbd in Frameworks */,
+				F5A2640E1C2C025D008CB17C /* libz.tbd in Frameworks */,
+				691C5790165C25D100A8CAE7 /* SystemConfiguration.framework in Frameworks */,
+				697506CE165F5F0B0042BCFA /* StoreKit.framework in Frameworks */,
 				69205004162B45B300358C65 /* Social.framework in Frameworks */,
+				698E2DF1190D77E300DD3A13 /* Security.framework in Frameworks */,
+				692A22E11616E5470031CB4E /* QuartzCore.framework in Frameworks */,
+				69667C051648807E003FC921 /* CoreLocation.framework in Frameworks */,
+				69F625781606364800004196 /* CoreGraphics.framework in Frameworks */,
+				695B195119EB50470056DDE2 /* CFNetwork.framework in Frameworks */,
+				692807E3169B9B6600D5EDFF /* AudioToolbox.framework in Frameworks */,
+				693C5CD8169DD425008DA75C /* Accounts.framework in Frameworks */,
+				F5A2640C1C2C0131008CB17C /* FBSDKLoginKit.framework in Frameworks */,
 				699CD7281BCAC7D900BDF592 /* CoreMedia.framework in Frameworks */,
 				699AF7BA1A0FC76F00F7EA47 /* EventKitUI.framework in Frameworks */,
 				699AF7B81A0FC75500F7EA47 /* EventKit.framework in Frameworks */,
 				695B195319EB507F0056DDE2 /* MobileCoreServices.framework in Frameworks */,
 				699CD7261BCAC72300BDF592 /* StartApp.framework in Frameworks */,
-				695B195119EB50470056DDE2 /* CFNetwork.framework in Frameworks */,
 				698210DC191FE3E6001DB6D7 /* AVFoundation.framework in Frameworks */,
-				698E2DF1190D77E300DD3A13 /* Security.framework in Frameworks */,
 				697DE63B174D5C970008D996 /* ImageIO.framework in Frameworks */,
 				698EE6A31747702800A1475D /* libxml2.dylib in Frameworks */,
 				690C257E171DF56600139FDA /* libsqlite3.dylib in Frameworks */,
@@ -531,22 +547,15 @@
 				F595ACC91C2AF7E7003B6F02 /* FBSDKCoreKit.framework in Frameworks */,
 				699CD7111BC6B51000BDF592 /* libFlurry_7.2.1.a in Frameworks */,
 				69205002162B459A00358C65 /* Twitter.framework in Frameworks */,
-				693C5CD8169DD425008DA75C /* Accounts.framework in Frameworks */,
 				F595ACCB1C2AF96A003B6F02 /* FBSDKShareKit.framework in Frameworks */,
 				692807E7169B9B8900D5EDFF /* iAd.framework in Frameworks */,
 				692807E5169B9B8100D5EDFF /* AdSupport.framework in Frameworks */,
-				692807E3169B9B6600D5EDFF /* AudioToolbox.framework in Frameworks */,
-				697506CE165F5F0B0042BCFA /* StoreKit.framework in Frameworks */,
-				691C5790165C25D100A8CAE7 /* SystemConfiguration.framework in Frameworks */,
-				69667C051648807E003FC921 /* CoreLocation.framework in Frameworks */,
 				69E29BF91646C91F00573B8C /* MapKit.framework in Frameworks */,
 				698CC5D5162F7AE1001EE01A /* libz.dylib in Frameworks */,
 				69204FFF162B458700358C65 /* MessageUI.framework in Frameworks */,
-				692A22E11616E5470031CB4E /* QuartzCore.framework in Frameworks */,
 				6948B5A31612160B008BA37E /* CoreData.framework in Frameworks */,
 				69F625741606364800004196 /* UIKit.framework in Frameworks */,
 				69F625761606364800004196 /* Foundation.framework in Frameworks */,
-				69F625781606364800004196 /* CoreGraphics.framework in Frameworks */,
 				77DF9CFB8F004A16AC6AEF64 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -893,6 +902,8 @@
 		69F625721606364800004196 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F5A2640F1C2C0267008CB17C /* libsqlite3.tbd */,
+				F5A2640D1C2C025D008CB17C /* libz.tbd */,
 				699CD7271BCAC7D900BDF592 /* CoreMedia.framework */,
 				699AF7B91A0FC76F00F7EA47 /* EventKitUI.framework */,
 				699AF7B71A0FC75500F7EA47 /* EventKit.framework */,
@@ -1086,6 +1097,7 @@
 		F595ACC71C2AF7CF003B6F02 /* SDK */ = {
 			isa = PBXGroup;
 			children = (
+				F5A2640B1C2C0131008CB17C /* FBSDKLoginKit.framework */,
 				F595ACCA1C2AF96A003B6F02 /* FBSDKShareKit.framework */,
 				F595ACC81C2AF7E7003B6F02 /* FBSDKCoreKit.framework */,
 			);

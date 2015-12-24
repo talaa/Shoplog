@@ -14,8 +14,6 @@
 #import <Social/Social.h>
 #import <Accounts/Accounts.h>
 #import "UpgradeViewController.h"
-#import <FBSDKCoreKit/FBSDKCoreKit.h>
-//#import <PFFacebookUtils.h>
 #import "ProductsViewControler.h"
 #import <StartApp/StartApp.h>
 #import "DataParsing.h"
@@ -61,9 +59,9 @@
     
     [Parse setApplicationId:@"ywPm262lndYyBhcTFxUWF8eLxpcCkEUkHOB782s9"
                   clientKey:@"Vq3qhqkveSpAqSRKShP0OtLfmNG3lyNB8VpwbEX8"];
-    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    
     // Override point for customization after application launch.
-    //[PFFacebookUtils initializeFacebook];
     STAStartAppSDK* sdk = [STAStartAppSDK sharedInstance];
     sdk.devID = DevID;
     sdk.appID = AppID;
@@ -112,8 +110,9 @@
      */
     
     //Facebook Integration
-    [[FBSDKApplicationDelegate sharedInstance] application:application
-                             didFinishLaunchingWithOptions:launchOptions];
+    //[[FBSDKApplicationDelegate sharedInstance] application:application
+                             //didFinishLaunchingWithOptions:launchOptions];
+    
 
     return YES;
 }
@@ -160,7 +159,7 @@ void uncaughtExceptionHandler(NSException *exception) {
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    [FBSDKAppEvents activateApp];
+    //[FBSDKAppEvents activateApp];
 
 }
 
@@ -182,9 +181,11 @@ void uncaughtExceptionHandler(NSException *exception) {
     }
 }
 #pragma Facebook
+/*
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    return [[FBSDKApplicationDelegate sharedInstance] application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
+    //return [[FBSDKApplicationDelegate sharedInstance] application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
 }
+*/
 
 #pragma mark - Core Data stack
 
