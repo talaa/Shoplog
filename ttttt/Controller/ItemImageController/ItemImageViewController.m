@@ -43,16 +43,6 @@
     
     //load item image
     self.itemImageView.image = [UIImage imageWithData:self.itemImageData];
-    
-    FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
-    content.contentTitle = @"Minnnnna";
-    content.contentDescription = @"Description Description Description Description Description Description Description Description ";
-    content.contentURL = [NSURL
-                          URLWithString:@"https://itunes.apple.com/eg/app/shoplog/id557686446?mt=8"];
-    FBSDKShareButton *shareButton = [[FBSDKShareButton alloc] init];
-    shareButton.shareContent = content;
-    shareButton.center = self.view.center;
-    [self.view addSubview:shareButton];
 }
 
 - (void)didReceiveMemoryWarning {
