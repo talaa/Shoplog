@@ -19,10 +19,11 @@
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 
-@interface ItemImageViewController () <MFMailComposeViewControllerDelegate,FBSDKSharingDelegate>
+@interface ItemImageViewController () <MFMailComposeViewControllerDelegate>
 {
-    Shoplog *shoplog;
-    Shop *shop;
+    Shoplog             *shoplog;
+    Shop                *shop;
+    //FBSDKShareButton    *shareButton;
 }
 
 @end
@@ -42,6 +43,16 @@
     
     //load item image
     self.itemImageView.image = [UIImage imageWithData:self.itemImageData];
+    
+    FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
+    content.contentTitle = @"Minnnnna";
+    content.contentDescription = @"Description Description Description Description Description Description Description Description ";
+    content.contentURL = [NSURL
+                          URLWithString:@"https://itunes.apple.com/eg/app/shoplog/id557686446?mt=8"];
+    FBSDKShareButton *shareButton = [[FBSDKShareButton alloc] init];
+    shareButton.shareContent = content;
+    shareButton.center = self.view.center;
+    [self.view addSubview:shareButton];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -254,20 +265,6 @@
 /****************************************/
 
 - (void)shareWithFriendsFB{
-    //    FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
-    //    content.contentURL = [NSURL URLWithString:@"https://itunes.apple.com/eg/app/shoplog/id557686446?mt=8"];
-    //    [FBSDKShareDialog showFromViewController:self
-    //                                 withContent:content
-    //                                    delegate:self];
-    
-    
-    //    SLComposeViewController *fbVC = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
-    //
-    //    [fbVC setInitialText:@"Hello Facebook"];
-    //    [fbVC addURL:[NSURL URLWithString:@"https://itunes.apple.com/eg/app/shoplog/id557686446?mt=8"]];
-    //    [fbVC addImage:[UIImage imageNamed:@"shoplogIcon"]];
-    //
-    //    [self presentViewController:fbVC animated:YES completion:nil];
     
     if ([PFUser currentUser]){
         if ([FBSDKAccessToken currentAccessToken]){
@@ -285,12 +282,10 @@
                 }
             }];
         }
-        NSString *strName= @"Mohit Thatai";
         FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
-        [content setContentTitle:@"Shoplog"];
-        [content setContentDescription:[NSString stringWithFormat:@"%@ shared an interesting link\n       This might be interesting to you: GPS Tracker for Kids",strName]];
-        content.contentURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://itunes.apple.com/eg/app/shoplog/id557686446?mt=8"]];
-        //content.imageURL = shoplog.image;
+        [content setContentTitle:@"Shoploggggg"];
+        [content setContentDescription:@ "shared an interesting link\nThis might be interesting to you: GPS Tracker for Kids"];
+        content.contentURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://bluewavesolutions.net"]];
         FBSDKShareDialog *dialog = [[FBSDKShareDialog alloc] init];
         dialog.fromViewController = self;
         dialog.shareContent = content;
