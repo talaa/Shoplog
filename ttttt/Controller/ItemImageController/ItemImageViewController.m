@@ -303,7 +303,11 @@
         
     }else{
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Info!" message:@"Must sigu up or log in to be able share a product with your friends." preferredStyle:UIAlertControllerStyleAlert];
-        [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            //<#code#>
+            [self.tabBarController setSelectedIndex:2];
+        }]];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDestructive handler:nil]];
         [self presentViewController:alertController animated:YES completion:nil];
     }
 }
