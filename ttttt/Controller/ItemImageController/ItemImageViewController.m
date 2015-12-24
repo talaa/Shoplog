@@ -272,13 +272,23 @@
                 }
             }];
         }
-        FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
-        [content setContentTitle:@"Shoploggggg"];
-        [content setContentDescription:@ "shared an interesting link\nThis might be interesting to you: GPS Tracker for Kids"];
-        content.contentURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://bluewavesolutions.net"]];
+        FBSDKSharePhoto *photo = [[FBSDKSharePhoto alloc] init];
+        photo.image = self.itemImageView.image;
+        
+        FBSDKSharePhotoContent *content1 = [[FBSDKSharePhotoContent alloc] init];
+        content1.photos = @[photo];
+        content1.contentURL = [NSURL URLWithString:@"https://itunes.apple.com/us/app/id557686446"];
+//        
+//        
+//        FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
+//        [content setContentTitle:[NSString stringWithFormat:@"Shoplog App - %@",shoplog.categoryname]];
+//        [content setContentDescription:[NSString stringWithFormat:@"Price: %f ,Store: %@ ,download Shoplog from app store and enjoy your shopping",shoplog.price,shop.shopname]];
+//        content.contentURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://bluewavesolutions.net"]];
+//        
+        
         FBSDKShareDialog *dialog = [[FBSDKShareDialog alloc] init];
         dialog.fromViewController = self;
-        dialog.shareContent = content;
+        dialog.shareContent = content1;
         dialog.mode = FBSDKShareDialogModeNative; // if you don't set this before canShow call, canShow would always return YES
         if (![dialog canShow]) {
             // fallback presentation when there is no FB app
