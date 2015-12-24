@@ -125,21 +125,7 @@
             //get from edit behavior
             self.imageField.image = [UIImage imageWithData:dTranferObje.defimagedata];
         }else{
-            NSError* error = nil;
-            NSURL *url = [NSURL URLWithString:@"http://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Facebook_Headquarters_Menlo_Park.jpg/2880px-Facebook_Headquarters_Menlo_Park.jpg"];
-            NSData* data = [NSData dataWithContentsOfURL:url options:NSDataReadingUncached error:&error];
-            if (error) {
-                NSLog(@"%@", [error localizedDescription]);
-            } else {
-                NSLog(@"Data has loaded successfully.");
-            }
-            
-            NSLog(@"Image usrl is %@", dTranferObje.defimagenameqr);
-            if (self.imageField.image == nil){
-                NSLog(@"empty");
-            }else{
-                NSLog(@"there is an image");
-            }
+            self.imageField.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:dTranferObje.defimagenameqr]]];
         }
         
     }
