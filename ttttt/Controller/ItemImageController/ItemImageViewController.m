@@ -268,31 +268,42 @@
 //    
 //    [self presentViewController:fbVC animated:YES completion:nil];
     
-    
-    NSString *strName= @"Mohit Thatai";
-    FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
-    [login
-     logInWithReadPermissions: @[@"public_profile", @"email"]
-     handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
-         if (error)
-         {
-             NSLog(@"Process error");
-         }
-         else if (result.isCancelled)
-         {
-             NSLog(@"Cancelled");
-         }
-         else
-         {
-             FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
-             [content setContentTitle:@"GPS Tracker"];
-             [content setContentDescription:[NSString stringWithFormat:@"%@ shared an interesting link\n       This might be interesting to you: GPS Tracker for Kids",strName]];
-             content.contentURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://gpsphonetrackerkids.com"]];
-             [FBSDKShareDialog showFromViewController:self
-                                          withContent:content
-                                             delegate:nil];
-         }
-     }];
+    if ([PFUser currentUser]){
+        NSString *strName= @"Mohit Thatai";
+        FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
+        [login logInWithReadPermissions:@[@"public_profile", @"email"] fromViewController:self handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+             if (error)
+             {
+                 NSLog(@"Process error");
+             }
+             else if (result.isCancelled)
+             {
+                 NSLog(@"Cancelled");
+             }
+             else
+             {
+                 FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
+                 [content setContentTitle:@"Shoplog"];
+                 [content setContentDescription:[NSString stringWithFormat:@"%@ shared an interesting link\n       This might be interesting to you: GPS Tracker for Kids",strName]];
+                 content.contentURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://itunes.apple.com/eg/app/shoplog/id557686446?mt=8"]];
+                 //content.imageURL = shoplog.image;
+                 FBSDKShareDialog *dialog = [[FBSDKShareDialog alloc] init];
+                 dialog.fromViewController = self;
+                 dialog.shareContent = content;
+                 dialog.mode = FBSDKShareDialogModeNative; // if you don't set this before canShow call, canShow would always return YES
+                 if (![dialog canShow]) {
+                     // fallback presentation when there is no FB app
+                     dialog.mode = FBSDKShareDialogModeShareSheet;
+                 }
+                 [dialog show];
+             }
+         }];
+
+    }else{
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Info!" message:@"Must sigu up or log in to be able share a product with your friends." preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
 }
 
 @end
