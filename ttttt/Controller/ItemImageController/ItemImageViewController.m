@@ -15,11 +15,15 @@
 #import "DataTransferObject.h"
 #import "Shop.h"
 #import "AddProductDetailViewController.h"
+#import <FBSDKShareKit/FBSDKShareKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 @interface ItemImageViewController () <MFMailComposeViewControllerDelegate>
 {
-    Shoplog *shoplog;
-    Shop *shop;
+    Shoplog             *shoplog;
+    Shop                *shop;
+    //FBSDKShareButton    *shareButton;
 }
 
 @end
@@ -54,6 +58,11 @@
 - (IBAction)actionPressed:(id)sender{
     UIAlertController *actionAlertController  = [UIAlertController alertControllerWithTitle:@"ShopLog" message:@"Choise what you would like to do." preferredStyle:UIAlertControllerStyleActionSheet];
     
+    UIAlertAction *shareFB = [UIAlertAction actionWithTitle:@"Share with friends" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //<#code#>
+        [self shareWithFriendsFB];
+    }];
+    
     UIAlertAction *editAction = [UIAlertAction actionWithTitle:@"Edit" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         //Code
         [self editItem];
@@ -79,11 +88,15 @@
         [self sendMail];
     }];
     
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDestructive handler:nil];
+    
+    [actionAlertController addAction:shareFB];
     [actionAlertController addAction:editAction];
     [actionAlertController addAction:removeAction];
     [actionAlertController addAction:callAction];
     [actionAlertController addAction:visitWebSiteAction];
     [actionAlertController addAction:sendMailAction];
+    [actionAlertController addAction:cancel];
     
     if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad){
         //Ipad
@@ -147,7 +160,7 @@
         [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil]];
         [self presentViewController:alertController animated:YES completion:nil];
     }
-
+    
 }
 
 /************************************/
@@ -237,5 +250,61 @@
     [self performSegueWithIdentifier:@"EditSegue" sender:self];
 }
 
+/****************************************/
+//      Share With Friends FB           //
+/****************************************/
+
+- (void)shareWithFriendsFB{
+    
+    if ([PFUser currentUser]){
+        if ([FBSDKAccessToken currentAccessToken]){
+            
+        }else{
+            FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
+            [login logInWithReadPermissions:@[@"public_profile", @"email"] fromViewController:self handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+                if (error)
+                {
+                    NSLog(@"Process error");
+                }
+                else if (result.isCancelled)
+                {
+                    NSLog(@"Cancelled");
+                }
+            }];
+        }
+        FBSDKSharePhoto *photo = [[FBSDKSharePhoto alloc] init];
+        photo.image = self.itemImageView.image;
+        
+        FBSDKSharePhotoContent *content1 = [[FBSDKSharePhotoContent alloc] init];
+        content1.photos = @[photo];
+        content1.contentURL = [NSURL URLWithString:@"https://itunes.apple.com/us/app/id557686446"];
+//        
+//        
+//        FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
+//        [content setContentTitle:[NSString stringWithFormat:@"Shoplog App - %@",shoplog.categoryname]];
+//        [content setContentDescription:[NSString stringWithFormat:@"Price: %f ,Store: %@ ,download Shoplog from app store and enjoy your shopping",shoplog.price,shop.shopname]];
+//        content.contentURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://bluewavesolutions.net"]];
+//        
+        
+        FBSDKShareDialog *dialog = [[FBSDKShareDialog alloc] init];
+        dialog.fromViewController = self;
+        dialog.shareContent = content1;
+        dialog.mode = FBSDKShareDialogModeNative; // if you don't set this before canShow call, canShow would always return YES
+        if (![dialog canShow]) {
+            // fallback presentation when there is no FB app
+            dialog.mode = FBSDKShareDialogModeShareSheet;
+        }
+        [dialog show];
+        
+    }else{
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Info!" message:@"Must sigu up or log in to be able share a product with your friends." preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            //<#code#>
+            [self.tabBarController setSelectedIndex:2];
+        }]];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDestructive handler:nil]];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
+}
 
 @end

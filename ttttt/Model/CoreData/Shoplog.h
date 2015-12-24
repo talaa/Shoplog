@@ -17,6 +17,7 @@
 @property (nonatomic, retain) NSString * categoryname;
 @property (nonatomic, retain) NSString * parseid;
 @property (nonatomic, retain) NSString * comments;
+@property (nonatomic, retain) NSString * imageUrl;
 @property (nonatomic) NSDate *date;
 @property (nonatomic, retain) NSString * email;
 @property (nonatomic, retain) NSData * image;

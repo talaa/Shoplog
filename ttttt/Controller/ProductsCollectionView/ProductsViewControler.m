@@ -289,10 +289,11 @@
 #pragma mark -         Share Action     
 /***********************************************************/
 - (IBAction)shareButtonPressed:(id)sender {
-    NSString *message = [NSString stringWithFormat:@"Shoplog is a shopping specialist app.Download it and enjoy your shopping\n\nhttps://itunes.apple.com/eg/app/shoplog/id557686446?mt=8"];
+    NSString *message = [NSString stringWithFormat:@"Shoplog is a shopping specialist app.Download it and enjoy your shopping"];
     UIImage *imageToShare = [UIImage imageNamed:@"shoplogIcon"];
     
-    NSArray *postItems = @[message, imageToShare];
+    NSURL *url = [NSURL URLWithString:@"https://itunes.apple.com/eg/app/shoplog/id557686446?mt=8"];
+    NSArray *postItems = @[message, url, imageToShare];
     
     UIActivityViewController *activityVC = [[UIActivityViewController alloc]
                                             initWithActivityItems:postItems
