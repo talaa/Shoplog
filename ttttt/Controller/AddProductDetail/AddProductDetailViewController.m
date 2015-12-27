@@ -17,6 +17,8 @@
 @interface AddProductDetailViewController ()
 {
     NSOperationQueue    *operationQueue;
+    DataTransferObject  *dTranferObje;
+    NSString            *productCoreDataID;
 }
 
 @end
@@ -25,7 +27,7 @@
 @synthesize managedObjectContext;
 @synthesize PriceField,ShopField,imageField,cataloguenamefield;
 @synthesize DimensionsField,PhoneField,EmailField,WebsiteField,commentsView;
-@synthesize imagePicker,popoverController,edit_add,Saveeditbutton,newcatalogue;
+@synthesize popoverController,edit_add,Saveeditbutton,newcatalogue;//,imagePicker;
 @synthesize Maplocation,ratingslider,spinner,Qrcodecatalogue;
 @synthesize longsaved,latsaved,gradientview;
 @synthesize LongTextfield,LatTextField,Lgpressgesture;
@@ -42,42 +44,100 @@
         //Maplocation.delegate=self;
         commentsView.delegate=self;
         DimensionsField.delegate=self;
-        EmailField.delegate=self;
         PhoneField.delegate=self;
         EmailField.delegate=self;
     }
     return self;
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    // set Product ID
+    productCoreDataID = [DataParsing createRandomId];
+    
+    if (self.isEdit == YES){
+        //Then it is an update view
+        [self editExitItemBehaviorView];
+    }else{
+        //It is a new item
+        [self newItemBehavior];
+    }
+    
+    operationQueue = [[NSOperationQueue alloc] init];
+    
+    //self.view.backgroundColor=[UIColor greenColor];
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.distanceFilter = kCLDistanceFilterNone;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [self.locationManager startUpdatingLocation];
+    
+    if(IS_OS_8_OR_LATER) {
+        [self.locationManager requestAlwaysAuthorization];
+        [self.locationManager requestWhenInUseAuthorization];
+    }
+    
+    
+    //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"web-elements.png"]];
+    //spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [spinner setCenter:self.view.center];
+    //[spinner setCenter:CGPointMake(kScreenWidth/2.0, kScreenHeight/2.0)]; // I do this because I'm in landscape mode
+    [self.view addSubview:spinner]; // spinner is not visible until started
+    
+    
+    ///Enabling the Catalogue Filed Name
+    self.cataloguenamefield.enabled=YES;
+    
+    //Enabling the Done Button @ the Bottom
+    if (edit_add) {
+        self.Testnavigation.hidden=YES;
+    } else {
+        self.Testnavigation.hidden=NO;
+    }
+    //self.Testnavigation.hidden=YES;
+    cataloguenamefield.text=self.title;
+    if (Qrcodecatalogue) {
+        //
+        Qrcodecatalogue=NO;
+    }
+    
+    [self configuregradient];
+}
+
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:YES];
+    dTranferObje.defimagedata = nil;
+}
 -(void)viewWillAppear:(BOOL)animated{
-    DataTransferObject *dTranferObje=[DataTransferObject getInstance];
+    dTranferObje = [DataTransferObject getInstance];
     if (dTranferObje.defcatqr == nil){
-        
+        if (dTranferObje.defimagedata == nil){
+            self.imageField.image = [UIImage imageNamed:@"4-1-2013 3-50-07 PM.png"];
+        }else{
+            self.imageField.image = [UIImage imageWithData:dTranferObje.defimagedata];
+        }
     }else{
         self.LatTextField.text = [NSString stringWithFormat:@"%f",dTranferObje.deflat];
         self.LongTextfield.text = [NSString stringWithFormat:@"%f",dTranferObje.deflong];
         self.WebsiteField.text = dTranferObje.defwebsiteurl;
         self.ShopField.text = dTranferObje.defshopname;
         self.PhoneField.text = [NSString stringWithFormat:@"%@", dTranferObje.defphone];
-        self.PriceField.text = [NSString stringWithFormat:@"%f",dTranferObje.defprice];
+        self.PriceField.text = [NSString stringWithFormat:@"%.02f",dTranferObje.defprice];
         self.cataloguenamefield.text = dTranferObje.defcatqr;
-        self.imageField.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:dTranferObje.defimagenameqr]]];
+        if (self.isEdit == YES){
+            //get from edit behavior
+            self.imageField.image = [UIImage imageWithData:dTranferObje.defimagedata];
+        }else{
+            self.imageField.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:dTranferObje.defimagenameqr]]];
+        }
+        
     }
-    
-    
+
     [self performSelector:@selector(updatecurrentLocation) withObject:nil afterDelay:5];
-    /*
-     if (self.currentProduct.shop.longcoordinate) {
-     NSLog(@"i have Coordinates ");
-     [self step1locationupdate];
-     //[self step2locationupdate];
-     } else {
-     NSLog(@"i have Nothing ");
-     [self step2locationupdate];
-     }
-     */
-    
 }
+
+
 -(void)step1locationupdate{
     //1
     CLLocationCoordinate2D zoomLocation;
@@ -114,83 +174,8 @@
     
     [Maplocation setRegion:mapRegion animated:YES];
     NSLog(@"The USer Location are :%f %f",Maplocation.userLocation.coordinate.latitude,Maplocation.userLocation.coordinate.longitude);
-    
-    
-    
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    operationQueue = [[NSOperationQueue alloc] init];
-    
-    //self.view.backgroundColor=[UIColor greenColor];
-    self.locationManager = [[CLLocationManager alloc] init];
-    self.locationManager.distanceFilter = kCLDistanceFilterNone;
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    [self.locationManager startUpdatingLocation];
-    
-    if(IS_OS_8_OR_LATER) {
-        [self.locationManager requestAlwaysAuthorization];
-        [self.locationManager requestWhenInUseAuthorization];
-    }
-    
-    
-    
-    //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"web-elements.png"]];
-    //spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    [spinner setCenter:self.view.center];
-    //[spinner setCenter:CGPointMake(kScreenWidth/2.0, kScreenHeight/2.0)]; // I do this because I'm in landscape mode
-    [self.view addSubview:spinner]; // spinner is not visible until started
-    
-    
-    if (_currentProduct)
-    {
-        //[[PriceField setText:[[_currentProduct price]stringValue]];
-        [PriceField setText:[NSString stringWithFormat:@"%.2f", [_currentProduct price]]];
-        [ShopField setText:[_currentProduct.shop shopname]];
-        [LongTextfield setText:[NSString stringWithFormat:@"%f",[_currentProduct.shop longcoordinate]]];
-        [LatTextField setText:[NSString stringWithFormat:@"%f",[_currentProduct.shop latcoordinate]]];
-        longsaved=[_currentProduct.shop longcoordinate];
-        latsaved=[_currentProduct.shop latcoordinate];
-        [PhoneField setText:[NSString stringWithFormat:@"%@",[_currentProduct phone]]];
-        [EmailField setText:[_currentProduct email]];
-        [WebsiteField setText:[_currentProduct websiteurl]];
-        [DimensionsField setText:[_currentProduct dim_size]];
-        [commentsView setText:[_currentProduct comments]];
-        
-        [self setTitle:[_currentProduct categoryname ]];
-        [ratingslider setValue:[_currentProduct rating] animated:YES];
-        if ([_currentProduct image])
-            [imageField setImage:[UIImage imageWithData:[_currentProduct image]]];
-        
-        
-    }
-    
-    ///Enabling the Catalogue Filed Name
-    if (newcatalogue) {
-        self.cataloguenamefield.enabled=YES;
-    }
-    
-    //Enabling the Done Button @ the Bottom
-    if (edit_add) {
-        self.Testnavigation.hidden=YES;
-    } else {
-        self.Testnavigation.hidden=NO;
-    }
-    //self.Testnavigation.hidden=YES;
-    cataloguenamefield.text=self.title;
-    if (Qrcodecatalogue) {
-        //
-        Qrcodecatalogue=NO;
-    }
-    
-    [self configuregradient];
-    //NSLog(@"The Supposed Saved values are %f %f",longsaved,latsaved);
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-}
 -(void)configuregradient{
     //gradientview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)] ;
     UIColor *shoblue=[UIColor colorWithRed:19.0f/255.0f green:125.0f/255.0f blue:236.0f/255.0f alpha:1.0f];
@@ -236,8 +221,6 @@
 
 
 -(void)updatecurrentLocation{
-    
-    
     if (self.currentProduct.shop.longcoordinate) {
         NSLog(@"i have Coordinates ");
         [self step1locationupdate];
@@ -285,10 +268,6 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([[segue identifier] isEqualToString:@"setshoploc"]) {
-        //setlocationViewController *sholocatviewcontroller=(setlocationViewController*)[segue destinationViewController];
-        //[self presentViewController:sholocatviewcontroller animated:YES completion:nil];
-        //sholocatviewcontroller.shoplocationlong=50 ;
-        //sholocatviewcontroller.shoplocationlat=-120;
     }
 }
 - (void)didReceiveMemoryWarning
@@ -296,13 +275,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-#pragma mark - Table view data source
-
-
-
-
-
 
 #pragma mark - Table view delegate
 - (IBAction)RatingSlidervalue:(id)sender {
@@ -336,22 +308,70 @@
     }
 }
 
+/********************************************************/
+//              Edit An Exit Item Action Button         //
+/********************************************************/
+
+- (IBAction)editExistButtonPressed:(id)sender{
+    if (self.cataloguenamefield.text.length >0 && self.PriceField.text.length>0 && self.imageField.image != nil && self.ShopField.text.length>0 ){
+        dTranferObje.defcatqr           = self.cataloguenamefield.text;
+        dTranferObje.defprice           = [self.PriceField.text floatValue];
+        dTranferObje.defimagedata       = UIImagePNGRepresentation(self.imageField.image);
+        dTranferObje.defshopname        = self.ShopField.text;
+        dTranferObje.defrating          = self.ratingslider.value;
+        if (self.PhoneField.text.length>0){
+            dTranferObje.defphone           = self.PhoneField.text;
+        }else{
+            dTranferObje.defphone = nil;
+        }
+        if (self.WebsiteField.text.length>0){
+            dTranferObje.defwebsiteurl      = self.WebsiteField.text;
+        }else{
+            dTranferObje.defwebsiteurl = nil;
+        }
+        
+        
+        [DataParsing editProductById:dTranferObje.defId AndEntityName:@"Shoplog"];
+        [DataParsing dataTransferObjectDeAllocat];
+        [SVProgressHUD showSuccessWithStatus:@"The product has been updated successfully."];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+
+    }else{
+        UIAlertController *alertController  = [UIAlertController alertControllerWithTitle:@"Warning" message:@"Kindly fill all mandatory fields" preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil]];
+        [self presentViewController:alertController animated:YES completion:nil];
+        }
+}
+/*******************************************************/
+//              Save New Item Action Button             //
+/*******************************************************/
+
 - (IBAction)editSaveButtonPressed:(id)sender
 {
-    BOOL emptycatalogue =[cataloguenamefield.text isEqualToString:@""];
-    if (!emptycatalogue) {
-        if (([commentsView.text isEqual:@""]) || ([self isProductExistOnCoreData] == YES)){
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Warring" message:@"Don't forgit write your comments to save your product or you already saved this product before." preferredStyle:UIAlertControllerStyleAlert];
+    if (self.cataloguenamefield.text.length>0 && self.imageField.image != nil && self.PriceField.text.length>0 && self.ShopField.text.length>0){
+        
+        if (self.LatTextField.text.length>0 && self.LongTextfield.text.length>0){
+            
+            if ([self isProductExistOnCoreData] == NO){
+                //save on Core data
+                [self saveProductOnCoreData];
+                [self saveProductOnParse];
+            }else{
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Warnning" message:@"You already had saved this item before." preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
+                [alertController addAction:ok];
+                [self presentViewController:alertController animated:YES completion:nil];
+            }
+            
+        }else{
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error" message:@"Press the button I am inside the shop to complete saving process" preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
             [alertController addAction:ok];
             [self presentViewController:alertController animated:YES completion:nil];
-        }else{
-            //save on Core data
-            [self saveProductOnCoreData];
-            [self saveProductOnParse];
         }
+        
     }else{
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error" message:@"Scan QR Code first.Press the button below." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error" message:@"Scan QR Code first.Press the button below.Or entre the data." preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
         [alertController addAction:ok];
         [self presentViewController:alertController animated:YES completion:nil];
@@ -363,7 +383,7 @@
 */
 
 - (BOOL)isProductExistOnCoreData{
-    DataTransferObject *dTranferObje = [DataTransferObject getInstance];
+    dTranferObje = [DataTransferObject getInstance];
     //save imageurl as NSData
     NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:dTranferObje.defimagenameqr]];
     bool isExit = [DataParsing isProductExistsOnCDbyImageData:imageData ByEntity:@"Shoplog"];
@@ -385,36 +405,56 @@
                            inManagedObjectContext:context];
     
     
-    DataTransferObject *dTranferObje = [DataTransferObject getInstance];
+    NSData *imageData = UIImagePNGRepresentation(self.imageField.image);
     
-    //save imageurl as NSData
-    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:dTranferObje.defimagenameqr]];
-    
-    [newShopLog setValue:dTranferObje.defcatqr forKey:@"categoryname"];
+    [newShopLog setValue:productCoreDataID forKey:@"itemId"];
+    [newShopLog setValue:self.cataloguenamefield.text forKey:@"categoryname"];
+    [newShopLog setValue:imageData forKey:@"image"];
     [newShopLog setValue:commentsView.text forKey:@"comments"];
     [newShopLog setValue:[NSDate date] forKey:@"date"];
-    [newShopLog setValue:dTranferObje.defemail forKey:@"email"];
-    [newShopLog setValue:imageData forKey:@"image"];
-    [newShopLog setValue:[NSDecimalNumber decimalNumberWithString:dTranferObje.defphone] forKey:@"phone"];
-    [newShopLog setValue:[NSNumber numberWithFloat:dTranferObje.defprice] forKey:@"price"];
-    [newShopLog setValue:[NSNumber numberWithFloat:ratingslider.value] forKey:@"rating"];
-    [newShopLog setValue:dTranferObje.defwebsiteurl forKey:@"websiteurl"];
-    [newShopLog setValue:dTranferObje.defdimsize forKey:@"dim_size"];
+    [newShopLog setValue:[NSNumber numberWithFloat:[self.PriceField.text floatValue]] forKey:@"price"];
+    [newShopLog setValue:[NSNumber numberWithInt:self.ratingslider.value] forKey:@"rating"];
+    if (self.DimensionsField.text>0){
+        [newShopLog setValue:self.DimensionsField.text forKey:@"dim_size"];
+    }
+    if (self.EmailField.text.length>0){
+        [newShopLog setValue:self.EmailField.text forKey:@"email"];
+    }
+    if (self.PhoneField.text>0){
+        [newShopLog setValue:[NSDecimalNumber decimalNumberWithString:self.PhoneField.text] forKey:@"phone"];
+    }
+    if (self.WebsiteField.text.length>0){
+        [newShopLog setValue:self.WebsiteField.text forKey:@"websiteurl"];
+    }
+    
     
     //Create Shop Core Data
     // Create Address
     Shop *newShop = [NSEntityDescription insertNewObjectForEntityForName:@"Shop" inManagedObjectContext:context];
-    [newShop setValue:dTranferObje.defshopname forKey:@"shopname"];
-    [newShop setValue:[NSNumber numberWithDouble: dTranferObje.deflong] forKey:@"longcoordinate"];
-    [newShop setValue:[NSNumber numberWithDouble: dTranferObje.deflat] forKey:@"latcoordinate"];
+    [newShop setValue:productCoreDataID forKey:@"shopId"];
+    [newShop setValue:self.ShopField.text forKey:@"shopname"];
+    [newShop setValue:[NSNumber numberWithDouble:[self.LatTextField.text doubleValue]] forKey:@"longcoordinate"];
+    [newShop setValue:[NSNumber numberWithDouble:[self.LongTextfield.text doubleValue]] forKey:@"latcoordinate"];
+
+    
     newShopLog.shop = newShop;
     
-    //Create Category Core Data
-    Category *category = [NSEntityDescription insertNewObjectForEntityForName:@"Category" inManagedObjectContext:context];
-    [category setValue:dTranferObje.defcatqr forKey:@"catName"];
-    newShopLog.category = category;
-    
     NSError *errorRelation = nil;
+    
+    //Create Category Core Data
+    // Check first if there is same exit
+    if ([DataParsing ifCategoryNameExistOnEntit:@"Category" CategoryName:self.cataloguenamefield.text] == YES){
+        //Exist no saving
+    }else{
+        //No Exist thus save it
+        Category *category = [NSEntityDescription insertNewObjectForEntityForName:@"Category" inManagedObjectContext:context];
+        [category setValue:self.cataloguenamefield.text forKey:@"catName"];
+        if (![category.managedObjectContext save:&errorRelation]) {
+            //had benn saved successfully
+        }else{
+            //hadn't been saved
+        }
+    }
     
     if (![newShopLog.managedObjectContext save:&errorRelation]) {
         [SVProgressHUD showErrorWithStatus:@"Sorry,failed to save data now please tray again!."];
@@ -425,6 +465,7 @@
     //Flush DataTansfer Public Object
     [DataParsing dataTransferObjectDeAllocat];
     [SVProgressHUD dismiss];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 /*****************************************************/
@@ -436,8 +477,12 @@
         PFObject *saveFavorit = [PFObject objectWithClassName:@"SaveFavorit"];
         saveFavorit[@"category"]    = self.cataloguenamefield.text;
         saveFavorit[@"price"]       = self.PriceField.text;
-        saveFavorit[@"phone"]       = self.PhoneField.text;
-        saveFavorit[@"website"]     = self.WebsiteField.text;
+        if (self.PhoneField.text>0){
+            saveFavorit[@"phone"]       = self.PhoneField.text;
+        }
+        if (self.WebsiteField.text>0){
+            saveFavorit[@"website"]     = self.WebsiteField.text;
+        }
         saveFavorit[@"shop"]        = self.ShopField.text;
         saveFavorit[@"lat"]         = self.LatTextField.text;
         saveFavorit[@"long"]        = self.LongTextfield.text;
@@ -463,7 +508,7 @@
     
 }
 
-
+/*
 -(void)preparetheitemtosave{
     //[spinner startAnimating];
     [self.currentProduct.shop setShopname:[ShopField text]];
@@ -517,6 +562,7 @@
         [self.currentProduct setImage:smallImageData];
     }
 }
+*/
 
 - (void) viewWillDisappear: (BOOL) animated {
     [super viewWillDisappear: animated];
@@ -532,34 +578,28 @@
 //  Pick an image from album
 - (IBAction)imageFromAlbum:(id)sender
 {
-    imagePicker = [[UIImagePickerController alloc] init];
-    imagePicker.delegate = self;
-    imagePicker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
-    
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        if ([self.popoverController isPopoverVisible]) {
-            [self.popoverController dismissPopoverAnimated:YES];
-        } else {
-            UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController:imagePicker];
-            [popover presentPopoverFromRect:self.imageField.bounds inView:self.imageField permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-            self.popoverController=popover;
-        }
-    } else {
-        [self presentViewController:imagePicker animated:YES completion:nil];
-    }
-    
-    
-    
-    // [self presentViewController:imagePicker animated:YES completion:nil];
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        //your code
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        picker.delegate = self;
+        picker.allowsEditing = YES;
+        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        [self presentViewController:picker animated:YES completion:NULL];
+    }];
 }
+
 //  Take an image with camera
 - (IBAction)imagefromCamera:(id)sender {
-    imagePicker = [[UIImagePickerController alloc] init];
-    imagePicker.delegate = self;
-    imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-    imagePicker.cameraDevice = UIImagePickerControllerCameraDeviceRear;
-    [self presentViewController:imagePicker animated:YES completion:nil];
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        picker.delegate = self;
+        picker.allowsEditing = YES;
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        [self presentViewController:picker animated:YES completion:NULL];
+    }];
 }
+
+/*
 -(void)savethediteditem{
     [self preparetheitemtosave];
     //self.managedObjectContext=self.currentshop.managedObjectContext;
@@ -599,10 +639,7 @@
     
 }
 
-
-
-
-
+*/
 
 
 //  Resign the keyboard after Done is pressed when editing text fields
@@ -633,23 +670,20 @@
     
 }
 
-
-
 #pragma mark - Image Picker Delegate Methods
 
 //  Dismiss the image picker on selection and use the resulting image in our ImageView
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo
-{
-    [imagePicker dismissViewControllerAnimated:YES completion:nil];
-    [popoverController dismissPopoverAnimated:YES];
-    [imageField setImage:image];
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    dTranferObje.defimagedata = UIImagePNGRepresentation(chosenImage);
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 //  On cancel, only dismiss the picker controller
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
-{
-    [imagePicker dismissViewControllerAnimated:YES completion:nil];
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:YES completion:NULL];
 }
+
 
 ///To be used Later on When Tweaking the Viewontroller
 - (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -726,23 +760,46 @@
     
 }
 
-//-(IBAction)textFieldDidBeginEditing:(UITextField *)textField:(id)sender{
-//    [sender becomeFirstResponder];
-//
-//}
-//-(IBAction)textFieldDidEndEditing:(UITextField *)textField:(id)sender{
-//
-//    [sender resignFirstResponder];
-//
-//}
+-(IBAction)textFieldDidBeginEditing:(UITextField *)textField:(id)sender{
+    [sender becomeFirstResponder];
+
+}
+-(IBAction)textFieldDidEndEditing:(UITextField *)textField:(id)sender{
+
+    [sender resignFirstResponder];
+
+}
 
 -(void)tableView:(UITableView*)tableView willDisplayCell:(UITableViewCell*)cell forRowAtIndexPath:(NSIndexPath*)indexPath {
     
     //cell.backgroundColor=[UIColor colorWithRed:125.0f/255.0f green:125.0f/255.0f blue:125.0f/255.0f alpha:1];
     
     cell.backgroundColor=[UIColor clearColor];
-    
-    
-    
+}
+
+
+/***************************************/
+//      Edit Item Behavior              //
+/****************************************/
+
+- (void)editExitItemBehaviorView{
+    self.scanQRButton.hidden = YES;
+    self.scanQRButton.enabled = NO;
+    UIBarButtonItem *editItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editExistButtonPressed:)];
+    NSArray *rightBarItems = @[editItem];
+    self.navigationItem.rightBarButtonItems = rightBarItems;
+}
+
+/**************************************/
+//      New Item Behavior             //
+/**************************************/
+
+- (void)newItemBehavior{
+    self.scanQRButton.hidden    = NO;
+    self.scanQRButton.enabled   = YES;
+    UIBarButtonItem *saveItem   = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(editSaveButtonPressed:)];
+    NSArray *rightBarItems =    @[saveItem];
+    self.navigationItem.rightBarButtonItems = rightBarItems;
+    [DataParsing dataTransferObjectDeAllocat];
 }
 @end

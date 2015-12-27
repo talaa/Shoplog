@@ -10,13 +10,14 @@
 #import <CoreData/CoreData.h>
 #import "ExtendedManagedObject.h"
 @class Shop;
-@class Category;
 
 @interface Shoplog : ExtendedManagedObject
 
+@property (nonatomic, retain) NSString * itemId;
 @property (nonatomic, retain) NSString * categoryname;
 @property (nonatomic, retain) NSString * parseid;
 @property (nonatomic, retain) NSString * comments;
+@property (nonatomic, retain) NSString * imageUrl;
 @property (nonatomic) NSDate *date;
 @property (nonatomic, retain) NSString * email;
 @property (nonatomic, retain) NSData * image;
@@ -28,6 +29,6 @@
 @property (nonatomic, retain) NSString * websiteurl;
 @property (nonatomic, retain) NSString * dim_size;
 @property (nonatomic, retain) Shop *shop;
-@property (nonatomic, retain) Category *category;
+
 
 @end

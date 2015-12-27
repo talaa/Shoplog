@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface DataTransferObject : NSObject
-
+@property (strong, nonatomic) NSString *defId;
 @property (strong, nonatomic) NSString *defcatqr;
 @property (strong, nonatomic) NSString *defimagenameqr;
 @property (strong, nonatomic) NSString *defshopname;
@@ -18,6 +18,7 @@
 @property (strong, nonatomic) NSString *defcomments;
 @property (strong, nonatomic) NSString *defwebsiteurl;
 @property (strong, nonatomic) NSString *defphone;
+@property (strong, nonatomic) NSData *defimagedata;
 @property (nonatomic) double deflong;
 @property (nonatomic) double deflat;
 @property (nonatomic) float defprice;

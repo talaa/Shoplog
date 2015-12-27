@@ -12,6 +12,7 @@
 
 @implementation Shop
 
+@dynamic shopId;
 @dynamic shopname;
 @dynamic longcoordinate;
 @dynamic latcoordinate;

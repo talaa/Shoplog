@@ -11,5 +11,9 @@
 @interface ProductsViewControler : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *productsCollectionView;
+@property (nonatomic, strong, readonly) NSMapTable *visibleCollectionReusableHeaderViews;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *shareBarButton;
 
+- (IBAction)shareButtonPressed:(id)sender;
+- (IBAction)addNewItemPressed:(id)sender;
 @end

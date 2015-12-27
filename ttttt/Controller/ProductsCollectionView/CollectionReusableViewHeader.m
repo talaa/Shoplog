@@ -10,4 +10,12 @@
 
 @implementation CollectionReusableViewHeader
 
+-(IBAction)searchButtonPressed:(id)sender{
+    NSDictionary *dict = [NSDictionary dictionaryWithObject:self.section.text forKey:@"Searchterm"];
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"Searchactivated" object:self userInfo:dict];
+    
+    NSLog(@"My Name is :%@",self.section.text);
+}
+
+
 @end

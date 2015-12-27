@@ -9,6 +9,13 @@
 #import "SignUpViewController.h"
 #import <Parse/Parse.h>
 #import "SVProgressHUD.h"
+@interface SignUpViewController ()
+{
+    PFUser *existUser;
+    PFUser *user;
+}
+
+@end
 
 @implementation SignUpViewController
 
@@ -16,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    user = [PFUser user];
     self.emailIsTrue = NO;
     
     //Init BirthDate
@@ -49,6 +56,12 @@
                                    action:@selector(hiddenEmailActivityIndicatorAndDismissKeybad)];
     
     [self.view addGestureRecognizer:tap];
+    
+    /******************************************************/
+    //if there is an exist user thus, it will be edit form//
+    //else , it will be a sign up form                    //
+    /*****************************************************/
+    [self ifThereExistUserFillFormWithData];
 }
 
 - (IBAction)takePhotoPressed:(id)sender {
@@ -70,7 +83,7 @@
         picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         [self presentViewController:picker animated:YES completion:NULL];
     }];
-
+    
 }
 
 - (IBAction)closePressed:(id)sender {
@@ -88,7 +101,7 @@
         //hide
         [self.flatDatePicker dismiss];
     }
-
+    
 }
 
 - (IBAction)countryPressed:(id)sender {
@@ -115,7 +128,7 @@
             break;
         default:
             self.userGender = @"";
-            break; 
+            break;
     }
 }
 
@@ -124,10 +137,20 @@
 /***********************************************/
 
 - (IBAction)submitPressed:(id)sender {
-    if (self.nameTextFiled.text.length >0 && self.usernameTextField.text.length >0 && self.emailIsTrue == YES && self.countryTextField.text.length >0){
-        [self passwordAndAddAccountAlertController];
+    if (existUser){
+        if (self.nameTextFiled.text.length >0 && self.usernameTextField.text.length >0 && self.countryTextField.text.length >0){
+            [self passwordAndAddAccountAlertController];
+        }else{
+            [self submitFailedAlertController];
+        }
+        
     }else{
-        [self submitFailedAlertController];
+        if (self.nameTextFiled.text.length >0 && self.usernameTextField.text.length >0 && self.emailIsTrue == YES && self.countryTextField.text.length >0){
+            [self passwordAndAddAccountAlertController];
+        }else{
+            [self submitFailedAlertController];
+        }
+        
     }
 }
 
@@ -179,8 +202,9 @@
 
 - (void)saveNewAccount {
     [SVProgressHUD showWithStatus:@"Loading...."];
-    PFUser *user = [PFUser user];
-    
+    if (existUser){
+        user = existUser;
+    }
     user.username = self.usernameTextField.text;
     user.email = self.emailTextField.text;
     user.password = self.password;
@@ -208,23 +232,47 @@
         user[@"birthDate"] = self.bDateTextField.text;
     }
     
-    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (!error) {
-            // Hooray! Let them use the app now.
-            //turn to previous page
-            [self resetPropretriesAfterSave];
-            [self getBackToWelcomeView];
+    //In case of there is an exist user --> thus, it is an updating
+    if (existUser){
+        [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (!error) {
+                // Hooray! Let them use the app now.
+                //turn to previous page
+                [self resetPropretriesAfterSave];
+                [self getBackToWelcomeView];
+                
+            }
+            // Thus , this is saving a new user
+            else {
+                [SVProgressHUD dealloc];
+                NSString *errorString = [error userInfo][@"error"];
+                // Show the errorString somewhere and let the user try again.
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error" message:errorString preferredStyle:UIAlertControllerStyleAlert];
+                [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDestructive handler:nil]];
+                [self presentViewController:alertController animated:YES completion:nil];
+            }
             
-        } else {
-            [SVProgressHUD dealloc];
-            NSString *errorString = [error userInfo][@"error"];
-            // Show the errorString somewhere and let the user try again.
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error" message:errorString preferredStyle:UIAlertControllerStyleAlert];
-            [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDestructive handler:nil]];
-            [self presentViewController:alertController animated:YES completion:nil];
-        }
-        
-    }];
+        }];
+    }else{
+        [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (!error) {
+                // Hooray! Let them use the app now.
+                //turn to previous page
+                [self resetPropretriesAfterSave];
+                [self getBackToWelcomeView];
+                
+            } else {
+                [SVProgressHUD dealloc];
+                NSString *errorString = [error userInfo][@"error"];
+                // Show the errorString somewhere and let the user try again.
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error" message:errorString preferredStyle:UIAlertControllerStyleAlert];
+                [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDestructive handler:nil]];
+                [self presentViewController:alertController animated:YES completion:nil];
+            }
+            
+        }];
+    }
+    
 }
 
 - (void)differnetPasswordAlertController {
@@ -248,7 +296,7 @@
     
     self.password                   = @"";
     self.emailIsTrue                = NO;
-
+    
 }
 
 /*****************************************/
@@ -271,18 +319,13 @@
     [dateFormatter setLocale:[NSLocale currentLocale]];
     [dateFormatter setDateFormat:@"dd MMMM yyyy"];
     NSString *value = [dateFormatter stringFromDate:date];
-    if (date > [NSDate date]){
-        NSString *message = [NSString stringWithFormat:@"Incorrect Birthdate : %@", value];
-        alertController = [UIAlertController alertControllerWithTitle:@"Incorrect Birth Date" message:message preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
-        [alertController addAction:okAction];
-    }else {
-        self.bDateTextField.text = value;
-        NSString *message = [NSString stringWithFormat:@"Did valid date : %@", value];
-        alertController = [UIAlertController alertControllerWithTitle:@"Birth Date" message:message preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
-        [alertController addAction:okAction];
-    }
+    
+    self.bDateTextField.text = value;
+    NSString *message = [NSString stringWithFormat:@"Valid date : %@", value];
+    alertController = [UIAlertController alertControllerWithTitle:@"Birth Date" message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
+    [alertController addAction:okAction];
+    
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
@@ -380,6 +423,35 @@
     }
     else{
         return NO;
+    }
+}
+
+/***********************************************/
+// Chek if there is an exist user               //
+/**********************************************/
+
+- (void)ifThereExistUserFillFormWithData{
+    existUser = [PFUser currentUser];
+    if (existUser){
+        self.nameTextFiled.text = existUser[@"name"];
+        self.emailTextField.text = existUser.email;
+        self.usernameTextField.text = existUser.username;
+        if (existUser[@"gender"]){
+            if ([existUser[@"gender"] isEqualToString:@"Male"]){
+                self.genderSegment.selectedSegmentIndex = 0;
+            }else
+                self.genderSegment.selectedSegmentIndex = 1;
+        }
+        if (existUser[@"birthDate"]){
+            self.bDateTextField.text = existUser[@"birthDate"];
+        }
+        self.countryTextField.text = existUser[@"country"];
+        if(existUser[@"image"]){
+            PFFile *imagefile = existUser[@"image"];
+            self.profileImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imagefile.url]]];
+        }else{
+            self.profileImageView.image = [UIImage imageNamed:@"user"];
+        }
     }
 }
 @end
