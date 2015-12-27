@@ -105,7 +105,10 @@
     [self configuregradient];
 }
 
-
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:YES];
+    dTranferObje.defimagedata = nil;
+}
 -(void)viewWillAppear:(BOOL)animated{
     dTranferObje = [DataTransferObject getInstance];
     if (dTranferObje.defcatqr == nil){

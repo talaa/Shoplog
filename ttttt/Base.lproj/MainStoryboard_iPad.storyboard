@@ -448,7 +448,7 @@
                         <outlet property="WebsiteField" destination="YRO-3n-4Ma" id="kvc-AQ-VQZ"/>
                         <outlet property="cataloguenamefield" destination="jfc-ut-7i6" id="EbP-xk-eP4"/>
                         <outlet property="commentsView" destination="Zv1-SD-AYt" id="Z26-hw-Yck"/>
-                        <outlet property="imageField" destination="YEm-jm-IDk" id="PUd-Pa-hDR"/>
+                        <outlet property="imageField" destination="YEm-jm-IDk" id="0BF-2p-tpT"/>
                         <outlet property="ratingslider" destination="yZx-NX-cfR" id="Vhr-De-N3R"/>
                         <outlet property="spinner" destination="8js-4r-C2l" id="ked-fZ-u1N"/>
                     </connections>
