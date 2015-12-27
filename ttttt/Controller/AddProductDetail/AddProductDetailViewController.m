@@ -103,10 +103,20 @@
     }
     
     [self configuregradient];
-    
+}
+
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:YES];
+    dTranferObje.defimagedata = nil;
+}
+-(void)viewWillAppear:(BOOL)animated{
     dTranferObje = [DataTransferObject getInstance];
     if (dTranferObje.defcatqr == nil){
-        
+        if (dTranferObje.defimagedata == nil){
+            self.imageField.image = [UIImage imageNamed:@"4-1-2013 3-50-07 PM.png"];
+        }else{
+            self.imageField.image = [UIImage imageWithData:dTranferObje.defimagedata];
+        }
     }else{
         self.LatTextField.text = [NSString stringWithFormat:@"%f",dTranferObje.deflat];
         self.LongTextfield.text = [NSString stringWithFormat:@"%f",dTranferObje.deflong];
@@ -123,10 +133,7 @@
         }
         
     }
-}
 
-
--(void)viewWillAppear:(BOOL)animated{
     [self performSelector:@selector(updatecurrentLocation) withObject:nil afterDelay:5];
 }
 
@@ -668,7 +675,7 @@
 //  Dismiss the image picker on selection and use the resulting image in our ImageView
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
-    self.imageField.image = chosenImage;
+    dTranferObje.defimagedata = UIImagePNGRepresentation(chosenImage);
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -788,10 +795,10 @@
 /**************************************/
 
 - (void)newItemBehavior{
-    self.scanQRButton.hidden = NO;
-    self.scanQRButton.enabled = YES;
-    UIBarButtonItem *saveItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(editSaveButtonPressed:)];
-    NSArray *rightBarItems = @[saveItem];
+    self.scanQRButton.hidden    = NO;
+    self.scanQRButton.enabled   = YES;
+    UIBarButtonItem *saveItem   = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(editSaveButtonPressed:)];
+    NSArray *rightBarItems =    @[saveItem];
     self.navigationItem.rightBarButtonItems = rightBarItems;
     [DataParsing dataTransferObjectDeAllocat];
 }
