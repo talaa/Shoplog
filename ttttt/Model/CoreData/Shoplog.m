@@ -16,6 +16,7 @@
 @dynamic categoryname;
 @dynamic parseid;
 @dynamic comments;
+@dynamic imageUrl;
 @dynamic date;
 @dynamic email;
 @dynamic image;

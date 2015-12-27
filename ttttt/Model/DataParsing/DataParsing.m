@@ -42,11 +42,11 @@
 }
 
 // Fetch by exact data by TYPE
-+ (bool)isProductExistsOnCDbyImageData:(NSData*)imageData ByEntity:(NSString*)entityName{
++ (bool)isProductExistsOnCDbyImageURL:(NSString*)imageURL ByEntity:(NSString*)entityName{
     BOOL isExit = NO;
     NSArray *result = [self fetchEntitesArray:entityName];
     for (NSManagedObject *managedObject in result) {
-        if ([[managedObject valueForKey:@"image"] isEqualToData:imageData]) {
+        if ([[managedObject valueForKey:@"imageUrl"] isEqualToString:imageURL]) {
             isExit = YES;
             break;
         }

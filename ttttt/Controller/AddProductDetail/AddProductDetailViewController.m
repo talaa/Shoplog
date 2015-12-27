@@ -385,8 +385,7 @@
 - (BOOL)isProductExistOnCoreData{
     dTranferObje = [DataTransferObject getInstance];
     //save imageurl as NSData
-    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:dTranferObje.defimagenameqr]];
-    bool isExit = [DataParsing isProductExistsOnCDbyImageData:imageData ByEntity:@"Shoplog"];
+    bool isExit = [DataParsing isProductExistsOnCDbyImageURL:dTranferObje.defimagenameqr ByEntity:@"Shoplog"];
     return isExit;
 }
 
@@ -406,7 +405,7 @@
     
     
     NSData *imageData = UIImagePNGRepresentation(self.imageField.image);
-    
+    [newShopLog setValue:dTranferObje.defimagenameqr forKey:@"imageUrl"];
     [newShopLog setValue:productCoreDataID forKey:@"itemId"];
     [newShopLog setValue:self.cataloguenamefield.text forKey:@"categoryname"];
     [newShopLog setValue:imageData forKey:@"image"];

@@ -14,7 +14,7 @@
 + (void)dataTransferObjectDeAllocat;
 + (NSArray *)fetchEntitesArray:(NSString*)entityName;
 + (NSInteger)returnFetchEntitiesArrayCounter:(NSString*)entityName;
-+ (bool)isProductExistsOnCDbyImageData:(NSData*)imageData ByEntity:(NSString*)entityName;
++ (bool)isProductExistsOnCDbyImageURL:(NSString*)imageURL ByEntity:(NSString*)entityName;
 + (NSMutableArray*)fetchProductsbyCategory;
 + (NSMutableArray *)fetchProductbyImageData:(NSData*)imageData AndEntityName:(NSString*)entityName;
 + (void)removeEntityRecordbyItemId:(NSString*)itemID AndEntityName:(NSString*)entityName;
