@@ -19,8 +19,15 @@
 
 + (void)dataTransferObjectDeAllocat {
     DataTransferObject *dtObject = [DataTransferObject getInstance];
-    dtObject.defcatqr   = nil;
-    dtObject.defId      = nil;
+    dtObject.defcatqr       = nil;
+    dtObject.defId          = nil;
+    dtObject.defimagenameqr = nil;
+    dtObject.defemail       = nil;
+    dtObject.defimagedata   = nil;
+    dtObject.defrating      = nil;
+    dtObject.defshopname    = nil;
+    dtObject.defwebsiteurl  = nil;
+    dtObject.defcomments    = nil;
 }
 
 // Fetch Entities Array
@@ -91,23 +98,38 @@
 }
 
 // Remove Entity Record
-+ (void)removeEntityRecordbyItemId:(NSString*)itemID AndEntityName:(NSString*)entityName{
++ (void)removeEntityRecordbyItemId:(NSString*)itemID{
     AppDelegate *app= (AppDelegate*)[[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = [app managedObjectContext];
     
     // Fetching
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:entityName];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Shoplog"];
+    NSFetchRequest *catFetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Category"];
     
     // Execute Fetch Request
     NSError *fetchError = nil;
     NSArray *result = [context executeFetchRequest:fetchRequest error:&fetchError];
-    
+    NSArray *catArray = [context executeFetchRequest:catFetchRequest error:&fetchError];
+    int catCounterInOneShoplogObject = 0;
     for (Shoplog *shoplog in result){
         if ([shoplog.itemId isEqualToString:itemID]){
+            for (Category *cat in catArray){
+                for (Shoplog *shoplog2 in result){
+                    if([shoplog.categoryname isEqualToString:shoplog2.categoryname]){
+                        catCounterInOneShoplogObject ++;
+                    }
+                }if (catCounterInOneShoplogObject >= 2){
+                    
+                }else{
+                    [context deleteObject:cat];
+                }
+            }
             [context deleteObject:shoplog];
             break;
         }
     }
+    
+    
     [self saveContext];
 }
 

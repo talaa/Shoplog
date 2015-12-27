@@ -17,7 +17,7 @@
 + (bool)isProductExistsOnCDbyImageURL:(NSString*)imageURL ByEntity:(NSString*)entityName;
 + (NSMutableArray*)fetchProductsbyCategory;
 + (NSMutableArray *)fetchProductbyImageData:(NSData*)imageData AndEntityName:(NSString*)entityName;
-+ (void)removeEntityRecordbyItemId:(NSString*)itemID AndEntityName:(NSString*)entityName;
++ (void)removeEntityRecordbyItemId:(NSString*)itemID;
 + (void)removeCategoryInCaseOfNoItems:(NSString*)catName;
 + (void)saveContext;
 + (BOOL)ifCategoryNameExistOnEntit:(NSString*)entityName CategoryName:(NSString*)catname;
