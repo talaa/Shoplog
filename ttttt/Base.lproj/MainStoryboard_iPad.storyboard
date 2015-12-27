@@ -161,7 +161,7 @@
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="imageFromAlbum:" destination="kQ7-Yt-TmH" eventType="touchUpInside" id="yL8-Mj-qge"/>
+                                                        <action selector="imageFromAlbum:" destination="kQ7-Yt-TmH" eventType="touchUpInside" id="Rt6-2W-LTl"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IND-HB-XhA">
@@ -171,7 +171,7 @@
                                                         <color key="titleColor" red="0.14692396395046614" green="0.25922455634471797" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="imagefromCamera:" destination="kQ7-Yt-TmH" eventType="touchUpInside" id="eyt-Mt-nM1"/>
+                                                        <action selector="imagefromCamera:" destination="kQ7-Yt-TmH" eventType="touchUpInside" id="nod-AT-XWy"/>
                                                     </connections>
                                                 </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" image="4-1-2013 3-50-07 PM.png" translatesAutoresizingMaskIntoConstraints="NO" id="YEm-jm-IDk">
@@ -194,7 +194,7 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="readQRcode:" destination="kQ7-Yt-TmH" eventType="touchUpInside" id="BLr-dD-wl4"/>
+                                                        <action selector="readQRcode:" destination="kQ7-Yt-TmH" eventType="touchUpInside" id="3Zn-Ta-lSv"/>
                                                         <segue destination="whR-Ap-egi" kind="push" id="OHd-0r-AHR"/>
                                                     </connections>
                                                 </button>
@@ -429,11 +429,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Add New Product" id="xEi-tF-n1K">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="dcl-l8-pdU">
-                            <connections>
-                                <action selector="editSaveButtonPressed:" destination="kQ7-Yt-TmH" id="253-Kx-iXR"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="item" id="dcl-l8-pdU"/>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
@@ -450,9 +446,9 @@
                         <outlet property="ShopField" destination="CXC-uO-ueh" id="B3M-1q-KRi"/>
                         <outlet property="Testnavigation" destination="4ku-LA-eRS" id="rgJ-aK-Kcz"/>
                         <outlet property="WebsiteField" destination="YRO-3n-4Ma" id="kvc-AQ-VQZ"/>
-                        <outlet property="cataloguenamefield" destination="jfc-ut-7i6" id="p6L-2z-WZ0"/>
+                        <outlet property="cataloguenamefield" destination="jfc-ut-7i6" id="EbP-xk-eP4"/>
                         <outlet property="commentsView" destination="Zv1-SD-AYt" id="Z26-hw-Yck"/>
-                        <outlet property="imageField" destination="YEm-jm-IDk" id="lrT-TC-yd8"/>
+                        <outlet property="imageField" destination="YEm-jm-IDk" id="PUd-Pa-hDR"/>
                         <outlet property="ratingslider" destination="yZx-NX-cfR" id="Vhr-De-N3R"/>
                         <outlet property="spinner" destination="8js-4r-C2l" id="ked-fZ-u1N"/>
                     </connections>
