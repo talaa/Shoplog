@@ -40,7 +40,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *PriceField;
 @property (strong, nonatomic) IBOutlet UITextField *ShopField;
 @property (strong, nonatomic) IBOutlet UITextField *cataloguenamefield;
-@property (strong, nonatomic) IBOutlet UIImageView *imageField;
+@property (weak, nonatomic) IBOutlet UIImageView *imageField;
 @property (strong, nonatomic) IBOutlet UITextField *DimensionsField;
 @property (strong,nonatomic) IBOutlet UIView *gradientview;
 @property (weak, nonatomic) IBOutlet UITextView *commentsView;
@@ -55,7 +55,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *WebsiteField;
 
 @property (nonatomic, retain) UIPopoverController *popoverController;
-@property (strong, nonatomic) UIImagePickerController *imagePicker;
+//@property (strong, nonatomic) UIImagePickerController *imagePicker;
 @property (weak, nonatomic) IBOutlet UIToolbar *Testnavigation;
 @property (nonatomic,weak) id <addproductdetailviewcontrollerdelegate> delegate;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *Saveeditbutton;

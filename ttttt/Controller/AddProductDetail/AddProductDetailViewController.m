@@ -27,7 +27,7 @@
 @synthesize managedObjectContext;
 @synthesize PriceField,ShopField,imageField,cataloguenamefield;
 @synthesize DimensionsField,PhoneField,EmailField,WebsiteField,commentsView;
-@synthesize imagePicker,popoverController,edit_add,Saveeditbutton,newcatalogue;
+@synthesize popoverController,edit_add,Saveeditbutton,newcatalogue;//,imagePicker;
 @synthesize Maplocation,ratingslider,spinner,Qrcodecatalogue;
 @synthesize longsaved,latsaved,gradientview;
 @synthesize LongTextfield,LatTextField,Lgpressgesture;
@@ -103,13 +103,7 @@
     }
     
     [self configuregradient];
-    //NSLog(@"The Supposed Saved values are %f %f",longsaved,latsaved);
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-}
-
-
--(void)viewWillAppear:(BOOL)animated{
+    
     dTranferObje = [DataTransferObject getInstance];
     if (dTranferObje.defcatqr == nil){
         
@@ -129,17 +123,11 @@
         }
         
     }
+}
+
+
+-(void)viewWillAppear:(BOOL)animated{
     [self performSelector:@selector(updatecurrentLocation) withObject:nil afterDelay:5];
-    /*
-     if (self.currentProduct.shop.longcoordinate) {
-     NSLog(@"i have Coordinates ");
-     [self step1locationupdate];
-     //[self step2locationupdate];
-     } else {
-     NSLog(@"i have Nothing ");
-     [self step2locationupdate];
-     }
-     */
 }
 
 
@@ -226,8 +214,6 @@
 
 
 -(void)updatecurrentLocation{
-    
-    
     if (self.currentProduct.shop.longcoordinate) {
         NSLog(@"i have Coordinates ");
         [self step1locationupdate];
@@ -275,10 +261,6 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([[segue identifier] isEqualToString:@"setshoploc"]) {
-        //setlocationViewController *sholocatviewcontroller=(setlocationViewController*)[segue destinationViewController];
-        //[self presentViewController:sholocatviewcontroller animated:YES completion:nil];
-        //sholocatviewcontroller.shoplocationlong=50 ;
-        //sholocatviewcontroller.shoplocationlat=-120;
     }
 }
 - (void)didReceiveMemoryWarning
@@ -286,13 +268,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-#pragma mark - Table view data source
-
-
-
-
-
 
 #pragma mark - Table view delegate
 - (IBAction)RatingSlidervalue:(id)sender {
@@ -526,7 +501,7 @@
     
 }
 
-
+/*
 -(void)preparetheitemtosave{
     //[spinner startAnimating];
     [self.currentProduct.shop setShopname:[ShopField text]];
@@ -580,6 +555,7 @@
         [self.currentProduct setImage:smallImageData];
     }
 }
+*/
 
 - (void) viewWillDisappear: (BOOL) animated {
     [super viewWillDisappear: animated];
@@ -595,34 +571,28 @@
 //  Pick an image from album
 - (IBAction)imageFromAlbum:(id)sender
 {
-    imagePicker = [[UIImagePickerController alloc] init];
-    imagePicker.delegate = self;
-    imagePicker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
-    
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        if ([self.popoverController isPopoverVisible]) {
-            [self.popoverController dismissPopoverAnimated:YES];
-        } else {
-            UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController:imagePicker];
-            [popover presentPopoverFromRect:self.imageField.bounds inView:self.imageField permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-            self.popoverController=popover;
-        }
-    } else {
-        [self presentViewController:imagePicker animated:YES completion:nil];
-    }
-    
-    
-    
-    // [self presentViewController:imagePicker animated:YES completion:nil];
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        //your code
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        picker.delegate = self;
+        picker.allowsEditing = YES;
+        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        [self presentViewController:picker animated:YES completion:NULL];
+    }];
 }
+
 //  Take an image with camera
 - (IBAction)imagefromCamera:(id)sender {
-    imagePicker = [[UIImagePickerController alloc] init];
-    imagePicker.delegate = self;
-    imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-    imagePicker.cameraDevice = UIImagePickerControllerCameraDeviceRear;
-    [self presentViewController:imagePicker animated:YES completion:nil];
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        picker.delegate = self;
+        picker.allowsEditing = YES;
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        [self presentViewController:picker animated:YES completion:NULL];
+    }];
 }
+
+/*
 -(void)savethediteditem{
     [self preparetheitemtosave];
     //self.managedObjectContext=self.currentshop.managedObjectContext;
@@ -662,10 +632,7 @@
     
 }
 
-
-
-
-
+*/
 
 
 //  Resign the keyboard after Done is pressed when editing text fields
@@ -696,23 +663,20 @@
     
 }
 
-
-
 #pragma mark - Image Picker Delegate Methods
 
 //  Dismiss the image picker on selection and use the resulting image in our ImageView
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo
-{
-    [imagePicker dismissViewControllerAnimated:YES completion:nil];
-    [popoverController dismissPopoverAnimated:YES];
-    [imageField setImage:image];
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    self.imageField.image = chosenImage;
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 //  On cancel, only dismiss the picker controller
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
-{
-    [imagePicker dismissViewControllerAnimated:YES completion:nil];
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:YES completion:NULL];
 }
+
 
 ///To be used Later on When Tweaking the Viewontroller
 - (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section

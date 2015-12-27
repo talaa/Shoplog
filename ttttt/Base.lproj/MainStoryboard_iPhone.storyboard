@@ -327,7 +327,7 @@
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="imagefromCamera:" destination="G1I-1g-veF" eventType="touchUpInside" id="Oz2-LM-wiE"/>
+                                                        <action selector="imagefromCamera:" destination="G1I-1g-veF" eventType="touchUpInside" id="HyC-Vw-k26"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ell-r5-LJ5">
@@ -356,7 +356,7 @@
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="imageFromAlbum:" destination="G1I-1g-veF" eventType="touchUpInside" id="tX6-p9-xJ5"/>
+                                                        <action selector="imageFromAlbum:" destination="G1I-1g-veF" eventType="touchUpInside" id="gH6-5t-gsg"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -713,7 +713,7 @@
                         <outlet property="WebsiteField" destination="Bnh-H8-6LI" id="E0b-CF-NnZ"/>
                         <outlet property="cataloguenamefield" destination="3JG-HW-VuR" id="w3S-cH-IUF"/>
                         <outlet property="commentsView" destination="rKe-9m-HNL" id="pn5-MU-4cV"/>
-                        <outlet property="imageField" destination="gNm-tJ-EzN" id="Tm8-6L-ZgD"/>
+                        <outlet property="imageField" destination="gNm-tJ-EzN" id="LqZ-Fq-bBL"/>
                         <outlet property="pickPhotoButton" destination="Vrn-bs-XVB" id="1WZ-oI-92Z"/>
                         <outlet property="ratingslider" destination="Xhg-tk-H3Q" id="CAk-tj-LRZ"/>
                         <outlet property="scanQRButton" destination="Ell-r5-LJ5" id="pvS-kk-Tby"/>
