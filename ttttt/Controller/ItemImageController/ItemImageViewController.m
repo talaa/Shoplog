@@ -23,7 +23,6 @@
 {
     Shoplog             *shoplog;
     Shop                *shop;
-    //FBSDKShareButton    *shareButton;
 }
 
 @end
@@ -216,7 +215,7 @@
     
     UIAlertAction *remove = [UIAlertAction actionWithTitle:@"Remove" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
         //<#code#>
-        [DataParsing removeEntityRecordbyItemId:shoplog.itemId AndEntityName:@"Shoplog"];
+        [DataParsing removeEntityRecordbyItemId:shoplog.itemId];
         //check if there aren't any items longer to a category, thus delete this category from core data
         [DataParsing removeCategoryInCaseOfNoItems:shoplog.categoryname];
         [self.navigationController popToRootViewControllerAnimated:YES];
