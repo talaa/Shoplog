@@ -135,7 +135,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0pS-7G-LAN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2473" y="-3554"/>
+            <point key="canvasLocation" x="2570" y="-3616"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="ctg-KG-yvp">
@@ -247,7 +247,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x3F-9A-91p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2352" y="-3913"/>
+            <point key="canvasLocation" x="2107" y="-3909"/>
         </scene>
         <!--Add Product Detail View Controller-->
         <scene sceneID="wzG-k5-Lrz">
@@ -327,7 +327,7 @@
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="imagefromCamera:" destination="G1I-1g-veF" eventType="touchUpInside" id="Oz2-LM-wiE"/>
+                                                        <action selector="imagefromCamera:" destination="G1I-1g-veF" eventType="touchUpInside" id="HyC-Vw-k26"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ell-r5-LJ5">
@@ -356,7 +356,7 @@
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="imageFromAlbum:" destination="G1I-1g-veF" eventType="touchUpInside" id="tX6-p9-xJ5"/>
+                                                        <action selector="imageFromAlbum:" destination="G1I-1g-veF" eventType="touchUpInside" id="gH6-5t-gsg"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -713,7 +713,7 @@
                         <outlet property="WebsiteField" destination="Bnh-H8-6LI" id="E0b-CF-NnZ"/>
                         <outlet property="cataloguenamefield" destination="3JG-HW-VuR" id="w3S-cH-IUF"/>
                         <outlet property="commentsView" destination="rKe-9m-HNL" id="pn5-MU-4cV"/>
-                        <outlet property="imageField" destination="gNm-tJ-EzN" id="Tm8-6L-ZgD"/>
+                        <outlet property="imageField" destination="gNm-tJ-EzN" id="LqZ-Fq-bBL"/>
                         <outlet property="pickPhotoButton" destination="Vrn-bs-XVB" id="1WZ-oI-92Z"/>
                         <outlet property="ratingslider" destination="Xhg-tk-H3Q" id="CAk-tj-LRZ"/>
                         <outlet property="scanQRButton" destination="Ell-r5-LJ5" id="pvS-kk-Tby"/>
@@ -1188,7 +1188,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="paO-36-cdE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2611" y="-3273"/>
+            <point key="canvasLocation" x="2865" y="-3323"/>
         </scene>
         <!--Webdetail View Controller-->
         <scene sceneID="Icv-TB-aaI">
@@ -1461,26 +1461,26 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pmt-dA-UMs">
                                                     <rect key="frame" x="0.0" y="0.0" width="145" height="152"/>
                                                 </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Heart1.png" translatesAutoresizingMaskIntoConstraints="NO" id="CCP-Cx-THB">
+                                                    <rect key="frame" x="103" y="9" width="34" height="25"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vJo-Ul-fi9">
+                                                    <rect key="frame" x="108" y="8" width="24" height="25"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="htE-lX-ghz">
-                                                    <rect key="frame" x="0.0" y="110" width="140" height="34"/>
+                                                    <rect key="frame" x="0.0" y="118" width="145" height="34"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QK3-nJ-LDo">
-                                                            <rect key="frame" x="8" y="5" width="63" height="25"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Heart1.png" translatesAutoresizingMaskIntoConstraints="NO" id="CCP-Cx-THB">
-                                                            <rect key="frame" x="98" y="5" width="34" height="25"/>
-                                                        </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vJo-Ul-fi9">
-                                                            <rect key="frame" x="103" y="4" width="24" height="25"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QK3-nJ-LDo">
+                                                            <rect key="frame" x="16" y="4" width="112" height="25"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.12" colorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.20000000000000001" colorSpace="calibratedWhite"/>
                                                     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.12" colorSpace="calibratedRGB"/>
                                                 </view>
                                             </subviews>
