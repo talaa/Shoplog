@@ -106,7 +106,7 @@
     
     //configure cell
     Shoplog *shoplog = [[self.productsByCategoryMArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-    cell.priceLabel.text = [NSString stringWithFormat:@"%f",shoplog.price];
+    cell.priceLabel.text = [NSString stringWithFormat:@"%.02f",shoplog.price];
     cell.imageView.image = [UIImage imageWithData:shoplog.image];
     cell.rateLabel.text = [NSString stringWithFormat:@"%d", shoplog.rating];
     cell.nameLabel.text = @"";

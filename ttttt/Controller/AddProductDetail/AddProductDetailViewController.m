@@ -113,7 +113,7 @@
         self.WebsiteField.text = dTranferObje.defwebsiteurl;
         self.ShopField.text = dTranferObje.defshopname;
         self.PhoneField.text = [NSString stringWithFormat:@"%@", dTranferObje.defphone];
-        self.PriceField.text = [NSString stringWithFormat:@"%f",dTranferObje.defprice];
+        self.PriceField.text = [NSString stringWithFormat:@"%.02f",dTranferObje.defprice];
         self.cataloguenamefield.text = dTranferObje.defcatqr;
         if (self.isEdit == YES){
             //get from edit behavior
