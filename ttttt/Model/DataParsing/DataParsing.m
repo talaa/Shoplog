@@ -216,8 +216,12 @@
             [shoplog setValue:[NSNumber numberWithFloat:dTransferObj.defprice] forKey:@"price"];
             [shoplog setValue:dTransferObj.defimagedata forKey:@"image"];
             [shoplog setValue:[NSNumber numberWithInt:dTransferObj.defrating] forKey:@"rating"];
-            [shoplog setValue:[NSDecimalNumber decimalNumberWithString:dTransferObj.defphone] forKey:@"phone"];
-            [shoplog setValue:dTransferObj.defwebsiteurl forKey:@"websiteurl"];
+            if (dTransferObj.defphone != nil){
+                [shoplog setValue:[NSDecimalNumber decimalNumberWithString:dTransferObj.defphone] forKey:@"phone"];
+            }
+            if (dTransferObj.defwebsiteurl != nil){
+                [shoplog setValue:dTransferObj.defwebsiteurl forKey:@"websiteurl"];
+            }
             
             if ([self ifCategoryNameExistOnEntit:@"Category" CategoryName:dTransferObj.defcatqr] == YES){
                 //Exist no saving

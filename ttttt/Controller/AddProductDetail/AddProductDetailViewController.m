@@ -331,14 +331,23 @@
 /********************************************************/
 
 - (IBAction)editExistButtonPressed:(id)sender{
-    if (self.cataloguenamefield.text.length >0 && self.PriceField.text.length>0 && self.imageField.image != nil && self.ShopField.text.length>0 && self.PhoneField.text >0 && self.WebsiteField.text >0){
+    if (self.cataloguenamefield.text.length >0 && self.PriceField.text.length>0 && self.imageField.image != nil && self.ShopField.text.length>0 ){
         dTranferObje.defcatqr           = self.cataloguenamefield.text;
         dTranferObje.defprice           = [self.PriceField.text floatValue];
         dTranferObje.defimagedata       = UIImagePNGRepresentation(self.imageField.image);
         dTranferObje.defshopname        = self.ShopField.text;
         dTranferObje.defrating          = self.ratingslider.value;
-        dTranferObje.defphone           = self.PhoneField.text;
-        dTranferObje.defwebsiteurl      = self.WebsiteField.text;
+        if (self.PhoneField.text.length>0){
+            dTranferObje.defphone           = self.PhoneField.text;
+        }else{
+            dTranferObje.defphone = nil;
+        }
+        if (self.WebsiteField.text.length>0){
+            dTranferObje.defwebsiteurl      = self.WebsiteField.text;
+        }else{
+            dTranferObje.defwebsiteurl = nil;
+        }
+        
         
         [DataParsing editProductById:dTranferObje.defId AndEntityName:@"Shoplog"];
         [DataParsing dataTransferObjectDeAllocat];
