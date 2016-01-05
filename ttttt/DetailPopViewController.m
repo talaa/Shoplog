@@ -181,7 +181,7 @@
         UIAlertView *Notpermitted=[[UIAlertView alloc] initWithTitle:@"Alert" message:NSLocalizedString(@"Devicenotsupported", nil) delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [Notpermitted show];
         [Flurry logEvent:@"Phone call done" timed:YES];
-        
+        [RFRateMe showRateAlert];
     }
 }
 
@@ -195,6 +195,7 @@
     [picker addAttachmentData:[self.detailItem valueForKey:@"image"] mimeType:@"image/png" fileName:@"Photos"];
     [self presentViewController:picker animated:YES completion:nil];
     [Flurry logEvent:@"email sent" timed:YES];
+    [RFRateMe showRateAlert];
 }
 -(void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error{
 

@@ -8,6 +8,7 @@
 
 #import "SigninViewController.h"
 #import "TempData.h"
+ #import "RFRateMe.h"
 
 @interface SigninViewController ()
 

@@ -11,6 +11,7 @@
 #import <Parse/Parse.h>
 #import "AddProductDetailViewController.h"
 #import "Flurry.h"
+ #import "RFRateMe.h"
 @class Shoplog;
 @protocol MyPopoverDelegate <NSObject>
 -(void)didClickdeleteButton;
