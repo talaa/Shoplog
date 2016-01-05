@@ -9,9 +9,9 @@
 #import "RFRateMe.h"
 #import "UIAlertView+NSCookbook.h"
 
-#define kNumberOfDaysUntilShowAgain 3
-#define kAppStoreAddress @"https://itunes.apple.com/us/app/jobsy/id687059035"
-#define kAppName @"MyApp"
+#define kNumberOfDaysUntilShowAgain 1
+#define kAppStoreAddress @"https://itunes.apple.com/us/app/shoplog/id557686446?mt=8"
+#define kAppName @"Shoplog"
 
 @implementation RFRateMe
 
