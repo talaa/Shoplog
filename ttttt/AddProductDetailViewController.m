@@ -8,6 +8,7 @@
 #define METERS_PER_MILE 1609.344
 #import "AddProductDetailViewController.h"
 #import "TestViewController.h"
+#import "DataTransferObject.h"
 #import "DataTransfer.h"
 #import "Flurry.h"
 @interface AddProductDetailViewController ()
@@ -44,20 +45,7 @@
     return self;
 }
 
--(void)viewWillAppear:(BOOL)animated{
-    [self performSelector:@selector(updatecurrentLocation) withObject:nil afterDelay:5];
-    /*
-    if (self.currentProduct.shop.longcoordinate) {
-        NSLog(@"i have Coordinates ");
-        [self step1locationupdate];
-        //[self step2locationupdate];
-    } else {
-         NSLog(@"i have Nothing ");
-        [self step2locationupdate];
-    }
-     */
 
-        }
 -(void)step1locationupdate{
     //1
     CLLocationCoordinate2D zoomLocation;
@@ -160,6 +148,22 @@
     cataloguenamefield.text=self.title;
     if (Qrcodecatalogue) {
         //
+        DataTransferObject *dTranferObje = [DataTransferObject getInstance];
+        [cataloguenamefield setText:dTranferObje.defcatqr];
+        [PriceField setText:[NSString stringWithFormat:@"%.2f",dTranferObje.defprice]];
+        [ShopField setText:dTranferObje.defshopname];
+        [DimensionsField setText:dTranferObje.defdimsize];
+        [LongTextfield setText:[NSString stringWithFormat:@"%f",dTranferObje.deflong]];
+        [LatTextField setText:[NSString stringWithFormat:@"%f",dTranferObje.deflat]];
+        longsaved=dTranferObje.deflong;
+        latsaved=dTranferObje.deflat;
+        [PhoneField setText:[NSString stringWithFormat:@"%@",dTranferObje.defphone]];
+        [EmailField setText:dTranferObje.defemail];
+        [WebsiteField setText:dTranferObje.defwebsiteurl];
+        [commentsView setText:[_currentProduct comments]];
+        [imageField setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:dTranferObje.defimagenameqr]]]];
+
+        /*
         [cataloguenamefield setText:[DataTransfer CategorynameQr]];
         [PriceField setText:[NSString stringWithFormat:@"%.2f",[DataTransfer priceQr]]];
         [ratingslider setValue:[DataTransfer ratingQr] animated:YES];
@@ -174,6 +178,7 @@
         [WebsiteField setText:[DataTransfer websiteurlQr]];
         [commentsView setText:[_currentProduct comments]];
         [imageField setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[DataTransfer ImageQr]]]]];
+         */
         Qrcodecatalogue=NO;
         
     }
@@ -182,6 +187,36 @@
     //NSLog(@"The Supposed Saved values are %f %f",longsaved,latsaved);
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
+}
+-(void)viewWillAppear:(BOOL)animated{
+    DataTransferObject *dTranferObje=[DataTransferObject getInstance];
+    if (dTranferObje.defcatqr == nil){
+        
+    }else{
+        self.LatTextField.text = [NSString stringWithFormat:@"%f",dTranferObje.deflat];
+        self.LongTextfield.text = [NSString stringWithFormat:@"%f",dTranferObje.deflong];
+        self.WebsiteField.text = dTranferObje.defwebsiteurl;
+        self.ShopField.text = dTranferObje.defshopname;
+        self.DimensionsField.text=dTranferObje.defdimsize;
+        self.PhoneField.text = [NSString stringWithFormat:@"%@", dTranferObje.defphone];
+        self.PriceField.text = [NSString stringWithFormat:@"%.2f",dTranferObje.defprice];
+        self.cataloguenamefield.text = dTranferObje.defcatqr;
+        self.imageField.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:dTranferObje.defimagenameqr]]];
+    }
+    
+    
+    [self performSelector:@selector(updatecurrentLocation) withObject:nil afterDelay:5];
+    /*
+     if (self.currentProduct.shop.longcoordinate) {
+     NSLog(@"i have Coordinates ");
+     [self step1locationupdate];
+     //[self step2locationupdate];
+     } else {
+     NSLog(@"i have Nothing ");
+     [self step2locationupdate];
+     }
+     */
+    
 }
 -(void)configuregradient{
     //gradientview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)] ;

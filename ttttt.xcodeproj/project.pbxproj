@@ -41,6 +41,7 @@
 		692076D7170C415E00F2661C /* 4-1-2013 3-50-07 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = 692076D6170C415D00F2661C /* 4-1-2013 3-50-07 PM.png */; };
 		692076DA170C430B00F2661C /* icon_magnify_glass.png in Resources */ = {isa = PBXBuildFile; fileRef = 692076D9170C430A00F2661C /* icon_magnify_glass.png */; };
 		692076DC170C459700F2661C /* blue-ribbon-banner-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 692076DB170C459600F2661C /* blue-ribbon-banner-2.png */; };
+		692559461C31A439003368A2 /* DataTransferObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 692559451C31A439003368A2 /* DataTransferObject.m */; };
 		6928073A169B96EA00D5EDFF /* AdFooterview.m in Sources */ = {isa = PBXBuildFile; fileRef = 69280739169B96EA00D5EDFF /* AdFooterview.m */; };
 		692807E3169B9B6600D5EDFF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 692807E2169B9B6600D5EDFF /* AudioToolbox.framework */; };
 		692807E5169B9B8100D5EDFF /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 692807E4169B9B8100D5EDFF /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -225,6 +226,8 @@
 		692076D6170C415D00F2661C /* 4-1-2013 3-50-07 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "4-1-2013 3-50-07 PM.png"; sourceTree = "<group>"; };
 		692076D9170C430A00F2661C /* icon_magnify_glass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_magnify_glass.png; sourceTree = "<group>"; };
 		692076DB170C459600F2661C /* blue-ribbon-banner-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue-ribbon-banner-2.png"; sourceTree = "<group>"; };
+		692559441C31A439003368A2 /* DataTransferObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataTransferObject.h; sourceTree = "<group>"; };
+		692559451C31A439003368A2 /* DataTransferObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataTransferObject.m; sourceTree = "<group>"; };
 		69280738169B96EA00D5EDFF /* AdFooterview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdFooterview.h; sourceTree = "<group>"; };
 		69280739169B96EA00D5EDFF /* AdFooterview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdFooterview.m; sourceTree = "<group>"; };
 		692807E2169B9B6600D5EDFF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -614,6 +617,8 @@
 				698210DF191FF3CB001DB6D7 /* QRcodereaderViewController.m */,
 				6990D6B21923EB7600807B13 /* DataTransfer.h */,
 				6990D6B31923EB7600807B13 /* DataTransfer.m */,
+				692559441C31A439003368A2 /* DataTransferObject.h */,
+				692559451C31A439003368A2 /* DataTransferObject.m */,
 			);
 			name = "QR Code Reader";
 			sourceTree = "<group>";
@@ -1177,6 +1182,7 @@
 				690C258D171E088500139FDA /* pricegrabbersearch.m in Sources */,
 				690C2590171E0A0400139FDA /* Shoppingcom.m in Sources */,
 				690C2593171E0CE300139FDA /* Shopzila.m in Sources */,
+				692559461C31A439003368A2 /* DataTransferObject.m in Sources */,
 				697847B3174B89DD00E38120 /* ShoplogactivityViewController.m in Sources */,
 				697DE636174D14840008D996 /* UpgradeViewController.m in Sources */,
 				697DE639174D14E40008D996 /* TPKeyboardAvoidingTableView.m in Sources */,
@@ -1323,8 +1329,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1359,8 +1365,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

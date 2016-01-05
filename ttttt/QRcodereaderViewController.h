@@ -12,6 +12,9 @@
 #import "DataTransfer.h"
 
 @interface QRcodereaderViewController : UIViewController<AVCaptureMetadataOutputObjectsDelegate>
+{
+    NSMutableArray *dataTransferMArray;
+}
 @property (weak, nonatomic) IBOutlet UIView *viewPreview;
 @property (weak, nonatomic) IBOutlet UILabel *lblStatus;
 @property (weak, nonatomic) IBOutlet UIButton *bbitemStart;
