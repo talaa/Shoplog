@@ -67,7 +67,7 @@
         if ([self startReading]) {
             
             [bbitemStart setTitle:@"Stop" forState:UIControlStateNormal];
-            [lblStatus setText:@"Scanning for QR Code..."];
+            //[lblStatus setText:@"Scanning for QR Code..."];
         }
     }
     else{
@@ -117,7 +117,7 @@
     if (metadataObjects != nil && [metadataObjects count] > 0) {
         AVMetadataMachineReadableCodeObject *metadataObj = [metadataObjects objectAtIndex:0];
         if ([[metadataObj type] isEqualToString:AVMetadataObjectTypeQRCode]) {
-            [lblStatus performSelectorOnMainThread:@selector(setText:) withObject:[metadataObj stringValue] waitUntilDone:NO];
+            //[lblStatus performSelectorOnMainThread:@selector(setText:) withObject:[metadataObj stringValue] waitUntilDone:NO];
             QRstring=[metadataObj stringValue];
             NSArray *strings = [[metadataObj stringValue] componentsSeparatedByString:@","];
             
