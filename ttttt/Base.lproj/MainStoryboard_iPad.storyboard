@@ -480,6 +480,12 @@
                             <view contentMode="scaleToFill" id="3zd-RR-mut">
                                 <rect key="frame" x="147" y="152" width="475" height="475"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="QRimage" id="JnE-3x-MpR">
+                                        <rect key="frame" x="0.0" y="0.0" width="475" height="475"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" red="0.45458309331797231" green="0.45458309331797231" blue="0.45458309331797231" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nLU-h7-PrW">
@@ -752,7 +758,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="XdZ-Li-uHL" customClass="MyCustomCell">
-                                <rect key="frame" x="0.0" y="114" width="240" height="240"/>
+                                <rect key="frame" x="0.0" y="50" width="240" height="240"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="240" height="240"/>
@@ -789,7 +795,7 @@
                                 </connections>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell1" id="EVq-vy-tqn" customClass="MyCustomCell">
-                                <rect key="frame" x="264" y="114" width="240" height="240"/>
+                                <rect key="frame" x="264" y="50" width="240" height="240"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="240" height="240"/>
@@ -807,7 +813,7 @@
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HeaderView" id="BHS-mZ-brt" customClass="HeaderView">
-                            <rect key="frame" x="0.0" y="64" width="768" height="50"/>
+                            <rect key="frame" x="0.0" y="0.0" width="768" height="50"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Headerview.png" id="9hh-bk-IrW">
@@ -840,7 +846,7 @@
                             </connections>
                         </collectionReusableView>
                         <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="adFooterview" id="o7T-1j-ugo" customClass="AdFooterview">
-                            <rect key="frame" x="0.0" y="354" width="768" height="85"/>
+                            <rect key="frame" x="0.0" y="290" width="768" height="85"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         </collectionReusableView>
                         <connections>
@@ -1163,6 +1169,7 @@
         <image name="Heart1.png" width="241" height="209"/>
         <image name="Phone1.png" width="512" height="512"/>
         <image name="QR-Scan" width="372" height="372"/>
+        <image name="QRimage" width="146" height="159"/>
         <image name="Web-icon.png" width="256" height="256"/>
         <image name="backimage.png" width="508" height="569"/>
         <image name="blue-ribbon-banner-2.png" width="600" height="200"/>

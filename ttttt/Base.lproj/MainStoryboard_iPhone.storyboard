@@ -20,7 +20,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="Cell" id="h5B-os-a2k" customClass="MyCustomCell">
-                                <rect key="frame" x="0.0" y="99" width="159" height="152"/>
+                                <rect key="frame" x="0.0" y="35" width="159" height="152"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="159" height="152"/>
@@ -64,7 +64,7 @@
                                 </connections>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell1" id="kmW-AG-6Cb" customClass="MyCustomCell">
-                                <rect key="frame" x="159" y="100" width="159" height="150"/>
+                                <rect key="frame" x="159" y="36" width="159" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="159" height="150"/>
@@ -84,7 +84,7 @@
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="HeaderView" id="Z7U-xT-yk1" customClass="HeaderView">
-                            <rect key="frame" x="0.0" y="64" width="320" height="35"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="35"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Headerview.png" id="9sa-dT-F9I">
@@ -121,7 +121,7 @@
                             </connections>
                         </collectionReusableView>
                         <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="adFooterview" id="zG7-oz-kmE" customClass="AdFooterview">
-                            <rect key="frame" x="0.0" y="251" width="320" height="80"/>
+                            <rect key="frame" x="0.0" y="187" width="320" height="80"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </collectionReusableView>
                         <connections>
@@ -801,6 +801,12 @@
                             <view contentMode="scaleToFill" id="VBx-ov-lej">
                                 <rect key="frame" x="28" y="72" width="265" height="380"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="QRimage" id="9UO-zb-dRR">
+                                        <rect key="frame" x="0.0" y="0.0" width="265" height="380"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" red="0.4234411002304147" green="0.4234411002304147" blue="0.4234411002304147" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6ZV-aN-5w8">
@@ -1612,6 +1618,7 @@
         <image name="Mail" width="512" height="512"/>
         <image name="Phone1.png" width="512" height="512"/>
         <image name="QR-Scan" width="372" height="372"/>
+        <image name="QRimage" width="146" height="159"/>
         <image name="Web-icon.png" width="256" height="256"/>
         <image name="backimage.png" width="508" height="569"/>
         <image name="blue-ribbon-banner-2.png" width="600" height="200"/>
