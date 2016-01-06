@@ -8,6 +8,7 @@
 
 #import "UpgradeViewController.h"
 #import "Flurry.h"
+ #import "RFRateMe.h"
 #define kInAppPurchaseProUpgradeProductId @"6VJ733SKX8.com.springmoon.Shoplog.upgrade"
 //#define kInAppPurchaseProUpgradeProductId @"com.springmoon.Shoplog.upgrade"
 @interface UpgradeViewController ()
@@ -75,9 +76,7 @@
     [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
     [[SKPaymentQueue defaultQueue] addPayment:payment];
     [Flurry logEvent:@"upgrade is done " ];
-
-
-
+    [RFRateMe showRateAlert];
 }
 
 - (IBAction)restoreaction:(id)sender {

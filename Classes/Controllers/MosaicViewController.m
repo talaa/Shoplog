@@ -9,7 +9,7 @@
 #import "MosaicCell.h"
 #import "WebdetailViewController.h"
 #import "CustomDataSource.h"
-
+ #import "RFRateMe.h"
 #import "Flurry.h"
 
 @interface MosaicViewController()
@@ -140,6 +140,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     }
      */
     [Flurry logEvent:@"mosaicview"];
+    [RFRateMe showRateAlert];
     cds=[[CustomDataSource alloc]init];
     self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     self.collectionView.delegate = self;

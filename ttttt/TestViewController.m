@@ -34,6 +34,7 @@ typedef enum SocialButtonTags
 #import "pricegrabbersearch.h"
 #import "WebViewController.h"
 #import "TempData.h"
+ #import "RFRateMe.h"
 
 //#import "MyCustomCell.h"
 //#import "HeaderView.h"
@@ -113,6 +114,7 @@ typedef enum SocialButtonTags
         UIAlertView *endoftheline=[[UIAlertView alloc]initWithTitle:@"GO PRO" message:NSLocalizedString(@"GOPRO", nil) delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"GO PRO", nil];
         [endoftheline show];
         [Flurry logEvent:@"Free limit reached" timed:YES];
+        [RFRateMe showRateAlert];
     
     }
 }
@@ -725,6 +727,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         UIImage *newimage=[createimagetag Imagetag:ChosenPhot];
         NSDictionary *flurrydicttionary3=[[NSDictionary alloc]initWithObjectsAndKeys:ChosenPhot.categoryname,@"SharedCategoryname", nil];
         [Flurry logEvent:@"SharedCatalogue" withParameters:flurrydicttionary3 timed:YES];
+        [RFRateMe showRateAlert];
         [newArray addObject:newimage];
 
     }

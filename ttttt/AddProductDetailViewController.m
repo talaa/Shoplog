@@ -11,6 +11,7 @@
 #import "DataTransferObject.h"
 #import "DataTransfer.h"
 #import "Flurry.h"
+#import "RFRateMe.h"
 @interface AddProductDetailViewController ()
 
 @end
@@ -53,7 +54,7 @@
     zoomLocation.longitude= self.currentProduct.shop.longcoordinate;
     MKCoordinateSpan mapspan= MKCoordinateSpanMake(2, 2);
     // 2
-
+    
     // Add the Annotation
     MyAnotation *annot = [[MyAnotation alloc] init];
     annot.coordinate = zoomLocation;
@@ -64,8 +65,8 @@
     MKCoordinateRegion adjustedRegion = [Maplocation regionThatFits:viewRegion];
     // 4
     [Maplocation setRegion:adjustedRegion animated:YES];
-
-
+    
+    
 }
 -(void)step2locationupdate{
     Maplocation.showsUserLocation=YES;
@@ -82,9 +83,9 @@
     
     [Maplocation setRegion:mapRegion animated:YES];
     NSLog(@"The USer Location are :%f %f",Maplocation.userLocation.coordinate.latitude,Maplocation.userLocation.coordinate.longitude);
-
-
-
+    
+    
+    
 }
 
 - (void)viewDidLoad
@@ -95,12 +96,12 @@
     self.locationManager.distanceFilter = kCLDistanceFilterNone;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     [self.locationManager startUpdatingLocation];
- 
+    
     if(IS_OS_8_OR_LATER) {
         [self.locationManager requestAlwaysAuthorization];
         [self.locationManager requestWhenInUseAuthorization];
     }
-
+    
     
     
     //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"web-elements.png"]];
@@ -113,7 +114,7 @@
     if (_currentProduct)
     {
         //[[PriceField setText:[[_currentProduct price]stringValue]];
-         [PriceField setText:[NSString stringWithFormat:@"%.2f", [_currentProduct price]]];
+        [PriceField setText:[NSString stringWithFormat:@"%.2f", [_currentProduct price]]];
         [ShopField setText:[_currentProduct.shop shopname]];
         [LongTextfield setText:[NSString stringWithFormat:@"%f",[_currentProduct.shop longcoordinate]]];
         [LatTextField setText:[NSString stringWithFormat:@"%f",[_currentProduct.shop latcoordinate]]];
@@ -130,21 +131,21 @@
         if ([_currentProduct image])
             [imageField setImage:[UIImage imageWithData:[_currentProduct image]]];
         
-            
+        
     }
     
-    ///Enabling the Catalogue Filed Name 
+    ///Enabling the Catalogue Filed Name
     if (newcatalogue) {
         self.cataloguenamefield.enabled=YES;
     }
-
-    //Enabling the Done Button @ the Bottom 
+    
+    //Enabling the Done Button @ the Bottom
     if (edit_add) {
         self.Testnavigation.hidden=YES;
     } else {
         self.Testnavigation.hidden=NO;
     }
-        //self.Testnavigation.hidden=YES;
+    //self.Testnavigation.hidden=YES;
     cataloguenamefield.text=self.title;
     if (Qrcodecatalogue) {
         //
@@ -162,22 +163,22 @@
         [WebsiteField setText:dTranferObje.defwebsiteurl];
         [commentsView setText:[_currentProduct comments]];
         [imageField setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:dTranferObje.defimagenameqr]]]];
-
+        
         /*
-        [cataloguenamefield setText:[DataTransfer CategorynameQr]];
-        [PriceField setText:[NSString stringWithFormat:@"%.2f",[DataTransfer priceQr]]];
-        [ratingslider setValue:[DataTransfer ratingQr] animated:YES];
-        [ShopField setText:[DataTransfer shopnameQr]];
-        [DimensionsField setText:[DataTransfer dimSizeQr]];
-        [LongTextfield setText:[NSString stringWithFormat:@"%f",[DataTransfer longshopQr]]];
-        [LatTextField setText:[NSString stringWithFormat:@"%f",[DataTransfer latshopQr]]];
-        longsaved=[DataTransfer longshopQr];
-        latsaved=[DataTransfer latshopQr];
-        [PhoneField setText:[NSString stringWithFormat:@"%f",[DataTransfer phoneQr]]];
-        [EmailField setText:[DataTransfer emailQr]];
-        [WebsiteField setText:[DataTransfer websiteurlQr]];
-        [commentsView setText:[_currentProduct comments]];
-        [imageField setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[DataTransfer ImageQr]]]]];
+         [cataloguenamefield setText:[DataTransfer CategorynameQr]];
+         [PriceField setText:[NSString stringWithFormat:@"%.2f",[DataTransfer priceQr]]];
+         [ratingslider setValue:[DataTransfer ratingQr] animated:YES];
+         [ShopField setText:[DataTransfer shopnameQr]];
+         [DimensionsField setText:[DataTransfer dimSizeQr]];
+         [LongTextfield setText:[NSString stringWithFormat:@"%f",[DataTransfer longshopQr]]];
+         [LatTextField setText:[NSString stringWithFormat:@"%f",[DataTransfer latshopQr]]];
+         longsaved=[DataTransfer longshopQr];
+         latsaved=[DataTransfer latshopQr];
+         [PhoneField setText:[NSString stringWithFormat:@"%f",[DataTransfer phoneQr]]];
+         [EmailField setText:[DataTransfer emailQr]];
+         [WebsiteField setText:[DataTransfer websiteurlQr]];
+         [commentsView setText:[_currentProduct comments]];
+         [imageField setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[DataTransfer ImageQr]]]]];
          */
         Qrcodecatalogue=NO;
         
@@ -263,7 +264,7 @@
 
 
 -(void)updatecurrentLocation{
-
+    
     
     if (self.currentProduct.shop.longcoordinate) {
         NSLog(@"i have Coordinates ");
@@ -274,12 +275,12 @@
         [self step2locationupdate];
     }
     /*
-    Maplocation.showsUserLocation=YES;
-    MKCoordinateRegion mapregion;
-    mapregion.center=Maplocation.userLocation.coordinate;
-    mapregion.span.latitudeDelta = 2;
-    mapregion.span.longitudeDelta = 2;
-    [Maplocation setRegion:mapregion animated: YES];
+     Maplocation.showsUserLocation=YES;
+     MKCoordinateRegion mapregion;
+     mapregion.center=Maplocation.userLocation.coordinate;
+     mapregion.span.latitudeDelta = 2;
+     mapregion.span.longitudeDelta = 2;
+     [Maplocation setRegion:mapregion animated: YES];
      */
 }
 
@@ -312,13 +313,13 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([[segue identifier] isEqualToString:@"setshoploc"]) {
-    //setlocationViewController *sholocatviewcontroller=(setlocationViewController*)[segue destinationViewController];
+        //setlocationViewController *sholocatviewcontroller=(setlocationViewController*)[segue destinationViewController];
         //[self presentViewController:sholocatviewcontroller animated:YES completion:nil];
-    //sholocatviewcontroller.shoplocationlong=50 ;
-    //sholocatviewcontroller.shoplocationlat=-120;
+        //sholocatviewcontroller.shoplocationlong=50 ;
+        //sholocatviewcontroller.shoplocationlat=-120;
     }
-
-
+    
+    
 }
 - (void)didReceiveMemoryWarning
 {
@@ -356,11 +357,13 @@
         
         //Check if Shopdetails Are available;
         [Flurry logEvent:@"YES send to shoplog" withParameters:userdata timed:YES];
+        [RFRateMe showRateAlert];
         NSLog(@"YES send to shoplog");
         
     }else{
-    
-    [Flurry logEvent:@"NO send to shoplog" withParameters:userdata timed:YES];
+        
+        [Flurry logEvent:@"NO send to shoplog" withParameters:userdata timed:YES];
+        [RFRateMe showRateAlert];
         NSLog(@"NO send to shoplog");
     }
     
@@ -371,108 +374,109 @@
     BOOL emptycatalogue =[cataloguenamefield.text isEqualToString:@""];
     if (!emptycatalogue) {
         
-    
-    // If we are adding a new picture (because we didnt pass one from the table) then create an entry
-    if (!_currentProduct)
-        self.currentProduct = (Shoplog *)[NSEntityDescription insertNewObjectForEntityForName:@"Shoplog"inManagedObjectContext:self.managedObjectContext];
-    if(!_currentshop)
-        self.currentshop=(Shop*)[NSEntityDescription insertNewObjectForEntityForName:@"Shop" inManagedObjectContext:self.managedObjectContext];
-    //[spinner startAnimating];
-    // For both new and existing pictures, fill in the details from the form
-    NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
-    [f setNumberStyle:NSNumberFormatterDecimalStyle];
-    float myNumber = [[PriceField text]floatValue];
-    
-    [self.currentProduct setPrice:myNumber];
-    [self.currentshop setShopname:[ShopField text]];
-    longsaved=[[LongTextfield text]floatValue];
-    latsaved=[[LatTextField text]floatValue];
-    [self.currentProduct setDate:[NSDate date]];
-    [self.currentshop setLatcoordinate:latsaved ];
-    [self.currentshop setLongcoordinate:longsaved];
-    [self.currentProduct setDim_size:[DimensionsField text]];
-    [self.currentProduct setEmail:[EmailField text]];
-    [self.currentProduct setWebsiteurl:[WebsiteField text]];
-    [self.currentProduct setComments:[commentsView text]];
-    NSDecimalNumber *decimal = [NSDecimalNumber decimalNumberWithString:[PhoneField text]];
-    [self.currentProduct setPhone:decimal];
-    
-    
-    
-    
-    [self.currentProduct setCategoryname:[cataloguenamefield text]];
-    [self.currentProduct setRating:ratingslider.value];
-    if (imageField.image)
-    {
-        // Resize and save a smaller version for the table
-        float resize = 420;
-        float actualWidth = imageField.image.size.width;
-        float actualHeight = imageField.image.size.height;
-        float divBy, newWidth, newHeight;
-        if (actualWidth > actualHeight) {
-            divBy = (actualWidth / resize);
-            newWidth = resize;
-            newHeight = (actualHeight / divBy);
-        } else {
-            divBy = (actualHeight / resize);
-            newWidth = (actualWidth / divBy);
-            newHeight = resize;
+        
+        // If we are adding a new picture (because we didnt pass one from the table) then create an entry
+        if (!_currentProduct)
+            self.currentProduct = (Shoplog *)[NSEntityDescription insertNewObjectForEntityForName:@"Shoplog"inManagedObjectContext:self.managedObjectContext];
+        if(!_currentshop)
+            self.currentshop=(Shop*)[NSEntityDescription insertNewObjectForEntityForName:@"Shop" inManagedObjectContext:self.managedObjectContext];
+        //[spinner startAnimating];
+        // For both new and existing pictures, fill in the details from the form
+        NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+        [f setNumberStyle:NSNumberFormatterDecimalStyle];
+        float myNumber = [[PriceField text]floatValue];
+        
+        [self.currentProduct setPrice:myNumber];
+        [self.currentshop setShopname:[ShopField text]];
+        longsaved=[[LongTextfield text]floatValue];
+        latsaved=[[LatTextField text]floatValue];
+        [self.currentProduct setDate:[NSDate date]];
+        [self.currentshop setLatcoordinate:latsaved ];
+        [self.currentshop setLongcoordinate:longsaved];
+        [self.currentProduct setDim_size:[DimensionsField text]];
+        [self.currentProduct setEmail:[EmailField text]];
+        [self.currentProduct setWebsiteurl:[WebsiteField text]];
+        [self.currentProduct setComments:[commentsView text]];
+        NSDecimalNumber *decimal = [NSDecimalNumber decimalNumberWithString:[PhoneField text]];
+        [self.currentProduct setPhone:decimal];
+        
+        
+        
+        
+        [self.currentProduct setCategoryname:[cataloguenamefield text]];
+        [self.currentProduct setRating:ratingslider.value];
+        if (imageField.image)
+        {
+            // Resize and save a smaller version for the table
+            float resize = 420;
+            float actualWidth = imageField.image.size.width;
+            float actualHeight = imageField.image.size.height;
+            float divBy, newWidth, newHeight;
+            if (actualWidth > actualHeight) {
+                divBy = (actualWidth / resize);
+                newWidth = resize;
+                newHeight = (actualHeight / divBy);
+            } else {
+                divBy = (actualHeight / resize);
+                newWidth = (actualWidth / divBy);
+                newHeight = resize;
+            }
+            //CGRect rect = CGRectMake(0.0, 0.0, newWidth, newHeight);
+            CGRect rect = CGRectMake(0.0, 0.0, actualWidth, actualHeight);
+            UIGraphicsBeginImageContext(rect.size);
+            [imageField.image drawInRect:rect];
+            UIImage *smallImage = UIGraphicsGetImageFromCurrentImageContext();
+            UIGraphicsEndImageContext();
+            
+            // Save the small image version
+            NSData *smallImageData = UIImageJPEGRepresentation(smallImage, 1.0);
+            [self.currentProduct setImage:smallImageData];
         }
-        //CGRect rect = CGRectMake(0.0, 0.0, newWidth, newHeight);
-        CGRect rect = CGRectMake(0.0, 0.0, actualWidth, actualHeight);
-        UIGraphicsBeginImageContext(rect.size);
-        [imageField.image drawInRect:rect];
-        UIImage *smallImage = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
+        [self.currentshop setShopdetails:self.currentProduct];
+        [self.currentProduct setShop:self.currentshop];
         
-        // Save the small image version
-        NSData *smallImageData = UIImageJPEGRepresentation(smallImage, 1.0);
-        [self.currentProduct setImage:smallImageData];
-    }
-    [self.currentshop setShopdetails:self.currentProduct];
-    [self.currentProduct setShop:self.currentshop];
-    
-    //  Commit item to core data
-    NSError *error;
-    if (![self.managedObjectContext save:&error])
-        NSLog(@"Failed to add new picture with error: %@", [error domain]);
-    else{
-        //NSLog(@"The New Item is :%@",self.currentProduct);
-        //NSLog(@"The New shop Item is %@ ",self.currentshop);
-        [spinner startAnimating];
-        NSString *Flurry_shopname=self.currentshop.shopname;
-        NSNumber *Flurry_price=[[NSNumber alloc]initWithFloat:self.currentProduct.price];
-        NSString *Flurry_category=self.currentProduct.categoryname;
-        
-        NSMutableDictionary *flurrydicttionary=[[NSMutableDictionary alloc]initWithObjectsAndKeys:Flurry_category,@"Categoryname",Flurry_shopname,@"shopname",Flurry_price,@"Price", nil];
-        [Flurry logEvent:@"Catalogue" withParameters:flurrydicttionary timed:YES];
-        /*
-         //The Part where the USer should Rate the Application 
-        NSUserDefaults *userdefaults =[NSUserDefaults standardUserDefaults];
-        if (![userdefaults boolForKey:KRated]) {
-            UIAlertView *ratemeplease=[[UIAlertView alloc]initWithTitle:@"Rate me Please " message:@"If you like our App , Please Rate our App in the App Store " delegate:self cancelButtonTitle:@"Later" otherButtonTitles:@"Rate it", nil];
-            [ratemeplease show];
+        //  Commit item to core data
+        NSError *error;
+        if (![self.managedObjectContext save:&error])
+            NSLog(@"Failed to add new picture with error: %@", [error domain]);
+        else{
+            //NSLog(@"The New Item is :%@",self.currentProduct);
+            //NSLog(@"The New shop Item is %@ ",self.currentshop);
+            [spinner startAnimating];
+            NSString *Flurry_shopname=self.currentshop.shopname;
+            NSNumber *Flurry_price=[[NSNumber alloc]initWithFloat:self.currentProduct.price];
+            NSString *Flurry_category=self.currentProduct.categoryname;
+            
+            NSMutableDictionary *flurrydicttionary=[[NSMutableDictionary alloc]initWithObjectsAndKeys:Flurry_category,@"Categoryname",Flurry_shopname,@"shopname",Flurry_price,@"Price", nil];
+            [Flurry logEvent:@"Catalogue" withParameters:flurrydicttionary timed:YES];
+            [RFRateMe showRateAlert];
+            /*
+             //The Part where the USer should Rate the Application
+             NSUserDefaults *userdefaults =[NSUserDefaults standardUserDefaults];
+             if (![userdefaults boolForKey:KRated]) {
+             UIAlertView *ratemeplease=[[UIAlertView alloc]initWithTitle:@"Rate me Please " message:@"If you like our App , Please Rate our App in the App Store " delegate:self cancelButtonTitle:@"Later" otherButtonTitles:@"Rate it", nil];
+             [ratemeplease show];
+             
+             
+             }
+             
+             */
             
             
         }
-
-         */
         
         
-    }
-    
-    
-    
-    //  Automatically pop to previous view now we're done adding
-    [self.navigationController popViewControllerAnimated:YES];
+        
+        //  Automatically pop to previous view now we're done adding
+        [self.navigationController popViewControllerAnimated:YES];
         UIAlertView *sendtoshoplog=[[UIAlertView alloc]initWithTitle:@"Send to Shoplog" message:@"If you wish to delegate Shoplog to inform the store that you are interested in this product , Please Fill all Entries & Send Again to SHOPLOG" delegate:self cancelButtonTitle:@"NO Thanks!" otherButtonTitles:@"YES, Please!", nil];
         [sendtoshoplog show];
     }else{
         UIAlertView *nocatname=[[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Missingcategory", nil) message:NSLocalizedString(@"Fillthecategory", nil) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [nocatname show];
-
-    
-    
+        
+        
+        
     }
     
 }
@@ -488,9 +492,9 @@
     NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
     [f setNumberStyle:NSNumberFormatterDecimalStyle];
     float myNumber = [[PriceField text]floatValue];
-       
+    
     [self.currentProduct setPrice:myNumber];
-   
+    
     [self.currentProduct setCategoryname:[cataloguenamefield text]];
     
     NSLog(@"Test 2 : %i",_currentProduct.rating);
@@ -529,11 +533,11 @@
         NSData *smallImageData = UIImageJPEGRepresentation(smallImage, 1.0);
         [self.currentProduct setImage:smallImageData];
     }
-
- 
-   
-
-
+    
+    
+    
+    
+    
 }
 - (void) viewWillDisappear: (BOOL) animated {
     [super viewWillDisappear: animated];
@@ -570,7 +574,7 @@
     
     
     
-   // [self presentViewController:imagePicker animated:YES completion:nil];
+    // [self presentViewController:imagePicker animated:YES completion:nil];
 }
 //  Take an image with camera
 - (IBAction)imagefromCamera:(id)sender {
@@ -650,7 +654,7 @@
     }
     
     return YES;
-
+    
 }
 
 
@@ -671,7 +675,7 @@
     [imagePicker dismissViewControllerAnimated:YES completion:nil];
 }
 
-///To be used Later on When Tweaking the Viewontroller 
+///To be used Later on When Tweaking the Viewontroller
 - (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 25)] ;
@@ -714,19 +718,19 @@
     return headerView;
 }
 
- 
- 
+
+
 - (IBAction)save:(UIStoryboardSegue *)segue
 {
 }
-#pragma The Text Fieled Adjustments Part 
+#pragma The Text Fieled Adjustments Part
 -(void)keyboardDidshow:(NSNotification*)notification{
     if (_keyboardisShown) return;
     
     Saveeditbutton.enabled = NO;
-
+    
     NSDictionary *info =[notification userInfo];
-    //Obtain the Size of the Keyboard 
+    //Obtain the Size of the Keyboard
     NSValue *aValue=[info objectForKey:UIKeyboardFrameEndUserInfoKey];
     CGRect Keyboardrect=[self.view convertRect:[aValue CGRectValue] fromView:nil];
     NSLog(@"The Size of Keyboard is %f ",Keyboardrect.size.height);
@@ -737,34 +741,34 @@
     //scroll to the Current Field
     
     
-
-
+    
+    
 }
 -(IBAction)keyboardisalive:(id)sender{
     CGRect textfieldalive=[sender frame];
     NSLog(@"The Rectangle are %f",textfieldalive.size.height);
     [self.tableView scrollRectToVisible:textfieldalive animated:YES];
     
-
-
+    
+    
 }
 -(IBAction)textFieldDidBeginEditing:(UITextField *)textField:(id)sender{
     [sender becomeFirstResponder];
-
+    
 }
 -(IBAction)textFieldDidEndEditing:(UITextField *)textField:(id)sender{
     
     [sender resignFirstResponder];
-
+    
 }
 
 -(void)tableView:(UITableView*)tableView willDisplayCell:(UITableViewCell*)cell forRowAtIndexPath:(NSIndexPath*)indexPath {
     
     //cell.backgroundColor=[UIColor colorWithRed:125.0f/255.0f green:125.0f/255.0f blue:125.0f/255.0f alpha:1];
-
+    
     cell.backgroundColor=[UIColor clearColor];
-
-
-
+    
+    
+    
 }
 @end

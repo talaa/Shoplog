@@ -11,7 +11,6 @@
 #import <CoreLocation/CoreLocation.h>
 #import <QuartzCore/QuartzCore.h>
 #import "MyAnotation.h"
-
 #import "Shoplog.h"
 #import "Shop.h"
 #define KRated @"isalreadyrated"

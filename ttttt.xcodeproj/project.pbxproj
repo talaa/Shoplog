@@ -102,8 +102,6 @@
 		698A279616696760005F1EE6 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6986BCAF163205940023E2EE /* Default@2x.png */; };
 		698A2798166967A0005F1EE6 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 698A2797166967A0005F1EE6 /* Default-Portrait~ipad.png */; };
 		698A279A166967AD005F1EE6 /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 698A2799166967AD005F1EE6 /* Default-Portrait@2x~ipad.png */; };
-		698A279C16696831005F1EE6 /* logo1536x2008_big copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 698A279B16696831005F1EE6 /* logo1536x2008_big copy.png */; };
-		698A279E1669692A005F1EE6 /* logo640x1136_big copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 698A279D1669692A005F1EE6 /* logo640x1136_big copy.png */; };
 		698A27A016696939005F1EE6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 698A279F16696939005F1EE6 /* Default-568h@2x.png */; };
 		698A62C51607BE0B004DAC94 /* MyCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 698A62C41607BE0B004DAC94 /* MyCustomCell.m */; };
 		698BBDD7171C9DD9002E3344 /* SampleHeaderImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 698BBDD3171C9DD9002E3344 /* SampleHeaderImage.png */; };
@@ -322,8 +320,6 @@
 		698A279316696746005F1EE6 /* logo1337x2004_big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo1337x2004_big.png; sourceTree = "<group>"; };
 		698A2797166967A0005F1EE6 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
 		698A2799166967AD005F1EE6 /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
-		698A279B16696831005F1EE6 /* logo1536x2008_big copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo1536x2008_big copy.png"; path = "../../../Inas Folder/for tamer/logo1536x2008_big copy.png"; sourceTree = "<group>"; };
-		698A279D1669692A005F1EE6 /* logo640x1136_big copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo640x1136_big copy.png"; path = "../../../Inas Folder/for tamer/logo640x1136_big copy.png"; sourceTree = "<group>"; };
 		698A279F16696939005F1EE6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		698A62C31607BE0B004DAC94 /* MyCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCustomCell.h; sourceTree = "<group>"; };
 		698A62C41607BE0B004DAC94 /* MyCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCustomCell.m; sourceTree = "<group>"; };
@@ -692,8 +688,6 @@
 				698A279F16696939005F1EE6 /* Default-568h@2x.png */,
 				698A2799166967AD005F1EE6 /* Default-Portrait@2x~ipad.png */,
 				698A2797166967A0005F1EE6 /* Default-Portrait~ipad.png */,
-				698A279D1669692A005F1EE6 /* logo640x1136_big copy.png */,
-				698A279B16696831005F1EE6 /* logo1536x2008_big copy.png */,
 				698A279216696746005F1EE6 /* logo768x1004_big copy_1.png */,
 				698A279316696746005F1EE6 /* logo1337x2004_big.png */,
 				69C87D8F1668FFE200656E9A /* MyIcon copy_57.png */,
@@ -1047,8 +1041,6 @@
 				698A279616696760005F1EE6 /* Default@2x.png in Resources */,
 				698A2798166967A0005F1EE6 /* Default-Portrait~ipad.png in Resources */,
 				698A279A166967AD005F1EE6 /* Default-Portrait@2x~ipad.png in Resources */,
-				698A279C16696831005F1EE6 /* logo1536x2008_big copy.png in Resources */,
-				698A279E1669692A005F1EE6 /* logo640x1136_big copy.png in Resources */,
 				698A27A016696939005F1EE6 /* Default-568h@2x.png in Resources */,
 				6942DF2916A1A58D00C920C3 /* icon_post.png in Resources */,
 				6942DF2B16A1A5E800C920C3 /* icon_shopping_bag.png in Resources */,
