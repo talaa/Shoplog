@@ -6,7 +6,7 @@
 #import "EAIntroPage.h"
 
 #define DEFAULT_DESCRIPTION_LABEL_SIDE_PADDING 25
-#define DEFAULT_TITLE_FONT [UIFont fontWithName:@"HelveticaNeue-Bold" size:16.0]
+#define DEFAULT_TITLE_FONT [UIFont fontWithName:@"HelveticaNeue-Bold" size:50.0]
 #define DEFAULT_LABEL_COLOR [UIColor whiteColor]
 #define DEFAULT_BG_COLOR [UIColor clearColor]
 #define DEFAULT_DESCRIPTION_FONT [UIFont fontWithName:@"HelveticaNeue-Light" size:13.0]

@@ -35,11 +35,16 @@ typedef enum SocialButtonTags
 #import "WebViewController.h"
 #import "TempData.h"
 #import "RFRateMe.h"
+#import "EAIntroView.h"
 
 //#import "MyCustomCell.h"
 //#import "HeaderView.h"
 
-@interface TestViewController ()
+@interface TestViewController () <EAIntroDelegate>
+{
+    UIView *rootView;
+    EAIntroView *_intro;
+}
 
 @end
 
@@ -134,6 +139,39 @@ typedef enum SocialButtonTags
 }
 - (void)viewDidLoad
 {
+    // intro code
+    rootView = self.tabBarController.view;
+    EAIntroPage *page1 = [EAIntroPage page];
+    page1.title = @" Shop and Snap what you like";
+    page1.titlePositionY = self.view.bounds.size.height/2;
+    page1.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Intro_Photo"]];
+    page1.bgColor = [UIColor colorWithRed:0.f green:0.49f blue:0.96f alpha:1.f];
+    
+    EAIntroPage *page2 = [EAIntroPage page];
+    page2.title = @"Log the Price , Sizes and Shop";
+    page2.titlePositionY = self.view.bounds.size.height/2;
+    page2.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Intro_Log"]];
+    page2.bgColor = [UIColor colorWithRed:236/255.0 green:156/255.0 blue:56/255.0 alpha:1.0];
+    
+    EAIntroPage *page3 = [EAIntroPage page];
+    page3.title = @"Compare your findings from all Stores";
+    page3.titlePositionY = self.view.bounds.size.height/2;
+    page3.titleFont = [UIFont fontWithName:@"HelveticaNeue-Bold" size:40.0];
+    page3.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Intro_Compare"]];
+    page3.bgColor = [UIColor colorWithRed:0.f green:0.49f blue:0.96f alpha:1.f];
+    
+    EAIntroPage *page4 = [EAIntroPage page];
+    page4.title = @"Buy your Favourite one !";
+    page4.titlePositionY = self.view.bounds.size.height/2;
+    page4.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Intro_Buy"]];
+    page4.bgColor = [UIColor colorWithRed:236/255.0 green:156/255.0 blue:56/255.0 alpha:1.0];
+    
+    EAIntroView *intro = [[EAIntroView alloc] initWithFrame:rootView.bounds andPages:@[page1,page2,page3,page4]];
+    [intro setDelegate:self];
+    
+    [intro showInView:rootView animateDuration:0.3];
+    //////////////////////////////
+    
     
     // Do any additional setup after loading the view, typically from a nib.
     self.title=@"Shoplog";
