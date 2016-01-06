@@ -36,6 +36,8 @@ typedef enum SocialButtonTags
 #import "TempData.h"
 #import "RFRateMe.h"
 #import "EAIntroView.h"
+#import "AppDelegate.h"
+#import "Intro+CoreDataProperties.h"
 
 //#import "MyCustomCell.h"
 //#import "HeaderView.h"
@@ -44,6 +46,7 @@ typedef enum SocialButtonTags
 {
     UIView *rootView;
     EAIntroView *_intro;
+    BOOL dontShowIntroAgain;
 }
 
 @end
@@ -140,38 +143,42 @@ typedef enum SocialButtonTags
 - (void)viewDidLoad
 {
     // intro code
-    rootView = self.tabBarController.view;
-    EAIntroPage *page1 = [EAIntroPage page];
-    page1.title = @" Shop and Snap what you like";
-    page1.titlePositionY = self.view.bounds.size.height/2;
-    page1.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Intro_Photo"]];
-    page1.bgColor = [UIColor colorWithRed:0.f green:0.49f blue:0.96f alpha:1.f];
     
-    EAIntroPage *page2 = [EAIntroPage page];
-    page2.title = @"Log the Price , Sizes and Shop";
-    page2.titlePositionY = self.view.bounds.size.height/2;
-    page2.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Intro_Log"]];
-    page2.bgColor = [UIColor colorWithRed:236/255.0 green:156/255.0 blue:56/255.0 alpha:1.0];
-    
-    EAIntroPage *page3 = [EAIntroPage page];
-    page3.title = @"Compare your findings from all Stores";
-    page3.titlePositionY = self.view.bounds.size.height/2;
-    page3.titleFont = [UIFont fontWithName:@"HelveticaNeue-Bold" size:40.0];
-    page3.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Intro_Compare"]];
-    page3.bgColor = [UIColor colorWithRed:0.f green:0.49f blue:0.96f alpha:1.f];
-    
-    EAIntroPage *page4 = [EAIntroPage page];
-    page4.title = @"Buy your Favourite one !";
-    page4.titlePositionY = self.view.bounds.size.height/2;
-    page4.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Intro_Buy"]];
-    page4.bgColor = [UIColor colorWithRed:236/255.0 green:156/255.0 blue:56/255.0 alpha:1.0];
-    
-    EAIntroView *intro = [[EAIntroView alloc] initWithFrame:rootView.bounds andPages:@[page1,page2,page3,page4]];
-    [intro setDelegate:self];
-    
-    [intro showInView:rootView animateDuration:0.3];
-    //////////////////////////////
-    
+    dontShowIntroAgain = [self dontShowIntroAgain];
+    if (dontShowIntroAgain == YES){
+    }else{
+        rootView = self.tabBarController.view;
+        EAIntroPage *page1 = [EAIntroPage page];
+        page1.title = @" Shop and Snap what you like";
+        page1.titlePositionY = self.view.bounds.size.height/2;
+        page1.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Intro_Photo"]];
+        page1.bgColor = [UIColor colorWithRed:0.f green:0.49f blue:0.96f alpha:1.f];
+        
+        EAIntroPage *page2 = [EAIntroPage page];
+        page2.title = @"Log the Price , Sizes and Shop";
+        page2.titlePositionY = self.view.bounds.size.height/2;
+        page2.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Intro_Log"]];
+        page2.bgColor = [UIColor colorWithRed:236/255.0 green:156/255.0 blue:56/255.0 alpha:1.0];
+        
+        EAIntroPage *page3 = [EAIntroPage page];
+        page3.title = @"Compare your findings from all Stores";
+        page3.titlePositionY = self.view.bounds.size.height/2;
+        page3.titleFont = [UIFont fontWithName:@"HelveticaNeue-Bold" size:40.0];
+        page3.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Intro_Compare"]];
+        page3.bgColor = [UIColor colorWithRed:0.f green:0.49f blue:0.96f alpha:1.f];
+        
+        EAIntroPage *page4 = [EAIntroPage page];
+        page4.title = @"Buy your Favourite one !";
+        page4.titlePositionY = self.view.bounds.size.height/2;
+        page4.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Intro_Buy"]];
+        page4.bgColor = [UIColor colorWithRed:236/255.0 green:156/255.0 blue:56/255.0 alpha:1.0];
+        
+        EAIntroView *intro = [[EAIntroView alloc] initWithFrame:rootView.bounds andPages:@[page1,page2,page3,page4]];
+        [intro setDelegate:self];
+        [intro.skipButton addTarget:self action:@selector(skipPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [intro showInView:rootView animateDuration:0.3];
+    }
+    ///////////////////////////////////////////////
     
     // Do any additional setup after loading the view, typically from a nib.
     self.title=@"Shoplog";
@@ -286,6 +293,55 @@ typedef enum SocialButtonTags
     }
      */
 }
+
+/***********************************/
+//      Skip Pressed                //
+/***********************************/
+- (void)skipPressed:(id)send{
+    AppDelegate *app= (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [app managedObjectContext];
+    //NSError *error;
+    Intro *introCD = [NSEntityDescription insertNewObjectForEntityForName:@"Intro" inManagedObjectContext:context];
+    [introCD setValue:@"YES" forKey:@"skip"];
+    NSError *error;
+    if (![introCD.managedObjectContext save:&error]) {
+        NSLog(@"Done No on Intro");
+    }else{
+        NSLog(@"Error is %@", error);
+    }
+}
+
+- (void)saveContext {
+    AppDelegate *app= (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [app managedObjectContext];
+    
+    if (context != nil) {
+        NSError *error = nil;
+        if ([context hasChanges] && ![context save:&error]) {
+            // Replace this implementation with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
+    }
+}
+- (BOOL)dontShowIntroAgain{
+    BOOL dontShowAgain = NO;
+    AppDelegate *app= (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [app managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Intro"];
+    NSError *fetchError = nil;
+    NSArray *result = [context executeFetchRequest:fetchRequest error:&fetchError];
+    for (NSManagedObject *managedObject in result){
+        if([[managedObject valueForKey:@"skip"] isEqualToString:@"YES"]){
+            dontShowAgain = YES;
+        }
+    }
+    return dontShowAgain;
+}
+
+
+
 -(void)dontshow{
     NSUserDefaults *userdefaults =[NSUserDefaults standardUserDefaults];
     [userdefaults setBool:YES forKey:Kintrodone];
