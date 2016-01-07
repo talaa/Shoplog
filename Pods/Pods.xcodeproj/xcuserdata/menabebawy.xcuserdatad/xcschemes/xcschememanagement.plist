@@ -9,6 +9,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>EAIntroView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>EARestrictedScrollView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Parse.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -58,21 +68,27 @@
 			<true/>
 		</dict>
 		<key>5213868E74C34E4E169BCC5973A0E744</key>
+<<<<<<< HEAD
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>801C16FEB618725463A4119D18490ADF</key>
+=======
+>>>>>>> intro
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>896E769E11C9E8850BB6FFF44AA6FAFB</key>
+<<<<<<< HEAD
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>97E59AC823DA69B418A125408CAA41A0</key>
+=======
+>>>>>>> intro
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -83,11 +99,14 @@
 			<true/>
 		</dict>
 		<key>D1EC2572C5166CE2498C72FAF128EABE</key>
+<<<<<<< HEAD
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>EFC0F75319476EA7C91DE17EF212268B</key>
+=======
+>>>>>>> intro
 		<dict>
 			<key>primary</key>
 			<true/>

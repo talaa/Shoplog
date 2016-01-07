@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '3E83275F7B3A8E9F99D7194B'
+               BlueprintIdentifier = '999F1DA875E24FB44D015282'
                BlueprintName = 'RFRateMe'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libRFRateMe.a'>

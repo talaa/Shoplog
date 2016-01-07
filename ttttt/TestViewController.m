@@ -34,12 +34,20 @@ typedef enum SocialButtonTags
 #import "pricegrabbersearch.h"
 #import "WebViewController.h"
 #import "TempData.h"
- #import "RFRateMe.h"
+#import "RFRateMe.h"
+#import "EAIntroView.h"
+#import "AppDelegate.h"
+#import "Intro+CoreDataProperties.h"
 
 //#import "MyCustomCell.h"
 //#import "HeaderView.h"
 
-@interface TestViewController ()
+@interface TestViewController () <EAIntroDelegate>
+{
+    UIView *rootView;
+    EAIntroView *_intro;
+    BOOL dontShowIntroAgain;
+}
 
 @end
 
@@ -73,49 +81,47 @@ typedef enum SocialButtonTags
     nnn=[[self.fetchedResultsController fetchedObjects]count];
     NSLog(@"The number of items is %lui",(unsigned long)nnn);
     [TempData setShoplogscount:nnn];
-
-   
-//[self.collectionView setNeedsLayout ];
-
-
+    
+    
+    //[self.collectionView setNeedsLayout ];
 }
 
 - (void)handleOpenURL:(NSURL *)url {
     NSUserDefaults *userdefaults =[NSUserDefaults standardUserDefaults];
-
-    if ([[self.fetchedResultsController sections]count]<3|| [userdefaults boolForKey: KPROUprade]){
     
-    [self.navigationController popToViewController:self animated:YES];
-    //NSData *dataimported=[NSData dataWithContentsOfURL:url];
-    NSMutableArray *recievedarray=[NSMutableArray arrayWithContentsOfURL:url];
-    NSLog(@"The Recived Array is %lu",(unsigned long)[recievedarray count]);
-    for (NSDictionary  *tempdict in recievedarray) {
-        //Shoplog *moc=[[Shoplog alloc]init];
-        NSManagedObjectContext *context=self.managedObjectContext;
-        Shoplog* newMOC=[ExtendedManagedObject createManagedObjectFromDictionary:tempdict inContext:context];
+    if ([[self.fetchedResultsController sections]count]<3|| [userdefaults boolForKey: KPROUprade]){
         
-        //  Commit item to core data
-        NSError *error;
-        if (![newMOC.managedObjectContext save:&error])
-            NSLog(@"Failed to add new picture with error: %@", [error domain]);
-        else{
-            NSLog(@"The New Item is :%@",newMOC);
+        [self.navigationController popToViewController:self animated:YES];
+        //NSData *dataimported=[NSData dataWithContentsOfURL:url];
+        NSMutableArray *recievedarray=[NSMutableArray arrayWithContentsOfURL:url];
+        NSLog(@"The Recived Array is %lu",(unsigned long)[recievedarray count]);
+        for (NSDictionary  *tempdict in recievedarray) {
+            //Shoplog *moc=[[Shoplog alloc]init];
+            NSManagedObjectContext *context=self.managedObjectContext;
+            Shoplog* newMOC=[ExtendedManagedObject createManagedObjectFromDictionary:tempdict inContext:context];
             
+            //  Commit item to core data
+            NSError *error;
+            if (![newMOC.managedObjectContext save:&error])
+                NSLog(@"Failed to add new picture with error: %@", [error domain]);
+            else{
+                NSLog(@"The New Item is :%@",newMOC);
+                
+            }
+            
+            
+            
+            [self.collectionView reloadData];
+            [recievedarray removeAllObjects];
+            //[Shoplog createManagedObjectFromDictionary:tempdict inContext:self.managedObjectContext];
         }
-
-         
-         
-        [self.collectionView reloadData];
-        [recievedarray removeAllObjects];
-        //[Shoplog createManagedObjectFromDictionary:tempdict inContext:self.managedObjectContext];
-    }
     }else{
         NSLog(@"I am Beyond the Permissible Limit");
         UIAlertView *endoftheline=[[UIAlertView alloc]initWithTitle:@"GO PRO" message:NSLocalizedString(@"GOPRO", nil) delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"GO PRO", nil];
         [endoftheline show];
         [Flurry logEvent:@"Free limit reached" timed:YES];
         [RFRateMe showRateAlert];
-    
+        
     }
 }
 
@@ -123,10 +129,10 @@ typedef enum SocialButtonTags
     NSLog(@"The button Pressed is %ld",(long)buttonIndex);
     if (buttonIndex==1) {
         
-
+        
         [self performSegueWithIdentifier:@"upgrade" sender:self];
     }
-
+    
 }
 - (void) viewWillDisappear: (BOOL) animated {
     [super viewWillDisappear: animated];
@@ -136,6 +142,42 @@ typedef enum SocialButtonTags
 }
 - (void)viewDidLoad
 {
+    // intro code
+    dontShowIntroAgain = [self dontShowIntroAgain];
+    if (dontShowIntroAgain == YES){
+    }else{
+        rootView = self.tabBarController.view;
+        EAIntroPage *page1 = [EAIntroPage page];
+        page1.title = @" Shop and Snap what you like";
+        page1.titlePositionY = self.view.bounds.size.height/2;
+        page1.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Intro_Photo"]];
+        page1.bgColor = [UIColor colorWithRed:0.f green:0.49f blue:0.96f alpha:1.f];
+        
+        EAIntroPage *page2 = [EAIntroPage page];
+        page2.title = @"Log the Price , Sizes and Shop";
+        page2.titlePositionY = self.view.bounds.size.height/2;
+        page2.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Intro_Log"]];
+        page2.bgColor = [UIColor colorWithRed:236/255.0 green:156/255.0 blue:56/255.0 alpha:1.0];
+        
+        EAIntroPage *page3 = [EAIntroPage page];
+        page3.title = @"Compare your findings from all Stores";
+        page3.titlePositionY = self.view.bounds.size.height/2;
+        page3.titleFont = [UIFont fontWithName:@"HelveticaNeue-Bold" size:40.0];
+        page3.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Intro_Compare"]];
+        page3.bgColor = [UIColor colorWithRed:0.f green:0.49f blue:0.96f alpha:1.f];
+        
+        EAIntroPage *page4 = [EAIntroPage page];
+        page4.title = @"Buy your Favourite one !";
+        page4.titlePositionY = self.view.bounds.size.height/2;
+        page4.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Intro_Buy"]];
+        page4.bgColor = [UIColor colorWithRed:236/255.0 green:156/255.0 blue:56/255.0 alpha:1.0];
+        
+        EAIntroView *intro = [[EAIntroView alloc] initWithFrame:rootView.bounds andPages:@[page1,page2,page3,page4]];
+        [intro setDelegate:self];
+        [intro.skipButton addTarget:self action:@selector(skipPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [intro showInView:rootView animateDuration:0.3];
+    }
+    ///////////////////////////////////////////////
     
     // Do any additional setup after loading the view, typically from a nib.
     self.title=@"Shoplog";
@@ -151,7 +193,7 @@ typedef enum SocialButtonTags
     _sectionChanges = [NSMutableArray array];
     //[self.collectionView reloadData];
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    // Do any additional setup after loading the view.
     self.selectedPhotos = [@[] mutableCopy];
     //self.addarray = [@[] mutableCopy];
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -172,92 +214,143 @@ typedef enum SocialButtonTags
     
     
     //[self startintroduction];
+    /*
     if ([self checkConnection]) {
         
-    
-    NSUserDefaults *userdefaults =[NSUserDefaults standardUserDefaults];
-    if (![userdefaults boolForKey:Kintrodone]) {
-        UIVisualEffect *blurEffect;
-        blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
-        float sizey=self.view.frame.size.width;
-        float sizex=self.view.frame.size.height;
-        NSLog(@"The size are %f & %f",sizex,sizey);
-        UILabel *welcomenote=[[UILabel alloc]initWithFrame:CGRectMake(sizey/2-120, 80,320, 60)];
-        welcomenote.text=@"Welcome to SHOPLOG";
-        visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
         
-        visualEffectView.frame = self.view.bounds;
-        [self.view addSubview:visualEffectView];
-        videoview= [[UIWebView alloc] initWithFrame:CGRectMake(0, 140,sizey, sizex/2)];
-        [videoview setAllowsInlineMediaPlayback:YES];
-        [videoview setMediaPlaybackRequiresUserAction:NO];
-      
-        UIButton *OKbutton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [OKbutton addTarget:self
-                   action:@selector(OKmethod)
-         forControlEvents:UIControlEventTouchUpInside];
-        [OKbutton setTitle:@"OK" forState:UIControlStateNormal];
-        
-        [OKbutton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        OKbutton.frame = CGRectMake(sizey/2-90, sizex-120,80, 80);
-        [OKbutton setBackgroundColor:[UIColor blueColor]];
-        [OKbutton.layer setCornerRadius:40.0];
-        [OKbutton.layer setMasksToBounds:YES];
-        
-        UIButton *dontshow = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [dontshow addTarget:self
-                     action:@selector(dontshow)
-           forControlEvents:UIControlEventTouchUpInside];
-        [dontshow setTitle:@"Not Again!" forState:UIControlStateNormal];
-        [dontshow setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        dontshow.frame = CGRectMake(sizey/2+10, sizex-120,80, 80);
-        
-        [dontshow setBackgroundColor:[UIColor orangeColor]];
-        [dontshow.layer setCornerRadius:40.0];
-        [dontshow.layer setMasksToBounds:YES];
-
-        
-        
-        
-        dontshow.titleLabel.text=@"Don't Show it again";
-        [visualEffectView addSubview:OKbutton];
-        [visualEffectView addSubview:dontshow];
-        [visualEffectView addSubview:videoview];
-        [visualEffectView addSubview:welcomenote];
-        
-        NSString* embedHTML = [NSString stringWithFormat:@"\
-                               <html>\
-                               <body style='margin:0px;padding:0px;'>\
-                               <script type='text/javascript' src='http://www.youtube.com/iframe_api'></script>\
-                               <script type='text/javascript'>\
-                               function onYouTubeIframeAPIReady()\
-                               {\
-                               ytplayer=new YT.Player('playerId',{events:{onReady:onPlayerReady}})\
-                               }\
-                               function onPlayerReady(a)\
-                               { \
-                               a.target.playVideo(); \
-                               }\
-                               </script>\
-                               <iframe id='playerId' type='text/html' width='%f' height='%f' src='http://www.youtube.com/embed/%@?enablejsapi=1&rel=0&playsinline=1&autoplay=1' frameborder='0'>\
-                               </body>\
-                               </html>", sizey, sizex/2, @"pzEngEbm-8A"];
-        [videoview loadHTMLString:embedHTML baseURL:[[NSBundle mainBundle] resourceURL]];
-        
-        
+        NSUserDefaults *userdefaults =[NSUserDefaults standardUserDefaults];
+        if (![userdefaults boolForKey:Kintrodone]) {
+            UIVisualEffect *blurEffect;
+            blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+            float sizey=self.view.frame.size.width;
+            float sizex=self.view.frame.size.height;
+            NSLog(@"The size are %f & %f",sizex,sizey);
+            UILabel *welcomenote=[[UILabel alloc]initWithFrame:CGRectMake(sizey/2-120, 80,320, 60)];
+            welcomenote.text=@"Welcome to SHOPLOG";
+            visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+            
+            visualEffectView.frame = self.view.bounds;
+            [self.view addSubview:visualEffectView];
+            videoview= [[UIWebView alloc] initWithFrame:CGRectMake(0, 140,sizey, sizex/2)];
+            [videoview setAllowsInlineMediaPlayback:YES];
+            [videoview setMediaPlaybackRequiresUserAction:NO];
+            
+            UIButton *OKbutton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+            [OKbutton addTarget:self
+                         action:@selector(OKmethod)
+               forControlEvents:UIControlEventTouchUpInside];
+            [OKbutton setTitle:@"OK" forState:UIControlStateNormal];
+            
+            [OKbutton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            OKbutton.frame = CGRectMake(sizey/2-90, sizex-120,80, 80);
+            [OKbutton setBackgroundColor:[UIColor blueColor]];
+            [OKbutton.layer setCornerRadius:40.0];
+            [OKbutton.layer setMasksToBounds:YES];
+            
+            UIButton *dontshow = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+            [dontshow addTarget:self
+                         action:@selector(dontshow)
+               forControlEvents:UIControlEventTouchUpInside];
+            [dontshow setTitle:@"Not Again!" forState:UIControlStateNormal];
+            [dontshow setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            dontshow.frame = CGRectMake(sizey/2+10, sizex-120,80, 80);
+            
+            [dontshow setBackgroundColor:[UIColor orangeColor]];
+            [dontshow.layer setCornerRadius:40.0];
+            [dontshow.layer setMasksToBounds:YES];
+            
+            
+            
+            
+            dontshow.titleLabel.text=@"Don't Show it again";
+            [visualEffectView addSubview:OKbutton];
+            [visualEffectView addSubview:dontshow];
+            [visualEffectView addSubview:videoview];
+            [visualEffectView addSubview:welcomenote];
+            
+            NSString* embedHTML = [NSString stringWithFormat:@"\
+                                   <html>\
+                                   <body style='margin:0px;padding:0px;'>\
+                                   <script type='text/javascript' src='http://www.youtube.com/iframe_api'></script>\
+                                   <script type='text/javascript'>\
+                                   function onYouTubeIframeAPIReady()\
+                                   {\
+                                   ytplayer=new YT.Player('playerId',{events:{onReady:onPlayerReady}})\
+                                   }\
+                                   function onPlayerReady(a)\
+                                   { \
+                                   a.target.playVideo(); \
+                                   }\
+                                   </script>\
+                                   <iframe id='playerId' type='text/html' width='%f' height='%f' src='http://www.youtube.com/embed/%@?enablejsapi=1&rel=0&playsinline=1&autoplay=1' frameborder='0'>\
+                                   </body>\
+                                   </html>", sizey, sizex/2, @"pzEngEbm-8A"];
+            [videoview loadHTMLString:embedHTML baseURL:[[NSBundle mainBundle] resourceURL]];
+            
+            
+        }
     }
+     */
+}
+
+/***********************************/
+//      Skip Pressed                //
+/***********************************/
+- (void)skipPressed:(id)send{
+    AppDelegate *app= (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [app managedObjectContext];
+    //NSError *error;
+    Intro *introCD = [NSEntityDescription insertNewObjectForEntityForName:@"Intro" inManagedObjectContext:context];
+    [introCD setValue:@"YES" forKey:@"skip"];
+    NSError *error;
+    if (![introCD.managedObjectContext save:&error]) {
+        NSLog(@"Done No on Intro");
+    }else{
+        NSLog(@"Error is %@", error);
     }
 }
+
+- (void)saveContext {
+    AppDelegate *app= (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [app managedObjectContext];
+    
+    if (context != nil) {
+        NSError *error = nil;
+        if ([context hasChanges] && ![context save:&error]) {
+            // Replace this implementation with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
+    }
+}
+- (BOOL)dontShowIntroAgain{
+    BOOL dontShowAgain = NO;
+    AppDelegate *app= (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [app managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Intro"];
+    NSError *fetchError = nil;
+    NSArray *result = [context executeFetchRequest:fetchRequest error:&fetchError];
+    for (NSManagedObject *managedObject in result){
+        if([[managedObject valueForKey:@"skip"] isEqualToString:@"YES"]){
+            dontShowAgain = YES;
+        }
+    }
+    return dontShowAgain;
+}
+
+
+
 -(void)dontshow{
-NSUserDefaults *userdefaults =[NSUserDefaults standardUserDefaults];
+    NSUserDefaults *userdefaults =[NSUserDefaults standardUserDefaults];
     [userdefaults setBool:YES forKey:Kintrodone];
     [visualEffectView removeFromSuperview];
-
-
+    
+    
 }
 -(void)OKmethod{
     [visualEffectView removeFromSuperview];
-
+    
 }
 
 - (BOOL)checkConnection
@@ -313,21 +406,21 @@ NSUserDefaults *userdefaults =[NSUserDefaults standardUserDefaults];
     if ([[segue identifier] isEqualToString:@"upgrade"]) {
         UpgradeViewController *upgarde=(UpgradeViewController *)[segue destinationViewController];
         [upgarde requestProductData];
-            
+        
     }
     if ([[segue identifier] isEqualToString:@"1111"]) {
         WebViewController *webview=(WebViewController*)[segue destinationViewController];
         webview.title=searchstring1;
         [webview setNewbrowseurl:searchstring];
         //[webview setBrowseuuurl:[[NSURL alloc]initWithString:searchstring]];
-       // webview.browseuuurl=[[NSURL alloc]initWithString:searchstring];
+        // webview.browseuuurl=[[NSURL alloc]initWithString:searchstring];
     }
-        
+    
     //NSLog(@"The Segue is as Follows : %@",[segue identifier]);
 }
 -(IBAction)addcatalogueKey:(id)sender{
     NSUserDefaults *userdefaults =[NSUserDefaults standardUserDefaults];
-
+    
     NSLog(@"The status of your PROUpgrade is %d",[userdefaults boolForKey:KPROUprade]);
     if ([[self.fetchedResultsController sections]count]<3 || [userdefaults boolForKey: KPROUprade]) {
         NSLog(@"I am Still in Acceptable Range");
@@ -336,7 +429,7 @@ NSUserDefaults *userdefaults =[NSUserDefaults standardUserDefaults];
         NSLog(@"the Catalogue filed name is %c",addvw.cataloguenamefield.enabled);
         addvw.cataloguenamefield.enabled=YES;
         addvw.managedObjectContext = self.managedObjectContext;
-         [self performSegueWithIdentifier:@"AddCatalogue" sender:self];
+        [self performSegueWithIdentifier:@"AddCatalogue" sender:self];
         //  Pass the managed object context to the destination view controller
         
     }else{
@@ -345,7 +438,7 @@ NSUserDefaults *userdefaults =[NSUserDefaults standardUserDefaults];
         UIAlertView *endoftheline=[[UIAlertView alloc]initWithTitle:@"GO PRO" message:NSLocalizedString(@"GOPRO", nil)  delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"GO PRO", nil];
         [endoftheline show];
     }
-   
+    
 }
 # pragma The Collection Views Entries
 
@@ -362,7 +455,7 @@ NSUserDefaults *userdefaults =[NSUserDefaults standardUserDefaults];
     return [sectionInfo numberOfObjects]+1;
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv
-                    cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+                  cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     int x;
     x=indexPath.row;
     int y;
@@ -379,11 +472,11 @@ NSUserDefaults *userdefaults =[NSUserDefaults standardUserDefaults];
         Cc.cellImage.image = [UIImage imageWithData:[object valueForKey:@"image"]] ;
         [Cc.layer setCornerRadius:10.0f];
         [Cc.layer setMasksToBounds:YES];
-
+        
         
         Cc.ratinglabel.text=[[object valueForKey:@"rating"]stringValue];
     } else {
-       Cc = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"Cell1"forIndexPath:indexPath];
+        Cc = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"Cell1"forIndexPath:indexPath];
         Cc.celllabel.hidden=YES;
         Cc.cellImage.image=[UIImage imageNamed:@"plus-sign.png"];
         
@@ -407,34 +500,34 @@ NSUserDefaults *userdefaults =[NSUserDefaults standardUserDefaults];
         if ([kind isEqual:UICollectionElementKindSectionFooter]){
             AdFooterview *adfoot=[self.collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"adFooterview" forIndexPath:indexPath];
             STABannerView *adbanner;
-           /*
-            GADBannerView *adbanner;
-            // Create a view of the standard size at the top of the screen.
-            // Available AdSize constants are explained in GADAdSize.h.
-            adbanner = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
-            if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-                //[bannerView_ setAdSize:kGADAdSizeFullBanner];
-                [adbanner setAdSize:kGADAdSizeSmartBannerPortrait];
-                
-            }
-            // Specify the ad's "unit identifier." This is your AdMob Publisher ID.
-            //adbanner.adUnitID = @"a150d70feb67349";
-            //adbanner.adUnitID = @"c698ec8a21d54dca";
-            adbanner.adUnitID= @"ca-app-pub-9978956748838024/8896472354";
-            
-            // Let the runtime know which UIViewController to restore after taking
-            // the user wherever the ad goes and add it to the view hierarchy.
-            
-            //self=[super initWithFrame:adbanner.frame];
-            GADRequest *gadrequest=[[GADRequest alloc]init];
-            [gadrequest addKeyword:[[[self.fetchedResultsController sections]objectAtIndex:indexPath.section]name]];
-            adbanner.rootViewController = self;
-            [adfoot addSubview:adbanner];
-            
-            // Initiate a generic request to load it with an ad.
-            gadrequest.testDevices = [NSArray arrayWithObjects:GAD_SIMULATOR_ID, nil];
-            [adbanner loadRequest:[GADRequest request]];
-            */
+            /*
+             GADBannerView *adbanner;
+             // Create a view of the standard size at the top of the screen.
+             // Available AdSize constants are explained in GADAdSize.h.
+             adbanner = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+             if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+             //[bannerView_ setAdSize:kGADAdSizeFullBanner];
+             [adbanner setAdSize:kGADAdSizeSmartBannerPortrait];
+             
+             }
+             // Specify the ad's "unit identifier." This is your AdMob Publisher ID.
+             //adbanner.adUnitID = @"a150d70feb67349";
+             //adbanner.adUnitID = @"c698ec8a21d54dca";
+             adbanner.adUnitID= @"ca-app-pub-9978956748838024/8896472354";
+             
+             // Let the runtime know which UIViewController to restore after taking
+             // the user wherever the ad goes and add it to the view hierarchy.
+             
+             //self=[super initWithFrame:adbanner.frame];
+             GADRequest *gadrequest=[[GADRequest alloc]init];
+             [gadrequest addKeyword:[[[self.fetchedResultsController sections]objectAtIndex:indexPath.section]name]];
+             adbanner.rootViewController = self;
+             [adfoot addSubview:adbanner];
+             
+             // Initiate a generic request to load it with an ad.
+             gadrequest.testDevices = [NSArray arrayWithObjects:GAD_SIMULATOR_ID, nil];
+             [adbanner loadRequest:[GADRequest request]];
+             */
             
             if (adbanner == nil) {
                 adbanner = [[STABannerView alloc] initWithSize:STA_AutoAdSize  autoOrigin:STAAdOrigin_Top                                                        withView:self.view withDelegate:nil];
@@ -443,9 +536,9 @@ NSUserDefaults *userdefaults =[NSUserDefaults standardUserDefaults];
                 [adfoot addSubview:adbanner];
             }
             return adfoot;
-
-        
-        
+            
+            
+            
         }else{
             
             HeaderView *Hv =[self.collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
@@ -455,24 +548,24 @@ NSUserDefaults *userdefaults =[NSUserDefaults standardUserDefaults];
             Hv.Headerviewlabel.text=Headlabel;
             myheaderview=Hv;
             return Hv;
-        
-        
+            
+            
         }
-    
-    
-    
+        
+        
+        
     }else{
         if ([kind isEqual:UICollectionElementKindSectionFooter]) {
             AdFooterview *adfoot=[self.collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"adFooterview" forIndexPath:indexPath];
             adfoot.backgroundColor=[UIColor clearColor];
             return adfoot;
         }else{
-        
-        HeaderView *Hv =[self.collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
-        
-        NSString *Headlabel=[[NSString alloc]initWithString:[[[self.fetchedResultsController sections]objectAtIndex:indexPath.section]name]];
-        
-        Hv.Headerviewlabel.text=Headlabel;
+            
+            HeaderView *Hv =[self.collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
+            
+            NSString *Headlabel=[[NSString alloc]initWithString:[[[self.fetchedResultsController sections]objectAtIndex:indexPath.section]name]];
+            
+            Hv.Headerviewlabel.text=Headlabel;
             return Hv;}
         
     }
@@ -481,7 +574,7 @@ NSUserDefaults *userdefaults =[NSUserDefaults standardUserDefaults];
     
     
     
-
+    
 }
 
 
@@ -491,13 +584,13 @@ NSUserDefaults *userdefaults =[NSUserDefaults standardUserDefaults];
 -(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSManagedObject *obj =[self.fetchedResultsController objectAtIndexPath:indexPath];
     [self.selectedPhotos removeObject:obj];
-
+    
 }
 
 - (void)collectionView:(UICollectionView *)collectionView
 didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
-       
+    
     int jjj=[[[self.fetchedResultsController sections]objectAtIndex:indexPath.section]numberOfObjects];
     BOOL ee= jjj>indexPath.row;
     //NSLog(@"The Integre Logic is %i",ee);
@@ -527,7 +620,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
                     self.mypopover=pop;
                     //[self performSegueWithIdentifier:@"ShowDetail1" sender:collectionView ];
                     
-                
+                    
                 }else{
                     
                     self.detailViewController=[self.storyboard instantiateViewControllerWithIdentifier:@"newdetail"];
@@ -537,54 +630,54 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
                     [self.detailViewController setDelegate:self];
                     [self.detailViewController setModalPresentationStyle:UIModalPresentationFormSheet];
                     [self presentViewController:self.detailViewController animated:YES completion:NULL];
-                
+                    
                     /*
-                self.detailPopViewController=[self.storyboard instantiateViewControllerWithIdentifier:@"popviewdetail"];
-                //UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:self.detailPopViewController];
-                UIPopoverController *pop=[[UIPopoverController alloc]initWithContentViewController:self.detailPopViewController];
-                //UIPopoverController *pop=[[UIPopoverController alloc]initWithContentViewController:navController];
-                self.detailPopViewController.delegate=self;
-                //[self.navigationController presentViewController:navController animated:YES completion:nil];
-                //[self.navigationController presentViewController:self.detailPopViewController animated:YES completion:nil];
-                    NSLog(@"my direction is %i",pop.popoverArrowDirection);
-                    //Popover Size
-                    switch (pop.popoverArrowDirection) {
-                        case -1:
-                            [pop setPopoverContentSize:CGSizeMake(180, 180)];
-                            break;
-                            
-                        default:
-                            break;
-                    }
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    //[pop setPopoverContentSize:CGSizeMake(300, 180)];
-
-                    if (pop.popoverArrowDirection==1) {
-                        NSLog(@"I am Facing Down ");
-                        
-                    }else{
-                    //[pop setPopoverContentSize:CGSizeMake(200, 300)];
-                    }
-                
-                
-                
-                    NSLog(@"width: %f & height:%f",attributes.frame.size.width,attributes.frame.size.height);
-                [pop presentPopoverFromRect:attributes.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-                NSManagedObject *obj =[self.fetchedResultsController objectAtIndexPath:indexPath];
-                
-                [detailPopViewController setDetailItem:obj];
-                self.mypopover=pop;
-                NSLog(@"I am Facing  %f",pop.popoverContentSize.height);
-                if (pop.popoverArrowDirection==1) {
-                        NSLog(@"I am Facing Down ");
-                    }
-                */
+                     self.detailPopViewController=[self.storyboard instantiateViewControllerWithIdentifier:@"popviewdetail"];
+                     //UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:self.detailPopViewController];
+                     UIPopoverController *pop=[[UIPopoverController alloc]initWithContentViewController:self.detailPopViewController];
+                     //UIPopoverController *pop=[[UIPopoverController alloc]initWithContentViewController:navController];
+                     self.detailPopViewController.delegate=self;
+                     //[self.navigationController presentViewController:navController animated:YES completion:nil];
+                     //[self.navigationController presentViewController:self.detailPopViewController animated:YES completion:nil];
+                     NSLog(@"my direction is %i",pop.popoverArrowDirection);
+                     //Popover Size
+                     switch (pop.popoverArrowDirection) {
+                     case -1:
+                     [pop setPopoverContentSize:CGSizeMake(180, 180)];
+                     break;
+                     
+                     default:
+                     break;
+                     }
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     //[pop setPopoverContentSize:CGSizeMake(300, 180)];
+                     
+                     if (pop.popoverArrowDirection==1) {
+                     NSLog(@"I am Facing Down ");
+                     
+                     }else{
+                     //[pop setPopoverContentSize:CGSizeMake(200, 300)];
+                     }
+                     
+                     
+                     
+                     NSLog(@"width: %f & height:%f",attributes.frame.size.width,attributes.frame.size.height);
+                     [pop presentPopoverFromRect:attributes.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+                     NSManagedObject *obj =[self.fetchedResultsController objectAtIndexPath:indexPath];
+                     
+                     [detailPopViewController setDetailItem:obj];
+                     self.mypopover=pop;
+                     NSLog(@"I am Facing  %f",pop.popoverContentSize.height);
+                     if (pop.popoverArrowDirection==1) {
+                     NSLog(@"I am Facing Down ");
+                     }
+                     */
                 }
             }
             
@@ -596,7 +689,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
             [self.selectedPhotos addObject:obj];
             
             NSLog(@"The Selected Photos are %@ ",self.selectedPhotos);
-        
+            
             
         }
     }
@@ -644,7 +737,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     //Activity1 set
     NSArray *Activityarray=[[NSArray alloc]initWithObjects:Activity1,Activity2,Activity3,Activity4,Activity5,Activity6,Activity7,Activity8,Activity9,Activity10,Activity11, nil];
     
-    //Executing the Activity View Controller 
+    //Executing the Activity View Controller
     UIActivityViewController *activityViewController2 =[[UIActivityViewController alloc]initWithActivityItems:addArray2 applicationActivities:Activityarray];
     activityViewController2.excludedActivityTypes=@[UIActivityTypePostToWeibo, UIActivityTypeAssignToContact, UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypeSaveToCameraRoll,UIActivityTypeMail,UIActivityTypeMessage,UIActivityTypePostToFacebook,UIActivityTypePostToTwitter];
     //NSDictionary *flurrydicttionary2=[[NSDictionary alloc]initWithObjectsAndKeys:activityViewController2.description,@"searchengine", nil];
@@ -656,7 +749,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         activityViewController2.popoverPresentationController.sourceView = myheaderview;
     }
     
-
+    
     [self presentViewController:activityViewController2 animated:YES completion:^{}];
     
 }
@@ -667,11 +760,11 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     // [notification name] should always be @"TestNotification"
     // unless you use this method for observation of other notifications
     // as well.
-        //NSLog(@"I have Saved Already the Object ");
+    //NSLog(@"I have Saved Already the Object ");
     [self didClickdeleteButton];
     if ([[notification name] isEqualToString:@"TestNotification"])
         [self.collectionView reloadData];
-        NSLog (@"Successfully received the test notification!");
+    NSLog (@"Successfully received the test notification!");
 }
 
 -(IBAction)shareButtonTapped:(id)sender {
@@ -691,7 +784,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         [sharebutton setStyle:UIBarButtonItemStylePlain];
         [sharebutton setTitle:@"Share"];
         [self.collectionView setAllowsMultipleSelection:NO];
-         NSLog(@"I am NOT allowing Multiple Sharing ");
+        NSLog(@"I am NOT allowing Multiple Sharing ");
         //NSLog(@"The Selected Photo Count %i",[self.selectedPhotos count]);
         // 3
         if ([self.selectedPhotos count] > 0) {
@@ -729,30 +822,30 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         [Flurry logEvent:@"SharedCatalogue" withParameters:flurrydicttionary3 timed:YES];
         [RFRateMe showRateAlert];
         [newArray addObject:newimage];
-
+        
     }
     
-
+    
     NSMutableArray *addArray=[[NSMutableArray alloc]initWithArray:newArray];
     [addArray addObjectsFromArray:newArraytext];
-   
+    
     
     //removing the object of file in 2014
     //[addArray addObjectsFromArray:[self makefile]];
     
     
     /*
-    //NSLog(@"The addarray is  %@",self.addarray);
-    //UIActivityViewController *activityViewController2 =[[UIActivityViewController alloc]initWithActivityItems:self.addarray applicationActivities:@[shopactivity]];
-    //testitemprovider *tetet=[[testitemprovider alloc]init];
-    //NSArray *items = [NSArray arrayWithObjects:tetet,nil];
-    //UIActivityViewController *activityViewController2 =[[UIActivityViewController alloc]initWithActivityItems:addArray applicationActivities:@[shopactivity]];
+     //NSLog(@"The addarray is  %@",self.addarray);
+     //UIActivityViewController *activityViewController2 =[[UIActivityViewController alloc]initWithActivityItems:self.addarray applicationActivities:@[shopactivity]];
+     //testitemprovider *tetet=[[testitemprovider alloc]init];
+     //NSArray *items = [NSArray arrayWithObjects:tetet,nil];
+     //UIActivityViewController *activityViewController2 =[[UIActivityViewController alloc]initWithActivityItems:addArray applicationActivities:@[shopactivity]];
      */
     UIActivityViewController *activityViewController2 =[[UIActivityViewController alloc]initWithActivityItems:addArray applicationActivities:nil];
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         //CGRect sourcerect=CGRectMake(self.view.frame.size.height/2, self.view.frame.size.width/2, 20, 20);
         //UIView *sourceview=[[UIView alloc]initWithFrame:sourcerect];
-    activityViewController2.popoverPresentationController.sourceView = myheaderview;
+        activityViewController2.popoverPresentationController.sourceView = myheaderview;
     }
     [self presentViewController:activityViewController2 animated:YES completion:^{}];
 }
@@ -770,12 +863,12 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     int r;
     for (r=0; r<[self.selectedPhotos count]; r++) {
         
-    
+        
         for (Shoplog *rrr in self.selectedPhotos) {
             
-        NSDictionary *tempdict=[rrr toDictionary];
-        //NSLog(@"The NSObject is :%@",tempdict);
-        [ftarray addObject:tempdict];
+            NSDictionary *tempdict=[rrr toDictionary];
+            //NSLog(@"The NSObject is :%@",tempdict);
+            [ftarray addObject:tempdict];
         }
     }
     //NSLog(@"The String of the Path is :%@",ftarray);
@@ -789,9 +882,9 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"The String of the Path is :%@",jjooll);
     
     return jjooll;
-
-
-
+    
+    
+    
 }
 -(void)didClickdeleteButton {
     NSLog(@"i was here ");
@@ -837,20 +930,20 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     aFetchedResultsController.delegate = self;
     self.fetchedResultsController = aFetchedResultsController;
     
-	NSError *error = nil;
-	if (![self.fetchedResultsController performFetch:&error]) {
+    NSError *error = nil;
+    if (![self.fetchedResultsController performFetch:&error]) {
         // Replace this implementation with code to handle the error appropriately.
         // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-	    abort();
-	}
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
     
     return _fetchedResultsController;
 }
 
 
 -(void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
-atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type
+          atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type
 {
     
     NSMutableDictionary *change = [NSMutableDictionary new];
@@ -889,10 +982,10 @@ atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type
         case NSFetchedResultsChangeMove:
             change[@(type)] = @[indexPath, newIndexPath];
             break;
-             
+            
     }
     [_objectChanges addObject:change];
-     //NSLog(@"The new Objects changes are :%@",_objectChanges);
+    //NSLog(@"The new Objects changes are :%@",_objectChanges);
 }
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
@@ -906,7 +999,7 @@ atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type
             
             for (NSDictionary *change in _sectionChanges)
             {
-               
+                
                 [change enumerateKeysAndObjectsUsingBlock:^(NSNumber *key, id obj, BOOL *stop) {
                     
                     NSFetchedResultsChangeType type = [key unsignedIntegerValue];
@@ -955,10 +1048,10 @@ atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type
                             
                         case NSFetchedResultsChangeMove:
                             [self.collectionView moveItemAtIndexPath:obj[0] toIndexPath:obj[1]];
-                             //NSLog(@"The new moved changes are :%@",obj);
+                            //NSLog(@"The new moved changes are :%@",obj);
                             [self.collectionView.window endEditing:YES];
                             break;
-                             
+                            
                     }
                 }];
             }

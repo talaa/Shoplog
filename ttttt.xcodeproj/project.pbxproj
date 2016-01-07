@@ -171,6 +171,8 @@
 		69FD714F165956D3001919DD /* GoogleShoppingSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FD714E165956D3001919DD /* GoogleShoppingSearch.m */; };
 		69FD7152165956E9001919DD /* YahoobuySearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FD7151165956E9001919DD /* YahoobuySearch.m */; };
 		77DF9CFB8F004A16AC6AEF64 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E0A4B3C70E374774A6BB7206 /* libPods.a */; };
+		F5F85B6F1C3D6F660025AD97 /* Intro+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F85B6C1C3D6F660025AD97 /* Intro+CoreDataProperties.m */; };
+		F5F85B701C3D6F660025AD97 /* Intro.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F85B6E1C3D6F660025AD97 /* Intro.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -421,6 +423,10 @@
 		69FD7151165956E9001919DD /* YahoobuySearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YahoobuySearch.m; sourceTree = "<group>"; };
 		BA747E259C681B99DD342770 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E0A4B3C70E374774A6BB7206 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5F85B6B1C3D6F660025AD97 /* Intro+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Intro+CoreDataProperties.h"; sourceTree = "<group>"; };
+		F5F85B6C1C3D6F660025AD97 /* Intro+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Intro+CoreDataProperties.m"; sourceTree = "<group>"; };
+		F5F85B6D1C3D6F660025AD97 /* Intro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Intro.h; sourceTree = "<group>"; };
+		F5F85B6E1C3D6F660025AD97 /* Intro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Intro.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -506,6 +512,10 @@
 		692807E9169BD46600D5EDFF /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				F5F85B6B1C3D6F660025AD97 /* Intro+CoreDataProperties.h */,
+				F5F85B6C1C3D6F660025AD97 /* Intro+CoreDataProperties.m */,
+				F5F85B6D1C3D6F660025AD97 /* Intro.h */,
+				F5F85B6E1C3D6F660025AD97 /* Intro.m */,
 				69667C0A16488BCF003FC921 /* Shop.h */,
 				69667C0B16488BCF003FC921 /* Shop.m */,
 				69CB013B165419B7000EC708 /* Shoplog.h */,
@@ -1131,6 +1141,7 @@
 				69F6259B1606369400004196 /* TestViewController.m in Sources */,
 				698A62C51607BE0B004DAC94 /* MyCustomCell.m in Sources */,
 				693FBA5816091E9700EA2136 /* HeaderView.m in Sources */,
+				F5F85B701C3D6F660025AD97 /* Intro.m in Sources */,
 				6948B5A716121780008BA37E /* ttttt.xcdatamodeld in Sources */,
 				6948B5AD16122819008BA37E /* AddProductDetailViewController.m in Sources */,
 				698337C21618B8C500E2BC9E /* DetailPopViewController.m in Sources */,
@@ -1153,6 +1164,7 @@
 				69FD71491659562A001919DD /* Rakutensearch.m in Sources */,
 				69FD714C165956B0001919DD /* Taobaosearch.m in Sources */,
 				69FD714F165956D3001919DD /* GoogleShoppingSearch.m in Sources */,
+				F5F85B6F1C3D6F660025AD97 /* Intro+CoreDataProperties.m in Sources */,
 				69FD7152165956E9001919DD /* YahoobuySearch.m in Sources */,
 				6928073A169B96EA00D5EDFF /* AdFooterview.m in Sources */,
 				69ECA96A1712186A00347A6C /* MosaicLayout.m in Sources */,

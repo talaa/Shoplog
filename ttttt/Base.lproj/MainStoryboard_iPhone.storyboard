@@ -801,6 +801,12 @@
                             <view contentMode="scaleToFill" id="VBx-ov-lej">
                                 <rect key="frame" x="28" y="72" width="265" height="380"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="QRimage" id="9UO-zb-dRR">
+                                        <rect key="frame" x="0.0" y="0.0" width="265" height="380"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" red="0.4234411002304147" green="0.4234411002304147" blue="0.4234411002304147" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6ZV-aN-5w8">
@@ -1612,6 +1618,7 @@
         <image name="Mail" width="512" height="512"/>
         <image name="Phone1.png" width="512" height="512"/>
         <image name="QR-Scan" width="372" height="372"/>
+        <image name="QRimage" width="146" height="159"/>
         <image name="Web-icon.png" width="256" height="256"/>
         <image name="backimage.png" width="508" height="569"/>
         <image name="blue-ribbon-banner-2.png" width="600" height="200"/>
