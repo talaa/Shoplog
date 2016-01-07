@@ -143,7 +143,6 @@ typedef enum SocialButtonTags
 - (void)viewDidLoad
 {
     // intro code
-    
     dontShowIntroAgain = [self dontShowIntroAgain];
     if (dontShowIntroAgain == YES){
     }else{
